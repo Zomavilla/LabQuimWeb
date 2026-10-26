@@ -2,7 +2,7 @@
 <html lang="es" data-theme="auto"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#070b16">
-<title>QuímicaLab</title><meta name="description" content="Química interactiva para preparatoria y universidad"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="QuímicaLab">
+<title>LabQuimWeb</title><meta name="description" content="Química interactiva para preparatoria y universidad"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="LabQuimWeb">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 <style>
@@ -84,7 +84,7 @@ select:focus,input:focus{border-color:var(--ac);box-shadow:0 0 0 3px color-mix(i
 .c{position:relative;border:0;padding:calc(var(--w)*.06) calc(var(--w)*.08);border-radius:calc(var(--w)*.16);display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--ct,#0b1220);background:var(--cb,#888);box-shadow:inset 0 1px 0 #ffffff77,inset 0 -10px 14px #00000010,0 1px 2px #0003;overflow:hidden;
  animation:cin .6s var(--spring) backwards;animation-delay:calc(var(--d,0)*1ms);transition:background-color .55s ease var(--wd,0ms),color .4s ease var(--wd,0ms),opacity .35s,transform .35s var(--spring),filter .35s,box-shadow .3s;will-change:transform}
 .c::before{content:'';position:absolute;inset:0;background:linear-gradient(155deg,#fff6,transparent 50%);pointer-events:none}
-.c i{position:absolute;left:12%;top:8%;font-style:normal;font-weight:700;font-size:calc(var(--w)*.2);opacity:.75}
+.c i{position:absolute;left:12%;top:8%;font-style:normal;font-weight:700;font-size:calc(var(--w)*.17);opacity:.75}
 .c b{font-family:'Space Grotesk',Inter,sans-serif;font-weight:700;font-size:calc(var(--w)*.46);line-height:1;letter-spacing:-.03em;margin-top:calc(var(--w)*.1)}
 .c small{font-weight:600;font-size:calc(var(--w)*.15);max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:.82;margin-top:calc(var(--w)*.04)}
 #tb.nz .c i{display:none}#tb.nz .c b{margin-top:0;font-size:calc(var(--w)*.52)}#tb.nn .c small{display:none}
@@ -201,7 +201,7 @@ svg text{font-family:Inter,system-ui,sans-serif}
 .dsh{stroke-dasharray:5 4;animation:dash 1.2s linear infinite}@keyframes dash{to{stroke-dashoffset:-9}}
 .drw{stroke-dasharray:var(--L,300);stroke-dashoffset:var(--L,300);animation:drw 1.4s var(--ease) .2s forwards}@keyframes drw{to{stroke-dashoffset:0}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.bgfx svg{animation:none}}
-/* ---------- QuímicaLab ---------- */
+/* ---------- LabQuimWeb ---------- */
 .tabs,#th{display:none!important}.brand{cursor:pointer}
 svg.i{width:1.1em;height:1.1em;vertical-align:-.18em;flex:none}
 body{padding-bottom:calc(66px + env(safe-area-inset-bottom))}
@@ -282,16 +282,88 @@ svg[role=img]{overflow:visible}
 .mtk{display:grid;grid-template-columns:repeat(7,1fr);margin-top:6px}
 .mtk button{background:none;border:0;color:var(--mu);font-size:.8rem;padding:4px 2px;cursor:pointer;border-radius:8px;display:flex;flex-direction:column;align-items:center;transition:color .2s,transform .3s var(--spring)}
 .mtk button small{font-size:.68rem;opacity:.8}.mtk button:hover{color:var(--fg)}.mtk button.on{color:var(--fg);font-weight:700;box-shadow:inset 0 -2px 0 var(--ac)}
+
+/* ===== v11: LabQuimWeb — elemento del día, inicio, navegación animada, átomos y confirmación ===== */
+.c.eod{--w:88px;width:var(--w);height:calc(var(--w)*1.12);flex:none;cursor:default;animation:none}
+.c.eod:hover{transform:none;box-shadow:inset 0 1px 0 #ffffff77,inset 0 -10px 14px #00000010,0 10px 24px -8px var(--cb)}
+.c.eod::after{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(135deg,#ffffff55,transparent 46%);pointer-events:none}
+.top::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;background:linear-gradient(90deg,transparent,var(--ac),var(--ac2),transparent);opacity:.45;pointer-events:none}
+.tdin{grid-column:1/-1}.tdin>span:last-child{flex:1;min-width:0}
+.mt{display:block;width:100%;max-width:380px;margin-top:10px}
+.mt rect{animation:mtp 5s ease-in-out infinite;animation-delay:var(--d,0s)}
+@keyframes mtp{0%,100%{opacity:1}45%{opacity:.3}}
+.bn svg{overflow:visible}
+@keyframes tpl{0%,100%{transform:scale(1);fill:transparent}35%{transform:scale(.8);fill:currentColor}60%{transform:scale(1);fill:transparent}}
+@keyframes pgf{0%,30%{transform:scaleX(1)}55%,80%{transform:scaleX(-1)}100%{transform:scaleX(1)}}
+@keyframes cupb{0%,40%,100%{transform:rotate(0)}10%{transform:rotate(-9deg)}20%{transform:rotate(9deg)}30%{transform:rotate(-4deg)}}
+@keyframes spk{0%,100%{transform:scale(.7) rotate(0);opacity:.55}50%{transform:scale(1.3) rotate(45deg);opacity:1}}
+@keyframes idp{0%,100%{transform:scale(1)}50%{transform:scale(1.7)}}
+@keyframes hrf{0%,100%{transform:translateY(0)}50%{transform:translateY(-1.2px)}}
+@keyframes navpop{0%{transform:scale(.8) rotate(-10deg)}55%{transform:translateY(-5px) scale(1.28) rotate(7deg)}100%{transform:translateY(-2px) scale(1.14)}}
+.bn .on .t1,.bn .on .t2,.bn .on .t3,.bn .on .t4{transform-box:fill-box;transform-origin:center;animation:tpl 2.8s ease-in-out infinite}
+.bn .on .t2{animation-delay:.2s}.bn .on .t4{animation-delay:.4s}.bn .on .t3{animation-delay:.6s}
+.bn .on .pg{transform-box:view-box;transform-origin:12px 12px;animation:pgf 3.2s ease-in-out infinite}
+.bn .on .cup{transform-box:fill-box;transform-origin:50% 100%;animation:cupb 2.8s ease-in-out infinite}
+.bn .on .sp{transform-box:fill-box;transform-origin:center;animation:spk 2.8s ease-in-out infinite}
+.bn .on .id{transform-box:fill-box;transform-origin:center;animation:idp 2s ease-in-out infinite}
+.bn .on .hr{transform-box:fill-box;transform-origin:center bottom;animation:hrf 3s ease-in-out infinite}
+.bn button.tap svg{animation:navpop .55s var(--spring)}
+.ma{position:fixed;z-index:9999;pointer-events:none;will-change:transform,opacity;line-height:0}
+#mdl{position:fixed;inset:0;z-index:120;display:grid;place-items:center;background:#0009;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);animation:vin .2s both}
+#mdl[hidden]{display:none}
+.mdc{background:var(--pn);border:1px solid var(--bd);border-radius:18px;padding:20px;width:min(360px,calc(100% - 32px));box-shadow:0 30px 60px #000a;animation:vin .3s var(--spring) both}
+.mdc h3{margin:0 0 6px;font-family:'Space Grotesk',Inter,sans-serif}.mdc p{margin:0;color:var(--mu);line-height:1.45}
+.mdb{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}.mdb .btn{flex:1;min-width:130px;justify-content:center}
+
+/* ===== v12: ajustes de interfaz, presentación de retos y animaciones ===== */
+.tdin{flex-wrap:wrap;align-items:center}.tdin .tx{flex:1;min-width:0;display:grid;gap:2px}.tdin .mt{flex:0 0 100%;width:100%;max-width:420px;margin:12px auto 0}
+#tbw.zm{cursor:grab}#tbw.panning{cursor:grabbing;user-select:none}
+#pn .x{place-items:center;padding:0;line-height:0}#pn .x svg{display:block;width:16px;height:16px;margin:0}
+@media not all and (min-width:1100px) and (min-height:600px){#pn{max-height:calc(100dvh - 84px)}}
+.hint svg{animation:none;overflow:visible}
+.hint .ph{transform-box:fill-box;transform-origin:center;animation:phoneturn 3.4s cubic-bezier(.65,0,.3,1) infinite}
+.hint .ar{animation:arrowfade 3.4s ease-in-out infinite}
+@keyframes phoneturn{0%,18%{transform:rotate(0)}42%,66%{transform:rotate(-90deg)}90%,100%{transform:rotate(0)}}
+@keyframes arrowfade{0%,12%{opacity:0}26%,40%{opacity:1}52%,100%{opacity:0}}
+.view.entering{overflow-x:clip}
+.entering>*{animation:entr .62s var(--spring) backwards;animation-delay:calc(var(--i,0)*75ms)}
+@keyframes entr{0%{opacity:0;transform:translateY(34px) scale(.92) rotate(-1.2deg)}55%{opacity:1;transform:translateY(-6px) scale(1.02) rotate(.4deg)}100%{opacity:1;transform:none}}
+#tb.reveal .c{animation:cellrv .7s var(--spring) backwards;animation-delay:calc(var(--d,0)*1ms)}
+@keyframes cellrv{0%{opacity:0;transform:scale(.2) rotate(-12deg);filter:brightness(2.2)}55%{opacity:1;transform:scale(1.14) rotate(3deg)}100%{opacity:1;transform:none;filter:none}}
+#spl{position:fixed;inset:0;z-index:130;display:grid;place-items:center;text-align:center;background:radial-gradient(circle at 50% 38%,color-mix(in srgb,var(--ac) 38%,#050813),#050813 72%);color:#f8fafc;animation:splin .25s both}
+#spl.out{animation:splout .24s both}
+@keyframes splin{from{opacity:0}to{opacity:1}}@keyframes splout{to{opacity:0;transform:scale(1.06)}}
+.spc{display:grid;gap:8px;justify-items:center;padding:24px;max-width:340px}
+.spi{width:96px;height:96px;border-radius:28px;display:grid;place-items:center;color:#fff;background:linear-gradient(135deg,var(--ac),var(--ac2));animation:spop .65s var(--spring) both;position:relative}
+.spi svg{width:48px;height:48px}
+.spi::after{content:"";position:absolute;inset:0;border-radius:inherit;border:2px solid var(--ac2);animation:sring 1.2s ease-out infinite}
+@keyframes spop{0%{opacity:0;transform:scale(.3) rotate(-18deg)}60%{transform:scale(1.14) rotate(5deg)}100%{opacity:1;transform:none}}
+@keyframes sring{0%{opacity:.8;transform:scale(1)}100%{opacity:0;transform:scale(1.7)}}
+.spc h2{margin:6px 0 0;font-size:1.7rem;animation:entr .5s .12s var(--spring) backwards}
+.spc p{margin:0;color:#cbd5e1;animation:entr .5s .2s var(--spring) backwards}
+.spn{font-size:4.2rem;font-weight:800;line-height:1.1;min-height:1.1em;margin-top:8px;background:linear-gradient(135deg,#fff,var(--ac2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.spn.b{animation:numpop .33s var(--spring)}
+@keyframes numpop{0%{transform:scale(.3);opacity:0}60%{transform:scale(1.25);opacity:1}100%{transform:scale(1)}}
+.spc small{color:#94a3b8}
+@keyframes tl-pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.14)}}
+@keyframes tl-wig{0%,100%{transform:rotate(0)}25%{transform:rotate(-9deg)}75%{transform:rotate(9deg)}}
+@keyframes tl-nud{0%,100%{transform:translateX(-1.6px)}50%{transform:translateX(1.6px)}}
+@keyframes tl-flt{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.2px)}}
+@keyframes tl-spin{to{transform:rotate(360deg)}}
+.tile .ti svg{transform-origin:center}
+.tile[data-go=m] .ti svg{animation:tl-spin 18s linear infinite}
+.tile[data-go=o] .ti svg,.tile[data-go=e] .ti svg,.tile[data-go=u] .ti svg{animation:tl-pulse 2.8s ease-in-out infinite}
+.tile[data-go=b] .ti svg,.tile[data-go=k] .ti svg,.tile[data-go=p] .ti svg{animation:tl-wig 3.2s ease-in-out infinite}
+.tile[data-go=c] .ti svg{animation:tl-nud 2.2s ease-in-out infinite}
+.tile[data-go=t] .ti svg,.tile[data-go=z] .ti svg,.tile[data-go=q] .ti svg,.tile[data-go=x] .ti svg{animation:tl-flt 3s ease-in-out infinite}
+.tile:hover .ti svg{animation-duration:1.3s}
 </style></head>
 <body>
 <div class="bgfx" aria-hidden="true"><svg viewBox="-200 -200 400 400" fill="none"><g stroke="currentColor" stroke-opacity=".35" style="color:var(--ac)"><ellipse rx="190" ry="70"/><ellipse rx="190" ry="70" transform="rotate(60)"/><ellipse rx="190" ry="70" transform="rotate(120)"/></g></svg></div>
 <header class="top">
  <button id="bk" class="ib" hidden aria-label="Atrás"></button><div class="brand">
-  <svg class="logo" viewBox="-20 -20 40 40" aria-hidden="true"><defs><linearGradient id="lg1" x1="0" x2="1"><stop offset="0" stop-color="#6366f1"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs>
-   <g fill="none" stroke="url(#lg1)" stroke-width="1.6"><ellipse rx="18" ry="6.5"><animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="9s" repeatCount="indefinite"/></ellipse><ellipse rx="18" ry="6.5" transform="rotate(60)"><animateTransform attributeName="transform" type="rotate" from="60" to="420" dur="12s" repeatCount="indefinite"/></ellipse><ellipse rx="18" ry="6.5" transform="rotate(120)"><animateTransform attributeName="transform" type="rotate" from="120" to="480" dur="15s" repeatCount="indefinite"/></ellipse></g>
-   <circle r="4" fill="url(#lg1)"><animate attributeName="r" values="4;5;4" dur="2.4s" repeatCount="indefinite"/></circle>
-   <circle r="1.8" fill="#a855f7"><animateMotion dur="3s" repeatCount="indefinite" path="M-18,0 A18,6.5 0 1,0 18,0 A18,6.5 0 1,0 -18,0"/></circle></svg>
-  <div><h1>QuímicaLab</h1><small>Química interactiva</small></div>
+  <svg class="logo" viewBox="-20 -20 40 40" aria-hidden="true" focusable="false"><defs><linearGradient id="lg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6366f1"/><stop offset="1" stop-color="#06b6d4"/></linearGradient><radialGradient id="lgn"><stop offset="0" stop-color="#fff"/><stop offset=".4" stop-color="#a5b4fc"/><stop offset="1" stop-color="#6366f1"/></radialGradient></defs><g><animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="16s" repeatCount="indefinite"/><g transform="rotate(0)"><ellipse rx="17.5" ry="6.4" fill="none" stroke="url(#lg1)" stroke-width="1.5"/><circle r="1.9" fill="#c084fc"><animateMotion dur="2.6s" begin="0s" repeatCount="indefinite" path="M-17.5,0 A17.5,6.4 0 1,0 17.5,0 A17.5,6.4 0 1,0 -17.5,0"/></circle></g><g transform="rotate(60)"><ellipse rx="17.5" ry="6.4" fill="none" stroke="url(#lg1)" stroke-width="1.5"/><circle r="1.9" fill="#c084fc"><animateMotion dur="3.2s" begin="-0.9s" repeatCount="indefinite" path="M-17.5,0 A17.5,6.4 0 1,0 17.5,0 A17.5,6.4 0 1,0 -17.5,0"/></circle></g><g transform="rotate(120)"><ellipse rx="17.5" ry="6.4" fill="none" stroke="url(#lg1)" stroke-width="1.5"/><circle r="1.9" fill="#c084fc"><animateMotion dur="3.8s" begin="-1.7s" repeatCount="indefinite" path="M-17.5,0 A17.5,6.4 0 1,0 17.5,0 A17.5,6.4 0 1,0 -17.5,0"/></circle></g></g><circle r="4" fill="url(#lgn)"><animate attributeName="r" values="4;4.8;4" dur="2.4s" repeatCount="indefinite"/></circle></svg>
+  <div><h1>LabQuimWeb</h1><small>Química interactiva</small></div>
  </div>
  <nav class="tabs" id="tabs" role="tablist" aria-label="Secciones"><i class="pill"></i>
   <button class="tab on" data-t="t" role="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span>Tabla</span></button>
@@ -301,11 +373,11 @@ svg[role=img]{overflow:visible}
   <button class="tab" data-t="q" role="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0zM17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></svg><span>Reto</span></button>
  </nav>
  <button id="th" class="ib" aria-label="Cambiar tema"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M5 19l1.5-1.5M17.5 6.5L19 5"/></svg></button>
-<button id="ab" class="ib" aria-label="Acerca de"></button></header>
+</header>
 <main>
 <!-- TABLA -->
 <section id="v-t" class="view">
- <div class="hint" id="hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="7" y="3" width="10" height="18" rx="2"/><path d="M11 18h2"/></svg><span>Gira el teléfono para ver la tabla más grande, o usa <b>+ / −</b> y pellizca para acercar.</span><button aria-label="Cerrar aviso"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+ <div class="hint" id="hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><g class="ph"><rect x="7" y="3" width="10" height="18" rx="2"/><path d="M11 18h2"/></g><path class="ar" d="M3.4 8.2A9 9 0 0 1 8.4 3M8.4 3H5.4M8.4 3v3"/></svg><span>Gira el teléfono para ver la tabla más grande, o usa <b>+ / −</b> y pellizca para acercar.</span><button aria-label="Cerrar aviso"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
  <div class="toolbar">
   <div class="sbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><input id="q" type="search" placeholder="Buscar nombre, símbolo o Nº…" aria-label="Buscar elemento" autocomplete="off"></div>
   <div class="dd" id="ddm"><button class="btn" aria-haspopup="true" aria-expanded="false"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a9 9 0 1 0 0 18c1.5 0 2-1 1.5-2s0-2 1.5-2h2a3 3 0 0 0 3-3 9 9 0 0 0-8-11z"/><circle cx="8" cy="10" r="1"/><circle cx="12" cy="7" r="1"/><circle cx="16" cy="10" r="1"/></svg><span id="mdn">Categoría</span><svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button><div class="ddp"><div class="modes" id="modes"></div><div class="chips wrap" id="lgD" style="margin-top:10px"></div></div></div>
@@ -342,7 +414,7 @@ svg[role=img]{overflow:visible}
 <!-- RETO -->
 <section id="v-q" class="view" hidden><div id="quiz"></div></section>
 <section id="v-h" class="view" hidden>
- <div class="card"><div class="hv"><div><h2 class="h1">QuímicaLab</h2><p>Tu laboratorio de química de bolsillo para preparatoria y universidad: explora la tabla, aprende con animaciones y practica con retos. Tu progreso se guarda en este dispositivo y la app funciona sin conexión.</p></div><div class="duo"><figure id="hu"><figcaption>Uranio: inestable, sus electrones vibran</figcaption></figure><figure id="ho"><figcaption>Oganesón: estable, solo gira</figcaption></figure></div></div></div>
+ <div class="card"><div class="hv"><div><h2 class="h1">LabQuimWeb</h2><p>Tu laboratorio de química de bolsillo para preparatoria y universidad: explora la tabla, aprende con animaciones y practica con retos. Tu progreso se guarda en este dispositivo y la app funciona sin conexión.</p></div><div class="duo"><figure id="hu"><figcaption>Uranio: inestable, sus electrones vibran</figcaption></figure><figure id="ho"><figcaption>Oganesón: estable, solo gira</figcaption></figure></div></div></div>
  <div class="card" id="hp" style="margin:14px 0"></div><div id="hx"></div>
 </section>
 <section id="v-l" class="view" hidden><div class="card"><h2>Aprender</h2><p class="mu sm" style="margin:0">Cuatro temas con animaciones: elige uno y avanza a tu ritmo.</p></div><div id="lx" style="margin-top:14px"></div></section>
@@ -356,9 +428,9 @@ svg[role=img]{overflow:visible}
 <section id="v-e" class="view" hidden><div id="me"></div></section>
 <section id="v-x" class="view" hidden><div id="mx"></div></section>
 <section id="v-a" class="view" hidden><div class="grid2" style="align-items:start">
- <div class="card"><h2>Acerca de QuímicaLab</h2><p>App de química interactiva para estudiantes de preparatoria y universidad: tabla periódica, modelos atómicos, regla del octeto, enlaces, enlace coordinado y retos con progreso guardado.</p><h3 style="margin:12px 0 4px">Creador</h3><p style="margin:0"><b>Rafael López Zomavilla</b></p><h3 style="margin:14px 0 6px">Apariencia</h3><div class="chips" id="thm"></div>
+ <div class="card"><h2>Acerca de LabQuimWeb</h2><div class="chips" style="margin:0 0 10px"><span class="chip on">Versión (Beta) V0.5.1</span></div><p>App de química interactiva para estudiantes de preparatoria y universidad: tabla periódica, modelos atómicos, regla del octeto, enlaces, enlace coordinado y retos con progreso guardado.</p><h3 style="margin:12px 0 4px">Creador</h3><p style="margin:0"><b>Rafael López Zomavilla</b></p><h3 style="margin:14px 0 6px">Apariencia</h3><div class="chips" id="thm"></div>
  <h3 style="margin:14px 0 6px">Instalar</h3><button class="btn pri" id="ins" hidden>Instalar la app</button><p class="mu sm" style="margin:6px 0 0">Android/Chrome: menú, Instalar app. iPhone: Compartir, Agregar a inicio.</p>
- <h3 style="margin:14px 0 6px">Datos</h3><button class="btn" id="rst">Borrar mi progreso</button><p class="mu sm" style="margin:6px 0 0">Versión 2.0 · todo se guarda localmente.</p></div>
+ <h3 style="margin:14px 0 6px">Datos</h3><button class="btn" id="rst">Borrar mi progreso</button><p class="mu sm" style="margin:6px 0 0">Todo se guarda localmente en este dispositivo.</p></div>
  <div class="card"><h2>Fuentes del proyecto</h2><ul class="lst"><li>IUPAC: tabla periódica, masas atómicas y <i>Nomenclature of Inorganic Chemistry</i> (Libro Rojo).</li><li>NIST Physical Measurement Laboratory: configuraciones electrónicas y pesos atómicos.</li><li>PubChem Periodic Table (NIH) y Royal Society of Chemistry: propiedades y clasificación.</li><li>L. Pauling, <i>The Nature of the Chemical Bond</i>: electronegatividad.</li><li>G. N. Lewis (1916): modelo de puntos y enlace covalente; modelos de Dalton, Thomson, Rutherford, Bohr y Sommerfeld.</li><li>Textos de química general (Chang, Brown y Atkins) para el octeto y el enlace coordinado.</li></ul><p class="mu sm">Los datos se compilaron con fines educativos; contrástalos con las fuentes originales para trabajos formales.</p></div></div></section>
 </main><nav class="bn" id="bn" aria-label="Navegación principal"></nav><div id="toast" role="status"></div>
 <div id="scrim"></div>
@@ -551,7 +623,7 @@ class Atom{
   if(this.m=='sommerfeld')this.orb.forEach((os,s)=>os.forEach(ob=>ob.el&&ob.el.setAttribute('transform',`rotate(${(ob.ps+t*.12)*57.3})`)));
   for(const l of this.lobes)l.g.setAttribute('transform',`rotate(${t*l.sp})`);
   const rr=(this.m=='lewis'?3.1+this.R*.012:2.6)*clamp(this.s*1.15,.65,1.3);
-  for(const x of this.el){let p=x.ov||this.w(x,t);if(!x.ov&&this.jit){const q=x.k*1.7+x.s*5.3,A=this.jit*(this.m=='lewis'?1.2:2.8),sp=(1+this.jit*6)/4;p=[p[0]+A*.6*(Math.sin(t*(7+q%3)*sp+q)+.6*Math.sin(t*(13+q%5)*sp+q*2.3)),p[1]+A*.6*(Math.cos(t*(8+q%4)*sp+q*1.3)+.6*Math.sin(t*(15+q%3)*sp+q*.7))]}x.n.setAttribute('r',rr);x.n.setAttribute('cx',p[0]);x.n.setAttribute('cy',p[1]);if(x.h){x.h.setAttribute('cx',p[0]);x.h.setAttribute('cy',p[1])}}}
+  for(const x of this.el){let p=x.ov||this.w(x,t);if(!x.ov&&this.jit){const q=x.k*1.7+x.s*5.3,A=this.jit*(this.m=='lewis'?1:2.1),sp=(1+this.jit*4)/4;p=[p[0]+A*.6*(Math.sin(t*(7+q%3)*sp+q)+.6*Math.sin(t*(13+q%5)*sp+q*2.3)),p[1]+A*.6*(Math.cos(t*(8+q%4)*sp+q*1.3)+.6*Math.sin(t*(15+q%3)*sp+q*.7))]}x.n.setAttribute('r',rr);x.n.setAttribute('cx',p[0]);x.n.setAttribute('cy',p[1]);if(x.h){x.h.setAttribute('cx',p[0]);x.h.setAttribute('cy',p[1])}}}
 }
 /* visor autónomo de un átomo */
 function viewAtom(e,m,o={}){const A=new Atom(e,m,o),H=2*A.R+14,W=o.wide?H*1.5:H;
@@ -581,9 +653,9 @@ const SUN='<circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M2 12h2M20 1
 function applyTheme(){const t=TH[thi];document.documentElement.dataset.theme=t;$('#th svg').innerHTML=t=='auto'?AUTO:t=='dark'?MOON:SUN;$('#th').title='Tema: '+(t=='auto'?'automático':t=='dark'?'oscuro':'claro')}
 $('#th').onclick=()=>{thi=(thi+1)%3;store.set('tp-theme',TH[thi]);applyTheme()};applyTheme();
 /* tabs */
-const HOOK={};
+const HOOK={},SCR={},LASTV={};
 function pillTo(b){const p=$('#tabs .pill');p.style.width=b.offsetWidth+'px';p.style.transform=`translateX(${b.offsetLeft}px)`;b.scrollIntoView({inline:'center',block:'nearest'})}
-function go(t){$$('.tab').forEach(b=>{const on=b.dataset.t==t;b.classList.toggle('on',on);if(on)pillTo(b)});$$('.view').forEach(v=>v.hidden=v.id!='v-'+t);window.scrollTo({top:0});HOOK[t]&&HOOK[t]();if(t=='t')requestAnimationFrame(fit)}
+function go(t){$$('.tab').forEach(b=>{const on=b.dataset.t==t;b.classList.toggle('on',on);if(on)pillTo(b)});$$('.view').forEach(v=>v.hidden=v.id!='v-'+t);window.scrollTo({top:SCR[t]||0});HOOK[t]&&HOOK[t]();if(t=='t')requestAnimationFrame(fit)}
 $$('.tab').forEach(b=>b.onclick=()=>go(b.dataset.t));
 /* ===== MODOS DE COLOR ===== */
 const GC=['#FCA5A5','#FDBA74','#FDE68A','#D9F99D','#86EFAC','#5EEAD4','#67E8F9','#7DD3FC','#A5B4FC','#C4B5FD','#E9D5FF','#F5D0FE','#FBCFE8','#FDA4AF','#FECACA','#FED7AA','#BEF264','#99F6E4'];
@@ -1020,7 +1092,7 @@ const tiles=ids=>`<div class="tl">${ids.map((k,i)=>`<button class="tile" data-go
 $('#bn').innerHTML=['h','t','l','r','a'].map(k=>`<button data-go="${k}" aria-label="${TL[k][0]}">${SV(TL[k][2])}<span>${({t:'Tabla',a:'Acerca'})[k]||TL[k][0]}</span></button>`).join('');
 $('#hx').innerHTML='<h3 class="sec">Explorar</h3>'+tiles(['t','m','o','b'])+'<h3 class="sec">Aprender</h3>'+tiles(['c'])+'<h3 class="sec">Practicar</h3>'+tiles(['q','e','x']);
 $('#lx').innerHTML=tiles(['m','o','b','c']);$('#rx').innerHTML=tiles(['q','e','x']);
-$('#bk').innerHTML=SV('<path d="M15 5l-7 7 7 7"/>');$('#ab').innerHTML=SV(TL.a[2]);
+$('#bk').innerHTML=SV('<path d="M15 5l-7 7 7 7"/>');
 /* ---- progreso guardado ---- */
 const PR=Object.assign({xp:0,ok:0,n:0,best:0,by:{},days:{}},JSON.parse(store.get('ql-prog','{}')||'{}'));
 const saveP=()=>store.set('ql-prog',JSON.stringify(PR));
@@ -1034,7 +1106,7 @@ function topProg(){$('#rp').innerHTML='<h3 style="margin-bottom:6px">Dominio por
 const GRP={t:'t',m:'l',o:'l',b:'l',c:'l',l:'l',q:'r',e:'r',x:'r',r:'r',a:'a',h:'h'};
 let CUR='h',lastB=0;const _go=go,_cp=closePanel,_op=openPanel;
 function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(()=>t.classList.remove('on'),2200)}
-function show2(t){CUR=t;_cp();_go(t);document.title=TIT[t]+' · QuímicaLab';$('#bk').hidden=t=='h';$$('#bn button').forEach(b=>b.classList.toggle('on',b.dataset.go==GRP[t]));if(t=='h')homeProg();if(t=='r')topProg()}
+function show2(t){if(CUR!=t)SCR[CUR]=window.scrollY;LASTV[GRP[t]]=t;CUR=t;_cp();_go(t);document.title=TIT[t]+' · LabQuimWeb';$('#bk').hidden=t=='h';$$('#bn button').forEach(b=>b.classList.toggle('on',b.dataset.go==GRP[t]));if(t=='h')homeProg();if(t=='r')topProg()}
 go=t=>{if(t!=CUR)history.pushState({v:t},'');show2(t)};
 openPanel=()=>{if(wide())return;_op();if(!history.state?.p)history.pushState({v:CUR,p:1},'')};
 closePanel=()=>history.state?.p?history.back():_cp();
@@ -1043,7 +1115,7 @@ addEventListener('popstate',e=>{const s=e.state||{v:'h',root:1};_cp();
  if(s.root){if(Date.now()-lastB>2200){lastB=Date.now();history.pushState({v:'h'},'');show2('h');toast('Retrocede otra vez para salir')}else history.back();return}
  if(s.p)history.replaceState({v:s.v},'');if(s.v!=CUR)show2(s.v)});
 document.addEventListener('click',ev=>{const g=ev.target.closest('[data-go]');if(g)go(g.dataset.go)});
-$('#bk').onclick=()=>history.back();$('#ab').onclick=()=>go('a');$('.brand').onclick=()=>go('h');
+$('#bk').onclick=()=>history.back();$('.brand').onclick=()=>go('h');
 /* ---- progreso del reto del octeto ---- */
 Object.assign(QS,JSON.parse(store.get('ql-qs','{}')||'{}'));
 const _qa=qAnswer;qAnswer=(ok,b)=>{if(!QS.done)rec('octeto',ok);_qa(ok,b);store.set('ql-qs',JSON.stringify({ok:QS.ok,n:QS.n,by:QS.by}))};
@@ -1092,7 +1164,7 @@ function mcMount(id,title,gen,chips,onA){const R=$('#'+id);let q,done=0,st=0,top
   o.classList.add(ok?'ok':'bad');R.querySelectorAll('[data-o]').forEach((b,i)=>q.opts[i].ok&&b.classList.add('ok'));
   st=ok?st+1:0;if(st>PR.best)PR.best=st;rec(q.topic,ok);if(onA)onA(ok);navigator.vibrate&&navigator.vibrate(ok?15:[40,30,40]);g('k').textContent='Racha '+st;
   g('f').innerHTML=`<div class="note" style="border-color:${ok?'var(--ok)':'var(--bad)'}"><b>${ok?'Correcto.':'No es esa.'}</b> ${q.ex}</div>`;
-  g('b').innerHTML='<button class="btn pri nxt">Siguiente →</button>';if(ok)burst(o,st>=5?36:16)};R.nx=nx;nx()}
+  g('b').innerHTML='<button class="btn pri nxt">Siguiente →</button>';if(ok)burst(o,st>=5?36:16)};R.nx=nx;R.rs=()=>{st=0;g('k').textContent='Racha 0'};nx()}
 mcMount('me','Memoria de la tabla',memGen,{all:'Todo',sim:'Símbolos',num:'Números y posición',spin:'Spin y orbitales',cfg:'Configuración'});
 mcMount('mx','Reto mixto',mixGen);
 mcMount('mcd','Practica: enlace coordinado',()=>{const q=MQ.dat();q.topic='dat';return q});
@@ -1123,11 +1195,11 @@ $('#thm').onclick=ev=>{const b=ev.target.closest('[data-th]');if(!b)return;thi=+
 $('#rst').onclick=()=>{if(confirm('¿Borrar todo tu progreso?')){['ql-prog','ql-qs','tp-best'].forEach(k=>store.set(k,k=='tp-best'?'0':'{}'));location.reload()}};
 let DIP;addEventListener('beforeinstallprompt',e=>{e.preventDefault();DIP=e;$('#ins').hidden=false});$('#ins').onclick=()=>{DIP&&DIP.prompt();DIP=null;$('#ins').hidden=true};
 /* ---- PWA: manifiesto e iconos generados ---- */
-(async()=>{const ICON='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6366f1"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs><rect width="512" height="512" fill="url(#g)"/><g fill="none" stroke="#fff" stroke-width="22"><ellipse cx="256" cy="256" rx="170" ry="62"/><ellipse cx="256" cy="256" rx="170" ry="62" transform="rotate(60 256 256)"/><ellipse cx="256" cy="256" rx="170" ry="62" transform="rotate(120 256 256)"/></g><circle cx="256" cy="256" r="30" fill="#fff"/></svg>';
+(async()=>{const ICON='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6366f1"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs><rect width="512" height="512" fill="url(#g)"/><g fill="none" stroke="#fff" stroke-width="22"><ellipse cx="256" cy="256" rx="170" ry="62"/><ellipse cx="256" cy="256" rx="170" ry="62" transform="rotate(60 256 256)"/><ellipse cx="256" cy="256" rx="170" ry="62" transform="rotate(120 256 256)"/></g><circle cx="256" cy="256" r="30" fill="#fff"/><circle cx="386.0" cy="295.9" r="17" fill="#fff"/><circle cx="157.9" cy="127.7" r="17" fill="#fff"/><circle cx="292.9" cy="313.9" r="17" fill="#fff"/></svg>';
  const mk=n=>new Promise(r=>{const i=new Image();i.onload=()=>{const c=document.createElement('canvas');c.width=c.height=n;c.getContext('2d').drawImage(i,0,0,n,n);r(c.toDataURL('image/png'))};i.onerror=()=>r(null);i.src='data:image/svg+xml,'+encodeURIComponent(ICON)});
  const[a,b]=await Promise.all([mk(192),mk(512)]);const add=(rel,h)=>{const l=document.createElement('link');l.rel=rel;l.href=h;document.head.appendChild(l)};
  add('icon','data:image/svg+xml,'+encodeURIComponent(ICON));if(a){add('apple-touch-icon',b);const u=location.href.split('#')[0];
-  add('manifest',URL.createObjectURL(new Blob([JSON.stringify({name:'QuímicaLab',short_name:'QuímicaLab',description:'Química interactiva para preparatoria y universidad',lang:'es',start_url:u,scope:u.replace(/[^/]*$/,''),display:'standalone',background_color:'#060a15',theme_color:'#070b16',icons:[{src:a,sizes:'192x192',type:'image/png',purpose:'any maskable'},{src:b,sizes:'512x512',type:'image/png',purpose:'any maskable'}]})],{type:'application/manifest+json'})))}
+  add('manifest',URL.createObjectURL(new Blob([JSON.stringify({name:'LabQuimWeb',short_name:'LabQuimWeb',description:'Química interactiva para preparatoria y universidad',lang:'es',start_url:u,scope:u.replace(/[^/]*$/,''),display:'standalone',background_color:'#060a15',theme_color:'#070b16',icons:[{src:a,sizes:'192x192',type:'image/png',purpose:'any maskable'},{src:b,sizes:'512x512',type:'image/png',purpose:'any maskable'}]})],{type:'application/manifest+json'})))}
  if('serviceWorker' in navigator&&/^https?:/.test(location.protocol))navigator.serviceWorker.register('sw.js').catch(()=>{})})();
 /* ---- inicio ---- */
 {const u=viewAtom(E[92],'bohr'),o=viewAtom(E[118],'bohr');u.style.width=o.style.width='100%';$('#hu').prepend(u);$('#ho').prepend(o)}
@@ -1200,16 +1272,16 @@ $('#hp').insertAdjacentHTML('beforebegin','<div class="card" style="margin-top:1
 $('#gs').oninput=ev=>{const v=noA(ev.target.value).trim();$('#gsr').innerHTML=v?E.slice(1).filter(e=>e.k.includes(v)).slice(0,5).map(e=>`<button class="btn" data-el="${e.z}"><b>${e.s}</b> · ${e.n} · Z = ${e.z}</button>`).join(''):''};
 document.addEventListener('click',ev=>{const b=ev.target.closest('[data-el]');if(b){go('t');show(+b.dataset.el)}});
 const _hp2=homeProg;homeProg=()=>{_hp2();const d=E[Math.floor(Date.now()/864e5)%118+1],ok=BD.filter(b=>b[1]()).length;
- $('#hd').innerHTML=`<div class="row" style="gap:14px"><div class="bx2" style="background:${CT[d.c-1][1]}"><i>${d.z}</i><b>${d.s}</b></div><div style="flex:1;min-width:0"><div class="mu sm">Elemento del día</div><h3>${d.n}</h3><div class="mu sm">${CT[d.c-1][0]}${YR[d.z-1]?' · descubierto en '+YR[d.z-1]:' · conocido desde la antigüedad'}</div></div><button class="btn pri" data-el="${d.z}">Ver</button></div>`;
+ $('#hd').innerHTML=`<div class="row" style="gap:14px"><div class="c eod" style="--cb:${CT[d.c-1][1]};--ct:#0b1220;background:${CT[d.c-1][1]}" aria-label="${d.n}"><i>${d.z}</i><b>${d.s}</b><small>${d.n}</small></div><div style="flex:1;min-width:0"><div class="mu sm">Elemento del día</div><h3>${d.n}</h3><div class="mu sm">${CT[d.c-1][0]}${YR[d.z-1]?' · descubierto en '+YR[d.z-1]:' · conocido desde la antigüedad'}</div></div><button class="btn pri" data-el="${d.z}">Ver</button></div>`;
  $('#hp').insertAdjacentHTML('beforeend',`<h3 style="margin:14px 0 0">Logros <span class="mu sm">${ok}/${BD.length} · racha de días: ${dstr()}</span></h3><div class="bds">${BD.map(b=>`<div class="bd${b[1]()?' on':''}">${SV(STAR)}<span>${b[0]}</span></div>`).join('')}</div>`)};
 /* ---- preferencias y datos ---- */
 const setFS=v=>{v=Math.max(85,Math.min(130,v));store.set('ql-fs',v);document.documentElement.style.fontSize=v+'%'};setFS(+store.get('ql-fs',100));
 $('#v-a .grid2').insertAdjacentHTML('beforeend',`<div class="card"><h2>Preferencias y datos</h2><h3 style="margin:8px 0 6px">Tamaño del texto</h3><div class="chips"><button class="chip" data-fs="-8">A−</button><button class="chip" data-fs="0">Normal</button><button class="chip" data-fs="8">A+</button></div><h3 style="margin:14px 0 6px">Respaldo del progreso</h3><div class="row"><button class="btn" id="xp">Exportar</button><button class="btn" id="im">Importar</button><button class="btn" id="sh">Compartir app</button></div><input type="file" id="imf" accept="application/json" hidden></div>`);
 $('#v-a').addEventListener('click',ev=>{const f=ev.target.closest('[data-fs]');if(f)setFS(f.dataset.fs=='0'?100:+store.get('ql-fs',100)+ +f.dataset.fs)});
-$('#xp').onclick=()=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify({prog:PR,qs:JSON.parse(store.get('ql-qs','{}')),tt:store.get('ql-tt',0)})],{type:'application/json'}));a.download='quimicalab-progreso.json';a.click()};
+$('#xp').onclick=()=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify({prog:PR,qs:JSON.parse(store.get('ql-qs','{}')),tt:store.get('ql-tt',0)})],{type:'application/json'}));a.download='labquimweb-progreso.json';a.click()};
 $('#im').onclick=()=>$('#imf').click();
 $('#imf').onchange=async ev=>{try{const j=JSON.parse(await ev.target.files[0].text());store.set('ql-prog',JSON.stringify(j.prog));store.set('ql-qs',JSON.stringify(j.qs||{}));store.set('ql-tt',j.tt||0);location.reload()}catch(e){toast('Archivo no válido')}};
-$('#sh').onclick=()=>navigator.share?navigator.share({title:'QuímicaLab',url:location.href.split('#')[0]}).catch(()=>{}):toast('Copia el enlace desde la barra del navegador');
+$('#sh').onclick=()=>navigator.share?navigator.share({title:'LabQuimWeb',url:location.href.split('#')[0]}).catch(()=>{}):toast('Copia el enlace desde la barra del navegador');
 
 /* ===== QUÍMICALAB v4 ===== */
 /* ---- mecanismos como estructuras de Lewis ---- */
@@ -1288,14 +1360,14 @@ setHap(hapOn,1);
 let hold=null;const atomOf=t=>{while(t&&!t._atom)t=t.parentNode;return t&&t._atom?t:null};
 const stopHold=()=>{if(!hold)return;const h=hold;hold=null;clearTimeout(h.st);clearInterval(h.iv);cancelAnimationFrame(h.raf);h.A.jit=h.j0;h.s.style.filter='';h.s.style.translate='';if(_v)try{_v(0)}catch(e){}};
 const lv=j=>Math.max(0,Math.min(1,((j||0)-.05)/1.2)); /* 0 = electrones muy estables (gas noble) · 1 = muy inestables (sintéticos) */
-const buzz=()=>{if(!hold)return;const h=hold,L=h.lvl,t=(performance.now()-h.t0)/1000,p=[];let T=0;const d=.1+.86*Math.pow(L,1.3),Tc=58-24*L;
-while(T<440){const r=Math.min(1,(t+T/1000)/(.9-.5*L)),w=.8+.2*Math.sin((t+T/1000)*(4+8*L))+(Math.random()-.5)*.5*L;
-let on=Math.max(4,Math.round(Tc*Math.min(.97,d*r*w+.04))),off=Math.max(L>.8?3:6,Math.round(Tc-on));
-if(L>.55&&Math.random()<.14*L)on=Math.round(60+Math.random()*70*L);
+const buzz=()=>{if(!hold)return;const h=hold,L=h.lvl,t=(performance.now()-h.t0)/1000,p=[];let T=0;
+while(T<440){const r=Math.min(1,(t+T/1000)/(.9-.5*L)),Le=L*(.35+.65*r),w=1+.18*Math.sin((t+T/1000)*(4+8*L))+(Math.random()-.5)*.35*L,d=Math.pow(Math.min(1,Le*w),2.1);
+let on=Math.round(4+40*d),off=Math.round(Math.max(L>.8?3:5,230*Math.pow(1-Math.min(.99,Le),2.2)+5));
+if(L>.6&&Math.random()<.1*L)on=Math.round(55+Math.random()*60*L);
 p.push(on,off);T+=on+off}hap(p)};
-const ramp=()=>{if(!hold)return;const h=hold,L=h.lvl,t=(performance.now()-h.t0)/1000,r=Math.min(1,t/(.9-.5*L)),w=.75+.25*Math.sin(t*(5+9*L));h.A.jit=h.j0*(1+(.5+2.2*L)*r*w);
-const c=[56+188*L,189-95*L,248-186*L].map(Math.round);h.s.style.filter=`drop-shadow(0 0 ${4+14*L*r}px rgba(${c},${.25+.55*(.3+.7*L)*r}))`;
-h.s.style.translate=(L>.15&&!RM.matches)?`${(Math.random()-.5)*7*L*r}px ${(Math.random()-.5)*7*L*r}px`:'';h.raf=requestAnimationFrame(ramp)};
+const ramp=()=>{if(!hold)return;const h=hold,L=h.lvl,t=(performance.now()-h.t0)/1000,r=Math.min(1,t/(.9-.5*L)),w=.75+.25*Math.sin(t*(5+9*L));h.A.jit=h.j0*(1+(.12+.85*L)*r*w);
+const c=[56+188*L,189-95*L,248-186*L].map(Math.round);h.s.style.filter=`drop-shadow(0 0 ${3+9*L*L*r}px rgba(${c},${.12+.45*L*L*r}))`;
+h.s.style.translate=(L>.25&&!RM.matches)?`${(Math.random()-.5)*2.2*L*L*r}px ${(Math.random()-.5)*2.2*L*L*r}px`:'';h.raf=requestAnimationFrame(ramp)};
 addEventListener('pointerdown',ev=>{const s=atomOf(ev.target);if(!s||hold)return;const A=s._atom;hold={s,A,j0:A.jit,lvl:Math.max(lv(A.jit),A.e&&A.e.rad==2?1:A.e&&A.e.rad==1?.79:0),t0:0,st:0,iv:0,raf:0};hold.st=setTimeout(()=>{if(!hold)return;hold.t0=performance.now();buzz();hold.iv=setInterval(buzz,420);ramp()},220)});
 ['pointerup','pointercancel','blur'].forEach(n=>addEventListener(n,stopHold));document.addEventListener('visibilitychange',stopHold);
 addEventListener('contextmenu',ev=>{if(hold||atomOf(ev.target))ev.preventDefault()});
@@ -1392,4 +1464,72 @@ if(window.csim&&csim.spec)csim.load(null,csim.model);
 /* ===== v10: en pantallas táctiles la celda solo se marca mientras la ficha está abierta ===== */
 (()=>{const syncSel=()=>{SELHIDE=wide()?false:!pn.classList.contains('open');paint()};
 let rt;addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(syncSel,150)});syncSel()})();
+
+/* ===== v11: LabQuimWeb ===== */
+(()=>{
+const RM2=matchMedia('(prefers-reduced-motion:reduce)');
+if(RM2.matches)document.querySelectorAll('svg.logo').forEach(v=>{try{v.pauseAnimations()}catch(e){}});
+/* --- inicio: tabla dinámica, explorar y aprender (juntos), practicar y, al final, tu progreso --- */
+const mini=()=>{const c=9;let r='';E.slice(1).forEach(e=>{r+=`<rect x="${(e.col-1)*c}" y="${(e.row-1)*c}" width="${c-1.6}" height="${c-1.6}" rx="1.6" fill="${CT[e.c-1][1]}" style="--d:${(e.col+e.row)*.07}s"/>`});return `<svg class="mt" viewBox="0 0 ${18*c} ${10*c}" role="img" aria-label="Vista previa de la tabla periódica">${r}</svg>`};
+const hx=$('#hx');
+hx.innerHTML='<h3 class="sec">Tabla dinámica</h3><div class="tl"><button class="tile tdin" data-go="t"><span class="ti">'+SV(TL.t[2])+'</span><span class="tx"><b>'+TL.t[0]+'</b><span class="mu sm">'+TL.t[1]+'</span></span>'+mini()+'</button></div><h3 class="sec">Explorar y aprender</h3>'+tiles(['m','o','b','c','z'])+'<h3 class="sec">Practicar</h3>'+tiles(['q','e','k','x','u','p']);
+FIX();hx.after($('#hp'));
+/* --- íconos animados de la barra inferior --- */
+const NAVI={h:'<path class="hr" d="M3 11l9-8 9 8"/><path d="M5 10v10h5v-6h4v6h5V10"/>',
+ t:'<rect class="t1" x="3" y="3" width="7" height="7" rx="1.5"/><rect class="t2" x="14" y="3" width="7" height="7" rx="1.5"/><rect class="t3" x="3" y="14" width="7" height="7" rx="1.5"/><rect class="t4" x="14" y="14" width="7" height="7" rx="1.5"/>',
+ l:'<path d="M12 6v13"/><path d="M12 6c-3-2-6-2-9 0v13c3-2 6-2 9 0"/><path class="pg" d="M12 6c3-2 6-2 9 0v13c-3-2-6-2-9 0z"/>',
+ r:'<g class="cup"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0zM17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></g><path class="sp" d="M12 5.6l.8 1.6 1.7.3-1.3 1.2.3 1.7-1.5-.9-1.5.9.3-1.7-1.3-1.2 1.7-.3z" fill="currentColor" stroke="none"/>',
+ a:'<circle cx="12" cy="12" r="9"/><path d="M12 11v6"/><circle class="id" cx="12" cy="7.6" r=".9" fill="currentColor"/>'};
+const bn=$('#bn');bn.querySelectorAll('button[data-go]').forEach(b=>{const v=b.querySelector('svg');if(v&&NAVI[b.dataset.go])v.innerHTML=NAVI[b.dataset.go]});
+/* --- mini átomos que saltan al cambiar de pestaña --- */
+const MAC=['#6366f1','#06b6d4','#a855f7','#f59e0b','#10b981'];
+const MA=i=>{const c=MAC[i%5],z=12+(i%3)*3;return `<svg viewBox="-8 -8 16 16" width="${z}" height="${z}" aria-hidden="true" focusable="false"><g fill="none" stroke="${c}" stroke-width="1"><ellipse rx="7" ry="2.7"/><ellipse rx="7" ry="2.7" transform="rotate(60)"/><ellipse rx="7" ry="2.7" transform="rotate(120)"/></g><circle r="1.5" fill="${c}"/></svg>`};
+const burst=btn=>{btn.classList.remove('tap');void btn.offsetWidth;btn.classList.add('tap');if(RM2.matches)return;const q=btn.querySelector('svg').getBoundingClientRect(),cx=q.left+q.width/2,cy=q.top+q.height/2;
+ for(let i=0;i<7;i++){const el=document.createElement('i');el.className='ma';el.innerHTML=MA(i);el.style.left=cx+'px';el.style.top=cy+'px';document.body.appendChild(el);
+  const a=-Math.PI/2+(Math.random()-.5)*2.4,d=34+Math.random()*46,dx=Math.cos(a)*d,dy=Math.sin(a)*d,rot=(Math.random()-.5)*540,sc=.7+Math.random()*.6;
+  el.animate([{transform:'translate(-50%,-50%) scale(.2)',opacity:0},{transform:`translate(calc(-50% + ${dx}px),calc(-50% + ${dy}px)) scale(${sc}) rotate(${rot/2}deg)`,opacity:1,offset:.45},{transform:`translate(calc(-50% + ${dx*1.15}px),calc(-50% + ${dy+46}px)) scale(${sc*.6}) rotate(${rot}deg)`,opacity:0}],{duration:700+Math.random()*350,easing:'cubic-bezier(.2,.7,.35,1)',delay:i*28}).onfinish=()=>el.remove()}};
+/* --- cada pestaña recuerda dónde estabas (p. ej. el reto mixto) --- */
+bn.addEventListener('click',ev=>{const b=ev.target.closest('button[data-go]');if(!b)return;ev.stopPropagation();burst(b);const k=b.dataset.go;
+ if(GRP[CUR]==k){CUR==k?window.scrollTo({top:0,behavior:'smooth'}):go(k)}else go(LASTV[k]||k)});
+/* --- retos: presentación, racha y confirmación al salir --- */
+const CH=['q','e','x','k','u','p'],LRN=['t','l','m','o','b','c','z'],ANS={},HOST={e:'me',x:'mx',u:'mu',p:'rv'};
+const streakOf=t=>t=='q'?QS.streak:t=='k'?KS:(parseInt((($('#'+HOST[t]+'k')||{}).textContent||'').replace(/\D/g,''))||0);
+const resetStreak=t=>{if(t=='q'){QS.streak=0;qStats();$('#qbar').style.width='0%'}else if(t=='k'){KS=0;$('#kk').textContent='Racha 0'}else{const R=$('#'+HOST[t]);R&&R.rs&&R.rs()}ANS[t]=false};
+CH.forEach(t=>$('#v-'+t).addEventListener('click',ev=>{if(ev.target.closest('button'))ANS[t]=true}));
+document.body.insertAdjacentHTML('beforeend','<div id="mdl" hidden role="alertdialog" aria-modal="true" aria-labelledby="mdt" aria-describedby="mdd"><div class="mdc"><h3 id="mdt"></h3><p id="mdd"></p><div class="mdb"><button class="btn pri" id="mdk"></button><button class="btn" id="mdx"></button></div></div></div>');
+const mdl=$('#mdl');let onOk=null,prev=null;
+const closeM=()=>{mdl.hidden=true;onOk=null;prev&&prev.focus&&prev.focus()};
+const ask=(o,cb)=>{onOk=cb;prev=document.activeElement;$('#mdt').textContent=o.t;$('#mdd').textContent=o.m;$('#mdk').textContent=o.k;$('#mdx').textContent=o.x;mdl.hidden=false;$('#mdk').focus()};
+$('#mdk').onclick=closeM;$('#mdx').onclick=()=>{const f=onOk;closeM();f&&f()};
+mdl.addEventListener('click',ev=>{if(ev.target===mdl)closeM()});
+mdl.addEventListener('keydown',ev=>{if(ev.key=='Escape'){ev.stopPropagation();closeM()}else if(ev.key=='Tab'){const f=[$('#mdk'),$('#mdx')],i=f.indexOf(document.activeElement);ev.preventDefault();f[(i+(ev.shiftKey?-1:1)+2)%2].focus()}});
+const risk=t=>CH.includes(t)&&(streakOf(t)>=2||(t=='p'&&ANS.p));
+const msg=c=>{const n=streakOf(c);return n>=2?{t:'¿Perder tu racha?',m:`Llevas ${n} aciertos seguidos. Si sales ahora, perderás tu racha.`,k:'Seguir en el reto',x:'Salir y perder racha'}:{t:'¿Salir del repaso?',m:'Estás en pleno repaso inteligente. Puedes volver cuando quieras; lo que ya respondiste queda guardado en tu progreso.',k:'Seguir repasando',x:'Salir'}};
+const leaveOK=c=>{resetStreak(c);LASTV[GRP[c]]=GRP[c]};
+const spray=(cx,cy,n,mode)=>{if(RM2.matches)return;for(let i=0;i<n;i++){const el=document.createElement('i');el.className='ma';el.innerHTML=MA(i);el.style.left=cx+'px';el.style.top=cy+'px';document.body.appendChild(el);
+ const a=mode=='all'?Math.random()*6.283:-Math.PI/2+(Math.random()-.5)*2.4,d=40+Math.random()*(mode=='all'?90:46),dx=Math.cos(a)*d,dy=Math.sin(a)*d,rot=(Math.random()-.5)*540,sc=.8+Math.random()*.7;
+ el.animate([{transform:'translate(-50%,-50%) scale(.2)',opacity:0},{transform:`translate(calc(-50% + ${dx}px),calc(-50% + ${dy}px)) scale(${sc}) rotate(${rot/2}deg)`,opacity:1,offset:.4},{transform:`translate(calc(-50% + ${dx*1.15}px),calc(-50% + ${dy+46}px)) scale(${sc*.6}) rotate(${rot}deg)`,opacity:0}],{duration:750+Math.random()*400,easing:'cubic-bezier(.2,.7,.35,1)',delay:i*22}).onfinish=()=>el.remove()}};
+const splash=t=>{if(RM2.matches)return;const old=$('#spl');if(old)old.remove();const o=document.createElement('div');o.id='spl';o.setAttribute('role','status');
+ o.innerHTML=`<div class="spc"><div class="spi">${SV(TL[t][2])}</div><h2>${TIT[t]}</h2><p>${TL[t][1]}</p><div class="spn" aria-hidden="true"></div><small>Tu mejor racha: ${PR.best||0}</small></div>`;document.body.appendChild(o);
+ let n=3,done=false,tm;const num=o.querySelector('.spn');
+ const end=()=>{if(done)return;done=true;clearTimeout(tm);o.classList.add('out');setTimeout(()=>o.remove(),240)};
+ const step=()=>{num.classList.remove('b');void num.offsetWidth;num.classList.add('b');if(n>0){num.textContent=n;window.hap&&hap('tap');n--;tm=setTimeout(step,330)}else if(n==0){num.textContent='¡Ya!';window.hap&&hap('win');const r=num.getBoundingClientRect();spray(r.left+r.width/2,r.top+r.height/2,12,'all');n--;tm=setTimeout(end,560)}};
+ tm=setTimeout(step,380);o.addEventListener('click',end)};
+const reveal=()=>{const tb=$('#tb');if(!tb)return;tb.querySelectorAll('.c').forEach(c=>{if(!c.style.getPropertyValue('--d')){const e=E[+c.dataset.z];if(e)c.style.setProperty('--d',(e.col+e.row)*28)}});tb.classList.remove('reveal');void tb.offsetWidth;tb.classList.add('reveal');setTimeout(()=>tb.classList.remove('reveal'),1700)};
+const enter=t=>{const v=$('#v-'+t);if(!v||RM2.matches)return;[...v.children].forEach((c,i)=>c.style.setProperty('--i',i));v.classList.remove('entering');void v.offsetWidth;v.classList.add('entering');setTimeout(()=>v.classList.remove('entering'),1400);spray(innerWidth/2,Math.min(150,innerHeight*.2),9,'all');if(t=='t')reveal()};
+const _g=go;go=t=>{const c=CUR;if(CH.includes(c)&&t!=c&&risk(c)){ask(msg(c),()=>{leaveOK(c);_g(t)});return}_g(t)};
+let allow=false;const _s3=show2;show2=t=>{const c=CUR;
+ if(!allow&&CH.includes(c)&&t!=c&&risk(c)){history.pushState({v:c},'');ask(msg(c),()=>{leaveOK(c);allow=true;try{_s3(t)}finally{allow=false}});return}
+ _s3(t);if(t!=c&&c!=null){if(t=='r')CH.forEach(k=>ANS[k]=false);if(CH.includes(t)){if(!ANS[t])splash(t)}else if(LRN.includes(t))enter(t)}};
+})();
+/* ===== v12: tabla (desplazamiento en diagonal) ===== */
+(()=>{
+const _fit=fit;fit=function(){_fit.apply(this,arguments);tbw.style.maxHeight=zoom>1.02?'calc(100dvh - 190px)':'';tbw.classList.toggle('zm',zoom>1.02)};
+let pan=null,moved=0;
+tbw.addEventListener('pointerdown',ev=>{if(ev.pointerType!='mouse'||ev.button||zoom<=1.02)return;pan={x:ev.clientX,y:ev.clientY,l:tbw.scrollLeft,t:tbw.scrollTop,m:false}});
+addEventListener('pointermove',ev=>{if(!pan)return;const dx=ev.clientX-pan.x,dy=ev.clientY-pan.y;if(!pan.m&&Math.hypot(dx,dy)>6){pan.m=true;tbw.classList.add('panning')}if(pan.m){tbw.scrollLeft=pan.l-dx;tbw.scrollTop=pan.t-dy}});
+addEventListener('pointerup',()=>{if(pan&&pan.m)moved=Date.now();pan=null;tbw.classList.remove('panning')});
+tbw.addEventListener('click',ev=>{if(Date.now()-moved<250){ev.stopPropagation();ev.preventDefault()}},true);
+fit();
+})();
 </script></body></html>
