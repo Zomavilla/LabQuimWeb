@@ -420,6 +420,25 @@ body{padding-bottom:0}
 .bnp{display:block;position:absolute;z-index:0;top:4px;bottom:4px;left:0;width:0;border-radius:999px;background:linear-gradient(135deg,var(--ac),var(--ac2));box-shadow:0 8px 18px -8px var(--ac);transition:transform .5s var(--spring),width .5s var(--spring);pointer-events:none}
 }
 @media(min-width:1200px) and (min-height:600px) and (hover:hover) and (pointer:fine){.bn .s{display:none}.bn .l{display:inline}}
+.ogame{display:flex;flex-wrap:wrap;gap:8px}.ogame .ob{min-width:68px;display:grid;justify-items:center;gap:0;padding:8px 10px;transition:transform .2s,background .3s,border-color .3s}.ogame .ob small{font-size:.68rem;color:var(--mu);min-height:1em}.ogame .ob.ok,.ogame .ob.ok b{color:var(--fg);-webkit-text-fill-color:var(--fg)}.ogame .ob.ok{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 14%,var(--pn));opacity:1}.ogame .ob.ok small{color:var(--ok);font-weight:800}
+.shake{animation:shk .35s}@keyframes shk{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.fctl{display:flex;align-items:center;gap:10px}.fctl .grow{flex:1;display:flex}.fctl input[type=range]{flex:1;min-width:0}.fbox{display:grid;justify-items:center}.fbox svg{max-width:360px;width:100%}.fout .big{font-weight:800;font-size:1.05rem}
+.obody{display:grid;grid-template-columns:minmax(120px,170px) 1fr;gap:12px;align-items:center}.oart svg{width:100%;height:auto;background:var(--pn2);border-radius:14px}@media(max-width:520px){.obody{grid-template-columns:1fr}.oart{max-width:180px;margin:0 auto}}
+.rdl{font-style:normal;color:var(--ok);font-weight:700}
+/* ===== v21: desplegable único (colorear + filtrar) y aviso emergente de giro ===== */
+.fbadge{font-style:normal;min-width:18px;height:18px;padding:0 5px;border-radius:9px;background:var(--ac);color:#fff;font-size:.7rem;font-weight:800;display:inline-grid;place-items:center;line-height:1}.fbadge[hidden]{display:none}
+.dseg{display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:4px;border-radius:999px;background:var(--pn2);border:1px solid var(--bd);margin-bottom:12px}
+.dseg button{height:36px;border:0;border-radius:999px;background:none;display:flex;align-items:center;justify-content:center;gap:7px;font-weight:700;font-size:.86rem;color:var(--mu);transition:background .3s,color .3s}
+.dseg button.on{background:linear-gradient(135deg,var(--ac),var(--ac2));color:#fff;box-shadow:0 8px 18px -10px var(--ac)}.dseg .fbadge{background:#fff;color:var(--ac)}.dseg button:not(.on) .fbadge{background:var(--ac);color:#fff}
+.dpg[hidden]{display:none}.dpg{animation:rise .35s var(--ease) both}
+.dnote{margin:10px 2px 0}.fsum{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px;font-size:.84rem;color:var(--mu)}.fsum b{color:var(--fg)}.fsum .chip[hidden]{display:none}
+#ddm .ddp{min-width:min(92vw,560px)}
+.hpop{position:fixed;left:50%;bottom:calc(86px + env(safe-area-inset-bottom));z-index:48;width:min(92vw,340px);transform:translate(-50%,24px);opacity:0;pointer-events:none;display:flex;align-items:center;gap:12px;padding:11px 12px 11px 14px;border-radius:16px;background:var(--pn);border:1px solid color-mix(in srgb,var(--ac) 40%,var(--bd));box-shadow:0 18px 40px -14px #000c,0 0 0 1px color-mix(in srgb,var(--ac) 18%,transparent);font-size:.84rem;line-height:1.3;transition:transform .5s var(--spring),opacity .3s}
+.hpop.on{transform:translate(-50%,0);opacity:1;pointer-events:auto}
+.hpop>svg.rot{width:42px;height:42px;flex:none;color:var(--ac);overflow:visible}.hpop .ph{transform-box:view-box;transform-origin:24px 24px;animation:rtph 3.8s cubic-bezier(.65,0,.3,1) infinite}.hpop .ar{animation:rtar 3.8s ease-in-out infinite}
+@keyframes rtph{0%,14%{transform:rotate(0)}44%,68%{transform:rotate(90deg)}98%,100%{transform:rotate(0)}}@keyframes rtar{0%,10%{opacity:.18}28%,48%{opacity:1}70%,100%{opacity:.18}}
+.hpop button{flex:none;width:30px;height:30px;border-radius:50%;border:0;background:var(--pn2);color:var(--mu);display:grid;place-items:center}.hpop button svg{width:15px;height:15px}
+@media(prefers-reduced-motion:reduce){.hpop .ph,.hpop .ar{animation:none}}
 /* ===== v15: celdas, barras propias, escenas atómicas oscuras, inicio vivo, ventanas ===== */
 :root{--zs:1.07}
 @media(hover:hover){.c:hover:not(.dim):not(.sel){transform:scale(var(--zs));z-index:6;box-shadow:0 8px 18px -8px var(--cb),0 0 0 1px #fff8 inset}}
@@ -783,11 +802,12 @@ html.lite .lhm-orb{animation:none}
 <main>
 <!-- TABLA -->
 <section id="v-t" class="view">
- <div class="hint" id="hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><g class="ph"><rect x="7" y="3" width="10" height="18" rx="2"/><path d="M11 18h2"/></g><path class="ar" d="M3.4 8.2A9 9 0 0 1 8.4 3M8.4 3H5.4M8.4 3v3"/></svg><span>Gira el teléfono para ver la tabla más grande, o usa <b>+ / −</b> y pellizca para acercar.</span><button aria-label="Cerrar aviso"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
  <div class="toolbar">
   <div class="sbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><input id="q" type="search" placeholder="Buscar nombre, símbolo o Nº…" aria-label="Buscar elemento" autocomplete="off"></div>
-  <div class="dd" id="ddm"><button class="btn" aria-haspopup="true" aria-expanded="false"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a9 9 0 1 0 0 18c1.5 0 2-1 1.5-2s0-2 1.5-2h2a3 3 0 0 0 3-3 9 9 0 0 0-8-11z"/><circle cx="8" cy="10" r="1"/><circle cx="12" cy="7" r="1"/><circle cx="16" cy="10" r="1"/></svg><span id="mdn">Categoría</span><svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button><div class="ddp"><div class="modes" id="modes"></div><div class="chips wrap" id="lgD" style="margin-top:10px"></div></div></div>
-  <div class="dd right" id="ddf"><button class="btn" aria-haspopup="true" aria-expanded="false"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5h18l-7 8v6l-4-2v-4z"/></svg><span>Filtros</span><svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button><div class="ddp" id="fp"></div></div>
+  <div class="dd" id="ddm"><button class="btn" aria-haspopup="true" aria-expanded="false" aria-label="Colorear y filtrar la tabla"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a9 9 0 1 0 0 18c1.5 0 2-1 1.5-2s0-2 1.5-2h2a3 3 0 0 0 3-3 9 9 0 0 0-8-11z"/><circle cx="8" cy="10" r="1"/><circle cx="12" cy="7" r="1"/><circle cx="16" cy="10" r="1"/></svg><span id="mdn">Categoría</span><i class="fbadge" id="fbd" hidden>0</i><svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button>
+   <div class="ddp"><div class="dseg" id="dseg" role="tablist"><button class="on" role="tab" data-t="c" aria-selected="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a9 9 0 1 0 0 18c1.5 0 2-1 1.5-2s0-2 1.5-2h2a3 3 0 0 0 3-3 9 9 0 0 0-8-11z"/></svg>Colorear por</button><button role="tab" data-t="f" aria-selected="false"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5h18l-7 8v6l-4-2v-4z"/></svg>Filtrar<i class="fbadge" id="fbd2" hidden>0</i></button></div>
+    <div class="dpg" id="pgc"><div class="modes" id="modes"></div><p class="mu sm dnote">La leyenda de colores está junto a la tabla: tócala para resaltar un grupo.</p></div>
+    <div class="dpg" id="pgf" hidden><div class="fsum"><span id="fcnt"></span><button class="chip" id="fclr2">Limpiar filtros</button></div><div id="fp"></div></div></div></div>
   <div class="zoom"><button class="btn" id="zo" aria-label="Alejar">−</button><button class="btn" id="zf" aria-label="Ajustar a pantalla" title="Ajustar"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button><button class="btn" id="zi" aria-label="Acercar">+</button></div>
  </div>
  <div class="chips" id="lgB"></div>
@@ -1100,12 +1120,13 @@ function buildTable(){let h=Array.from({length:18},(_,i)=>`<div class="ax" style
  h+=E.slice(1).map(e=>`<button class="c" data-z="${e.z}" style="grid-column:${e.col+1};grid-row:${e.row+1};--d:${(e.col+e.row)*28}" aria-label="${e.z} ${e.n}"><i>${e.z}</i><b>${e.s}</b><small style="--n:${e.n.length}">${e.n}</small></button>`).join('');tb.innerHTML=h;
  $('#modes').innerHTML=Object.entries(MODES).map(([k,m])=>{const sw=m.cont?m.stops:m.L.slice(0,12).map(x=>x[1]);return`<button class="mode" data-m="${k}"><b>${m.n}</b><small>${m.d}</small><span class="sw">${sw.map(c=>`<i style="background:${c}"></i>`).join('')}</span></button>`}).join('');
  const chipg=(t,k,arr)=>`<div style="margin-bottom:10px"><b class="sm">${t}</b><div class="chips wrap" style="margin-top:5px">${arr.map(([l,v,c])=>`<button class="chip" data-f="${k}" data-v="${v}">${c?`<i style="width:10px;height:10px;border-radius:3px;background:${c}"></i>`:''}${l}</button>`).join('')}</div></div>`;
- $('#fp').innerHTML=chipg('Categoría','c',CT.map((x,i)=>[x[0],i,x[1]]))+chipg('Bloque','b',['s','p','d','f'].map(b=>['Bloque '+b,b]))+chipg('Estado a 25 °C','s',ST.map((s,i)=>[s,i]))+`<button class="btn" id="fclr">Limpiar filtros</button>`}
+ $('#fp').innerHTML=chipg('Categoría','c',CT.map((x,i)=>[x[0],i,x[1]]))+chipg('Bloque','b',['s','p','d','f'].map(b=>['Bloque '+b,b]))+chipg('Estado a 25 °C','s',ST.map((s,i)=>[s,i]))}
 function legend(){const m=MODES[md];let h;
- if(m.cont){const g=`linear-gradient(90deg,${m.stops.join(',')})`;h=`<div class="ttl">${m.n}</div><div class="ramp" style="background:${g}"><i id="rmk"></i></div><div class="rl"><span>${m.txt(m.lo)}</span><span>${m.txt((m.lo+m.hi)/2)}</span><span>${m.txt(m.hi)}</span></div>`;$('#lgD').innerHTML=$('#lgB').innerHTML=`<span class="chip" style="flex:none"><b>${m.n}</b></span><span class="ramp" style="flex:1;min-width:120px;height:12px;background:${g};align-self:center"></span><span class="chip" style="flex:none">${m.txt(m.lo)} → ${m.txt(m.hi)}</span>`}
- else{const it=(l,c,i)=>`<button class="chip${act==i?' on':''}" data-i="${i}"><i style="width:11px;height:11px;border-radius:3px;background:${c}"></i>${l}</button>`;h=`<div class="ttl">${m.n}</div>`+m.L.map(([l,c],i)=>it(l,c,i)).join('');$('#lgB').innerHTML=$('#lgD').innerHTML=m.L.map(([l,c],i)=>it(l,c,i)).join('')}
+ if(m.cont){const g=`linear-gradient(90deg,${m.stops.join(',')})`;h=`<div class="ttl">${m.n}</div><div class="ramp" style="background:${g}"><i id="rmk"></i></div><div class="rl"><span>${m.txt(m.lo)}</span><span>${m.txt((m.lo+m.hi)/2)}</span><span>${m.txt(m.hi)}</span></div>`;$('#lgB').innerHTML=`<span class="chip" style="flex:none"><b>${m.n}</b></span><span class="ramp" style="flex:1;min-width:120px;height:12px;background:${g};align-self:center"></span><span class="chip" style="flex:none">${m.txt(m.lo)} → ${m.txt(m.hi)}</span>`}
+ else{const it=(l,c,i)=>`<button class="chip${act==i?' on':''}" data-i="${i}"><i style="width:11px;height:11px;border-radius:3px;background:${c}"></i>${l}</button>`;h=`<div class="ttl">${m.n}</div>`+m.L.map(([l,c],i)=>it(l,c,i)).join('');$('#lgB').innerHTML=m.L.map(([l,c],i)=>it(l,c,i)).join('')}
  $('#lgZ').innerHTML=h;$('#mdn').textContent=m.n;$$('.mode').forEach(b=>b.classList.toggle('on',b.dataset.m==md));
- $$('#fp .chip').forEach(c=>c.classList.toggle('on',FL[c.dataset.f].has(c.dataset.v)))}
+ $$('#fp .chip').forEach(c=>c.classList.toggle('on',FL[c.dataset.f].has(c.dataset.v)));
+ const nf=FL.c.size+FL.b.size+FL.s.size,vis=E.slice(1).filter(passF).length;['#fbd','#fbd2'].forEach(q=>{const b=$(q);b.hidden=!nf;b.textContent=nf});$('#fcnt').innerHTML=nf?`Mostrando <b>${vis}</b> de 118 elementos`:'Toca para resaltar solo lo que te interesa';$('#fclr2').hidden=!nf}
 const passF=e=>(!FL.c.size||FL.c.has(String(e.c-1)))&&(!FL.b.size||FL.b.has(e.b))&&(!FL.s.size||FL.s.has(String(e.st)));
 const mkLit=(ci,m)=>{const hasF=FL.c.size||FL.b.size||FL.s.size;if(act==null&&!qs&&!hasF)return true;const cs=(md=='cat'&&act==ci)||FL.c.has(String(ci));return !!cs&&E.some(e=>e&&e.c-1==ci&&(act==null||m.cont||modeColor(e)[1]==act)&&(!qs||e.k.includes(qs))&&(!hasF||passF(e)))};
 function paint(wave){const m=MODES[md],se=E[sel],hasF=FL.c.size||FL.b.size||FL.s.size;
@@ -1124,13 +1145,14 @@ let ft;addEventListener('resize',()=>{clearTimeout(ft);ft=setTimeout(fit,80)});a
 $('#zi').onclick=()=>{zoom=Math.min(3,zoom*1.25);fit()};$('#zo').onclick=()=>{zoom=Math.max(.6,zoom/1.25);fit()};$('#zf').onclick=()=>{zoom=1;fit();tbw.scrollTo({left:0,behavior:'smooth'})};
 /* pellizco (táctil) */
 {let d0=0,z0=1;const D=t=>Math.hypot(t[0].clientX-t[1].clientX,t[0].clientY-t[1].clientY);tbw.addEventListener('touchstart',e=>{if(e.touches.length==2){d0=D(e.touches);z0=zoom}},{passive:true});tbw.addEventListener('touchmove',e=>{if(e.touches.length==2&&d0){e.preventDefault();zoom=clamp(z0*D(e.touches)/d0,.6,3);fit()}},{passive:false});tbw.addEventListener('touchend',e=>{if(e.touches.length<2)d0=0})}
-$('#hint button').onclick=()=>{$('#hint').classList.remove('show');store.set('tp-hint','1')};if(!store.get('tp-hint'))$('#hint').classList.add('show');
+
 /* eventos de tabla */
 const lgClick=ev=>{const l=ev.target.closest('[data-i]');if(!l)return;act=act==+l.dataset.i?null:+l.dataset.i;paint()};
-$('#lgB').onclick=lgClick;$('#lgD').onclick=lgClick;
+$('#lgB').onclick=lgClick;
 tb.onclick=ev=>{if(ev.target.closest('.lgz'))return lgClick(ev);const c=ev.target.closest('.c'),mk=ev.target.closest('.mk');if(c)show(+c.dataset.z,0);else if(mk){if(md!='cat')return;const ci=mk.dataset.mk-1;act=act==ci?null:ci;paint()}};
 $('#modes').onclick=ev=>{const b=ev.target.closest('.mode');if(!b)return;md=b.dataset.m;act=null;store.set('tp-mode',md);paint(1);$('#ddm').classList.remove('open')};
-$('#fp').onclick=ev=>{const c=ev.target.closest('.chip');if(c){const s=FL[c.dataset.f];s.has(c.dataset.v)?s.delete(c.dataset.v):s.add(c.dataset.v);paint()}if(ev.target.id=='fclr'){Object.values(FL).forEach(s=>s.clear());paint()}};
+$('#fp').onclick=ev=>{const c=ev.target.closest('.chip');if(c){const s=FL[c.dataset.f];s.has(c.dataset.v)?s.delete(c.dataset.v):s.add(c.dataset.v);paint()}};$('#fclr2').onclick=()=>{Object.values(FL).forEach(s=>s.clear());paint()};
+$('#dseg').onclick=ev=>{const b=ev.target.closest('button');if(!b)return;$$('#dseg button').forEach(x=>{const on=x==b;x.classList.toggle('on',on);x.setAttribute('aria-selected',on)});$('#pgc').hidden=b.dataset.t!='c';$('#pgf').hidden=b.dataset.t!='f';try{store.set('tp-tab',b.dataset.t)}catch(e){}};
 $('#q').oninput=ev=>{qs=noA(ev.target.value).trim();paint()};
 $('#q').onkeydown=ev=>{if(ev.key=='Enter'&&qs){const m=E.slice(1).find(e=>e.k.includes(qs));if(m)show(m.z,0)}};
 const at={};E.slice(1).forEach(e=>at[e.row+','+e.col]=e.z);
@@ -2693,13 +2715,137 @@ const LES=[
    {q:'El enlace C–O es…',o:['covalente polar','iónico','covalente apolar','metálico'],ex:'ΔEN = 0.89 → covalente polar, δ⁻ en el O.'},
    {q:'¿Quién libera más energía al ganar un electrón, F o Cl?',o:['Cl','F','Igual','Ninguno'],ex:'Anomalía conocida: Cl ≈ 349 kJ/mol y F ≈ 328 kJ/mol, por la repulsión en el pequeño átomo de F.'},
    {q:'La electronegatividad (sin contar gases nobles) aumenta hacia…',o:['arriba y a la derecha','abajo y a la izquierda','abajo y a la derecha','arriba y a la izquierda'],ex:'Aumenta en el periodo y disminuye al bajar en el grupo.'}]},
-  {t:'mc',g:'tend',h:'Practica libre'}]}]}
+  {t:'mc',g:'tend',h:'Practica libre'}]}]},
+{id:'c1',m:'cfg',n:1,t:'Capas, subniveles y orbitales',min:14,
+ obj:['Relacionar n, ℓ y mℓ con capas, subniveles y orbitales.','Calcular cuántos orbitales y electrones caben en un subnivel y en una capa.','Reconocer la forma de los orbitales s, p y d.'],
+ steps:[
+ {k:'Predice',b:[
+  {t:'p',h:'Apuesta primero; la explicación llega enseguida.'},
+  {t:'q',q:'¿Cuántos electrones caben como máximo en la capa <b>n = 3</b>?',o:['18','8','9','32'],ex:'La capa n tiene n² orbitales y 2n² electrones: 2 × 3² = 18 (3s: 2, 3p: 6, 3d: 10).'},
+  {t:'q',q:'¿Existe el subnivel <b>2d</b>?',o:['No: en la capa 2 solo hay subniveles s y p','Sí, igual que el 3d','Sí, pero solo con 2 electrones','Solo en átomos muy pesados'],ex:'Para cada n, ℓ va de 0 a n − 1. Con n = 2 solo existen ℓ = 0 (s) y ℓ = 1 (p). Los subniveles d aparecen desde n = 3.'}]},
+ {k:'Explora',b:[
+  {t:'p',h:'Cambia la capa y el subnivel. Observa cuántos orbitales aparecen y cómo crece la capacidad.'},
+  {t:'sim',id:'orbs'}]},
+ {k:'Aprende',b:[
+  {t:'key',h:'Un [[orbital]] no es una órbita: es la región donde es muy probable (≈ 90 %) encontrar a un electrón. Cada orbital admite como máximo <b>2 electrones</b>.'},
+  {t:'h',h:'Los números cuánticos'},
+  {t:'tab',head:['Número','Nombre','Valores','Qué determina'],rows:[['<b>n</b>','Principal','1, 2, 3, …','Capa: tamaño y energía'],['<b>ℓ</b>','Secundario','0 … n − 1','Subnivel: forma (s, p, d, f)'],['<b>mℓ</b>','Magnético','−ℓ … +ℓ','Orbital concreto y su orientación'],['<b>m<sub>s</sub></b>','Spin','+½ o −½','Sentido de giro del electrón']]},
+  {t:'p',h:'Los valores de ℓ se nombran así: <b>0 = s</b>, <b>1 = p</b>, <b>2 = d</b>, <b>3 = f</b>. En la [[capa]] n hay n subniveles y n² orbitales.'},
+  {t:'tab',head:['Subnivel','ℓ','Orbitales (2ℓ + 1)','Electrones máx.','Aparece desde'],rows:[['s','0','1','2','n = 1'],['p','1','3','6','n = 2'],['d','2','5','10','n = 3'],['f','3','7','14','n = 4']]},
+  {t:'warn',h:'<b>Error común:</b> imaginar los electrones girando en órbitas como planetas (modelo de Bohr). En el modelo actual solo se habla de probabilidades: los orbitales son «nubes» de probabilidad.'},
+  {t:'warn',h:'<b>Error común:</b> confundir <i>subnivel</i> con <i>orbital</i>. El subnivel 2p tiene <b>tres</b> orbitales (2p<sub>x</sub>, 2p<sub>y</sub>, 2p<sub>z</sub>) y cabe 6 electrones; cada orbital cabe 2.'},
+  {t:'key',h:'Capacidad de una capa: <b>2n²</b> electrones (2, 8, 18, 32…). Pero las capas no se llenan por completo antes de empezar la siguiente: eso lo veremos con la regla de Madelung.'},
+  {u:1,t:'p',h:'<b>Nodos.</b> Un orbital con números n y ℓ tiene n − 1 superficies nodales (donde la probabilidad es cero): ℓ angulares y n − ℓ − 1 radiales. El 1s no tiene nodos; el 2s tiene 1 radial; el 2p tiene 1 angular (el plano que separa los dos lóbulos).'},
+  {u:1,t:'p',h:'<b>Origen del spin.</b> El número m<sub>s</sub> surge en el experimento de Stern y Gerlach (1922) y en la ecuación relativista de Dirac (1928). Para los electrones, s = ½ y m<sub>s</sub> = ±½. No es literalmente «girar» sobre un eje.'}]},
+ {k:'Ejemplo',b:[
+  {t:'ex',p:'¿Cuántos orbitales y cuántos electrones como máximo tiene el subnivel <b>4f</b>?',s:['En el 4f, n = 4 y ℓ = 3 (f).','Orbitales = 2ℓ + 1 = 2(3) + 1 = 7.','Electrones = 2 × 7 = 14.'],r:'7 orbitales y hasta 14 electrones.'},
+  {t:'ex',p:'Para n = 3, ¿qué valores puede tener ℓ y cuántos orbitales hay en total?',s:['ℓ va de 0 a n − 1 = 2: ℓ = 0, 1, 2 (3s, 3p, 3d).','Orbitales: 1 (s) + 3 (p) + 5 (d) = 9.','Comprueba: n² = 3² = 9. Máximo de electrones: 2 × 9 = 18.'],r:'ℓ = 0, 1, 2 · 9 orbitales · 18 electrones como máximo.'}]},
+ {k:'Practica',b:[
+  {t:'chk',qs:[
+   {q:'¿Cuántos orbitales tiene el subnivel 3d?',o:['5','3','7','10'],ex:'ℓ = 2 → 2ℓ + 1 = 5 orbitales (hasta 10 electrones).'},
+   {q:'¿Qué valores de ℓ son posibles cuando n = 2?',o:['0 y 1','0, 1 y 2','1 y 2','Solo 0'],ex:'ℓ = 0 … n − 1 = 0 … 1 → subniveles 2s y 2p.'},
+   {q:'¿Cuántos electrones caben en los tres orbitales 2p?',o:['6','3','2','10'],ex:'3 orbitales × 2 electrones = 6.'},
+   {q:'La capa n = 4 tiene como máximo…',o:['32 electrones','16 electrones','18 electrones','8 electrones'],ex:'2n² = 2 × 16 = 32 (4s: 2 + 4p: 6 + 4d: 10 + 4f: 14).'}]},
+  {t:'mc',g:'cfg',h:'Practica libre'}]}]},
+{id:'c2',m:'cfg',n:2,t:'Aufbau, Pauli y Hund',min:15,
+ obj:['Aplicar el principio de Aufbau y la regla de Madelung.','Usar el principio de exclusión de Pauli y la regla de Hund.','Escribir configuraciones y diagramas de orbitales hasta Z = 36.'],
+ steps:[
+ {k:'Predice',b:[
+  {t:'p',h:'Piensa antes de ver la teoría.'},
+  {t:'q',q:'El nitrógeno tiene 3 electrones en el subnivel 2p. ¿Cómo se acomodan en los tres orbitales 2p?',o:['Uno en cada orbital, con espines paralelos','Dos en un orbital y uno en otro','Los tres en el mismo orbital','Dos en un orbital y uno con espín opuesto en otro'],ex:'Regla de Hund: en orbitales de igual energía los electrones se colocan primero uno por orbital, con el mismo espín, y solo después se aparean. El N tiene <b>3 electrones desapareados</b>.'},
+  {t:'q',q:'¿Cuál se llena primero, el <b>4s</b> o el <b>3d</b>?',o:['El 4s','El 3d','Se llenan a la vez','Depende del elemento: siempre el 3d en los metales'],ex:'El 4s tiene menor n + ℓ (4 frente a 5) y se llena antes. Por eso el potasio y el calcio empiezan la capa 4 antes de llenar el 3d.'}]},
+ {k:'Explora',b:[
+  {t:'p',h:'Primero adivina el orden de llenado jugando; después añade electrones uno por uno y mira el diagrama de orbitales.'},
+  {t:'sim',id:'order'},{t:'sim',id:'fill'}]},
+ {k:'Aprende',b:[
+  {t:'key',h:'Un átomo en su estado [[basal]] coloca sus electrones con tres reglas: <b>Aufbau</b> (de menor a mayor energía), <b>Pauli</b> (máximo dos por orbital, con espines opuestos) y <b>Hund</b> (uno por orbital antes de aparear).'},
+  {t:'tab',head:['Regla','Qué dice','Consecuencia'],rows:[['[[aufbau|Aufbau]]','Se ocupan primero los subniveles de menor energía','Orden 1s 2s 2p 3s 3p 4s 3d 4p 5s 4d 5p…'],['[[pauli|Pauli]]','Dos electrones no pueden tener los cuatro números cuánticos iguales','Máximo 2 por orbital, con spin ↑↓'],['[[hund|Hund]]','Orbitales degenerados: uno por orbital y con el mismo espín','N: 2p³ = ↑ ↑ ↑ (3 desapareados)']]},
+  {t:'p',h:'<b>Orden de llenado ([[madelung|regla de Madelung]]):</b> se llena primero el subnivel con menor <b>n + ℓ</b>; si empatan, el de menor n. Resultado: <b>1s 2s 2p 3s 3p 4s 3d 4p 5s 4d 5p 6s 4f 5d 6p 7s 5f 6d 7p</b>.'},
+  {t:'tab',head:['Elemento','Z','Configuración','Desapareados'],rows:[['C','6','1s² 2s² 2p²','2'],['N','7','1s² 2s² 2p³','3'],['O','8','1s² 2s² 2p⁴','2'],['Ne','10','1s² 2s² 2p⁶','0'],['K','19','1s² 2s² 2p⁶ 3s² 3p⁶ 4s¹','1']]},
+  {t:'warn',h:'<b>Error común:</b> «el 3d se llena antes que el 4s porque 3 &lt; 4». Se llena primero el <b>4s</b>. Al <i>escribir</i> la configuración puedes seguir el orden de llenado (4s² 3d⁶) o agrupar por capas (3d⁶ 4s²): ambas son válidas.'},
+  {t:'warn',h:'<b>Error común:</b> aparear electrones en un orbital p mientras hay otros p vacíos (O: 2p⁴ es ↑↓ ↑ ↑, no ↑↓ ↑↓ _).'},
+  {t:'p',h:'Los electrones de los subniveles se pueden representar con <b>flechas</b>: ↑ y ↓ son los dos sentidos del [[spin]]. El diagrama de cajas (un cuadro por orbital) hace visible la regla de Hund.'},
+  {u:1,t:'p',h:'<b>El orden de Aufbau no es una ley de la naturaleza.</b> Es una regla empírica: en átomos con muchos electrones, las energías de los subniveles dependen de cuántos electrones hay (penetración y blindaje). Después de llenarse, el 3d queda <i>más abajo</i> que el 4s, y por eso los cationes de transición pierden primero el 4s.'},
+  {u:1,t:'p',h:'<b>Momento magnético.</b> Con n electrones desapareados, el valor de «solo spin» es μ = √(n(n + 2)) magnetones de Bohr. Para el O₂ con 2 desapareados, μ ≈ 2.83 MB.'}]},
+ {k:'Ejemplo',b:[
+  {t:'ex',p:'Escribe la configuración del azufre (Z = 16) y cuántos electrones desapareados tiene.',s:['16 electrones. Llena en orden: 1s² (2) → 2s² (4) → 2p⁶ (10) → 3s² (12) → 3p⁴ (16).','Configuración: 1s² 2s² 2p⁶ 3s² 3p⁴ = [Ne] 3s² 3p⁴.','En los tres orbitales 3p caben 4 e⁻ así: ↑↓ ↑ ↑ (Hund).'],r:'[Ne] 3s² 3p⁴ · 2 electrones desapareados.'},
+  {t:'ex',p:'Escribe la configuración del hierro (Z = 26) y cuántos electrones desapareados tiene.',s:['26 electrones: [Ar] (18) + 8 más.','Después del 3p sigue el 4s (2 e⁻) y luego el 3d (6 e⁻): [Ar] 4s² 3d⁶.','El 3d⁶ en cinco orbitales: ↑↓ ↑ ↑ ↑ ↑ → 4 desapareados.'],r:'[Ar] 3d⁶ 4s² · 4 electrones desapareados (el hierro es paramagnético).'}]},
+ {k:'Practica',b:[
+  {t:'chk',qs:[
+   {q:'¿Qué subnivel se llena justo después del 3p?',o:['4s','3d','4p','5s'],ex:'3p tiene n + ℓ = 4 y el 4s también (4 + 0). Empatan: va primero el de menor n (3p). Luego se llena el 4s.'},
+   {q:'¿Cuántos electrones desapareados tiene el oxígeno (2p⁴)?',o:['2','4','0','1'],ex:'2p⁴ = ↑↓ ↑ ↑ → 2 desapareados.'},
+   {q:'¿Qué principio impide que haya tres electrones en un solo orbital?',o:['Pauli','Hund','Aufbau','Madelung'],ex:'Pauli: un orbital admite como máximo dos electrones con espines opuestos.'},
+   {q:'La configuración del Ca (Z = 20) es…',o:['[Ar] 4s²','[Ar] 3d²','[Ne] 3s² 3p⁶','[Ar] 4p²'],ex:'Tras el 3p⁶ (18 e⁻) los dos últimos electrones van al 4s.'}]},
+  {t:'mc',g:'cfg',h:'Practica libre'}]}]},
+{id:'c3',m:'cfg',n:3,t:'Configuración abreviada y tabla periódica',min:14,
+ obj:['Escribir configuraciones abreviadas con el núcleo de gas noble.','Contar los electrones de valencia.','Deducir periodo, grupo y bloque a partir de la configuración.'],
+ steps:[
+ {k:'Predice',b:[
+  {t:'p',h:'La tabla periódica es un mapa de las configuraciones. Comprueba tu intuición.'},
+  {t:'q',q:'El último electrón del galio (Z = 31) entra en un orbital…',o:['4p','3d','4s','5s'],ex:'Ga: [Ar] 4s² 3d¹⁰ 4p¹. Está en el periodo 4, grupo 13, <b>bloque p</b>.'},
+  {t:'q',q:'¿Cuántos electrones de valencia tiene el fósforo (grupo 15)?',o:['5','3','15','7'],ex:'P: [Ne] 3s² 3p³ → 2 + 3 = 5 electrones en la capa más externa (n = 3).'}]},
+ {k:'Explora',b:[
+  {t:'p',h:'Recorre los elementos hasta el xenón (Z = 54). Fíjate en cómo cambia la última fila del diagrama y compara con su posición en la tabla.'},
+  {t:'sim',id:'fill',pre:{max:54,z:17}}]},
+ {k:'Aprende',b:[
+  {t:'key',h:'La configuración <b>abreviada</b> sustituye los electrones internos por el símbolo del gas noble anterior entre corchetes: el Cl es [Ne] 3s² 3p⁵ en lugar de 1s² 2s² 2p⁶ 3s² 3p⁵. Los electrones del [[core|núcleo de gas noble]] casi no participan en los enlaces.'},
+  {t:'h',h:'Cómo leer la tabla con la configuración'},
+  {t:'tab',head:['Dato','Cómo se obtiene'],rows:[['Periodo','La n más alta ocupada'],['Bloque','El tipo de subnivel que se está llenando: s, p, d o f'],['Grupo (bloque s)','Electrones en ns (1 o 2)'],['Grupo (bloque p)','10 + electrones en ns y np (13 a 18)'],['Grupo (bloque d)','Electrones en ns + (n − 1)d (3 a 12)'],['Electrones de [[valencia]]','Los de la capa externa (ns np); en metales de transición, ns y (n − 1)d']]},
+  {t:'tab',head:['Elemento','Abreviada','Periodo','Grupo','Bloque'],rows:[['Cl (17)','[Ne] 3s² 3p⁵','3','17','p'],['Ca (20)','[Ar] 4s²','4','2','s'],['Fe (26)','[Ar] 4s² 3d⁶','4','8','d'],['Br (35)','[Ar] 4s² 3d¹⁰ 4p⁵','4','17','p']]},
+  {t:'warn',h:'<b>Error común:</b> contar como «de valencia» los 3d¹⁰ del bromo. Están en una capa interna llena (n = 3); los de valencia son 4s² 4p⁵ = 7.'},
+  {t:'warn',h:'<b>Excepción de forma:</b> el helio (1s²) es del bloque s, pero se coloca en el grupo 18 porque su capa está completa y se comporta como gas noble.'},
+  {t:'key',h:'Los elementos de un mismo grupo tienen la <b>misma configuración de valencia</b> (Li, Na y K: ns¹). Por eso se parecen químicamente.'},
+  {u:1,t:'p',h:'<b>Bloque f.</b> En los lantánidos se llena el 4f (e. g. Ce: [Xe] 4f¹ 5d¹ 6s²) y en los actínidos el 5f. Las energías de 4f, 5d y 6s son tan parecidas que hay varias excepciones; por eso muchos manuales presentan configuraciones distintas.'}]},
+ {k:'Ejemplo',b:[
+  {t:'ex',p:'Un elemento tiene la configuración [Kr] 5s² 4d². Identifícalo y di su periodo, grupo y bloque.',s:['Z = 36 (Kr) + 2 + 2 = 40.','El Z = 40 es el circonio (Zr).','Periodo = 5 (n más alta). El último electrón entra al 4d → bloque d.','Grupo = 2 (5s) + 2 (4d) = 4.'],r:'Zr · periodo 5 · grupo 4 · bloque d.'},
+  {t:'ex',p:'Escribe la configuración abreviada del selenio (Z = 34) y sus electrones de valencia.',s:['Gas noble anterior: Ar (18).','Quedan 16 electrones: 4s² (2) + 3d¹⁰ (10) + 4p⁴ (4).','Capa de valencia: n = 4 → 4s² 4p⁴.'],r:'[Ar] 4s² 3d¹⁰ 4p⁴ · 6 electrones de valencia (grupo 16).'}]},
+ {k:'Practica',b:[
+  {t:'chk',qs:[
+   {q:'La configuración abreviada del cloro es…',o:['[Ne] 3s² 3p⁵','[Ar] 3s² 3p⁵','[Ne] 3s² 3p⁶','[He] 2s² 2p⁵'],ex:'Cl: Z = 17 → [Ne] (10) + 3s² (2) + 3p⁵ (5).'},
+   {q:'Un elemento con configuración de valencia ns² np² está en el grupo…',o:['14','12','2','16'],ex:'Bloque p: 10 + 2 + 2 = 14.'},
+   {q:'¿Cuántos electrones de valencia tiene el bromo?',o:['7','17','5','35'],ex:'Br: [Ar] 4s² 3d¹⁰ 4p⁵; los de valencia son 4s² 4p⁵ = 7.'},
+   {q:'El potasio (K) pertenece al bloque…',o:['s','p','d','f'],ex:'K: [Ar] 4s¹. Su último electrón entra a un subnivel s.'}]},
+  {t:'mc',g:'cfg',h:'Practica libre'}]}]},
+{id:'c4',m:'cfg',n:4,t:'Excepciones, iones y magnetismo',min:15,
+ obj:['Reconocer las excepciones más comunes (Cr, Cu).','Escribir configuraciones de cationes y aniones.','Relacionar electrones desapareados con paramagnetismo y diamagnetismo.'],
+ steps:[
+ {k:'Predice',b:[
+  {t:'p',h:'Una excepción no rompe la química: la explica mejor.'},
+  {t:'q',q:'Al formar el ion Fe²⁺ a partir del Fe ([Ar] 4s² 3d⁶), ¿de qué subnivel salen los dos electrones?',o:['Del 4s','Del 3d','Uno del 4s y uno del 3d','De la capa 1s'],ex:'Los cationes pierden primero los electrones de la capa de <b>mayor n</b> (4s). Fe²⁺ = [Ar] 3d⁶.'},
+  {t:'q',q:'¿Cuál es la configuración real del cromo (Z = 24)?',o:['[Ar] 4s¹ 3d⁵','[Ar] 4s² 3d⁴','[Ar] 3d⁶','[Ar] 4s² 4p²'],ex:'Excepción: un electrón del 4s pasa al 3d y queda con seis orbitales con un solo electrón (el 4s y los cinco 3d).'}]},
+ {k:'Explora',b:[
+  {t:'p',h:'Elige un elemento y una carga. Mira qué subnivel pierde o gana electrones y cómo cambia el número de desapareados.'},
+  {t:'sim',id:'fill',pre:{ion:true,max:36,z:26,q:2}}]},
+ {k:'Aprende',b:[
+  {t:'h',h:'Excepciones al orden de llenado'},
+  {t:'tab',head:['Elemento','Predicción de Aufbau','Configuración real'],rows:[['Cr (24)','[Ar] 4s² 3d⁴','[Ar] 4s¹ 3d⁵'],['Cu (29)','[Ar] 4s² 3d⁹','[Ar] 4s¹ 3d¹⁰'],['Mo (42)','[Kr] 5s² 4d⁴','[Kr] 5s¹ 4d⁵'],['Ag (47)','[Kr] 5s² 4d⁹','[Kr] 5s¹ 4d¹⁰']]},
+  {t:'p',h:'En estos elementos los subniveles ns y (n − 1)d tienen energías muy parecidas, y los subniveles <b>semillenos (d⁵) o llenos (d¹⁰)</b> resultan especialmente estables. Es una explicación útil, pero simplificada; el cálculo completo es más sutil y hay más [[excep|excepciones]] en la tabla.'},
+  {t:'h',h:'Configuración de iones'},
+  {t:'key',h:'<b>Cationes:</b> se quitan electrones del subnivel de <b>mayor n</b> (y, a igual n, el de mayor ℓ). <b>Aniones:</b> se añaden electrones siguiendo el orden de llenado.'},
+  {t:'tab',head:['Especie','Configuración','Desapareados'],rows:[['Fe (26)','[Ar] 4s² 3d⁶','4'],['Fe²⁺','[Ar] 3d⁶','4'],['Fe³⁺','[Ar] 3d⁵','5'],['Cu⁺','[Ar] 3d¹⁰','0'],['Zn²⁺','[Ar] 3d¹⁰','0'],['Cl⁻','[Ne] 3s² 3p⁶ = [Ar]','0'],['O²⁻','1s² 2s² 2p⁶ = [Ne]','0']]},
+  {t:'warn',h:'<b>Error común:</b> escribir Fe²⁺ como [Ar] 4s² 3d⁴. Los electrones que salen son los del 4s, aunque el 4s se llena antes.'},
+  {t:'p',h:'Las especies con el mismo número de electrones son [[isoelec|isoelectrónicas]]: O²⁻, F⁻, Ne, Na⁺, Mg²⁺ y Al³⁺ tienen 10 electrones y la configuración 1s² 2s² 2p⁶.'},
+  {t:'h',h:'Magnetismo'},
+  {t:'p',h:'Si una especie tiene electrones <b>desapareados</b> es <b>paramagnética</b> (la atrae un campo magnético). Si todos los electrones están apareados es <b>diamagnética</b> (se repele muy débilmente). Es la base de [[magnet|propiedades magnéticas]] como las del Fe, Co y Ni.'},
+  {u:1,t:'p',h:'<b>Valor de solo spin.</b> μ = √(n(n + 2)) MB. Fe³⁺ (n = 5): √35 ≈ 5.92 MB; Cr³⁺ (n = 3): √15 ≈ 3.87 MB; Cu⁺ (n = 0): 0. Los valores experimentales se aproximan a estos en iones de la primera serie de transición.'}]},
+ {k:'Ejemplo',b:[
+  {t:'ex',p:'Escribe la configuración del Fe³⁺ y di si es paramagnético.',s:['Fe neutro (Z = 26): [Ar] 4s² 3d⁶.','Fe³⁺ pierde 3 electrones: primero los 2 del 4s y luego 1 del 3d.','Queda [Ar] 3d⁵: cinco orbitales con un electrón cada uno (↑ ↑ ↑ ↑ ↑).'],r:'Fe³⁺ = [Ar] 3d⁵ · 5 desapareados · paramagnético.'},
+  {t:'ex',p:'¿Qué configuración tiene el ion S²⁻ y con qué otras especies es isoelectrónico?',s:['S (Z = 16): [Ne] 3s² 3p⁴.','S²⁻ gana 2 electrones: 3p⁶.','Configuración: [Ne] 3s² 3p⁶ = [Ar] (18 electrones).'],r:'S²⁻ = [Ar] · isoelectrónico con Cl⁻, Ar, K⁺ y Ca²⁺.'}]},
+ {k:'Practica',b:[
+  {t:'chk',qs:[
+   {q:'¿Cuál es la configuración del Cu⁺?',o:['[Ar] 3d¹⁰','[Ar] 4s¹ 3d⁹','[Ar] 4s² 3d⁸','[Ar] 4s¹ 3d¹⁰'],ex:'Cu: [Ar] 4s¹ 3d¹⁰. Al perder un electrón sale el 4s: [Ar] 3d¹⁰ (diamagnético).'},
+   {q:'¿Cuál especie es isoelectrónica con el argón?',o:['K⁺','Na⁺','F⁻','Mg²⁺'],ex:'K⁺ tiene 19 − 1 = 18 electrones, igual que el Ar. Na⁺, F⁻ y Mg²⁺ tienen 10.'},
+   {q:'Una especie con 5 electrones desapareados es…',o:['paramagnética','diamagnética','un gas noble','siempre un anión'],ex:'Los electrones desapareados generan momento magnético: la especie es paramagnética.'},
+   {q:'¿Por qué el cromo es [Ar] 4s¹ 3d⁵ y no [Ar] 4s² 3d⁴?',o:['Porque la configuración 3d⁵ semillena resulta especialmente estable','Porque el 4s no puede tener 2 electrones','Porque el cromo tiene un protón menos','Porque viola el principio de Pauli'],ex:'Al pasar un electrón del 4s al 3d, todos los subniveles externos quedan semillenos; es la explicación simplificada de esta excepción.'}]},
+  {t:'mc',g:'cfg',h:'Practica libre'}]}]}
+
 ];
 const MODS=[
  {id:'atomo',t:'Átomo e isótopos',d:'Partículas, isótopos, masa atómica y radiactividad.',ic:'<circle cx="12" cy="12" r="2"/><ellipse cx="12" cy="12" rx="9" ry="3.5"/><ellipse cx="12" cy="12" rx="9" ry="3.5" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9" ry="3.5" transform="rotate(120 12 12)"/>'},
- {id:'tend',t:'Tendencias periódicas',d:'Zef, radio, energía de ionización, afinidad y electronegatividad.',ic:'<path d="M4 20V4M4 20h16M7 16l4-5 3 3 5-8"/>'}];
+ {id:'tend',t:'Tendencias periódicas',d:'Zef, radio, energía de ionización, afinidad y electronegatividad.',ic:'<path d="M4 20V4M4 20h16M7 16l4-5 3 3 5-8"/>'},
+ {id:'cfg',t:'Configuración electrónica',d:'Orbitales, Aufbau, Pauli, Hund, excepciones, iones y magnetismo.',ic:'<rect x="3" y="13" width="5" height="7" rx="1.2"/><rect x="9.5" y="13" width="5" height="7" rx="1.2"/><rect x="16" y="13" width="5" height="7" rx="1.2"/><path d="M5.5 18v-3.5M3.9 16l1.6-1.8L7.1 16M12 14.5V18M10.4 16.5L12 18l1.6-1.5"/><path d="M12 3v6M9 6l3-3 3 3"/>'}];
 const ROAD=[
- ['Configuración electrónica y orbitales','Aufbau, Hund, Pauli, excepciones','lab:e'],
+ ['Configuración electrónica y orbitales','Aufbau, Hund, Pauli, excepciones','lab:e','Lecciones listas'],
  ['Regla del octeto e iones','Cargas típicas y nombres','lab:o'],
  ['Enlaces: iónico, covalente y metálico','Propiedades y modelos','lab:b'],
  ['Enlace coordinado','Dativo y complejos','lab:c'],
@@ -3017,7 +3163,85 @@ tend:{
  succ(){const k=pick(Object.keys(SUCC)),v=SUCC[k],e=Z(k),n=e.g==1?1:e.g==2?2:e.g-10;
   return{ttl:'EI sucesivas',pr:`Las energías de ionización sucesivas (kJ/mol) de un elemento son: ${v.slice(0,n+1).map(x=>fmtN(x,0)).join('; ')}. ¿Cuántos <b>electrones de valencia</b> tiene?`,opts:OP(n,[1,2,3,4,5].filter(x=>x!=n)),ex:`El gran salto (de ${fmtN(v[n-1],0)} a ${fmtN(v[n],0)}) aparece tras el electrón n.º ${n}: hay ${n} electrones de valencia. Es el ${lc(e.n)}.`}}}};
 const gen=(m)=>()=>{const G=GEN[m],ks=Object.keys(G),k=pick(ks),q=G[k]();q.topic=m;return q};
-const LGEN={atomo:gen('atomo'),tend:gen('tend')};
+/* ---------- v20: configuración electrónica (simuladores y banco de práctica) ---------- */
+const fmtA=o=>ORD.filter(k=>(o[k]||0)>0).map(k=>`${k}<sup>${o[k]}</sup>`).join(' ');
+const NGC=[[86,'Rn'],[54,'Xe'],[36,'Kr'],[18,'Ar'],[10,'Ne'],[2,'He']],NBX={s:1,p:3,d:5,f:7};
+const shortCfg=(z,o)=>{const n=NGC.find(x=>x[0]<z);if(!n)return fmtA(o);const c=occ(n[0]),r={};for(const k in o){const d=o[k]-(c[k]||0);if(d>0)r[k]=d}return'['+n[1]+'] '+fmtA(r)};
+const unpOf=o=>Object.keys(o).reduce((a,k)=>{const n=o[k],b=NBX[k[1]];return a+(n<=b?n:Math.max(0,2*b-n))},0);
+const ionOcc=(z,q)=>{const o=Object.assign({},occ(z));if(q>0){let r=q;const ks=Object.keys(o).filter(k=>o[k]>0).sort((a,b)=>(b[0]-a[0])||('spdf'.indexOf(b[1])-'spdf'.indexOf(a[1])));for(const k of ks){const t=Math.min(r,o[k]);o[k]-=t;r-=t;if(!r)break}}else if(q<0){let r=-q;for(const k of ORD){const h=o[k]||0,c=CAP[k[1]];if(h<c){const t=Math.min(r,c-h);o[k]=h+t;r-=t;if(!r)break}}}return o};
+const plainOcc=z=>{let r=z;const o={};for(const q of ORD){const c=Math.min(r,CAP[q[1]]);if(c<=0)break;o[q]=c;r-=c}return o};
+const lastSub=o=>{let l=null;for(const k of ORD)if((o[k]||0)>0)l=k;return l};
+function boxes(o,hl){const ks=ORD.filter(k=>(o[k]||0)>0).reverse(),cols=Math.max(...ks.map(k=>NBX[k[1]])),W=34+cols*26+50,H=ks.length*34+8;
+ let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Diagrama de orbitales por subnivel">`;let d=0;
+ ks.forEach((k,r)=>{const nb=NBX[k[1]],n=o[k],y=r*34+4,on=hl&&hl.includes(k);
+  s+=`<text x="2" y="${y+19}" font-size="13" font-weight="800" fill="${on?'var(--ac)':'var(--fg)'}">${k}</text><text x="${34+cols*26+6}" y="${y+19}" font-size="11" fill="var(--mu)">${n} e⁻</text>`;
+  for(let i=0;i<nb;i++){const x=34+i*26,up=i<Math.min(n,nb),dn=i<n-nb;
+   s+=`<rect x="${x}" y="${y}" width="22" height="26" rx="6" fill="var(--pn2)" stroke="${on?'var(--ac)':'var(--mu)'}" stroke-opacity="${on?1:.55}" stroke-width="${on?1.8:1}"/>`;
+   const st=on?`style="transform-box:fill-box;transform-origin:center;animation:pop .45s var(--spring) backwards;animation-delay:${(d++)*70}ms"`:'';
+   if(up)s+=`<path ${st} d="M${x+7} ${y+22}V${y+5}M${x+3.5} ${y+9}L${x+7} ${y+5}L${x+10.5} ${y+9}" stroke="#6366f1" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`;
+   if(dn)s+=`<path ${st} d="M${x+15} ${y+5}V${y+22}M${x+11.5} ${y+18}L${x+15} ${y+22}L${x+18.5} ${y+18}" stroke="#06b6d4" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`}});
+ return s+'</svg>'}
+
+/* ---------- Llena los orbitales ---------- */
+SIMS.fill=(pre)=>{
+ const max=pre.max||36,ionm=!!pre.ion,st={z:Math.min(pre.z||8,max),q:pre.q||0};
+ const w=shell(ionm?'Configuración de átomos e iones':'Llena los orbitales',`<div class="fctl"><button class="btn" data-d="-1" aria-label="Quitar un electrón">− 1</button><label class="grow">Z = <b class="fz"></b><input type="range" min="1" max="${max}" value="${st.z}" aria-label="Número atómico"></label><button class="btn" data-d="1" aria-label="Añadir un electrón">+ 1</button></div>${ionm?`<div class="chips fq" role="group" aria-label="Carga">${[-3,-2,-1,0,1,2,3].map(q=>`<button class="chip" data-q="${q}">${q>0?'+'+q:q<0?'−'+(-q):'neutro'}</button>`).join('')}</div>`:''}<div class="fbox"></div><div class="bout fout" aria-live="polite"></div>`);
+ const rng=w.querySelector('input'),fz=w.querySelector('.fz'),box=w.querySelector('.fbox'),out=w.querySelector('.fout');
+ const draw=()=>{const z=st.z,e=E[z],q=ionm?st.q:0,o=ionOcc(z,q),prev=q==0&&z>1?occ(z-1):null;
+  let hl=[];if(prev)hl=Object.keys(o).filter(k=>o[k]>(prev[k]||0));
+  rng.value=z;fz.textContent=z;
+  const u=unpOf(o),ne=z-q,sym=q?e.s+sup(q):e.s,lastN=hl[0];
+  box.innerHTML=boxes(o,hl);
+  out.innerHTML=`<div class="big">${sym} · ${e.n}${q?' ('+(q>0?'catión':'anión')+')':''}</div><div>Configuración: <b>${fmtA(o)}</b></div>${z>2?`<div>Abreviada: <b>${shortCfg(z,o)}</b></div>`:''}<div>${ne} electrones · <b>${u}</b> desapareado${u==1?'':'s'} → ${u?'<b>paramagnético</b> (lo atrae un imán)':'<b>diamagnético</b> (casi no responde al imán)'}</div>${lastN&&q==0?`<div class="mu sm">El electrón n.º ${z} entró en <b>${lastN}</b>.</div>`:''}${q==0&&EX[z]?`<div class="note">Excepción al orden de llenado: la configuración real del ${lc(e.n)} difiere de la que predice Aufbau (${fmtA(plainOcc(z))}).</div>`:''}${q>0&&z>=21&&z<=30?'<div class="note">Los cationes de transición pierden primero los electrones <b>4s</b> (mayor n) y después los 3d.</div>':''}`;
+  w.querySelectorAll('.fq .chip').forEach(b=>b.classList.toggle('on',+b.dataset.q==st.q));
+  w.querySelector('[data-d="-1"]').disabled=z<=1;w.querySelector('[data-d="1"]').disabled=z>=max};
+ rng.oninput=()=>{st.z=+rng.value;draw()};
+ w.addEventListener('click',ev=>{const b=ev.target.closest('[data-d]');if(b){st.z=Math.max(1,Math.min(max,st.z+ +b.dataset.d));if(window.hap)hap('tap');draw();return}const c=ev.target.closest('[data-q]');if(c){st.q=+c.dataset.q;draw()}});
+ draw();return w};
+
+/* ---------- Orden de llenado (juego) ---------- */
+SIMS.order=()=>{
+ const seq=['1s','2s','2p','3s','3p','4s','3d','4p','5s','4d'],w=shell('¿En qué orden se llenan?',`<p class="mu sm" style="margin:0">Toca los subniveles <b>en el orden en que los llenan los electrones</b>, del de menor energía al de mayor.</p><div class="ogame"></div><div class="bout oout" aria-live="polite"></div><div><button class="btn orst">Reiniciar</button></div>`);
+ const g=w.querySelector('.ogame'),out=w.querySelector('.oout');let idx,err;
+ const start=()=>{idx=0;err=0;g.innerHTML=shuf(seq).map(k=>`<button class="btn ob" data-k="${k}"><b>${k}</b><small></small></button>`).join('');out.innerHTML='<span class="mu sm">Pista: se llena primero el de menor <b>n + ℓ</b> (s = 0, p = 1, d = 2, f = 3). Si empatan, el de menor n.</span>'};
+ g.onclick=ev=>{const b=ev.target.closest('.ob');if(!b||b.disabled)return;const k=b.dataset.k;
+  if(k==seq[idx]){b.disabled=true;b.classList.add('ok');b.querySelector('small').textContent='n.º '+(idx+1);idx++;if(window.hap)hap('tap');
+   out.innerHTML=idx<seq.length?`<span class="mu sm">Va bien: ${idx} de ${seq.length}.</span>`:`<div class="note" style="border-color:var(--ok)"><b>¡Orden completo${err?'':' sin errores'}!</b> Equivale a la regla de Madelung: n + ℓ de cada uno → ${seq.map(x=>x+' ('+(+x[0]+'spdf'.indexOf(x[1]))+')').join(' · ')}. Fíjate: el <b>4s (4)</b> se llena antes que el <b>3d (5)</b>.</div>`}
+  else{err++;b.classList.remove('shake');void b.offsetWidth;b.classList.add('shake');const a=+k[0]+'spdf'.indexOf(k[1]),c=+seq[idx][0]+'spdf'.indexOf(seq[idx][1]);out.innerHTML=`<span class="mu sm">${k} tiene n + ℓ = ${a}. Todavía falta uno con n + ℓ = ${c}${a==c?' y menor n':''}; piensa cuál es.</span>`}};
+ w.querySelector('.orst').onclick=start;start();return w};
+
+/* ---------- Capas, subniveles y orbitales ---------- */
+SIMS.orbs=()=>{
+ const st={n:2,l:1},NM=['s','p','d','f'],w=shell('Capas, subniveles y orbitales',`<div class="chips on-n" role="group" aria-label="Capa n"></div><div class="chips on-l" role="group" aria-label="Subnivel ℓ"></div><div class="obody"></div>`);
+ const cn=w.querySelector('.on-n'),cl=w.querySelector('.on-l'),body=w.querySelector('.obody');
+ const lobe=(a,rx,ry,c)=>`<ellipse cx="0" cy="${-ry}" rx="${rx}" ry="${ry}" transform="rotate(${a})" fill="${c}" fill-opacity=".55" stroke="${c}"/>`;
+ const art=l=>{const c1='#6366f1',c2='#06b6d4';
+  if(l==0)return`<defs><radialGradient id="os"><stop offset="0" stop-color="${c1}" stop-opacity=".9"/><stop offset="1" stop-color="${c1}" stop-opacity=".12"/></radialGradient></defs><circle r="46" fill="url(#os)" stroke="${c1}"/>`;
+  if(l==1)return lobe(90,17,30,c1)+lobe(270,17,30,c2)+`<circle r="3" fill="var(--fg)"/>`;
+  if(l==2)return[45,135,225,315].map((a,i)=>lobe(a,13,30,i%2?c2:c1)).join('')+`<circle r="3" fill="var(--fg)"/>`;
+  return[0,60,120,180,240,300].map((a,i)=>lobe(a,10,34,i%2?c2:c1)).join('')+`<circle r="3" fill="var(--fg)"/>`};
+ const draw=()=>{const{n,l}=st;if(l>=n)st.l=n-1;const L=st.l,no=2*L+1;
+  cn.innerHTML='<span class="mu sm" style="align-self:center">Capa n =</span>'+[1,2,3,4].map(k=>`<button class="chip${k==st.n?' on':''}" data-n="${k}">${k}</button>`).join('');
+  cl.innerHTML='<span class="mu sm" style="align-self:center">Subnivel</span>'+NM.map((x,k)=>`<button class="chip${k==L?' on':''}" data-l="${k}"${k>=st.n?' disabled':''}>${st.n}${x}</button>`).join('');
+  const subs=NM.slice(0,st.n).map(x=>st.n+x).join(', ');
+  body.innerHTML=`<div class="oart"><svg viewBox="-60 -60 120 120" role="img" aria-label="Forma esquemática de un orbital ${NM[L]}">${art(L)}</svg></div><div class="bout"><div class="big">Subnivel ${st.n}${NM[L]}</div><div>ℓ = <b>${L}</b> → <b>${no}</b> orbital${no>1?'es':''} (mℓ = ${Array.from({length:no},(_,i)=>{const v=i-L;return v>0?'+'+v:v<0?'−'+(-v):'0'}).join(', ')})</div><div>Capacidad del subnivel: <b>${2*no}</b> electrones (2 por orbital)</div><div class="mu sm">La capa n = ${st.n} tiene los subniveles <b>${subs}</b>: ${st.n*st.n} orbitales en total y hasta <b>${2*st.n*st.n}</b> electrones (2n²).</div>${L==1?'<div class="note">Los tres orbitales p apuntan a lo largo de los ejes x, y, z. Aquí se dibuja uno: dos lóbulos con un nodo en el núcleo.</div>':L==2?'<div class="note">Cuatro de los cinco orbitales d tienen forma de trébol; el quinto (d<sub>z²</sub>) tiene dos lóbulos y un anillo.</div>':L==3?'<div class="note">Los orbitales f son más complejos (hasta 8 lóbulos); aquí solo se sugiere su forma.</div>':'<div class="note">El orbital s es esférico: la probabilidad solo depende de la distancia al núcleo.</div>'}</div>`};
+ w.addEventListener('click',ev=>{const a=ev.target.closest('[data-n]');if(a){st.n=+a.dataset.n;draw();return}const b=ev.target.closest('[data-l]');if(b&&!b.disabled){st.l=+b.dataset.l;draw()}});
+ draw();return w};
+
+GEN.cfg={
+ val(){const e=pick(MG.filter(x=>x.z<=36&&x.g!=18)),v=e.v;return{ttl:'Electrones de valencia',pr:`¿Cuántos <b>electrones de valencia</b> tiene el ${lc(e.n)} (${e.s})? Su configuración es ${fmtA(e.o)}.`,opts:OP(v,[v+1,v-1,v+2,e.z%10+1,8-v]),ex:`Son los de la capa más externa (n = ${Math.max(...Object.keys(e.o).filter(k=>e.o[k]>0).map(k=>+k[0]))}): ${v}. Coincide con su posición en la tabla.`}},
+ who(){const e=pick(E.filter(x=>x&&x.z>=5&&x.z<=36&&!EX[x.z]));return{ttl:'Identifica el elemento',pr:`¿Qué elemento tiene la configuración <b>${shortCfg(e.z,e.o)}</b>?`,opts:OP(e.n,[E[e.z+1].n,E[e.z-1].n,E[e.z+2].n,E[e.z-2].n]),ex:`Cuenta los electrones: Z = ${e.z}, que corresponde al ${lc(e.n)}.`}},
+ unp(){const e=pick(E.filter(x=>x&&x.z>=5&&x.z<=30&&!EX[x.z])),u=unpOf(e.o),k=lastSub(e.o);return{ttl:'Electrones desapareados',pr:`¿Cuántos electrones <b>desapareados</b> tiene un átomo de ${lc(e.n)} (${e.s}) en su estado basal?`,opts:OP(u,[u+1,u+2,Math.max(0,u-1),u?0:1,e.v||3]),ex:`Configuración: ${fmtA(e.o)}. En el subnivel ${k} hay ${e.o[k]} electrón${e.o[k]==1?'':'es'} en ${NBX[k[1]]} orbital${NBX[k[1]]==1?'':'es'}; por la regla de Hund se reparten uno por orbital antes de aparearse → ${u} desapareado${u==1?'':'s'} en total.`}},
+ blk(){const e=pick(E.filter(x=>x&&x.z>=3&&x.z<=54&&x.b!='f'&&!EX[x.z])),k=lastSub(e.o);return{ttl:'Bloque de la tabla',pr:`¿En qué <b>bloque</b> de la tabla periódica está el ${lc(e.n)} (${e.s})?`,opts:OP(e.b,['s','p','d','f'].filter(x=>x!=e.b)),ex:`Su configuración es ${fmtA(e.o)}: el último electrón entra en un subnivel <b>${k[1]}</b> (${k}), por eso es del bloque ${e.b}.`}},
+ ion(){const [z,q]=pick([[26,2],[26,3],[25,2],[24,3],[29,2],[30,2],[28,2],[27,2],[22,2],[23,3]]),e=E[z],ok=shortCfg(z,ionOcc(z,q)),n=occ(z),w1=Object.assign({},n),dd=Object.keys(n).find(k=>k[1]=='d');w1[dd]-=q;
+  return{ttl:'Configuración de un catión',pr:`¿Cuál es la configuración del ion <b>${e.s}${sup(q)}</b>?`,opts:OP(ok,[shortCfg(z,w1),shortCfg(z,ionOcc(z,q-1)),shortCfg(z,ionOcc(z,q+1)),shortCfg(z,n)]),ex:`${e.s}: ${shortCfg(z,n)}. Para formar el catión se pierden primero los electrones del <b>nivel más externo (4s)</b> y luego los 3d → ${ok}.`}},
+ iso(){const D=[['Ne',['O²⁻','F⁻','Na⁺','Mg²⁺','Al³⁺','N³⁻']],['Ar',['S²⁻','Cl⁻','K⁺','Ca²⁺','P³⁻']],['Kr',['Br⁻','Rb⁺','Sr²⁺','Se²⁻']]],d=pick(D),ok=pick(d[1]),bad=shuf(D.filter(x=>x!=d).flatMap(x=>x[1])).slice(0,3);
+  return{ttl:'Isoelectrónicos',pr:`¿Cuál de estos iones tiene la <b>misma configuración que el ${d[0]}</b>?`,opts:OP(ok,bad),ex:`${ok} tiene el mismo número de electrones que el ${d[0]}: son <b>isoelectrónicos</b>.`}},
+ exc(){const z=pick([24,29,42,47]),e=E[z],t=z<36?['Ar','4s','3d']:['Kr','5s','4d'],s=e.o[t[1]],d=e.o[t[2]],f=(a,b)=>`[${t[0]}] `+(a>0?`${t[1]}<sup>${a}</sup> `:'')+(b>0?`${t[2]}<sup>${b}</sup>`:''),ok=f(s,d);
+  return{ttl:'Excepción al orden de llenado',pr:`¿Cuál es la configuración <b>real</b> del ${lc(e.n)} (${e.s}, Z = ${z})?`,opts:OP(ok,[f(s+1,d-1),f(s-1,d+1),f(s+1,d-2),f(s,d-1)]),ex:`Es una excepción: un electrón ${t[1]} pasa al ${t[2]} y queda ${t[2]}${d==5?' semillena (⁵)':' llena (¹⁰)'}. Real: ${ok}.`}},
+ next(){const P=[['3p','4s'],['4s','3d'],['3d','4p'],['4p','5s'],['5s','4d'],['4d','5p']],[a,b]=pick(P);return{ttl:'Orden de llenado',pr:`Según la regla de Madelung, ¿qué subnivel se llena <b>justo después</b> del ${a}?`,opts:OP(b,shuf(ORD.slice(0,12).filter(x=>x!=b&&x!=a))),ex:`Después del ${a} sigue el ${b}: ${a} tiene n + ℓ = ${+a[0]+'spdf'.indexOf(a[1])} y ${b} tiene ${+b[0]+'spdf'.indexOf(b[1])}${+b[0]+'spdf'.indexOf(b[1])==+a[0]+'spdf'.indexOf(a[1])?' (empatan; va primero el de menor n)':' en el orden de llenado'}.`}}
+};
+const LGEN={atomo:gen('atomo'),tend:gen('tend'),cfg:gen('cfg')};
 /* ---- bloques ---- */
 let MCN=0;
 const askNode=(it,key,graded,topic,onAns)=>{
@@ -3098,14 +3322,14 @@ $('#lsn').addEventListener('click',ev=>{
  if(t.closest('#lprev')){LC.step=Math.max(0,LC.step-1);return renderLesson()}
  if(t.closest('#lnext')){const L=lesOf(LC.id);if(LC.step<L.steps.length-1){LC.step++;renderLesson()}else finishLesson()}});
 /* ---- pantalla Aprender ---- */
-const stl=()=>{const e=$('#stl');if(e)e.textContent=Object.keys(LST.done).length};
+const stl=()=>{const e=$('#stl');if(e)e.textContent=LES.length};
 function renderL(){
  const total=LES.length,dn=LES.filter(l=>LST.done[l.id]).length,cont=LST.last&&lesOf(LST.last.id);
  const first=LES.find(l=>!LST.done[l.id])||LES[0];
  $('#lrn').innerHTML=`<div class="card lhead"><div class="row"><div><h2 style="margin:0">Aprende química</h2><p class="mu sm" style="margin:4px 0 0">Cada lección tiene 5 pasos: <b>predice</b>, <b>explora</b>, <b>aprende</b>, mira un <b>ejemplo resuelto</b> y <b>practica</b>.</p></div><button class="chip lvb" data-go="a" title="Cambia tu nivel en Acerca de">${SV(LVI[uni()?'uni':'prepa'])}Nivel: ${uni()?'Universidad':'Prepa'} · cambiar</button></div><div class="meter" style="margin-top:12px"><i style="width:${dn/total*100}%"></i></div><div class="mu sm">${dn} de ${total} lecciones completadas · ${uni()?'Nivel universidad: con ampliaciones y matemática extra.':'Nivel prepa: lo esencial, sin ampliaciones.'}</div><div class="lcont"><button class="btn pri" data-open="${cont?cont.id:first.id}" data-step="${cont?LST.last.step:''}">${cont?`Continuar: ${cont.t} (paso ${LST.last.step+1})`:dn?'Seguir: '+first.t:'Empezar: '+first.t}</button></div></div>`+
  `<div class="mods">${MODS.map(m=>{const ls=LES.filter(l=>l.m==m.id),d=ls.filter(l=>LST.done[l.id]).length;return`<div class="card mcard"><div class="mh"><span class="mi">${SV(m.ic)}</span><div><h3>${m.t}</h3><p class="mu sm" style="margin:0">${m.d}</p></div></div><div class="meter"><i style="width:${d/ls.length*100}%"></i></div><div class="lsl">${ls.map(l=>`<button class="lbtn${LST.done[l.id]?' done':''}" data-open="${l.id}"><span class="ln">${LST.done[l.id]?'✓':l.n}</span><span><b>${l.t}</b><small>${l.min} min · ${lstate(l)}</small></span><span class="go">›</span></button>`).join('')}</div></div>`}).join('')}</div>`+
  `<h3 class="sec" id="glos">Glosario</h3><div class="card gcard" id="gcard"></div>`+
- `<h3 class="sec">Ruta completa de química general</h3><div class="card"><p class="mu sm" style="margin-top:0">Dos módulos ya están completos; el resto de la ruta se irá abriendo. Mientras tanto, los laboratorios de abajo cubren varios temas.</p><div class="road">${ROAD.map((r,i)=>`<div class="rd"><span class="rn">${i+1}</span><span><b>${r[0]}</b><small>${r[1]}</small></span>${r[2]?`<button class="chip" data-go="${r[2].slice(4)}">Abrir laboratorio</button>`:'<span class="chip soon">Próximamente</span>'}</div>`).join('')}</div></div>`;
+ `<h3 class="sec">Ruta completa de química general</h3><div class="card"><p class="mu sm" style="margin-top:0">Tres módulos ya tienen lecciones completas; el resto de la ruta se irá abriendo. Mientras tanto, los laboratorios de abajo cubren varios temas.</p><div class="road">${ROAD.map((r,i)=>`<div class="rd"><span class="rn">${i+1}</span><span><b>${r[0]}</b><small>${r[1]}${r[3]?' · <em class="rdl">'+r[3]+'</em>':''}</small></span>${r[2]?`<button class="chip" data-go="${r[2].slice(4)}">Abrir laboratorio</button>`:'<span class="chip soon">Próximamente</span>'}</div>`).join('')}</div></div>`;
  gShell()}
 /* ---- glosario v2: tarjeta en Aprender ---- */
 const GS={q:'',c:'all',f:'all',n:24};let gKeysNow=[];
@@ -3188,6 +3412,22 @@ if('ResizeObserver' in window)new ResizeObserver(place).observe(bn);
 addEventListener('resize',place);
 if(document.fonts&&document.fonts.ready)document.fonts.ready.then(place);
 place();
+})();
+
+/* ===== v21: aviso emergente para girar el teléfono ===== */
+(()=>{const mq=matchMedia('(orientation:portrait) and (max-width:700px)');let t,shown=false;
+ const p=document.createElement('div');p.className='hpop';p.setAttribute('role','status');
+ p.innerHTML='<svg class="rot" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g class="ar"><path d="M34.5 5.8A21 21 0 0 1 44.7 27.6"/><path d="M40.6 23.4l4.1 4.2 4.3-3.9"/></g><g class="ar" transform="rotate(180 24 24)"><path d="M34.5 5.8A21 21 0 0 1 44.7 27.6"/><path d="M40.6 23.4l4.1 4.2 4.3-3.9"/></g><g class="ph"><rect x="16.5" y="9" width="15" height="30" rx="3.8"/><rect x="19.6" y="14" width="8.8" height="17" rx="1.2" fill="currentColor" fill-opacity=".16" stroke="none"/><path d="M22.5 11.6h3"/><path d="M22.8 35.6h2.4"/></g></svg><span>Gira el teléfono para ver la tabla más grande, o usa <b>+ / −</b> y pellizca para acercar.</span><button aria-label="Cerrar aviso"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>';
+ document.body.appendChild(p);
+ const hide=()=>{clearTimeout(t);p.classList.remove('on')};
+ p.querySelector('button').onclick=hide;
+ document.addEventListener('pointerdown',ev=>{if(p.classList.contains('on')&&!ev.target.closest('.hpop'))hide()},true);
+ const n0=+(store.get('tp-hint','0'))||0;
+ const _sh=show2;show2=function(v){const r=_sh.apply(this,arguments);
+  if(v!='t')hide();
+  else if(!shown&&mq.matches&&n0<2){shown=true;store.set('tp-hint',String(n0+1));setTimeout(()=>{if(CUR=='t'&&mq.matches){p.classList.add('on');t=setTimeout(hide,7000)}},900)}
+  return r};
+ mq.addEventListener&&mq.addEventListener('change',e=>{if(!e.matches)hide()});
 })();
 </script>
 </body></html>
