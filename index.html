@@ -408,6 +408,18 @@ body.inreto .brand{pointer-events:none;cursor:default}
 #lpm .lpi{display:grid;place-items:center;width:46px;height:46px;border-radius:14px;margin-bottom:10px;color:#fff;background:linear-gradient(135deg,#f59e0b,#ef4444)}
 #lpm .lpi svg{width:24px;height:24px}
 @media (hover:none),(pointer:coarse){#lpm{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}}
+/* ===== v19: en PC la navegación principal es una cápsula centrada en la barra superior ===== */
+.bn .l,.bnp{display:none}
+@media(min-width:1100px) and (min-height:600px) and (hover:hover) and (pointer:fine){
+body{padding-bottom:0}
+.bn{top:5px;bottom:auto;left:50%;right:auto;margin:0;max-width:none;width:max-content;transform:translateX(-50%);z-index:45;gap:2px;padding:4px;border:1px solid var(--bd);border-radius:999px;background:color-mix(in srgb,var(--pn) 80%,transparent);box-shadow:0 12px 30px -16px #000a,inset 0 1px 0 #ffffff26}
+.bn button{position:relative;z-index:1;flex:none;display:flex;align-items:center;gap:8px;height:38px;padding:0 16px 0 13px;border-radius:999px;font-size:.88rem;font-weight:700;color:var(--mu);white-space:nowrap;transition:color .3s,background .3s}
+.bn button:hover:not(.on){color:var(--fg);background:color-mix(in srgb,var(--ac) 10%,transparent)}
+.bn button.on{color:#fff}
+.bn svg{width:20px;height:20px}.bn .on svg{transform:none}
+.bnp{display:block;position:absolute;z-index:0;top:4px;bottom:4px;left:0;width:0;border-radius:999px;background:linear-gradient(135deg,var(--ac),var(--ac2));box-shadow:0 8px 18px -8px var(--ac);transition:transform .5s var(--spring),width .5s var(--spring);pointer-events:none}
+}
+@media(min-width:1200px) and (min-height:600px) and (hover:hover) and (pointer:fine){.bn .s{display:none}.bn .l{display:inline}}
 /* ===== v15: celdas, barras propias, escenas atómicas oscuras, inicio vivo, ventanas ===== */
 :root{--zs:1.07}
 @media(hover:hover){.c:hover:not(.dim):not(.sel){transform:scale(var(--zs));z-index:6;box-shadow:0 8px 18px -8px var(--cb),0 0 0 1px #fff8 inset}}
@@ -513,16 +525,130 @@ body.fxt #tbw{margin-inline:auto}
 .lbtn .go{margin-left:auto;opacity:.5}
 .lsl{display:grid;gap:7px}
 /* glosario */
-.glist{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;max-height:240px;overflow:auto}
-.glist .chip{cursor:pointer}
+/* glosario v2 */
 button.gl{display:inline;padding:0 1px;border:0;border-bottom:1.5px dotted var(--ac);background:none;color:inherit;font:inherit;font-weight:600;cursor:help;border-radius:2px}
 button.gl:hover{background:color-mix(in srgb,var(--ac) 16%,transparent)}
-#gdl{position:fixed;inset:0;z-index:126;display:grid;place-items:center;background:radial-gradient(circle at 50% 42%,color-mix(in srgb,var(--ac) 22%,#000a),#000d 72%);animation:vin .2s both}
+.gsr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.gcard{padding:0;overflow:hidden}
+.gtop{display:flex;align-items:center;gap:14px;padding:16px 16px 12px}
+.gico{flex:none;width:48px;height:48px;border-radius:15px;display:grid;place-items:center;color:#fff;background:linear-gradient(135deg,var(--ac),var(--ac2));box-shadow:0 12px 24px -12px var(--ac)}
+.gico svg{width:26px;height:26px}
+.gtt{flex:1;min-width:0}.gtt h3{margin:0;font-size:1.2rem}.gtt p{margin:3px 0 8px;line-height:1.4}
+.gring{flex:none;position:relative;width:56px;height:56px}
+.gring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.gring circle{fill:none;stroke-width:5}
+.gring .bg{stroke:color-mix(in srgb,var(--fg) 13%,transparent)}
+.gring .fg{stroke:var(--ac);transition:stroke-dashoffset .7s var(--ease)}
+.gring b{position:absolute;inset:0;display:grid;place-items:center;font-size:.78rem;font-family:'Space Grotesk',Inter,sans-serif}
+.gbar{display:flex;gap:8px;padding:0 16px 12px;flex-wrap:wrap;align-items:center}
+.gsearch{position:relative;flex:1 1 220px;display:block}
+.gsearch>svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:var(--mu);pointer-events:none}
+.gsearch input{width:100%;height:42px;padding:0 40px;border-radius:12px;border:1px solid var(--bd);background:var(--pn2);color:var(--fg);font:inherit;-webkit-appearance:none;appearance:none}
+.gsearch input::-webkit-search-cancel-button{display:none}
+.gsearch input:focus{outline:none;border-color:var(--ac);box-shadow:0 0 0 3px color-mix(in srgb,var(--ac) 22%,transparent)}
+.gclr{position:absolute;right:5px;top:50%;transform:translateY(-50%);width:32px;height:32px;border-radius:50%;border:0;background:transparent;display:grid;place-items:center;color:var(--mu);padding:0}
+.gclr[hidden]{display:none}.gclr svg{width:16px;height:16px}.gclr:hover{background:var(--bd)}
+.gseg{display:flex;padding:3px;border-radius:12px;background:var(--pn2);border:1px solid var(--bd)}
+.gseg button{border:0;background:none;padding:0 12px;height:34px;border-radius:9px;font-weight:600;font-size:.82rem;color:var(--mu);transition:background .25s,color .25s}
+.gseg button.on{background:linear-gradient(135deg,var(--ac),var(--ac2));color:#fff}
+.gcats{display:flex;gap:8px;overflow-x:auto;padding:2px 16px 12px;scrollbar-width:none;scroll-snap-type:x proximity;-webkit-mask-image:linear-gradient(90deg,transparent,#000 14px,#000 calc(100% - 14px),transparent);mask-image:linear-gradient(90deg,transparent,#000 14px,#000 calc(100% - 14px),transparent)}
+.gcats::-webkit-scrollbar{display:none}
+.gcat{flex:none;scroll-snap-align:start;display:inline-flex;align-items:center;gap:7px;height:36px;padding:0 10px 0 11px;border-radius:99px;border:1px solid var(--bd);background:var(--pn2);font-weight:600;font-size:.83rem;transition:transform .3s var(--spring),background .25s,border-color .25s,box-shadow .25s;white-space:nowrap}
+.gcat svg{width:16px;height:16px;color:var(--gc,var(--ac))}
+.gcat em{font-style:normal;font-size:.7rem;opacity:.8;padding:1px 7px;border-radius:99px;background:color-mix(in srgb,var(--fg) 10%,transparent)}
+.gcat:hover{transform:translateY(-2px)}
+.gcat.on{border-color:var(--gc,var(--ac));background:color-mix(in srgb,var(--gc,var(--ac)) 16%,var(--pn2));box-shadow:0 8px 20px -12px var(--gc,var(--ac))}
+.gtod{display:flex;align-items:center;gap:12px;width:calc(100% - 32px);margin:0 16px 12px;padding:10px 12px;border-radius:14px;text-align:left;border:1px solid color-mix(in srgb,var(--gc,var(--ac)) 38%,var(--bd));background:linear-gradient(120deg,color-mix(in srgb,var(--gc,var(--ac)) 14%,transparent),color-mix(in srgb,var(--ac2) 8%,transparent));transition:transform .3s var(--spring)}
+.gtod:hover{transform:translateY(-2px)}
+.gtd-i{flex:none;width:36px;height:36px;border-radius:11px;display:grid;place-items:center;color:#fff;background:var(--gc,var(--ac))}
+.gtd-i svg{width:20px;height:20px}
+.gtod small{display:block;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;font-weight:800;color:var(--gc,var(--ac))}
+.gtod b{font-size:1rem}
+.gtd-a{margin-left:auto;opacity:.6}.gtd-a svg{width:18px;height:18px}
+.ggrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,235px),1fr));gap:8px;padding:0 16px 8px}
+.gt{position:relative;display:grid;gap:3px;align-content:start;text-align:left;padding:10px 38px 10px 15px;border-radius:12px;border:1px solid var(--bd);background:var(--pn2);overflow:hidden;transition:transform .3s var(--spring),border-color .25s,box-shadow .25s;animation:entr2 .4s var(--spring) backwards;animation-delay:calc(var(--i,0)*22ms)}
+.gt::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--gc)}
+.gt:hover{transform:translateY(-2px);border-color:var(--gc);box-shadow:0 12px 24px -16px var(--gc)}
+.gt b{font-size:.92rem;line-height:1.25}
+.gt b mark{background:color-mix(in srgb,var(--gc) 30%,transparent);color:inherit;border-radius:3px;padding:0 1px}
+.gt span{font-size:.76rem;color:var(--mu);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;line-height:1.35}
+.gt .ck{position:absolute;right:10px;top:10px;width:19px;height:19px;border-radius:50%;display:grid;place-items:center;border:1.5px solid var(--bd);color:transparent;transition:background .3s,border-color .3s}
+.gt .ck svg{width:11px;height:11px;stroke-width:3}
+.gt.seen .ck{background:var(--ok,#22c55e);border-color:transparent;color:#fff}
+.gt .ga{display:inline-block;margin-left:6px;vertical-align:1px;font-style:normal;font-size:.58rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:1px 6px;border-radius:99px;color:#a855f7;background:color-mix(in srgb,#a855f7 14%,transparent)}
+.gmore{display:flex;justify-content:center;padding:6px 16px 16px}.gmore:empty{padding-bottom:8px}
+.gempty{grid-column:1/-1;padding:18px 8px 20px;text-align:center;color:var(--mu)}
+/* ventana de detalle del glosario */
+#gdl{position:fixed;inset:0;z-index:126;display:grid;place-items:center;padding:14px;background:radial-gradient(circle at 50% 42%,color-mix(in srgb,var(--ac) 22%,#000a),#000d 72%);animation:vin .2s both}
 #gdl[hidden]{display:none}
-#gdl .mdc{text-align:left}
-#gdl .mde{margin:0 0 12px}
-#gdl h3{margin:0 0 6px}
-@media(max-width:600px){#gdl{place-items:end center;padding-bottom:max(12px,env(safe-area-inset-bottom))}}
+#gdl .mdc{display:flex;flex-direction:column;width:min(540px,100%);max-height:min(88dvh,780px);padding:0;text-align:left}
+#gdl .mdc::after{display:none}
+.gdh{display:flex;align-items:center;gap:8px;padding:16px 14px 0 18px;flex-wrap:wrap;flex:none}
+.gdcat{display:inline-flex;align-items:center;gap:6px;padding:4px 11px 4px 8px;border-radius:99px;font-size:.74rem;font-weight:700;color:var(--gc);background:color-mix(in srgb,var(--gc) 14%,transparent);border:1px solid color-mix(in srgb,var(--gc) 35%,transparent)}
+.gdcat svg{width:14px;height:14px}
+.gdtag{font-size:.66rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:3px 9px;border-radius:99px;color:#a855f7;background:color-mix(in srgb,#a855f7 14%,transparent)}
+.gdsn{display:inline-flex;align-items:center;gap:4px;font-size:.72rem;font-weight:700;color:var(--ok,#22c55e)}.gdsn svg{width:13px;height:13px;stroke-width:3}
+.gdq{margin-left:auto;flex:none;width:34px;height:34px;border-radius:50%;border:1px solid var(--bd);background:var(--pn2);display:grid;place-items:center;padding:0}
+.gdq svg{width:16px;height:16px}
+.gdb{padding:8px 18px 4px;overflow:auto;flex:1;min-height:0;overscroll-behavior:contain;scrollbar-width:thin}
+.gdb.swap{animation:gdsw .32s var(--spring)}@keyframes gdsw{from{opacity:.2;transform:translateY(8px)}to{opacity:1;transform:none}}
+.gdb h3{font-size:1.45rem;line-height:1.2;margin:6px 0 8px;overflow-wrap:anywhere}
+.gdd{margin:0;font-size:.98rem;line-height:1.55}
+.gdbox{margin-top:12px;padding:10px 12px;border-radius:0 12px 12px 0;border-left:3px solid var(--bc);background:color-mix(in srgb,var(--bc) 10%,transparent);font-size:.9rem;line-height:1.5}
+.gdbox small{display:block;font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;font-weight:800;color:var(--bc);margin-bottom:3px}
+.gdbox.e{--bc:#06b6d4}.gdbox.x{--bc:#f59e0b}.gdbox.u{--bc:#a855f7}
+.gdr{margin-top:14px;padding-bottom:6px}.gdr>small{display:block;font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;font-weight:800;color:var(--mu);margin-bottom:6px}
+.gdrc{display:flex;flex-wrap:wrap;gap:6px}
+.gdrl{cursor:pointer;border-color:color-mix(in srgb,var(--gc) 40%,var(--bd))}
+.gdrl:hover{background:color-mix(in srgb,var(--gc) 16%,var(--pn2));transform:translateY(-2px)}
+.gdf{display:flex;gap:8px;padding:12px 18px calc(16px + env(safe-area-inset-bottom));flex:none;border-top:1px solid var(--bd)}
+.gdf .btn{height:44px;justify-content:center}.gdf .btn:not(.pri){flex:0 0 48px;padding:0}.gdf .btn svg{width:18px;height:18px}.gdf .pri{flex:1}
+.gdf .btn[disabled]{opacity:.35;cursor:default}.gdf .btn[hidden]{display:none}
+@media(max-width:600px){#gdl{place-items:end center;padding:10px 10px max(10px,env(safe-area-inset-bottom))}#gdl .mdc{border-radius:24px;max-height:88dvh}}
+/* nivel de estudios */
+#lvm{position:fixed;inset:0;z-index:140;display:grid;place-items:center;padding:16px;overflow:auto;background:radial-gradient(circle at 50% 36%,color-mix(in srgb,var(--ac) 30%,#000a),#000e 74%);animation:vin .3s both}
+#lvm[hidden]{display:none}
+#lvm .mdc{width:min(460px,100%);text-align:center;margin:auto}
+#lvm h3{font-size:1.4rem}
+.lvopts{display:grid;gap:10px;margin:16px 0 14px;text-align:left}
+.lvo{position:relative;display:flex;gap:12px;align-items:center;padding:12px 14px;border-radius:16px;border:1.5px solid var(--bd);background:var(--pn2);text-align:left;transition:transform .3s var(--spring),border-color .25s,background .25s,box-shadow .25s}
+.lvo:hover{transform:translateY(-2px)}
+.lvi{flex:none;width:44px;height:44px;border-radius:13px;display:grid;place-items:center;color:#fff;background:linear-gradient(135deg,var(--ac),var(--ac2))}
+.lvo:nth-child(2) .lvi{background:linear-gradient(135deg,#a855f7,var(--ac))}
+.lvi svg{width:24px;height:24px}
+.lvo b{display:block;font-size:1rem}.lvo small{display:block;color:var(--mu);font-size:.8rem;line-height:1.35;margin-top:2px}
+.lvck{margin-left:auto;flex:none;width:22px;height:22px;border-radius:50%;border:2px solid var(--bd);display:grid;place-items:center;color:transparent;transition:background .25s,border-color .25s}
+.lvck svg{width:12px;height:12px;stroke-width:3}
+.lvo[aria-checked=true]{border-color:var(--ac);background:color-mix(in srgb,var(--ac) 12%,var(--pn2));box-shadow:0 12px 28px -16px var(--ac)}
+.lvo[aria-checked=true] .lvck{background:var(--ac);border-color:var(--ac);color:#fff}
+#lvm .btn.pri{width:100%;height:46px;justify-content:center}
+#lvm .btn.pri:disabled{opacity:.45;cursor:not-allowed}
+.lvf{margin:12px 0 0}
+.lvseg{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.lvseg button{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:14px;border:1.5px solid var(--bd);background:var(--pn2);text-align:left;font-weight:700;transition:border-color .25s,background .25s,transform .3s var(--spring)}
+.lvseg button:hover{transform:translateY(-2px)}
+.lvseg svg{flex:none;width:22px;height:22px;color:var(--ac)}
+.lvseg small{display:block;color:var(--mu);font-weight:500;font-size:.72rem;line-height:1.25}
+.lvseg button[aria-checked=true]{border-color:var(--ac);background:color-mix(in srgb,var(--ac) 12%,var(--pn2))}
+@media(max-width:420px){.lvseg{grid-template-columns:1fr}}
+.lvb svg{width:14px;height:14px}
+/* tarjeta de Aprender en el inicio */
+.lhm{position:relative;overflow:hidden;isolation:isolate;display:grid;gap:12px;border-color:color-mix(in srgb,var(--ac) 35%,var(--bd))}
+.lhm::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(60% 90% at 100% 0,color-mix(in srgb,var(--ac2) 20%,transparent),transparent 70%),radial-gradient(50% 80% at 0 100%,color-mix(in srgb,var(--ac) 16%,transparent),transparent 70%)}
+.lhm-t{display:flex;gap:14px;align-items:center}
+.lhm-art{flex:none;width:92px;height:92px}.lhm-svg{width:100%;height:100%;overflow:visible}
+.lhm-orb{transform-box:view-box;transform-origin:48px 32px;animation:lhrot 18s linear infinite}
+@keyframes lhrot{to{transform:rotate(360deg)}}
+html.lite .lhm-orb{animation:none}
+.lhm h3{margin:0 0 4px;font-size:1.25rem}.lhm p{margin:0;line-height:1.4}
+.lhm-st{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.lhm-st div{padding:8px 10px;border-radius:12px;background:color-mix(in srgb,var(--pn2) 80%,transparent);border:1px solid var(--bd);text-align:center}
+.lhm-st b{display:block;font-family:'Space Grotesk',Inter,sans-serif;font-size:1.2rem}.lhm-st span{font-size:.72rem;color:var(--mu)}
+.lhm-steps{display:flex;gap:6px;flex-wrap:wrap}
+.lhm-steps span{display:inline-flex;align-items:center;gap:6px;font-size:.76rem;font-weight:600;padding:3px 10px 3px 4px;border-radius:99px;border:1px solid var(--bd);background:var(--pn2);animation:entr2 .5s var(--spring) backwards;animation-delay:calc(var(--i)*70ms)}
+.lhm-steps i{width:18px;height:18px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-size:.66rem;font-weight:800;color:#fff;background:linear-gradient(135deg,var(--ac),var(--ac2))}
+.lhm-a{display:flex;gap:8px;flex-wrap:wrap}.lhm-a .btn{flex:1 1 180px;justify-content:center}
+@media(max-width:480px){.lhm-art{width:72px;height:72px}}
 #lsn,#lrn{font-feature-settings:'cv08'}
 /* lección */
 #lsn{display:grid;gap:14px;max-width:860px;margin:0 auto}
@@ -990,7 +1116,7 @@ function paint(wave){const m=MODES[md],se=E[sel],hasF=FL.c.size||FL.b.size||FL.s
  tb.querySelectorAll('.mk').forEach(k=>{const ci=k.dataset.mk-1;k.style.background=CT[ci][1];k.classList.toggle('dim',!mkLit(ci,m));k.setAttribute('aria-disabled',md!='cat')});legend()}
 /* ajuste responsivo */
 function fit(){if($('#v-t').hidden)return;const W=tbw.clientWidth-14;if(W<=0)return;const land=innerWidth>innerHeight;let g=W<520?1:W<900?2:3,w=(W-18*g)/18.45;
- if(land){const nb=$('#bn'),top=tbw.getBoundingClientRect().top+scrollY,H=innerHeight-top-(nb?nb.offsetHeight:0)-22;w=Math.min(w,(H-10*g)/10.52)}
+ if(land){const nb=$('#bn'),nbh=nb&&nb.getBoundingClientRect().top>innerHeight/2?nb.offsetHeight:0,top=tbw.getBoundingClientRect().top+scrollY,H=innerHeight-top-nbh-22;w=Math.min(w,(H-10*g)/10.52)}
  const base=Math.max(w,land?25:17);w=Math.max(12,Math.min(base*zoom,110));
  tb.style.setProperty('--w',w+'px');tb.style.setProperty('--g',(w<26?1:g)+'px');tb.classList.toggle('nz',w<27);tb.classList.toggle('nn',w<50);tb.classList.toggle('xs',w<26);
  const big=w>=34;tb.classList.toggle('lgoff',!big);$('#lgB').hidden=big}
@@ -1384,7 +1510,7 @@ l:['Aprender','','<path d="M3 6c3-2 6-2 9 0 3-2 6-2 9 0v13c-3-2-6-2-9 0-3-2-6-2-
 r:['Retos','','<path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"/>'],
 h:['Inicio','','<path d="M3 11l9-8 9 8M5 10v10h5v-6h4v6h5V10"/>'],a:['Acerca de','','<circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.1"/>']};
 const tiles=ids=>`<div class="tl">${ids.map((k,i)=>`<button class="tile" data-go="${k}" style="animation-delay:${i*50}ms"><span class="ti">${SV(TL[k][2])}</span><span><b>${TL[k][0]}</b><span class="mu sm">${TL[k][1]}</span></span></button>`).join('')}</div>`;
-$('#bn').innerHTML=['h','t','l','r','a'].map(k=>`<button data-go="${k}" aria-label="${TL[k][0]}">${SV(TL[k][2])}<span>${({t:'Tabla',a:'Acerca'})[k]||TL[k][0]}</span></button>`).join('');
+$('#bn').innerHTML=['h','t','l','r','a'].map(k=>`<button data-go="${k}" aria-label="${TL[k][0]}">${SV(TL[k][2])}<span class="s">${({t:'Tabla',a:'Acerca'})[k]||TL[k][0]}</span><span class="l">${({h:'Inicio',t:'Tabla periódica',l:'Aprender',r:'Retos',a:'Acerca de'})[k]}</span></button>`).join('');
 $('#hx').innerHTML='<h3 class="sec">Explorar</h3>'+tiles(['t','m','o','b'])+'<h3 class="sec">Aprender</h3>'+tiles(['c'])+'<h3 class="sec">Practicar</h3>'+tiles(['q','e','x']);
 $('#lx').innerHTML=tiles(['m','o','b','c']);$('#rx').innerHTML=tiles(['q','e','x']);
 $('#bk').innerHTML=SV('<path d="M15 5l-7 7 7 7"/>');
@@ -1934,7 +2060,7 @@ if('MutationObserver' in window)new MutationObserver(ms=>ms.forEach(m=>m.addedNo
 document.querySelectorAll('input[type=range]').forEach(f)})();
 /* ===== v16: la vista de la tabla no se desplaza en PC; solo la ficha del elemento ===== */
 (()=>{const FX=matchMedia('(orientation:landscape) and (min-width:560px) and (min-height:300px)'),top=document.querySelector('.top'),bn=document.getElementById('bn');let on=false;
-const sync=()=>{on=FX.matches&&CUR=='t';document.body.classList.toggle('fxt',on);if(on){document.documentElement.style.setProperty('--vth',Math.max(300,innerHeight-top.offsetHeight-bn.offsetHeight-8)+'px');scrollTo(0,0)}fit()};
+const sync=()=>{on=FX.matches&&CUR=='t';document.body.classList.toggle('fxt',on);if(on){document.documentElement.style.setProperty('--vth',Math.max(300,innerHeight-top.offsetHeight-(bn.getBoundingClientRect().top>innerHeight/2?bn.offsetHeight:0)-4)+'px');scrollTo(0,0)}fit()};
 const st=document.querySelector('#v-t .stage'),two=()=>matchMedia('(min-width:1100px) and (min-height:600px)').matches;
 const _f=fit;fit=function(){const a=arguments;
  if(on)tbw.style.width=Math.max(300,st.clientWidth-(two()?382:0))+'px';else tbw.style.width='';
@@ -1982,54 +2108,338 @@ function slater(z){const e=E[z];if(!e||z>54||(e.b!='s'&&e.b!='p'))return null;
  const sh={};for(const k in e.o)sh[+k[0]]=(sh[+k[0]]||0)+e.o[k];
  const n=Math.max(...Object.keys(sh).map(Number)),same=sh[n]-1,m1=sh[n-1]||0;let m2=0;for(let q=1;q<n-1;q++)m2+=sh[q]||0;
  const S=n==1?same*.3:same*.35+m1*.85+m2;return{n,same,m1,m2,S:+S.toFixed(2),zef:+(z-S).toFixed(2)}}
-/* ===== glosario ===== */
-const GL={
-atomo:['Átomo','Unidad básica de un elemento: un núcleo (protones y neutrones) rodeado de electrones. Es neutro cuando tiene tantos protones como electrones.'],
-proton:['Protón','Partícula del núcleo con carga +1 y masa ≈ 1 u. Su número (Z) define qué elemento es.'],
-neutron:['Neutrón','Partícula del núcleo sin carga y con masa ≈ 1 u (un poco mayor que la del protón). Aporta masa y estabilidad nuclear, pero no carga.'],
-electron:['Electrón','Partícula de carga −1 y masa ≈ 1/1836 u que forma la nube electrónica. De él depende casi todo el comportamiento químico.'],
-nucleo:['Núcleo','Región central y diminuta (~10⁻¹⁵ m) que concentra casi toda la masa del átomo y toda su carga positiva.'],
-z:['Número atómico (Z)','Número de protones del núcleo. Identifica al elemento; en un átomo neutro también es el número de electrones.'],
-a:['Número de masa (A)','Protones + neutrones (A = Z + N). Es un entero y no es lo mismo que la masa atómica de la tabla periódica.'],
-nuclido:['Nucleido','Especie nuclear definida por su Z y su A, por ejemplo el carbono-14. Los inestables se llaman radionucleidos.'],
-isotopo:['Isótopo','Átomos del mismo elemento (mismo Z) con distinto número de neutrones y, por tanto, distinto A.'],
-isobaro:['Isóbaros','Nucleidos de elementos distintos con el mismo número de masa A, como ¹⁴C y ¹⁴N.'],
-ion:['Ion','Átomo (o grupo de átomos) con carga neta porque ganó o perdió electrones. Los protones no cambian, así que el elemento tampoco.'],
-cation:['Catión','Ion positivo: perdió electrones (Na⁺, Mg²⁺).'],
-anion:['Anión','Ion negativo: ganó electrones (Cl⁻, O²⁻).'],
-u:['Unidad de masa atómica (u)','1/12 de la masa de un átomo de carbono-12: 1 u ≈ 1.66054 × 10⁻²⁷ kg. También se llama dalton (Da).'],
-masaat:['Masa atómica','Promedio ponderado de las masas de los isótopos naturales de un elemento. Es el valor que aparece en la tabla periódica.'],
-abund:['Abundancia isotópica','Porcentaje de los átomos de un elemento que corresponde a cada isótopo en la naturaleza.'],
-mol:['Mol','Cantidad de sustancia con 6.02214076 × 10²³ entidades. La masa molar (g/mol) coincide numéricamente con la masa atómica (u).'],
-espectro:['Espectrometría de masas','Técnica que ioniza una muestra y separa los iones según su relación masa/carga. Permite medir masas isotópicas y abundancias.'],
-radiact:['Radiactividad','Emisión espontánea de radiación por núcleos inestables que se transforman en otros. La descubrió Becquerel en 1896.'],
-desint:['Desintegración','Transformación espontánea de un núcleo inestable en otro, con emisión de partículas o radiación.'],
-alfa:['Partícula alfa (α)','Núcleo de helio-4 (2 protones y 2 neutrones). Al emitirla, A baja 4 y Z baja 2. Es poco penetrante: la frena una hoja de papel.'],
-beta:['Partícula beta (β)','Electrón (β⁻) o positrón (β⁺) emitido por el núcleo. En β⁻ un neutrón se convierte en protón (Z sube 1); en β⁺ un protón se convierte en neutrón (Z baja 1). A no cambia.'],
-gamma:['Radiación gamma (γ)','Fotón de muy alta energía emitido por un núcleo excitado. No cambia ni A ni Z. Es muy penetrante.'],
-vmedia:['Vida media (T½)','Tiempo en el que se desintegra la mitad de los núcleos de una muestra. No depende de cuánta muestra haya ni de la temperatura.'],
-actividad:['Actividad','Desintegraciones por segundo de una muestra. Se mide en becquerel (Bq): 1 Bq = 1 desintegración por segundo.'],
-grupo:['Grupo','Columna de la tabla periódica. Los elementos de un grupo tienen igual número de electrones de valencia y propiedades parecidas.'],
-periodo:['Periodo','Fila de la tabla periódica. Coincide con el número de la capa más externa ocupada (n).'],
-valencia:['Electrones de valencia','Electrones de la capa más externa. Son los que participan en los enlaces. En los grupos principales 1 y 2 coinciden con el número de grupo; en 13–18 equivalen al número de grupo − 10.'],
-cfg:['Configuración electrónica','Distribución de los electrones en subniveles (1s² 2s² 2p⁶…) según el principio de Aufbau, Pauli y Hund.'],
-subnivel:['Subnivel','Conjunto de orbitales con el mismo n y l (s, p, d, f). Cada subnivel s admite 2 e⁻, p 6, d 10 y f 14.'],
-penetra:['Penetración','Capacidad de un electrón de acercarse al núcleo atravesando las capas internas. Orden: s > p > d > f en un mismo nivel n.'],
-zef:['Carga nuclear efectiva (Zef)','Carga positiva neta que «siente» un electrón: Zef = Z − S, donde S es el blindaje de los demás electrones.'],
-blindaje:['Apantallamiento (blindaje)','Reducción de la atracción del núcleo sobre un electrón externo por la repulsión de los electrones internos.'],
-slater:['Reglas de Slater','Método sencillo para estimar S: 0.35 por cada otro e⁻ de la misma capa, 0.85 por cada e⁻ de la capa n−1 y 1.00 por cada e⁻ más interno (0.30 si la capa es 1s).'],
-radioat:['Radio atómico','Medida del tamaño del átomo. Según cómo se mida hay radio covalente, metálico o de van der Waals; no son intercambiables.'],
-radiocov:['Radio covalente','Mitad de la distancia entre los núcleos de dos átomos iguales unidos por un enlace sencillo.'],
-radioion:['Radio iónico','Tamaño de un ion en un cristal. Los cationes son más pequeños que su átomo y los aniones, más grandes.'],
-isoelec:['Isoelectrónicos','Especies con el mismo número de electrones (por ejemplo O²⁻, F⁻, Ne, Na⁺, Mg²⁺: todas con 10 e⁻).'],
-ei:['Energía de ionización (EI)','Energía necesaria para arrancar un electrón de un átomo gaseoso: X(g) → X⁺(g) + e⁻. La primera EI se da en kJ/mol o en eV.'],
-ae:['Afinidad electrónica (AE)','Energía que se libera (convención más común) cuando un átomo gaseoso gana un electrón: X(g) + e⁻ → X⁻(g).'],
-en:['Electronegatividad (EN)','Tendencia de un átomo, dentro de un enlace, a atraer hacia sí el par de electrones compartido. La escala de Pauling va de ≈0.7 (Fr) a 3.98 (F).'],
-polar:['Enlace covalente polar','Enlace covalente con reparto desigual de electrones por diferencia de electronegatividad; aparecen cargas parciales δ+ y δ−.'],
-metal:['Metal','Elemento que tiende a perder electrones (baja EI y baja EN), conduce la electricidad y forma cationes.'],
-nometal:['No metal','Elemento que tiende a ganar o compartir electrones (alta EI y alta EN); suele formar aniones o enlaces covalentes.'],
-nobles:['Gases nobles','Elementos del grupo 18, con capa de valencia completa; son muy poco reactivos y tienen las EI más altas de cada periodo.']
-};
+/* ===== glosario v2: términos con definición, ejemplo, error común y ampliación universitaria ===== */
+const GC=[
+['at','Átomo y partículas','#6366f1','<circle cx="12" cy="12" r="2"/><ellipse cx="12" cy="12" rx="9" ry="3.5"/><ellipse cx="12" cy="12" rx="9" ry="3.5" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9" ry="3.5" transform="rotate(120 12 12)"/>'],
+['is','Isótopos y masa','#06b6d4','<circle cx="8" cy="12" r="4.5"/><circle cx="16.5" cy="12" r="3.5" stroke-dasharray="2.4 2.2"/>'],
+['ra','Núcleo y radiactividad','#f59e0b','<circle cx="12" cy="12" r="1.8"/><path d="M12 10V4.5M13.6 13l4.8 2.8M10.4 13l-4.8 2.8"/><path d="M8 5.4a8 8 0 0 1 8 0M19.6 12.6a8 8 0 0 1-4 6.9M8.4 19.5a8 8 0 0 1-4-6.9" opacity=".55"/>'],
+['mo','Modelos atómicos','#a855f7','<circle cx="12" cy="12" r="2.6"/><circle cx="12" cy="12" r="8"/><circle cx="20" cy="12" r="1.4" fill="currentColor"/>'],
+['cu','Estructura electrónica','#ec4899','<ellipse cx="12" cy="6.6" rx="3" ry="4.6"/><ellipse cx="12" cy="17.4" rx="3" ry="4.6"/>'],
+['tp','Tabla periódica y tendencias','#22c55e','<rect x="3" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.5"/>'],
+['en','Enlace químico','#ef4444','<circle cx="6" cy="12" r="3.2"/><circle cx="18" cy="12" r="3.2"/><path d="M9.2 12h5.6"/>'],
+['mg','Moléculas y fuerzas','#14b8a6','<circle cx="12" cy="6.5" r="3"/><circle cx="5" cy="17" r="2.6"/><circle cx="19" cy="17" r="2.6"/><path d="M10.5 9.2L6.4 14.8M13.5 9.2l4.1 5.6"/>'],
+['no','Compuestos y nomenclatura','#3b82f6','<path d="M3.5 4.5h8.2l8.8 8.8-7.2 7.2-8.8-8.8z"/><circle cx="8.3" cy="9.3" r="1.3"/>'],
+['ca','Cantidades y disoluciones','#f97316','<path d="M9.5 3h5M10.5 3v6.2L5.4 18a2.2 2.2 0 0 0 1.9 3.2h9.4a2.2 2.2 0 0 0 1.9-3.2l-5.1-8.8V3"/><path d="M7.6 15h8.8" opacity=".6"/>']];
+const GL={};
+/* G(clave, nombre, categoría, definición, {e:ejemplo, x:ojo/error común, u:nivel universidad, r:[relacionados], a:1 = ampliación}) */
+const G=(k,n,c,d,o)=>{GL[k]=[n,d,Object.assign({c},o||{})]};
+
+/* ---- Átomo y partículas ---- */
+G('atomo','Átomo','at','Unidad básica de un elemento: un núcleo (protones y neutrones) rodeado de electrones. Es neutro cuando tiene tantos protones como electrones.',
+ {e:'Un átomo neutro de sodio-23 tiene 11 protones, 12 neutrones y 11 electrones.',x:'Los átomos no son «bolitas con electrones girando como planetas»: ese es el modelo de Bohr, útil pero superado.',u:'Mide del orden de 10⁻¹⁰ m (0.1–0.3 nm), mientras que el núcleo mide ~10⁻¹⁵ m. Casi todo el volumen lo ocupa la nube electrónica, descrita por orbitales (distribuciones de probabilidad), no por trayectorias.',r:['nucleo','proton','electron','elemento']});
+G('nucleo','Núcleo','at','Región central y diminuta (~10⁻¹⁵ m) que concentra casi toda la masa del átomo y toda su carga positiva. Está formado por protones y neutrones.',
+ {e:'Si el átomo fuera un estadio de 100 m, el núcleo sería un grano de arena en el centro.',u:'Lo mantiene unido la interacción nuclear fuerte, que a ~1 fm supera la repulsión eléctrica entre protones. Su radio es aproximadamente r ≈ 1.2 fm · A^(1/3).',r:['nucleon','proton','neutron','rutherford']});
+G('nucleon','Nucleón','at','Nombre común de las partículas del núcleo: protones y neutrones. El número de masa A cuenta nucleones.',
+ {e:'El ¹⁶O tiene 16 nucleones: 8 protones y 8 neutrones.',u:'Cada nucleón está formado por tres quarks. La energía de enlace por nucleón (≈ 8 MeV en núcleos medianos) explica la estabilidad nuclear.',r:['a','defmasa','quark']});
+G('proton','Protón','at','Partícula del núcleo con carga +1 (+1.602 × 10⁻¹⁹ C) y masa ≈ 1.00728 u. Su número (Z) define qué elemento es.',
+ {e:'Un átomo con 17 protones es cloro, siempre.',x:'Cambiar protones cambia el elemento; cambiar neutrones da otro isótopo; cambiar electrones da un ion.',u:'Está formado por dos quarks up y uno down (uud). Su masa es 1836 veces la del electrón.',r:['z','isotopo','ion']});
+G('neutron','Neutrón','at','Partícula del núcleo sin carga y con masa ≈ 1.00866 u (un poco mayor que la del protón). Aporta masa y estabilidad nuclear, pero no carga.',
+ {e:'El ¹²C tiene 6 neutrones; el ¹⁴C, 8.',u:'Libre es inestable: se desintegra por β⁻ en protón, electrón y antineutrino, con T½ ≈ 10 min. Dentro de un núcleo estable no se desintegra. Lo descubrió Chadwick en 1932.',r:['isotopo','nucleon','beta']});
+G('electron','Electrón','at','Partícula de carga −1 (−1.602 × 10⁻¹⁹ C) y masa de ≈ 1/1836 de la del protón (≈ 0.00055 u). Forma la nube electrónica y de él depende casi todo el comportamiento químico.',
+ {e:'Al formarse Cl⁻ el átomo gana 1 electrón; el número de protones sigue siendo 17.',u:'Es una partícula elemental de spin ½. Thomson lo identificó en 1897 con tubos de rayos catódicos y Millikan midió su carga en 1909.',r:['orbital','spin','ion']});
+G('quark','Quark','at','Partícula elemental que forma protones y neutrones. Los dos «sabores» que importan en química son up (u) y down (d).',
+ {e:'Protón = uud (+⅔ + ⅔ − ⅓ = +1). Neutrón = udd (+⅔ − ⅓ − ⅓ = 0).',u:'Los quarks nunca se observan aislados (confinamiento). La mayor parte de la masa del protón no viene de las masas de sus quarks, sino de la energía de la interacción fuerte.',r:['proton','neutron'],a:1});
+G('z','Número atómico (Z)','at','Número de protones del núcleo. Identifica al elemento; en un átomo neutro también es el número de electrones.',
+ {e:'Z = 17 → cloro; Z = 26 → hierro.',u:'Moseley (1913) mostró que Z, y no la masa, ordena la tabla: la raíz de la frecuencia de los rayos X característicos crece linealmente con Z.',r:['a','elemento','proton']});
+G('a','Número de masa (A)','at','Protones + neutrones (A = Z + N). Es un entero y no es lo mismo que la masa atómica de la tabla periódica.',
+ {e:'Carbono-14: A = 14, Z = 6, N = 14 − 6 = 8.',x:'La masa atómica de la tabla (12.011 para C) es un promedio de isótopos; A es un entero que describe un solo nucleido.',r:['masaat','masaiso','nuclido']});
+G('elemento','Elemento químico','at','Conjunto de átomos con el mismo número atómico Z. No se puede descomponer en sustancias más simples por métodos químicos.',
+ {e:'Hay 118 elementos conocidos; el último nombrado es el oganesón (Z = 118).',x:'«Oxígeno» puede ser el elemento (O), un átomo o la sustancia O₂: conviene decir a cuál te refieres.',u:'Unos 80 elementos tienen al menos un isótopo estable; no lo tienen el Tc, el Pm ni ninguno con Z ≥ 83. El nombre del último (Og) se aprobó en 2016.',r:['z','isotopo','compuesto']});
+G('molecula','Molécula','at','Grupo neutro de átomos unidos por enlaces covalentes que se comporta como una unidad (H₂O, O₂, CH₄).',
+ {e:'O₂ es una molécula de un solo elemento; H₂O, de un compuesto.',x:'Los compuestos iónicos (NaCl) no forman moléculas, sino redes: se habla de «unidad fórmula».',r:['covalente','compuesto','red']});
+G('compuesto','Compuesto','at','Sustancia pura formada por átomos de dos o más elementos en proporción fija y definida (H₂O, NaCl, CO₂).',
+ {e:'El agua siempre tiene 11.19 % de H y 88.81 % de O en masa.',x:'Una mezcla (aire, agua de mar) no es un compuesto: su composición varía y sus componentes se separan por métodos físicos.',u:'Ley de las proporciones definidas (Proust, 1799). Los compuestos no estequiométricos (p. ej. Fe₁₋ₓO) son una excepción.',r:['elemento','molecula','fempir']});
+G('ion','Ion','at','Átomo (o grupo de átomos) con carga neta porque ganó o perdió electrones. Los protones no cambian, así que el elemento tampoco.',
+ {e:'Na (11 p⁺, 11 e⁻) → Na⁺ (11 p⁺, 10 e⁻).',u:'En fase gaseosa se forman por ionización; en disolución o en cristales se estabilizan por solvatación o por energía reticular.',r:['cation','anion','ionpoli']});
+G('cation','Catión','at','Ion positivo: perdió electrones (Na⁺, Mg²⁺, Al³⁺, NH₄⁺).',
+ {e:'Mg → Mg²⁺ + 2 e⁻.',u:'Los metales los forman porque su energía de ionización es baja. Un catión es más pequeño que su átomo: hay menos repulsión y mayor Zef por electrón.',x:'En una electrólisis los cationes migran al cátodo.',r:['anion','ei','radioion']});
+G('anion','Anión','at','Ion negativo: ganó electrones (Cl⁻, O²⁻, NO₃⁻).',
+ {e:'Cl + e⁻ → Cl⁻.',u:'Un anión es más grande que su átomo: con la misma carga nuclear, los electrones extra se repelen más.',x:'En una electrólisis los aniones migran al ánodo.',r:['cation','ae','radioion']});
+
+/* ---- Isótopos y masa ---- */
+G('nuclido','Nucleido','is','Especie nuclear definida por su Z y su A, por ejemplo el carbono-14. Los inestables se llaman radionucleidos.',
+ {e:'¹⁴C, ¹⁴N y ²³⁵U son tres nucleidos distintos.',r:['isotopo','isobaro','isotono']});
+G('isotopo','Isótopo','is','Átomos del mismo elemento (mismo Z) con distinto número de neutrones y, por tanto, distinto A.',
+ {e:'El hidrógeno tiene tres: protio ¹H, deuterio ²H (D) y tritio ³H (radiactivo).',x:'Isótopos ≠ iones: los iones cambian en electrones; los isótopos, en neutrones.',u:'Comparten propiedades químicas (misma configuración electrónica), pero difieren en masa y en propiedades nucleares. El efecto isotópico es mayor en el hidrógeno: el D₂O funde a 3.8 °C y hierve a 101.4 °C.',r:['nuclido','abund','masaat']});
+G('isobaro','Isóbaros','is','Nucleidos de elementos distintos con el mismo número de masa A, como ¹⁴C y ¹⁴N.',
+ {e:'⁴⁰Ar, ⁴⁰K y ⁴⁰Ca son isóbaros (A = 40).',r:['isotopo','isotono']});
+G('isotono','Isótonos','is','Nucleidos con el mismo número de neutrones pero distinto Z.',
+ {e:'¹³C y ¹⁴N tienen 7 neutrones cada uno.',r:['isotopo','isobaro']});
+G('u','Unidad de masa atómica (u)','is','1/12 de la masa de un átomo de carbono-12: 1 u ≈ 1.66054 × 10⁻²⁷ kg. También se llama dalton (Da).',
+ {e:'Un átomo de ¹²C pesa exactamente 12 u; uno de ¹H, 1.00783 u.',u:'Valor CODATA 2022: 1.660 539 068 92 × 10⁻²⁷ kg ↔ 931.494 MeV/c². Se usa el kDa para proteínas.',r:['masaat','masaiso','masamolar']});
+G('masaat','Masa atómica','is','Promedio ponderado de las masas de los isótopos naturales de un elemento. Es el valor que aparece en la tabla periódica.',
+ {e:'Cl: 75.76 % de ³⁵Cl (34.969 u) y 24.24 % de ³⁷Cl (36.966 u) → 35.45 u.',x:'Ningún átomo de cloro pesa 35.45 u: es un promedio.',u:'IUPAC la llama peso atómico estándar. Para varios elementos (H, C, O, S, Cl…) se publica como intervalo, porque la composición isotópica depende del origen de la muestra, y se da además un valor «convencional» para uso general.',r:['abund','masaiso','u']});
+G('masaiso','Masa isotópica','is','Masa de un nucleido concreto, expresada en u (por ejemplo ³⁵Cl = 34.969 u). Es casi, pero no exactamente, un número entero.',
+ {x:'No confundas: número de masa A (entero) · masa isotópica (decimal, de un nucleido) · masa atómica (promedio de la tabla).',u:'La diferencia con A se debe al defecto de masa (energía de enlace nuclear, E = Δm·c²). El ¹²C vale exactamente 12 u por definición.',r:['a','masaat','defmasa']});
+G('abund','Abundancia isotópica','is','Porcentaje de los átomos de un elemento que corresponde a cada isótopo en la naturaleza.',
+ {e:'Boro: ¹⁰B ≈ 19.9 % y ¹¹B ≈ 80.1 %.',r:['masaat','isotopo','espectro']});
+G('espectro','Espectrometría de masas','is','Técnica que ioniza una muestra y separa los iones según su relación masa/carga. Permite medir masas isotópicas y abundancias.',
+ {e:'El espectro del cloro muestra dos picos (m/z = 35 y 37) con alturas 3 : 1.',u:'La altura de cada pico es proporcional a la abundancia; con ellas se calcula la masa atómica promedio. Aston la usó en 1919 para separar los isótopos del neón.',r:['abund','masaat','isotopo']});
+
+/* ---- Núcleo y radiactividad ---- */
+G('radiact','Radiactividad','ra','Emisión espontánea de radiación por núcleos inestables que se transforman en otros. La descubrió Becquerel en 1896.',
+ {e:'El uranio, el radio y el polonio son radiactivos; Marie y Pierre Curie aislaron los dos últimos en 1898.',x:'Estar expuesto a radiación (irradiación) no vuelve radiactivo al cuerpo; la contaminación sí implica material radiactivo sobre o dentro de él.',u:'Es un proceso nuclear: no depende de la temperatura, la presión ni del enlace químico del átomo.',r:['desint','vmedia','actividad']});
+G('desint','Desintegración','ra','Transformación espontánea de un núcleo inestable en otro, con emisión de partículas o radiación.',
+ {e:'²³⁸U → ²³⁴Th + ⁴He (alfa).',u:'Se rige por la ley N = N₀ e^(−λt): es un proceso estadístico, no se puede predecir cuándo se desintegrará un núcleo concreto.',r:['alfa','beta','gamma']});
+G('alfa','Partícula alfa (α)','ra','Núcleo de helio-4 (2 protones y 2 neutrones). Al emitirla, A baja 4 y Z baja 2. Es poco penetrante: la frena una hoja de papel.',
+ {e:'²²⁶Ra → ²²²Rn + ⁴He.',x:'Es muy peligrosa si el emisor α se ingiere o se inhala, porque ioniza intensamente sobre un tejido pequeño.',r:['beta','gamma','desint']});
+G('beta','Partícula beta (β)','ra','Electrón (β⁻) o positrón (β⁺) emitido por el núcleo. En β⁻ un neutrón se convierte en protón (Z sube 1); en β⁺ un protón se convierte en neutrón (Z baja 1). A no cambia.',
+ {e:'¹⁴C → ¹⁴N + e⁻ + antineutrino (β⁻).',u:'Se emite junto con un (anti)neutrino, por lo que la energía de las partículas β es continua. Pauli propuso el neutrino en 1930 y Fermi formuló la teoría en 1934.',r:['alfa','gamma','neutron']});
+G('gamma','Radiación gamma (γ)','ra','Fotón de muy alta energía emitido por un núcleo excitado. No cambia ni A ni Z. Es muy penetrante.',
+ {e:'Suele acompañar a una desintegración α o β que deja el núcleo excitado.',u:'Se atenúa con materiales densos como plomo o concreto grueso; su longitud de onda es del orden de 10 pm o menor.',r:['alfa','beta','foton']});
+G('vmedia','Vida media (T½)','ra','Tiempo en el que se desintegra la mitad de los núcleos de una muestra. No depende de cuánta muestra haya ni de la temperatura.',
+ {e:'¹⁴C: T½ ≈ 5730 años. ¹³¹I: T½ ≈ 8.02 días. Tras 3 vidas medias queda ⅛ de la muestra.',u:'T½ = ln 2 / λ ≈ 0.693 / λ. La cantidad restante es N = N₀ (½)^(t/T½) = N₀ e^(−λt).',r:['actividad','c14','desint']});
+G('actividad','Actividad','ra','Desintegraciones por segundo de una muestra. Se mide en becquerel (Bq): 1 Bq = 1 desintegración por segundo.',
+ {u:'A = λN = −dN/dt. Unidad antigua: curie (1 Ci = 3.7 × 10¹⁰ Bq). No confundir con la dosis absorbida (gray, Gy) ni con la dosis equivalente (sievert, Sv).',r:['vmedia','radiact']});
+G('estab','Estabilidad nuclear','ra','Un núcleo es estable según su proporción de neutrones y protones. Los núcleos ligeros estables tienen N ≈ Z; los pesados necesitan más neutrones (N/Z hasta ≈ 1.5).',
+ {e:'El ²⁰⁸Pb (Z = 82, N = 126) es estable y «doblemente mágico».',u:'La «banda de estabilidad» se aprecia en la gráfica N vs Z. Con exceso de neutrones domina β⁻; con exceso de protones, β⁺ o captura electrónica; con Z > 82 aparece la emisión α. Números mágicos: 2, 8, 20, 28, 50, 82, 126.',r:['desint','defmasa','nucleon']});
+G('defmasa','Defecto de masa','ra','Diferencia entre la suma de las masas de las partículas por separado y la masa real del núcleo. Esa masa «perdida» se liberó como energía al formarse el núcleo.',
+ {e:'En el ⁴He la masa real es ≈ 0.0304 u menor que 2p + 2n: equivale a ≈ 28.3 MeV de energía de enlace.',u:'Δm = Z·mₚ + N·mₙ − m(núcleo); E = Δm·c², con 1 u ↔ 931.5 MeV. La energía de enlace por nucleón es máxima cerca del ⁵⁶Fe–⁶²Ni: por eso fusionar núcleos ligeros o dividir pesados libera energía.',r:['fision','fusion','masaiso'],a:1});
+G('fision','Fisión nuclear','ra','División de un núcleo pesado en dos más ligeros, con liberación de neutrones y mucha energía.',
+ {e:'²³⁵U + n → ¹⁴¹Ba + ⁹²Kr + 3 n + energía (una de muchas rutas posibles).',u:'Cada fisión libera ≈ 200 MeV (~ 2 × 10¹⁰ kJ por mol de núcleos), unas diez millones de veces más que una combustión por mol. Los neutrones liberados permiten una reacción en cadena.',r:['fusion','defmasa']});
+G('fusion','Fusión nuclear','ra','Unión de núcleos ligeros para formar uno más pesado, con liberación de energía. Es la fuente de energía de las estrellas.',
+ {e:'²H + ³H → ⁴He + n + 17.6 MeV.',u:'Requiere ~10⁷–10⁸ K para vencer la repulsión de Coulomb entre núcleos; el efecto túnel cuántico la hace posible a esas temperaturas.',r:['fision','defmasa']});
+G('c14','Datación con carbono-14','ra','Método para fechar restos orgánicos: se compara el ¹⁴C que queda con el que había en vida (T½ ≈ 5730 años).',
+ {e:'Un resto con 25 % del ¹⁴C original tiene 2 vidas medias: ≈ 11 460 años.',x:'No sirve para rocas ni fósiles de millones de años: su ¹⁴C ya desapareció. Su alcance práctico es de unos 50 000 años.',u:'El ¹⁴C se forma en la alta atmósfera (¹⁴N + n → ¹⁴C + p), se incorpora a los seres vivos mientras viven y se calibra con anillos de árboles.',r:['vmedia','beta']});
+
+/* ---- Modelos atómicos ---- */
+G('dalton','Modelo de Dalton (1803–1808)','mo','Los elementos están hechos de átomos indivisibles e idénticos entre sí; los compuestos resultan de combinar átomos en proporciones enteras sencillas.',
+ {u:'Explicó las leyes de conservación de la masa y de las proporciones definidas y múltiples. Falla porque el átomo sí tiene estructura y existen los isótopos.',r:['thomson','leycons']});
+G('thomson','Modelo de Thomson (1904)','mo','«Pudín de pasas»: una esfera positiva difusa con electrones incrustados que la neutralizan.',
+ {u:'Surgió tras el descubrimiento del electrón (1897). Lo refutó el experimento de Geiger–Marsden (1909): algunas partículas α rebotaban con ángulos grandes, imposible en una esfera difusa.',r:['rutherford','electron']});
+G('rutherford','Modelo de Rutherford (1911)','mo','El átomo tiene un núcleo diminuto, denso y positivo; los electrones están a su alrededor, a gran distancia.',
+ {u:'Falla porque, según la física clásica, un electrón en órbita emitiría radiación y caería al núcleo; tampoco explica los espectros de líneas. En el experimento, aproximadamente 1 de cada 8000 partículas α se reflejaba.',r:['bohr','nucleo']});
+G('bohr','Modelo de Bohr (1913)','mo','Los electrones giran en órbitas circulares con energías permitidas (niveles); emiten o absorben luz al saltar de un nivel a otro.',
+ {e:'Un electrón del H que baja de n = 3 a n = 2 emite luz roja (656 nm).',u:'Eₙ = −13.6 eV · Z²/n² y rₙ = n² a₀ / Z, con a₀ = 52.9 pm. Funciona para H y iones hidrogenoides (He⁺, Li²⁺), pero no para átomos con varios electrones ni explica los orbitales.',r:['nivelE','espatom','sommerfeld']});
+G('sommerfeld','Modelo de Sommerfeld (1916)','mo','Amplía a Bohr con órbitas elípticas y subniveles (s, p, d, f); explica parte de la estructura fina de los espectros.',
+ {u:'Introdujo el número cuántico azimutal (l) y correcciones relativistas. Fue un puente hacia la mecánica cuántica de 1925–1926.',r:['bohr','cuantico','ncuant']});
+G('cuantico','Modelo cuántico','mo','Describe al electrón con una función de onda: no tiene trayectoria definida, sino una probabilidad de estar en cada región (orbital).',
+ {u:'Se basa en la ecuación de Schrödinger (1926); |ψ|² es la densidad de probabilidad. Solo se resuelve exactamente para sistemas de un electrón; los demás requieren aproximaciones (Hartree–Fock, DFT).',r:['orbital','incert','dualidad']});
+G('nivelE','Nivel de energía','mo','Valor permitido de energía de un electrón en el átomo. La energía está cuantizada: no puede tener valores intermedios.',
+ {e:'En el hidrógeno: E₁ = −13.6 eV, E₂ = −3.40 eV, E₃ = −1.51 eV.',u:'El cero de energía es el electrón libre, por eso los valores ligados son negativos. La energía de ionización del H es 13.6 eV.',r:['bohr','foton','basal']});
+G('foton','Fotón','mo','Paquete («cuanto») de energía de la luz. Su energía depende solo de su frecuencia: E = h·f = h·c/λ.',
+ {e:'Un fotón de 656 nm (H-α) tiene E ≈ 1.89 eV.',u:'h = 6.62607015 × 10⁻³⁴ J·s (valor exacto desde 2019). Einstein lo usó para explicar el efecto fotoeléctrico (1905).',r:['espatom','nivelE','gamma']});
+G('espatom','Espectro atómico','mo','Conjunto de colores (líneas) que emite o absorbe un elemento. Cada elemento tiene el suyo, como una «huella digital».',
+ {e:'El sodio emite luz amarilla (589 nm); por eso las lámparas de sodio son amarillo-anaranjadas.',u:'En el H: 1/λ = R_H (1/n₁² − 1/n₂²), con R_H ≈ 1.097 × 10⁷ m⁻¹. Balmer: n₁ = 2 (visible); Lyman: n₁ = 1 (UV); Paschen: n₁ = 3 (IR).',r:['bohr','foton','nivelE']});
+G('dualidad','Dualidad onda–partícula','mo','La luz y la materia se comportan a veces como ondas y a veces como partículas. De Broglie (1924) propuso que una partícula de momento p tiene longitud de onda λ = h/p.',
+ {e:'Un electrón acelerado a 100 V tiene λ ≈ 0.12 nm: parecida a la distancia entre átomos, por eso se difracta en cristales.',r:['cuantico','incert','foton'],a:1});
+G('incert','Principio de incertidumbre','mo','No se puede conocer a la vez, con precisión absoluta, la posición y el momento de un electrón (Heisenberg, 1927).',
+ {x:'No es un defecto del instrumento de medida: es una propiedad de la naturaleza cuántica.',u:'Δx · Δp ≥ ħ/2. Por eso se sustituye la idea de órbitas con trayectoria por orbitales (probabilidades).',r:['cuantico','orbital','dualidad'],a:1});
+
+/* ---- Estructura electrónica ---- */
+G('orbital','Orbital atómico','cu','Región del espacio donde es muy probable (≈ 90 %) encontrar a un electrón. Cada orbital admite como máximo 2 electrones.',
+ {x:'Orbital ≠ órbita: la órbita (Bohr) es una trayectoria; el orbital, una distribución de probabilidad.',u:'Matemáticamente es una función de onda ψₙₗₘ. Tiene n − l − 1 nodos radiales y l nodos angulares. Un subnivel tiene 2l + 1 orbitales: 1 s, 3 p, 5 d, 7 f.',r:['subnivel','capa','ncuant']});
+G('capa','Capa (nivel principal)','cu','Conjunto de orbitales con el mismo número cuántico principal n (K, L, M, N…). Cabe un máximo de 2n² electrones.',
+ {e:'n = 1 (K): 2 e⁻; n = 2 (L): 8; n = 3 (M): 18; n = 4 (N): 32.',r:['subnivel','ncuant','periodo']});
+G('subnivel','Subnivel','cu','Conjunto de orbitales con el mismo n y l (s, p, d, f). Cada subnivel s admite 2 e⁻, p 6, d 10 y f 14.',
+ {e:'El subnivel 2p tiene 3 orbitales y admite hasta 6 e⁻.',r:['orbital','capa','madelung']});
+G('ncuant','Números cuánticos','cu','Cuatro números que identifican a cada electrón: n (capa), l (subnivel: forma), mₗ (orientación) y mₛ (spin, +½ o −½).',
+ {e:'Un electrón 3d tiene n = 3, l = 2, mₗ ∈ {−2, −1, 0, +1, +2} y mₛ = ±½.',u:'n = 1, 2, 3…; l = 0 … n − 1 (s, p, d, f…); mₗ = −l … +l; mₛ = ±½. En un átomo no hay dos electrones con los cuatro iguales (Pauli).',r:['pauli','spin','orbital']});
+G('spin','Spin','cu','Propiedad cuántica del electrón: se comporta como un pequeño imán con dos orientaciones posibles (↑ o ↓, mₛ = +½ o −½).',
+ {u:'Es un momento angular intrínseco, no una rotación literal. Dos electrones en un orbital deben tener spines opuestos («apareados»). El experimento de Stern–Gerlach (1922) lo evidenció con átomos de plata.',r:['pauli','hund','magnet']});
+G('aufbau','Principio de Aufbau','cu','Los electrones ocupan primero los orbitales de menor energía disponible («Aufbau» = construcción en alemán).',
+ {e:'Se llena 1s antes que 2s, y 4s antes que 3d.',u:'Es una regla de orden de llenado, no una afirmación de que 4s siga por debajo de 3d: en los iones de metales de transición el 3d queda por debajo del 4s y se pierden primero los 4s.',r:['madelung','pauli','hund']});
+G('pauli','Principio de exclusión de Pauli','cu','Dos electrones del mismo átomo no pueden tener los cuatro números cuánticos iguales: en un orbital caben 2 electrones, con spines opuestos.',
+ {u:'Es consecuencia de que los electrones son fermiones (función de onda total antisimétrica). Explica la estructura de capas y que la materia ocupe espacio.',r:['ncuant','spin','orbital']});
+G('hund','Regla de Hund','cu','En orbitales de igual energía (p, d, f) los electrones se colocan primero uno en cada orbital, con spines paralelos, y solo después se aparean.',
+ {e:'N (2p³): ↑ ↑ ↑ en los tres orbitales 2p; no ↑↓ ↑ _.',u:'Maximiza la multiplicidad de spin y reduce la repulsión electrónica (energía de intercambio). Explica la estabilidad de las subcapas semillenas.',r:['pauli','magnet','excep']});
+G('madelung','Regla de Madelung (n + l)','cu','Orden de llenado: primero los subniveles con menor suma n + l; si empatan, el de menor n. Resulta 1s 2s 2p 3s 3p 4s 3d 4p 5s 4d 5p 6s 4f 5d 6p 7s 5f 6d 7p.',
+ {e:'4s (n + l = 4) se llena antes que 3d (n + l = 5).',u:'También llamada regla de Klechkowski. Tiene excepciones (Cr, Cu, Pd, Ag, Au, La, Gd, Ac…) porque las energías de los subniveles son muy cercanas y la repulsión entre electrones cambia el orden.',r:['aufbau','excep','cfg']});
+G('cfg','Configuración electrónica','cu','Distribución de los electrones en subniveles (1s² 2s² 2p⁶…) según el principio de Aufbau, Pauli y Hund.',
+ {e:'Cl (Z = 17): 1s² 2s² 2p⁶ 3s² 3p⁵ → 7 e⁻ de valencia.',u:'Se escribe en el estado basal. Las configuraciones excitadas existen, pero son inestables y vuelven a la basal emitiendo luz.',r:['abrev','madelung','valencia']});
+G('abrev','Notación de gas noble','cu','Forma abreviada de escribir una configuración: se sustituye el «interior» por el símbolo del gas noble anterior entre corchetes.',
+ {e:'Fe: [Ar] 3d⁶ 4s² en lugar de 1s² 2s² 2p⁶ 3s² 3p⁶ 3d⁶ 4s².',r:['cfg','core','nobles']});
+G('excep','Excepciones a Madelung','cu','Algunos elementos tienen configuraciones distintas a las que predice la regla, porque una subcapa llena o semillena resulta más estable.',
+ {e:'Cr: [Ar] 3d⁵ 4s¹ (no 3d⁴ 4s²). Cu: [Ar] 3d¹⁰ 4s¹. Pd: [Kr] 4d¹⁰.',u:'No basta decir que «semillena es más estable»: pesan la energía de intercambio y la pequeña diferencia entre 3d y 4s. También hay excepciones en 4d, 5d y en lantánidos y actínidos (La, Ce, Gd, Ac, Th, U…).',r:['madelung','hund','cfg']});
+G('valencia','Electrones de valencia','cu','Electrones de la capa más externa. Son los que participan en los enlaces. En los grupos principales 1 y 2 coinciden con el número de grupo; en 13–18 equivalen al número de grupo − 10.',
+ {e:'O (2s² 2p⁴): 6 e⁻ de valencia. Fe (4s² 3d⁶): hasta 8, porque los 3d también participan.',r:['core','grupo','octeto']});
+G('core','Electrones internos (de core)','cu','Los de las capas internas llenas. Casi no participan en los enlaces, pero apantallan al núcleo.',
+ {e:'Na: [Ne] aporta 10 e⁻ internos; el 3s¹ es el único de valencia.',r:['valencia','blindaje','abrev']});
+G('basal','Estado basal y excitado','cu','Basal (fundamental): configuración de menor energía. Excitado: algún electrón ocupa un nivel superior tras absorber energía.',
+ {e:'Na: 1s² 2s² 2p⁶ 3s¹ es basal; con 3p¹ está excitado y al volver a 3s emite luz amarilla (589 nm).',r:['nivelE','espatom','cfg']});
+G('magnet','Paramagnetismo y diamagnetismo','cu','Una sustancia con electrones desapareados es paramagnética (la atrae un imán); si todos están apareados es diamagnética (la repele débilmente).',
+ {e:'Un átomo de N (2p³) tiene 3 e⁻ desapareados: paramagnético. Un átomo de Ne: diamagnético.',u:'El O₂ es paramagnético (dos e⁻ desapareados en orbitales π*), algo que la teoría de Lewis no predice y la de orbitales moleculares sí. Solo con spin: μ = √(n(n + 2)) μB.',r:['spin','hund','cfg']});
+G('penetra','Penetración','cu','Capacidad de un electrón de acercarse al núcleo atravesando las capas internas. Orden: s > p > d > f en un mismo nivel n.',
+ {u:'Explica por qué 4s se llena antes que 3d en átomos neutros y por qué, en átomos con varios electrones, la energía depende de n y de l (en el H solo de n).',r:['blindaje','zef','madelung']});
+
+/* ---- Tabla periódica y tendencias ---- */
+G('grupo','Grupo','tp','Columna de la tabla periódica. Los elementos de un grupo tienen igual número de electrones de valencia y propiedades parecidas.',
+ {e:'Grupo 17 (halógenos): F, Cl, Br, I, At, Ts; todos con 7 e⁻ de valencia.',u:'IUPAC numera los grupos de 1 a 18.',r:['periodo','valencia','bloque']});
+G('periodo','Periodo','tp','Fila de la tabla periódica. Coincide con el número de la capa más externa ocupada (n). Hay siete.',
+ {e:'El Cl está en el periodo 3 porque su capa de valencia es n = 3.',x:'En Sc–Zn (periodo 4) se llena el subnivel 3d, pero la capa más externa sigue siendo n = 4.',r:['grupo','capa','bloque']});
+G('bloque','Bloque (s, p, d, f)','tp','Zona de la tabla según el subnivel que se llena en último lugar: s (grupos 1–2), p (13–18), d (3–12) y f (lantánidos y actínidos).',
+ {u:'El helio (1s²) es del bloque s aunque esté en el grupo 18. La tabla extendida tiene 32 columnas.',r:['grupo','subnivel','transicion']});
+G('metal','Metal','tp','Elemento que tiende a perder electrones (baja EI y baja EN), conduce la electricidad y forma cationes. Son brillantes, dúctiles y maleables.',
+ {e:'Cerca del 80 % de los elementos son metales; el Hg es el único metal líquido a 25 °C.',r:['metalico','nometal','carmet']});
+G('nometal','No metal','tp','Elemento que tiende a ganar o compartir electrones (alta EI y alta EN); suele formar aniones o enlaces covalentes.',
+ {e:'H, C, N, O, P, S, Se, los halógenos y los gases nobles.',r:['metal','metaloide','covalente']});
+G('metaloide','Metaloide (semimetal)','tp','Elementos con propiedades intermedias entre metales y no metales; la lista habitual es B, Si, Ge, As, Sb y Te.',
+ {u:'Muchos son semiconductores (Si, Ge): su conductividad aumenta con la temperatura, al contrario que en un metal. La lista no es oficial de la IUPAC; algunas fuentes añaden Po o At.',r:['metal','nometal']});
+G('alcalinos','Metales alcalinos (grupo 1)','tp','Li, Na, K, Rb, Cs, Fr. Tienen 1 e⁻ de valencia, forman M⁺ y reaccionan con el agua desprendiendo H₂ con más violencia al bajar en el grupo.',
+ {x:'El hidrógeno está en el grupo 1 pero no es un metal alcalino.',u:'Se guardan bajo aceite. El cesio funde a ≈ 28.4 °C.',r:['alcalter','ei','grupo']});
+G('alcalter','Alcalinotérreos (grupo 2)','tp','Be, Mg, Ca, Sr, Ba, Ra. Tienen 2 e⁻ de valencia, forman M²⁺ y son menos reactivos que los alcalinos.',
+ {e:'El Ca²⁺ está en huesos y dientes (hidroxiapatita) y en la caliza (CaCO₃).',r:['alcalinos','grupo']});
+G('transicion','Metales de transición','tp','Elementos del bloque d (grupos 3–12) con subnivel d parcialmente lleno. Presentan varios estados de oxidación y forman compuestos coloreados.',
+ {e:'Fe²⁺/Fe³⁺, Cu⁺/Cu²⁺, Mn²⁺ … MnO₄⁻ (+7) es violeta.',u:'IUPAC define como elemento de transición al que tiene la subcapa d incompleta o puede formar cationes con ella incompleta; por eso Zn, Cd y Hg a veces se excluyen.',r:['bloque','ligando','noxid']});
+G('lantact','Lantánidos y actínidos','tp','Dos filas de 14 elementos del bloque f, puestas abajo de la tabla. Lantánidos: La–Lu (Z = 57–71); actínidos: Ac–Lr (Z = 89–103).',
+ {u:'Los lantánidos son las «tierras raras» junto con Sc e Y. Todos los actínidos son radiactivos; solo Th y U existen en cantidades apreciables en la corteza.',r:['bloque','contrac']});
+G('halogenos','Halógenos (grupo 17)','tp','F, Cl, Br, I, At, Ts. Tienen 7 e⁻ de valencia, forman X⁻ o enlaces covalentes y sus moléculas son diatómicas (X₂).',
+ {e:'A 25 °C: F₂ y Cl₂ son gases; Br₂, líquido; I₂, sólido.',r:['ae','en','grupo']});
+G('nobles','Gases nobles','tp','Elementos del grupo 18, con capa de valencia completa; son muy poco reactivos y tienen las EI más altas de cada periodo.',
+ {e:'He, Ne, Ar, Kr, Xe, Rn (y el sintético Og).',u:'No son totalmente inertes: Xe y Kr forman compuestos (XeF₄, KrF₂). Bartlett preparó el primero, XePtF₆, en 1962.',r:['octeto','ei','abrev']});
+G('zef','Carga nuclear efectiva (Zef)','tp','Carga positiva neta que «siente» un electrón: Zef = Z − S, donde S es el blindaje de los demás electrones.',
+ {e:'Na (Z = 11): S ≈ 8.8 para el 3s → Zef ≈ 2.2.',x:'Zef no es Z: casi siempre es mucho menor porque los electrones internos «tapan» al núcleo.',r:['blindaje','slater','radioat']});
+G('blindaje','Apantallamiento (blindaje)','tp','Reducción de la atracción del núcleo sobre un electrón externo por la repulsión de los electrones internos.',
+ {u:'Los electrones de capas internas apantallan casi por completo (≈ 1.00 cada uno), los de la misma capa muy poco (≈ 0.35).',r:['zef','slater','penetra']});
+G('slater','Reglas de Slater','tp','Método sencillo para estimar S de un electrón ns/np: 0.35 por cada otro e⁻ de su mismo grupo (0.30 si es 1s), 0.85 por cada e⁻ de la capa n−1 y 1.00 por cada e⁻ más interno.',
+ {e:'Na 3s¹: 8 e⁻ en n = 2 (×0.85) + 2 e⁻ en 1s (×1.00) → S = 8.8; Zef = 2.2.',u:'Se agrupan [1s] [2s,2p] [3s,3p] [3d] [4s,4p] [4d] [4f]… Para un electrón d o f, todos los de grupos a su izquierda contribuyen con 1.00.',r:['zef','blindaje']});
+G('radioat','Radio atómico','tp','Medida del tamaño del átomo. Según cómo se mida hay radio covalente, metálico o de van der Waals; no son intercambiables.',
+ {e:'Aumenta al bajar en un grupo y disminuye de izquierda a derecha en un periodo.',x:'En los gases nobles suele darse el radio de van der Waals, por eso parecen «más grandes» que los halógenos vecinos.',r:['radiocov','vdw','zef']});
+G('radiocov','Radio covalente','tp','Mitad de la distancia entre los núcleos de dos átomos iguales unidos por un enlace sencillo.',
+ {e:'En el Cl₂ la distancia Cl–Cl es ≈ 199 pm, así que r ≈ 99–100 pm.',r:['radioat','longenl']});
+G('radioion','Radio iónico','tp','Tamaño de un ion en un cristal. Los cationes son más pequeños que su átomo y los aniones, más grandes.',
+ {e:'O²⁻ 140 pm > F⁻ 133 pm > Na⁺ 102 pm > Mg²⁺ 72 pm (coordinación 6).',u:'Depende del número de coordinación y del spin; los valores de Shannon (1976) son los más usados.',r:['isoelec','cation','anion']});
+G('vdw','Radio de van der Waals','tp','Mitad de la distancia mínima a la que se acercan dos átomos no enlazados. Siempre es mayor que el radio covalente.',
+ {e:'H ≈ 120 pm, C ≈ 170 pm, O ≈ 152 pm, Cl ≈ 175 pm (Bondi).',r:['radioat','london']});
+G('ei','Energía de ionización (EI)','tp','Energía necesaria para arrancar un electrón de un átomo gaseoso: X(g) → X⁺(g) + e⁻. La primera EI se da en kJ/mol o en eV.',
+ {e:'Na: EI₁ = 496 kJ/mol; EI₂ = 4562 kJ/mol (el segundo e⁻ sale de una capa interna). He tiene la mayor EI₁ (2372 kJ/mol).',u:'EI₁ crece hacia la derecha del periodo con irregularidades: Be > B (el 2p está más alto que el 2s) y N > O (repulsión del par en 2p⁴).',r:['ae','en','zef']});
+G('ae','Afinidad electrónica (AE)','tp','Energía que se libera (convención más común) cuando un átomo gaseoso gana un electrón: X(g) + e⁻ → X⁻(g).',
+ {e:'Cl: 349 kJ/mol, la mayor de la tabla; F: 328 kJ/mol (átomo tan pequeño que el e⁻ añadido sufre más repulsión).',x:'Aunque se libere energía (ΔH < 0), la AE se da con signo positivo; en gases nobles, Be, Mg y N es ≈ 0 o negativa.',r:['ei','en','halogenos']});
+G('en','Electronegatividad (EN)','tp','Tendencia de un átomo, dentro de un enlace, a atraer hacia sí el par de electrones compartido. La escala de Pauling va de ≈ 0.7 (Fr) a 3.98 (F).',
+ {e:'O (3.44) > N (3.04) > C (2.55) > H (2.20).',u:'Pauling: |χA − χB| ≈ 0.102 · √Δ (Δ en kJ/mol, exceso de energía del enlace A–B sobre el promedio de A–A y B–B). Mulliken: χ = ½(EI + AE). Allen: promedio de la energía de los electrones de valencia.',r:['polar','ei','ae']});
+G('carmet','Carácter metálico','tp','Qué tanto se comporta un elemento como metal (perder e⁻, conducir…). Aumenta hacia abajo en un grupo y hacia la izquierda en un periodo.',
+ {e:'Entre los elementos de uso común, el Cs es el más metálico y el F, el menos.',r:['metal','ei','en']});
+G('isoelec','Isoelectrónicos','tp','Especies con el mismo número de electrones (por ejemplo O²⁻, F⁻, Ne, Na⁺, Mg²⁺: todas con 10 e⁻).',
+ {u:'Entre isoelectrónicos, a mayor Z menor radio, porque aumenta la atracción del núcleo sobre los mismos electrones.',r:['radioion','zef']});
+G('contrac','Contracción lantánida','tp','Disminución gradual del tamaño de los lantánidos de La a Lu: los electrones 4f apantallan mal al núcleo.',
+ {u:'Hace que el Hf (periodo 6) tenga casi el mismo radio que el Zr (periodo 5), y que Zr/Hf y Nb/Ta sean tan parecidos y difíciles de separar.',r:['lantact','zef','radioat'],a:1});
+G('parinerte','Efecto del par inerte','tp','En los elementos pesados de los grupos 13–15, los electrones ns² se resisten a ionizarse y aparecen estados de oxidación 2 unidades menores.',
+ {e:'Pb²⁺ es más estable que Pb⁴⁺; Tl⁺ más que Tl³⁺.',u:'Se atribuye a la fuerte estabilización relativista del 6s y a la mala penetración de los subniveles 4f y 5d.',r:['noxid','valencia'],a:1});
+
+/* ---- Enlace químico ---- */
+G('octeto','Regla del octeto','en','Los átomos tienden a ganar, perder o compartir electrones hasta tener 8 e⁻ en su capa de valencia (2 en el caso de H y He).',
+ {e:'Na → Na⁺ (8 e⁻ en n = 2) y Cl → Cl⁻ (8 e⁻ en n = 3).',x:'Es una guía, no una ley: tiene excepciones.',u:'Es válida sobre todo para C, N, O y F. Refleja que ns²np⁶ es una configuración especialmente estable (como la de un gas noble).',r:['exoctet','lewis','nobles']});
+G('lewis','Estructura de Lewis','en','Dibujo con puntos o rayas que muestra los electrones de valencia: pares enlazantes (rayas) y pares libres (puntos). G. N. Lewis la propuso en 1916.',
+ {e:'H₂O: dos enlaces O–H y dos pares libres sobre el O.',u:'Pasos: contar los e⁻ de valencia totales; conectar el átomo central; completar octetos; si faltan e⁻, formar enlaces múltiples; revisar cargas formales y preferir la estructura con cargas formales más bajas y las negativas en los átomos más electronegativos.',r:['parlibre','cformal','resonancia']});
+G('parlibre','Par libre (no enlazante)','en','Par de electrones de valencia que pertenece a un solo átomo y no forma enlace.',
+ {e:'En H₂O el O tiene 2 pares libres y 2 enlazantes; en NH₃, el N tiene 1 par libre.',u:'Ocupan más espacio que los enlazantes y deforman los ángulos (VSEPR). Son la base del enlace coordinado y de la basicidad de Lewis.',r:['lewis','coord','vsepr']});
+G('ionico','Enlace iónico','en','Atracción electrostática entre iones de carga opuesta, que se forman cuando un átomo cede electrones a otro, de EN muy distinta (metal + no metal).',
+ {e:'NaCl: Na → Na⁺ + e⁻ y Cl + e⁻ → Cl⁻; el cristal se mantiene por atracción entre Na⁺ y Cl⁻.',x:'No existe un enlace 100 % iónico: incluso en el CsF hay algo de compartición de electrones.',u:'No hay moléculas aisladas, sino una red cristalina. La fuerza crece con las cargas y disminuye con la distancia (ley de Coulomb). Los sólidos iónicos son duros y quebradizos, funden a alta temperatura y solo conducen fundidos o disueltos.',r:['reticular','red','cation']});
+G('covalente','Enlace covalente','en','Unión por compartición de pares de electrones entre átomos (normalmente no metales). Puede ser sencillo, doble o triple.',
+ {e:'H₂: un par compartido; O₂: dos; N₂: tres.',u:'En la teoría del enlace de valencia resulta del solapamiento de orbitales; en la de orbitales moleculares, de la ocupación de OM enlazantes.',r:['polar','apolar','orden']});
+G('polar','Enlace covalente polar','en','Enlace covalente con reparto desigual de electrones por diferencia de electronegatividad; aparecen cargas parciales δ+ y δ−.',
+ {e:'En H–Cl el par se desplaza hacia el Cl (δ−); en O–H, hacia el O.',u:'Δχ ≈ 0.4–1.7 es un criterio práctico, no una frontera exacta: el carácter iónico crece de forma continua.',r:['apolar','en','dipolo']});
+G('apolar','Enlace covalente no polar','en','Enlace covalente entre átomos iguales o de EN casi igual (Δχ < 0.4): el par se comparte de forma equitativa.',
+ {e:'H–H, Cl–Cl, O=O y, casi, C–H (Δχ = 0.35).',r:['polar','covalente']});
+G('metalico','Enlace metálico','en','Atracción entre los cationes metálicos y una «nube» de electrones de valencia deslocalizados que se mueven libremente por toda la red.',
+ {e:'Explica que los metales conduzcan la electricidad, sean brillantes y se puedan laminar.',u:'En la teoría de bandas los orbitales de valencia forman bandas continuas; en un metal la banda de conducción está parcialmente llena.',r:['metal','red']});
+G('coord','Enlace covalente coordinado (dativo)','en','Enlace covalente donde ambos electrones del par los aporta un solo átomo (donante) hacia otro con orbital vacío (aceptor).',
+ {e:'NH₃ + H⁺ → NH₄⁺: el par libre del N se comparte con el H⁺.',x:'Una vez formado, es igual a los demás: en NH₄⁺ los cuatro enlaces N–H son idénticos.',r:['parlibre','ligando','lewis']});
+G('orden','Orden de enlace','en','Número de pares de electrones compartidos entre dos átomos: 1 sencillo, 2 doble, 3 triple. A mayor orden, enlace más corto y más fuerte.',
+ {e:'En el O₃ cada enlace O–O tiene orden 1.5.',u:'En orbitales moleculares: (e⁻ enlazantes − e⁻ antienlazantes)/2. Puede ser fraccionario.',r:['longenl','enerenl','resonancia']});
+G('longenl','Longitud de enlace','en','Distancia media entre los núcleos de dos átomos enlazados. Disminuye al aumentar el orden de enlace.',
+ {e:'C–C 154 pm; C=C 134 pm; C≡C 120 pm.',r:['orden','enerenl','radiocov']});
+G('enerenl','Energía de enlace','en','Energía necesaria para romper un mol de enlaces en estado gaseoso. A mayor energía, enlace más fuerte.',
+ {e:'C–C ≈ 347; C=C ≈ 614; C≡C ≈ 839 kJ/mol; H–H = 436 kJ/mol.',u:'Son valores medios. ΔH ≈ Σ E(enlaces rotos) − Σ E(enlaces formados) estima la entalpía de una reacción en fase gaseosa.',r:['orden','longenl']});
+G('dipolo','Momento dipolar','en','Medida de qué tan separadas están las cargas parciales: μ = δ · d. Se mide en debye (D) y es un vector.',
+ {e:'HCl 1.08 D; NH₃ 1.47 D; H₂O 1.85 D; CO₂ 0 D.',u:'1 D = 3.336 × 10⁻³⁰ C·m. El momento dipolar de una molécula es la suma vectorial de los de sus enlaces.',r:['polar','polmol']});
+G('cformal','Carga formal','en','Carga que tendría un átomo si los electrones de cada enlace se repartieran por igual. Ayuda a elegir la mejor estructura de Lewis.',
+ {e:'NH₄⁺: N tiene CF = 5 − 0 − ½(8) = +1.',u:'CF = (e⁻ de valencia) − (e⁻ de pares libres) − ½(e⁻ de enlace). La suma debe igualar la carga de la especie. Es un formalismo: no es la carga real ni el número de oxidación.',r:['lewis','noxid']});
+G('resonancia','Resonancia','en','Cuando una molécula o ion se describe con varias estructuras de Lewis válidas que solo difieren en la posición de los electrones. La realidad es un híbrido de resonancia.',
+ {e:'O₃ y NO₃⁻: los enlaces son equivalentes (orden 1.5 en el O₃).',x:'La molécula no «oscila» entre las estructuras: es una sola, intermedia y más estable que cada contribuyente.',r:['lewis','orden','cformal']});
+G('exoctet','Excepciones al octeto','en','Tres casos: octeto incompleto (BF₃, 6 e⁻), número impar de electrones (NO, NO₂) y octeto expandido (PCl₅, SF₆).',
+ {u:'La expansión se da en el periodo 3 o mayor. Los cálculos modernos indican que se debe sobre todo a enlaces polares y deslocalización; la participación de orbitales d es pequeña, aunque la representación expandida se usa mucho.',r:['octeto','radical','lewis'],a:1});
+G('radical','Radical','en','Átomo o molécula con un electrón desapareado. Suele ser muy reactivo.',
+ {e:'NO, NO₂, ·OH, ·CH₃, Cl·.',r:['exoctet','magnet']});
+G('reticular','Energía reticular','en','Energía que se libera al formarse un mol de sólido iónico a partir de sus iones gaseosos. A mayor carga y menor radio de los iones, mayor energía reticular.',
+ {e:'NaCl ≈ 790 kJ/mol; MgO ≈ 3800 kJ/mol.',u:'No se mide directo: se obtiene con el ciclo de Born–Haber o se calcula (Born–Landé, Kapustinskii). U ∝ (q⁺ · q⁻)/(r⁺ + r⁻).',r:['ionico','red','radioion'],a:1});
+G('red','Red cristalina','en','Disposición ordenada y repetitiva de átomos, iones o moléculas en un sólido.',
+ {e:'NaCl: cada Na⁺ está rodeado de 6 Cl⁻ y viceversa (cúbica centrada en las caras).',u:'La celda unidad es la porción mínima que, repetida, genera el cristal. El número de coordinación es 6:6 en NaCl y 8:8 en CsCl.',r:['ionico','metalico']});
+
+/* ---- Moléculas y fuerzas ---- */
+G('vsepr','Teoría VSEPR (RPECV)','mg','Los pares de electrones (enlazantes y libres) alrededor del átomo central se repelen y se colocan lo más lejos posible; eso determina la forma de la molécula.',
+ {e:'4 pares → tetraedro (109.5°): CH₄. Con 1 par libre: NH₃ piramidal (≈ 107°). Con 2: H₂O angular (≈ 104.5°).',u:'Repulsión: par libre–par libre > par libre–enlazante > enlazante–enlazante. Un enlace múltiple cuenta como un solo dominio, pero más voluminoso.',r:['geomol','parlibre','hibrid']});
+G('geomol','Geometría molecular','mg','Forma que adoptan los átomos (sin contar los pares libres) en el espacio. Difiere de la geometría electrónica cuando hay pares libres.',
+ {e:'H₂O: geometría electrónica tetraédrica; molecular angular.',u:'AX₂ lineal (180°); AX₃ trigonal plana (120°); AX₄ tetraédrica (109.5°); AX₅ bipirámide trigonal; AX₆ octaédrica (90°); AX₂E angular; AX₃E piramidal; AX₂E₂ angular.',r:['vsepr','polmol']});
+G('sigma','Enlace sigma (σ)','mg','Enlace por solapamiento frontal de orbitales, a lo largo del eje que une los núcleos. Todo enlace sencillo es σ.',
+ {u:'Tiene simetría cilíndrica y permite el giro libre. Un doble enlace es 1σ + 1π; uno triple, 1σ + 2π.',r:['pi','hibrid']});
+G('pi','Enlace pi (π)','mg','Enlace por solapamiento lateral de orbitales p, arriba y abajo del eje de enlace. Aparece en dobles y triples enlaces.',
+ {u:'Es más débil y reactivo que el σ y no permite girar sin romperse (de ahí la isomería cis–trans).',r:['sigma','orden']});
+G('hibrid','Hibridación','mg','Mezcla de orbitales atómicos de un mismo átomo que da orbitales híbridos equivalentes, con la geometría que predice VSEPR.',
+ {e:'sp³ (CH₄, 109.5°), sp² (C₂H₄, 120°), sp (C₂H₂, 180°).',u:'Es un modelo de la teoría del enlace de valencia (Pauling, 1931), no un proceso físico. Describe mal H₂S o PH₃ (ángulos ≈ 92–94°), que usan casi solo orbitales p.',r:['vsepr','sigma','pi']});
+G('polmol','Polaridad molecular','mg','Una molécula es polar si tiene un momento dipolar neto: depende de la polaridad de sus enlaces y de su geometría.',
+ {e:'CO₂ (lineal) es apolar aunque cada C=O es polar; H₂O (angular) es polar. CCl₄ es apolar; CHCl₃, polar.',r:['dipolo','geomol','dipdip']});
+G('imf','Fuerzas intermoleculares','mg','Atracciones entre moléculas (no son enlaces). Son mucho más débiles que los enlaces, pero determinan puntos de fusión y ebullición, solubilidad y viscosidad.',
+ {u:'Orden aproximado: ion–dipolo > puente de H > dipolo–dipolo > London (aunque London puede dominar en moléculas grandes). Una fuerza intermolecular típica es de 0.1–40 kJ/mol, frente a 150–1000 kJ/mol de un enlace covalente.',r:['london','dipdip','puenteh']});
+G('london','Fuerzas de dispersión (London)','mg','Atracciones débiles entre dipolos instantáneos e inducidos. Existen en todas las moléculas y crecen con el número de electrones y la superficie de contacto.',
+ {e:'Por eso el I₂ es sólido y el F₂ gas, y el octano hierve a más temperatura que el metano.',r:['imf','vdw']});
+G('dipdip','Fuerzas dipolo–dipolo','mg','Atracción entre el extremo δ+ de una molécula polar y el δ− de otra.',
+ {e:'Entre moléculas de HCl o de acetona.',r:['imf','polmol']});
+G('puenteh','Puente de hidrógeno','mg','Atracción especialmente fuerte entre un H unido a F, O o N y un par libre de otro F, O o N.',
+ {e:'El H₂O hierve a 100 °C, pero el H₂S (sin puentes de H) a −60 °C.',u:'Energía típica de 10–40 kJ/mol; es en parte electrostático y en parte covalente. Mantiene unidas las hebras del ADN y hace que el hielo sea menos denso que el agua líquida.',r:['imf','polmol']});
+
+/* ---- Compuestos y nomenclatura ---- */
+G('noxid','Número de oxidación','no','Carga que tendría un átomo si todos sus enlaces fueran iónicos (los electrones se asignan al átomo más electronegativo).',
+ {e:'En H₂SO₄: 2(+1) + S + 4(−2) = 0 → S = +6.',x:'No es la carga real: en CH₄ el C tiene número de oxidación −4 y en CO₂, +4, pero su carga real es mucho menor.',u:'IUPAC: carga de un átomo tras la aproximación iónica de sus enlaces heteronucleares. Reglas: elemento libre 0; ion monoatómico = su carga; la suma iguala la carga de la especie; F = −1; O = −2 (peróxidos −1); H = +1 (hidruros −1); grupo 1 = +1; grupo 2 = +2.',r:['valenc','stock','cformal']});
+G('valenc','Valencia (capacidad de enlace)','no','Número de enlaces que forma un átomo en una molécula. No tiene signo.',
+ {e:'El C tiene valencia 4 tanto en CH₄ como en CO₂, aunque su número de oxidación es −4 y +4.',x:'No la confundas con los «electrones de valencia» ni con el número de oxidación.',r:['noxid','valencia']});
+G('fempir','Fórmula empírica','no','Relación más sencilla de números enteros entre los átomos de un compuesto.',
+ {e:'La glucosa C₆H₁₂O₆ tiene fórmula empírica CH₂O.',u:'Se obtiene de la composición porcentual: se divide cada % entre la masa atómica y luego entre el menor resultado.',r:['fmol','pcomp']});
+G('fmol','Fórmula molecular','no','Número real de átomos de cada elemento en una molécula. Es un múltiplo entero de la empírica.',
+ {e:'H₂O₂ (molecular) → HO (empírica); n = 34.01 / 17.01 = 2.',x:'Para compuestos iónicos se usa la fórmula unidad (NaCl): no hay moléculas.',r:['fempir','molecula']});
+G('ionpoli','Ion poliatómico','no','Grupo de átomos unidos por enlaces covalentes que, en conjunto, tiene carga neta.',
+ {e:'NH₄⁺ amonio; OH⁻ hidróxido; NO₃⁻ nitrato; SO₄²⁻ sulfato; CO₃²⁻ carbonato; PO₄³⁻ fosfato.',r:['ion','sal']});
+G('oxido','Óxido','no','Compuesto binario de oxígeno (número de oxidación −2) con otro elemento. Los de metales suelen ser básicos y los de no metales, ácidos.',
+ {e:'Na₂O óxido de sodio; Fe₂O₃ óxido de hierro(III); CO₂ dióxido de carbono.',u:'Hay óxidos anfóteros (Al₂O₃, ZnO), que reaccionan con ácidos y con bases, y neutros (CO, N₂O).',r:['peroxido','hidroxido','acido']});
+G('hidroxido','Hidróxido','no','Compuesto que contiene el ion OH⁻. Los de metales alcalinos y alcalinotérreos son bases fuertes.',
+ {e:'NaOH hidróxido de sodio; Ca(OH)₂ hidróxido de calcio.',u:'Se obtienen al disolver un óxido básico en agua: Na₂O + H₂O → 2 NaOH. Según Arrhenius, una base libera OH⁻ en agua.',r:['oxido','acido','sal']});
+G('acido','Ácido','no','Sustancia que en agua libera iones H⁺ (H₃O⁺), según Arrhenius. Tiene sabor agrio y enrojece el papel tornasol.',
+ {e:'HCl ácido clorhídrico; H₂SO₄ ácido sulfúrico; HNO₃ ácido nítrico.',u:'Brønsted–Lowry: donador de protones. Lewis: aceptor de un par de electrones. Los oxácidos tienen enlaces H–O–E; los hidrácidos, H–X.',r:['hidroxido','sal','oxido']});
+G('sal','Sal','no','Compuesto iónico formado por un catión (distinto de H⁺) y un anión (distinto de OH⁻ y O²⁻). Típicamente resulta de neutralizar un ácido con una base.',
+ {e:'HCl + NaOH → NaCl + H₂O.',u:'Pueden ser binarias (NaCl), oxisales (Na₂SO₄) o sales ácidas y básicas (NaHCO₃).',r:['acido','hidroxido','ionpoli']});
+G('hidruro','Hidruro','no','Compuesto de hidrógeno con otro elemento. Con metales el H tiene número de oxidación −1; con no metales, +1.',
+ {e:'NaH hidruro de sodio (H⁻); H₂O, NH₃, CH₄ (H en +1).',x:'Para H₂O, NH₃ y CH₄ se usan los nombres comunes («agua», «amoniaco», «metano»).',r:['noxid','stock']});
+G('peroxido','Peróxido','no','Compuesto con el grupo O–O (ion O₂²⁻): el oxígeno tiene número de oxidación −1.',
+ {e:'H₂O₂ peróxido de hidrógeno; Na₂O₂ peróxido de sodio.',r:['oxido','noxid']});
+G('stock','Nomenclatura Stock','no','Indica el número de oxidación del metal con números romanos entre paréntesis. Es la recomendada por la IUPAC para compuestos inorgánicos.',
+ {e:'FeCl₃: cloruro de hierro(III); FeCl₂: cloruro de hierro(II).',u:'Propuesta por Alfred Stock (1919). Se omite el número romano si el elemento tiene un solo estado de oxidación (NaCl: cloruro de sodio).',r:['sistem','trad','noxid']});
+G('sistem','Nomenclatura sistemática (de prefijos)','no','Usa prefijos griegos (mono-, di-, tri-, tetra-, penta-, hexa-…) para indicar cuántos átomos hay de cada elemento.',
+ {e:'CO₂ dióxido de carbono; N₂O₃ trióxido de dinitrógeno; FeCl₃ tricloruro de hierro.',x:'«Mono-» se omite en el primer elemento: CO es «monóxido de carbono», no «monóxido de monocarbono».',r:['stock','trad']});
+G('trad','Nomenclatura tradicional','no','Usa terminaciones (-oso, -ico) y prefijos (hipo-, per-) según el número de oxidación del elemento.',
+ {e:'FeCl₂ cloruro ferroso; FeCl₃ cloruro férrico. HClO hipocloroso … HClO₄ perclórico.',x:'La IUPAC ya no la recomienda para la mayoría de compuestos, pero se sigue enseñando.',r:['stock','sistem']});
+G('ligando','Ligando y complejo','no','Un ligando es una molécula o ion con par libre que se une a un metal central mediante enlaces coordinados. El metal con sus ligandos forma un complejo.',
+ {e:'[Cu(NH₃)₄]²⁺: Cu²⁺ con 4 ligandos NH₃ (ion tetraamincobre(II)).',r:['coord','ncoord','transicion']});
+G('ncoord','Número de coordinación','no','Número de átomos donadores unidos directamente al átomo o ion central. (En un cristal: número de vecinos más próximos.)',
+ {e:'[Cu(NH₃)₄]²⁺: 4; [Fe(CN)₆]⁴⁻: 6; en el NaCl cada ion tiene 6.',r:['ligando','red']});
+
+/* ---- Cantidades y disoluciones ---- */
+G('mol','Mol','ca','Cantidad de sustancia con 6.02214076 × 10²³ entidades. La masa molar (g/mol) coincide numéricamente con la masa atómica (u).',
+ {e:'1 mol de H₂O = 6.022 × 10²³ moléculas ≈ 18.015 g.',x:'El mol no es una masa ni un volumen: es una cantidad de entidades (átomos, moléculas, iones…).',u:'Desde 2019 el SI lo define fijando el número de Avogadro; antes se definía como los átomos que hay en 12 g de ¹²C.',r:['avogadro','masamolar','estequio']});
+G('avogadro','Número de Avogadro','ca','Cantidad de entidades en un mol: N_A = 6.02214076 × 10²³ mol⁻¹.',
+ {u:'Es exacto por definición desde 2019. Lleva el nombre de Avogadro por su hipótesis de 1811; Perrin determinó su valor a principios del siglo XX.',r:['mol','masamolar']});
+G('masamolar','Masa molar','ca','Masa de un mol de sustancia (g/mol). Numéricamente coincide con la masa atómica o molecular en u.',
+ {e:'H₂O: 2(1.008) + 15.999 = 18.015 g/mol.',r:['mol','masaat','pcomp']});
+G('leycons','Ley de conservación de la masa','ca','En una reacción química, la masa total de los reactivos es igual a la de los productos (Lavoisier, 1789).',
+ {u:'En reacciones químicas el cambio de masa por E = mc² es del orden de una parte en mil millones, imperceptible; en las nucleares sí importa.',r:['ecuacion','dalton','defmasa']});
+G('ecuacion','Ecuación química balanceada','ca','Representación de una reacción con fórmulas y coeficientes; tiene el mismo número de átomos de cada elemento y la misma carga en ambos lados.',
+ {e:'2 H₂ + O₂ → 2 H₂O.',x:'Al balancear solo se cambian coeficientes, nunca los subíndices.',r:['leycons','estequio']});
+G('estequio','Estequiometría','ca','Cálculo de cantidades de reactivos y productos a partir de los coeficientes de la ecuación balanceada.',
+ {e:'2 H₂ + O₂ → 2 H₂O: 4 g de H₂ (2 mol) producen 2 mol de agua ≈ 36 g.',u:'Ruta general: gramos → mol (con la masa molar) → mol del otro (con los coeficientes) → gramos.',r:['mol','reactlim','rendim']});
+G('reactlim','Reactivo limitante','ca','El reactivo que se agota primero y determina cuánto producto se forma. El otro está en exceso.',
+ {e:'Con 5 mol de H₂ y 2 mol de O₂ (2 H₂ + O₂ → 2 H₂O): el O₂ es el limitante y se forman 4 mol de H₂O (sobra 1 mol de H₂).',r:['estequio','rendim']});
+G('rendim','Rendimiento de reacción','ca','Rendimiento porcentual = (producto real / producto teórico) × 100. El teórico lo da la estequiometría; el real se mide.',
+ {x:'No puede superar el 100 %; si lo hace, el producto está impuro o húmedo.',r:['estequio','reactlim']});
+G('pcomp','Composición porcentual','ca','Porcentaje en masa de cada elemento en un compuesto: (masa del elemento en 1 mol / masa molar) × 100.',
+ {e:'H₂O: H 11.19 %, O 88.81 %.',r:['masamolar','fempir']});
+G('disolucion','Disolución, soluto y disolvente','ca','Mezcla homogénea. El disolvente es el componente que está en mayor cantidad; el soluto, el que se disuelve.',
+ {e:'En agua salada: NaCl (soluto) y H₂O (disolvente).',u:'La solubilidad es la máxima cantidad de soluto que se disuelve en cierta cantidad de disolvente a una temperatura dada (disolución saturada). «Lo semejante disuelve a lo semejante».',r:['molaridad','molalidad','polmol']});
+G('molaridad','Molaridad (M)','ca','Moles de soluto por litro de disolución: M = n / V.',
+ {e:'0.50 mol de NaCl en 250 mL de disolución → M = 2.0 mol/L.',x:'Son litros de disolución, no de disolvente.',r:['molalidad','dilucion','mol']});
+G('molalidad','Molalidad (m)','ca','Moles de soluto por kilogramo de disolvente. No cambia con la temperatura.',
+ {e:'1.0 mol de glucosa en 500 g de agua → 2.0 mol/kg.',u:'Es la que se usa en las propiedades coligativas (ΔT_eb = K_b · m · i).',r:['molaridad','disolucion']});
+G('dilucion','Dilución','ca','Disminución de la concentración al añadir disolvente: la cantidad de soluto no cambia, por lo que M₁V₁ = M₂V₂.',
+ {e:'Para pasar 50 mL de 2.0 M a 0.5 M: V₂ = (2.0 × 50)/0.5 = 200 mL (se añaden 150 mL de agua).',x:'Al diluir ácidos, se añade el ácido al agua, nunca al revés.',r:['molaridad','mol']});
+
 /* ===== lecciones ===== */
 const TL1=[['1803','Dalton: átomos como esferas','Propone que la materia está formada por átomos indivisibles, iguales entre sí para cada elemento.'],
 ['1897','Thomson: el electrón','Con tubos de rayos catódicos descubre partículas negativas mucho más ligeras que cualquier átomo.'],
@@ -2533,12 +2943,38 @@ const uni=()=>LST.lvl=='uni';
 const LC={id:null,step:0,stop:[],after:[]};
 /* ---- glosario ---- */
 const gx=h=>String(h).replace(/\[\[(\w+)(?:\|([^\]]+))?\]\]/g,(m,k,t)=>GL[k]?`<button class="gl" data-g="${k}" aria-haspopup="dialog">${t||GL[k][0]}</button>`:(t||k));
-document.body.insertAdjacentHTML('beforeend','<div id="gdl" hidden role="dialog" aria-modal="true" aria-labelledby="gdt"><div class="mdc"><h3 id="gdt"></h3><p class="mde" id="gdd"></p><div class="mdb"><button class="btn pri" id="gdk">Entendido</button></div></div></div>');
-const gdl=$('#gdl');let gprev=null;
-const gClose=()=>{gdl.hidden=true;gprev&&gprev.focus&&gprev.focus();gprev=null};
-const gOpen=k=>{if(!GL[k])return;gprev=document.activeElement;$('#gdt').textContent=GL[k][0];$('#gdd').innerHTML=GL[k][1];gdl.hidden=false;$('#gdk').focus();if(!LST.gl[k]){LST.gl[k]=1;saveL();const c=$('#gct');c&&(c.textContent=Object.keys(LST.gl).length+' de '+Object.keys(GL).length+' vistos')}if(window.hap)hap('tap')};
-$('#gdk').onclick=gClose;gdl.addEventListener('click',ev=>{if(ev.target===gdl)gClose()});
-gdl.addEventListener('keydown',ev=>{if(ev.key=='Escape'){ev.stopPropagation();gClose()}else if(ev.key=='Tab'){ev.preventDefault();$('#gdk').focus()}});
+/* ---- glosario v2: ventana de detalle ---- */
+const ESC=t=>String(t).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+const CHK='<path d="M5 12.5l4.2 4.2L19 7"/>',gcat=id=>GC.find(c=>c[0]==id);
+document.body.insertAdjacentHTML('beforeend','<div id="gdl" hidden role="dialog" aria-modal="true" aria-labelledby="gdt"><div class="mdc"><div class="gdh"><span class="gdcat" id="gdc"></span><span class="gdtag" id="gdg" hidden>Ampliación</span><span class="gdsn" id="gds" hidden>'+SV(CHK)+'Visto</span><button class="gdq" id="gdq" aria-label="Cerrar">'+SV('<path d="M6 6l12 12M18 6L6 18"/>')+'</button></div><div class="gdb" id="gdbd"><h3 id="gdt"></h3><p class="gdd" id="gdd"></p><div id="gdex"></div><div class="gdr" id="gdr" hidden></div></div><div class="gdf"><button class="btn" id="gdp" aria-label="Término anterior">'+SV('<path d="M15 5l-7 7 7 7"/>')+'</button><button class="btn pri" id="gdk">Entendido</button><button class="btn" id="gdn" aria-label="Término siguiente">'+SV('<path d="M9 5l7 7-7 7"/>')+'</button></div></div></div>');
+const gdl=$('#gdl');let gprev=null,gCtx=[],gCur=null;
+const gSeen=()=>Object.keys(LST.gl).filter(k=>GL[k]).length;
+const RING=138.23;
+const gStat=()=>{const t=Object.keys(GL).length,s=gSeen(),c=$('#gct');if(c)c.textContent=s+' de '+t+' vistos';const f=$('#gring .fg');if(f)f.style.strokeDashoffset=String(RING*(1-s/t));const n=$('#gringn');if(n)n.textContent=Math.round(s/t*100)+'%'};
+const gClose=()=>{gdl.hidden=true;gCur=null;gprev&&gprev.focus&&gprev.focus();gprev=null};
+const gShow=k=>{const[n,d,o]=GL[k],c=gcat(o.c),was=!!LST.gl[k];gCur=k;
+ gdl.style.setProperty('--gc',c[2]);$('#gdc').innerHTML=SV(c[3])+c[1];
+ $('#gdg').hidden=!o.a;$('#gds').hidden=!was;$('#gdt').textContent=n;$('#gdd').innerHTML=d;
+ const bx=[];if(o.e)bx.push(['e','Ejemplo',o.e]);if(o.x)bx.push(['x','Ojo',o.x]);if(o.u&&uni())bx.push(['u','Nivel universidad',o.u]);
+ $('#gdex').innerHTML=bx.map(b=>`<div class="gdbox ${b[0]}"><small>${b[1]}</small>${b[2]}</div>`).join('');
+ const r=(o.r||[]).filter(x=>GL[x]),R=$('#gdr');R.hidden=!r.length;
+ R.innerHTML=r.length?'<small>Relacionados</small><div class="gdrc">'+r.map(x=>`<button class="chip gdrl" data-g="${x}" style="--gc:${gcat(GL[x][2].c)[2]}">${GL[x][0]}</button>`).join('')+'</div>':'';
+ const i=gCtx.indexOf(k),p=$('#gdp'),nx=$('#gdn');p.hidden=nx.hidden=i<0;p.disabled=i<1;nx.disabled=i<0||i>=gCtx.length-1;
+ const bd=$('#gdbd');bd.scrollTop=0;bd.classList.remove('swap');void bd.offsetWidth;bd.classList.add('swap');
+ if(!was){LST.gl[k]=1;saveL()}
+ $$('.gt[data-g="'+k+'"]').forEach(e=>e.classList.add('seen'));gStat()};
+const gOpen=(k,ctx)=>{if(!GL[k])return;if(ctx)gCtx=ctx;else if(gdl.hidden)gCtx=[];
+ if(gdl.hidden){gprev=document.activeElement;gdl.hidden=false}
+ gShow(k);$('#gdk').focus();if(window.hap)hap('tap')};
+$('#gdk').onclick=gClose;$('#gdq').onclick=gClose;
+$('#gdp').onclick=()=>{const i=gCtx.indexOf(gCur);if(i>0)gOpen(gCtx[i-1])};
+$('#gdn').onclick=()=>{const i=gCtx.indexOf(gCur);if(i>=0&&i<gCtx.length-1)gOpen(gCtx[i+1])};
+gdl.addEventListener('click',ev=>{if(ev.target===gdl)return gClose();const b=ev.target.closest('.gdrl');if(b)gOpen(b.dataset.g)});
+gdl.addEventListener('keydown',ev=>{const k=ev.key;
+ if(k=='Escape'){ev.stopPropagation();gClose()}
+ else if(k=='ArrowLeft'&&!$('#gdp').hidden&&!$('#gdp').disabled){ev.preventDefault();$('#gdp').click()}
+ else if(k=='ArrowRight'&&!$('#gdn').hidden&&!$('#gdn').disabled){ev.preventDefault();$('#gdn').click()}
+ else if(k=='Tab'){const f=[...gdl.querySelectorAll('button:not([disabled]):not([hidden])')],i=f.indexOf(document.activeElement);ev.preventDefault();f[(i+(ev.shiftKey?-1:1)+f.length)%f.length].focus()}});
 document.addEventListener('click',ev=>{const b=ev.target.closest('button.gl');if(b)gOpen(b.dataset.g)});
 /* ---- generadores de práctica libre ---- */
 const nz=n=>String(+n.toFixed(2));
@@ -2636,10 +3072,10 @@ function renderLesson(keep){
  stopAll(LC.stop);LC.after=[];
  LST.at[L.id]=Math.max(LST.at[L.id]||0,si);LST.last={id:L.id,step:si};saveL();
  const root=$('#lsn');
- root.innerHTML=`<div class="card ltop"><div class="row"><button class="btn" id="lback">${SV('<path d="M15 5l-7 7 7 7"/>')} Aprender</button><span class="chip">${M.t} · ${L.n} de ${LES.filter(x=>x.m==L.m).length}</span><span class="mu sm">${L.min} min</span><span class="chips lvl" style="margin-left:auto"><button class="chip${uni()?'':' on'}" data-l="prepa">Prepa</button><button class="chip${uni()?' on':''}" data-l="uni">Universidad</button></span></div><h2>${L.t}</h2><ul class="obj">${L.obj.map(o=>`<li>${o}</li>`).join('')}</ul><div class="lbar" role="tablist" aria-label="Pasos de la lección">${S.map((s,i)=>`<button role="tab" aria-selected="${i==si}" class="${i<=Math.max(si,LST.at[L.id])?'on':''}${i==si?' cur':''}" data-s="${i}"><i></i>${s.k}</button>`).join('')}</div></div><div class="card lbl" id="lbody"></div><div class="lnav"></div>`;
+ root.innerHTML=`<div class="card ltop"><div class="row"><button class="btn" id="lback">${SV('<path d="M15 5l-7 7 7 7"/>')} Aprender</button><span class="chip">${M.t} · ${L.n} de ${LES.filter(x=>x.m==L.m).length}</span><span class="mu sm">${L.min} min</span><button class="chip lvb" data-go="a" style="margin-left:auto" title="Cambia tu nivel en Acerca de">${SV(LVI[uni()?'uni':'prepa'])}Nivel: ${uni()?'Universidad':'Prepa'}</button></div><h2>${L.t}</h2><ul class="obj">${L.obj.map(o=>`<li>${o}</li>`).join('')}</ul><div class="lbar" role="tablist" aria-label="Pasos de la lección">${S.map((s,i)=>`<button role="tab" aria-selected="${i==si}" class="${i<=Math.max(si,LST.at[L.id])?'on':''}${i==si?' cur':''}" data-s="${i}"><i></i>${s.k}</button>`).join('')}</div></div><div class="card lbl" id="lbody"></div><div class="lnav"></div>`;
  const body=$('#lbody'),ctx={L,si,key:'',hid:0,stop:LC.stop,after:LC.after};
  S[si].b.forEach((b,bi)=>{ctx.key=`${L.id}:${si}:${bi}`;const n=blk(b,ctx);if(n)body.appendChild(n)});
- if(ctx.hid){const t=mk('div','mu sm',`Hay ${ctx.hid} bloque(s) de ampliación para nivel universidad. <button class="chip" id="lup">Mostrarlos</button>`);body.appendChild(t)}
+ if(ctx.hid){const t=mk('div','mu sm',`Hay ${ctx.hid} bloque(s) de ampliación para nivel universidad. <button class="chip lvb" data-go="a">Cambiar a Universidad en Acerca de</button>`);body.appendChild(t)}
  const nav=root.querySelector('.lnav');
  nav.innerHTML=`<button class="btn" id="lprev"${si==0?' disabled':''}>← ${si?S[si-1].k:'Anterior'}</button><button class="btn pri" id="lnext">${si<S.length-1?'Siguiente: '+S[si+1].k+' →':'Terminar lección ✓'}</button>`;
  LC.after.forEach(f=>f());
@@ -2658,8 +3094,6 @@ $('#lsn').addEventListener('click',ev=>{
  const t=ev.target;
  if(t.closest('#lback,#lback2'))return go('l');
  const o=t.closest('[data-open]');if(o)return openLesson(o.dataset.open,0);
- const lv=t.closest('.lvl .chip');if(lv){LST.lvl=lv.dataset.l;saveL();return renderLesson(true)}
- if(t.closest('#lup')){LST.lvl='uni';saveL();return renderLesson(true)}
  const sb=t.closest('.lbar button');if(sb){LC.step=+sb.dataset.s;return renderLesson()}
  if(t.closest('#lprev')){LC.step=Math.max(0,LC.step-1);return renderLesson()}
  if(t.closest('#lnext')){const L=lesOf(LC.id);if(LC.step<L.steps.length-1){LC.step++;renderLesson()}else finishLesson()}});
@@ -2668,18 +3102,40 @@ const stl=()=>{const e=$('#stl');if(e)e.textContent=Object.keys(LST.done).length
 function renderL(){
  const total=LES.length,dn=LES.filter(l=>LST.done[l.id]).length,cont=LST.last&&lesOf(LST.last.id);
  const first=LES.find(l=>!LST.done[l.id])||LES[0];
- $('#lrn').innerHTML=`<div class="card lhead"><div class="row"><div><h2 style="margin:0">Aprende química</h2><p class="mu sm" style="margin:4px 0 0">Cada lección tiene 5 pasos: <b>predice</b>, <b>explora</b>, <b>aprende</b>, mira un <b>ejemplo resuelto</b> y <b>practica</b>.</p></div><div class="chips lvl" role="group" aria-label="Nivel"><button class="chip${uni()?'':' on'}" data-l="prepa">Prepa</button><button class="chip${uni()?' on':''}" data-l="uni">Universidad</button></div></div><div class="meter" style="margin-top:12px"><i style="width:${dn/total*100}%"></i></div><div class="mu sm">${dn} de ${total} lecciones completadas · ${uni()?'Nivel universidad: con ampliaciones y matemática extra.':'Nivel prepa: lo esencial, sin ampliaciones.'}</div><div class="lcont"><button class="btn pri" data-open="${cont?cont.id:first.id}" data-step="${cont?LST.last.step:''}">${cont?`Continuar: ${cont.t} (paso ${LST.last.step+1})`:dn?'Seguir: '+first.t:'Empezar: '+first.t}</button></div></div>`+
+ $('#lrn').innerHTML=`<div class="card lhead"><div class="row"><div><h2 style="margin:0">Aprende química</h2><p class="mu sm" style="margin:4px 0 0">Cada lección tiene 5 pasos: <b>predice</b>, <b>explora</b>, <b>aprende</b>, mira un <b>ejemplo resuelto</b> y <b>practica</b>.</p></div><button class="chip lvb" data-go="a" title="Cambia tu nivel en Acerca de">${SV(LVI[uni()?'uni':'prepa'])}Nivel: ${uni()?'Universidad':'Prepa'} · cambiar</button></div><div class="meter" style="margin-top:12px"><i style="width:${dn/total*100}%"></i></div><div class="mu sm">${dn} de ${total} lecciones completadas · ${uni()?'Nivel universidad: con ampliaciones y matemática extra.':'Nivel prepa: lo esencial, sin ampliaciones.'}</div><div class="lcont"><button class="btn pri" data-open="${cont?cont.id:first.id}" data-step="${cont?LST.last.step:''}">${cont?`Continuar: ${cont.t} (paso ${LST.last.step+1})`:dn?'Seguir: '+first.t:'Empezar: '+first.t}</button></div></div>`+
  `<div class="mods">${MODS.map(m=>{const ls=LES.filter(l=>l.m==m.id),d=ls.filter(l=>LST.done[l.id]).length;return`<div class="card mcard"><div class="mh"><span class="mi">${SV(m.ic)}</span><div><h3>${m.t}</h3><p class="mu sm" style="margin:0">${m.d}</p></div></div><div class="meter"><i style="width:${d/ls.length*100}%"></i></div><div class="lsl">${ls.map(l=>`<button class="lbtn${LST.done[l.id]?' done':''}" data-open="${l.id}"><span class="ln">${LST.done[l.id]?'✓':l.n}</span><span><b>${l.t}</b><small>${l.min} min · ${lstate(l)}</small></span><span class="go">›</span></button>`).join('')}</div></div>`}).join('')}</div>`+
- `<h3 class="sec">Glosario</h3><div class="card"><div class="row" style="justify-content:space-between"><span class="mu sm">Toca un término para ver su definición. Los términos subrayados con puntos en las lecciones abren la misma ventana.</span><span class="chip" id="gct">${Object.keys(LST.gl).length} de ${Object.keys(GL).length} vistos</span></div><input type="search" class="lsin" id="gsq" placeholder="Buscar término…" aria-label="Buscar en el glosario" style="margin-top:10px"><div class="glist" id="gsl"></div></div>`+
+ `<h3 class="sec" id="glos">Glosario</h3><div class="card gcard" id="gcard"></div>`+
  `<h3 class="sec">Ruta completa de química general</h3><div class="card"><p class="mu sm" style="margin-top:0">Dos módulos ya están completos; el resto de la ruta se irá abriendo. Mientras tanto, los laboratorios de abajo cubren varios temas.</p><div class="road">${ROAD.map((r,i)=>`<div class="rd"><span class="rn">${i+1}</span><span><b>${r[0]}</b><small>${r[1]}</small></span>${r[2]?`<button class="chip" data-go="${r[2].slice(4)}">Abrir laboratorio</button>`:'<span class="chip soon">Próximamente</span>'}</div>`).join('')}</div></div>`;
- gFill('')}
-const gFill=q=>{q=lc(q.trim());const ks=Object.keys(GL).sort((a,b)=>GL[a][0].localeCompare(GL[b][0],'es')).filter(k=>!q||lc(GL[k][0]).includes(q)||lc(GL[k][1]).includes(q));
- const box=$('#gsl');if(box)box.innerHTML=ks.length?ks.map(k=>`<button class="chip gl2" data-g="${k}">${GL[k][0]}</button>`).join(''):'<span class="mu sm">Ningún término coincide.</span>'};
-$('#lrn').addEventListener('click',ev=>{
- const t=ev.target,lv=t.closest('.lvl .chip');if(lv){LST.lvl=lv.dataset.l;saveL();return renderL()}
+ gShell()}
+/* ---- glosario v2: tarjeta en Aprender ---- */
+const GS={q:'',c:'all',f:'all',n:24};let gKeysNow=[];
+const hl=(n,q)=>{if(!q)return n;const a=noA(n);if(a.length!=n.length)return n;const i=a.indexOf(q);return i<0?n:n.slice(0,i)+'<mark>'+n.slice(i,i+q.length)+'</mark>'+n.slice(i+q.length)};
+const gKeys=()=>{const q=noA(GS.q.trim()),rk=k=>{const a=noA(GL[k][0]);return a.startsWith(q)?0:a.includes(q)?1:2};
+ const ks=Object.keys(GL).filter(k=>{const[n,d,o]=GL[k];if(GS.c!='all'&&o.c!=GS.c)return false;if(GS.f=='new'&&LST.gl[k])return false;if(GS.f=='seen'&&!LST.gl[k])return false;
+  return !q||noA(n).includes(q)||noA(d.replace(/<[^>]+>/g,'')).includes(q)||(o.e&&noA(o.e).includes(q))});
+ return ks.sort((a,b)=>q?rk(a)-rk(b)||GL[a][0].localeCompare(GL[b][0],'es'):GL[a][0].localeCompare(GL[b][0],'es'))};
+const gTod=()=>{const box=$('#gtod');if(!box)return;if(GS.q.trim()){box.innerHTML='';return}
+ const ks=Object.keys(GL),k=ks[Math.floor(Date.now()/864e5)%ks.length],c=gcat(GL[k][2].c);
+ box.innerHTML=`<button class="gtod" data-gtod="${k}" style="--gc:${c[2]}"><span class="gtd-i">${SV(c[3])}</span><span><small>Término del día</small><b>${GL[k][0]}</b></span><span class="gtd-a">${SV('<path d="M9 5l7 7-7 7"/>')}</span></button>`};
+const gList=()=>{const box=$('#gsl');if(!box)return;const ks=gKeys(),q=noA(GS.q.trim()),filt=!!q||GS.c!='all'||GS.f!='all',show=filt?ks:ks.slice(0,GS.n);gKeysNow=ks;
+ box.innerHTML=show.length?show.map((k,i)=>{const[n,d,o]=GL[k],c=gcat(o.c);return`<button class="gt${LST.gl[k]?' seen':''}" role="listitem" data-g="${k}" style="--gc:${c[2]};--i:${i%14}"><b>${hl(n,q)}${o.a?'<em class="ga">Ampliación</em>':''}</b><span>${ESC(d.replace(/<[^>]+>/g,''))}</span><i class="ck">${SV(CHK)}</i></button>`}).join(''):`<div class="gempty">Ningún término coincide. ${GS.f!='all'?'Prueba con «Todos».':'Revisa la ortografía o busca otra palabra.'}</div>`;
+ const rest=filt?0:ks.length-show.length;$('#gmore').innerHTML=rest>0?`<button class="btn" id="gmb">Mostrar ${Math.min(rest,24)} más <span class="mu">· quedan ${rest}</span></button>`:''};
+const gShell=()=>{const tot=Object.keys(GL).length,cats=GC.map(c=>[c,Object.values(GL).filter(v=>v[2].c==c[0]).length]);
+ $('#gcard').innerHTML=`<div class="gtop"><span class="gico">${SV('<path d="M4 4.5A1.5 1.5 0 0 1 5.5 3H20v15H5.5A1.5 1.5 0 0 0 4 19.5z"/><path d="M4 19.5A1.5 1.5 0 0 0 5.5 21H20v-3"/><path d="M9 8h6M9 12h4"/>')}</span><div class="gtt"><h3>Glosario de química</h3><p class="mu sm">${tot} términos con ejemplos y errores comunes${uni()?', más las ampliaciones de nivel universidad':''}. Los subrayados con puntos en las lecciones abren esta misma ventana.</p><span class="chip" id="gct"></span></div><div class="gring" id="gring" aria-hidden="true"><svg viewBox="0 0 54 54"><circle class="bg" cx="27" cy="27" r="22"/><circle class="fg" cx="27" cy="27" r="22" stroke-dasharray="${RING}" stroke-dashoffset="${RING}" stroke-linecap="round"/></svg><b id="gringn"></b></div></div>
+ <div class="gbar"><label class="gsearch"><span class="gsr">Buscar en el glosario</span>${SV('<circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/>')}<input type="search" id="gsq" placeholder="Buscar término o idea…" autocomplete="off" value="${ESC(GS.q).replace(/"/g,'&quot;')}"><button class="gclr" id="gclr" aria-label="Borrar búsqueda"${GS.q?'':' hidden'}>${SV('<path d="M6 6l12 12M18 6L6 18"/>')}</button></label><div class="gseg" role="group" aria-label="Filtrar por estado">${[['all','Todos'],['new','Sin ver'],['seen','Vistos']].map(([k,l])=>`<button data-gf="${k}" class="${GS.f==k?'on':''}">${l}</button>`).join('')}</div></div>
+ <div class="gcats" role="group" aria-label="Categorías"><button class="gcat${GS.c=='all'?' on':''}" data-gc="all"><b>Todos</b><em>${tot}</em></button>${cats.map(([c,n])=>`<button class="gcat${GS.c==c[0]?' on':''}" data-gc="${c[0]}" style="--gc:${c[2]}">${SV(c[3])}${c[1]}<em>${n}</em></button>`).join('')}</div>
+ <div id="gtod"></div><div class="ggrid" id="gsl" role="list"></div><div class="gmore" id="gmore"></div>`;
+ gStat();gTod();gList()};
+
+$('#lrn').addEventListener('click',ev=>{const t=ev.target;
  const o=t.closest('[data-open]');if(o)return openLesson(o.dataset.open,o.dataset.step===''||o.dataset.step==null?undefined:+o.dataset.step);
- const g=t.closest('.gl2');if(g)return gOpen(g.dataset.g)});
-$('#lrn').addEventListener('input',ev=>{if(ev.target.id=='gsq')gFill(ev.target.value)});
+ const gt=t.closest('.gt');if(gt)return gOpen(gt.dataset.g,gKeysNow.slice());
+ const gd=t.closest('[data-gtod]');if(gd)return gOpen(gd.dataset.gtod,[]);
+ const gc=t.closest('[data-gc]');if(gc){GS.c=gc.dataset.gc;GS.n=24;$$('#lrn .gcat').forEach(b=>b.classList.toggle('on',b==gc));gList();return gc.scrollIntoView({inline:'center',block:'nearest',behavior:'smooth'})}
+ const gf=t.closest('[data-gf]');if(gf){GS.f=gf.dataset.gf;GS.n=24;$$('#lrn .gseg button').forEach(b=>b.classList.toggle('on',b==gf));return gList()}
+ if(t.closest('#gmb')){GS.n+=24;return gList()}
+ if(t.closest('#gclr')){GS.q='';const i=$('#gsq');i.value='';$('#gclr').hidden=true;GS.n=24;gTod();gList();return i.focus()}});
+$('#lrn').addEventListener('input',ev=>{if(ev.target.id=='gsq'){GS.q=ev.target.value;GS.n=24;$('#gclr').hidden=!GS.q;gTod();gList()}});
 /* ---- navegación ---- */
 TIT.n='Lección';GRP.n='l';
 const _s9=show2;show2=function(t){const r=_s9.apply(this,arguments);
@@ -2689,9 +3145,49 @@ const _s9=show2;show2=function(t){const r=_s9.apply(this,arguments);
 TL.l[1]='Lecciones guiadas, glosario y práctica';TL.m[1]='Seis modelos del átomo y la notación de Lewis.';
 document.querySelectorAll('.tile[data-go="m"] .mu').forEach(e=>e.textContent=TL.m[1]);
 {const h=[...$('#hx').querySelectorAll('h3.sec')].find(x=>/Explorar y aprender/.test(x.textContent));
- if(h)h.insertAdjacentHTML('beforebegin','<h3 class="sec">Lecciones guiadas</h3>'+tiles(['l']))}
-renderL();stl();
+ if(h)h.insertAdjacentHTML('beforebegin','<h3 class="sec">Aprender</h3><div id="hl"></div>')}
+/* ---- nivel de estudios: configuración inicial y cambio en «Acerca de» ---- */
+const LVI={prepa:'<path d="M3 5.5C5 4 8.5 4 12 6c3.5-2 7-2 9-.5V19c-2-1.5-5.5-1.5-9 .5-3.5-2-7-2-9-.5z"/><path d="M12 6v13.5"/>',uni:'<path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11.5V16c0 1.5 3 3 6 3s6-1.5 6-3v-4.5"/><path d="M22 9v6"/>'};
+const LVN={prepa:['Preparatoria','Lo esencial, con ejemplos claros y sin matemática extra.'],uni:['Universidad','Incluye ampliaciones, fórmulas y más rigor matemático.']};
+const lvPaint=()=>{$$('#lvsel button').forEach(b=>b.setAttribute('aria-checked',b.dataset.l==LST.lvl));const n=$('#lvn');if(n)n.textContent='Se aplica a las lecciones y al glosario. Nivel actual: '+LVN[LST.lvl][0]+'.'};
+const setLvl=l=>{LST.lvl=l=='uni'?'uni':'prepa';LST.lvlSet=1;saveL();lvPaint();renderL();renderHL&&renderHL()};
+{const t=$('#thm');if(t)t.insertAdjacentHTML('afterend','<h3 style="margin:14px 0 6px" id="lvh">Nivel de estudios</h3><div class="lvseg" id="lvsel" role="radiogroup" aria-labelledby="lvh">'+['prepa','uni'].map(l=>`<button role="radio" aria-checked="false" data-l="${l}">${SV(LVI[l])}<span>${LVN[l][0]}<small>${LVN[l][1]}</small></span></button>`).join('')+'</div><p class="mu sm" id="lvn" style="margin:6px 0 0"></p>');
+ const s=$('#lvsel');if(s)s.addEventListener('click',ev=>{const b=ev.target.closest('button[data-l]');if(!b||b.dataset.l==LST.lvl)return;setLvl(b.dataset.l);toast('Nivel: '+LVN[LST.lvl][0]);if(window.hap)hap('tap')})}
+lvPaint();
+document.addEventListener('click',ev=>{if(ev.target.closest('.lvb'))setTimeout(()=>{const s=$('#lvsel');s&&s.scrollIntoView({block:'center',behavior:'smooth'})},80)});
+document.body.insertAdjacentHTML('beforeend','<div id="lvm" hidden role="dialog" aria-modal="true" aria-labelledby="lvt" aria-describedby="lvd"><div class="mdc"><div class="mde" aria-hidden="true">'+SV('<circle cx="12" cy="12" r="2"/><ellipse cx="12" cy="12" rx="9" ry="3.5"/><ellipse cx="12" cy="12" rx="9" ry="3.5" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9" ry="3.5" transform="rotate(120 12 12)"/>')+'</div><h3 id="lvt">¡Bienvenido a LabQuimWeb!</h3><p id="lvd">Cuéntanos qué estudias y ajustaremos las lecciones y el glosario a tu nivel.</p><div class="lvopts" role="radiogroup" aria-label="Nivel de estudios">'+['prepa','uni'].map(l=>`<button class="lvo" role="radio" aria-checked="false" data-l="${l}"><span class="lvi">${SV(LVI[l])}</span><span><b>${LVN[l][0]}</b><small>${LVN[l][1]}</small></span><i class="lvck">${SV(CHK)}</i></button>`).join('')+'</div><button class="btn pri" id="lvk" disabled>Elige tu nivel para empezar</button><p class="mu sm lvf">Podrás cambiarlo después en <b>Acerca de</b> › <b>Nivel de estudios</b>.</p></div></div>');
+{const lvm=$('#lvm'),ks=$('#lvk');let sel=null;
+ const pick=b=>{sel=b.dataset.l;lvm.querySelectorAll('.lvo').forEach(x=>x.setAttribute('aria-checked',x==b));ks.disabled=false;ks.textContent='Empezar con '+LVN[sel][0].toLowerCase();if(window.hap)hap('tap')};
+ lvm.addEventListener('click',ev=>{const o=ev.target.closest('.lvo');if(o)pick(o)});
+ ks.onclick=()=>{if(!sel)return;lvm.hidden=true;setLvl(sel);toast('Nivel: '+LVN[sel][0]+' · cámbialo en Acerca de')};
+ lvm.addEventListener('keydown',ev=>{const k=ev.key;if(k=='Escape'){ev.preventDefault();ev.stopPropagation();return}
+  const os=[...lvm.querySelectorAll('.lvo')];
+  if(['ArrowDown','ArrowRight','ArrowUp','ArrowLeft'].includes(k)&&os.includes(document.activeElement)){ev.preventDefault();const i=os.indexOf(document.activeElement),j=(i+(k=='ArrowDown'||k=='ArrowRight'?1:-1)+os.length)%os.length;os[j].focus();pick(os[j])}
+  else if(k=='Tab'){const f=[...lvm.querySelectorAll('button:not([disabled])')],i=f.indexOf(document.activeElement);ev.preventDefault();f[(i+(ev.shiftKey?-1:1)+f.length)%f.length].focus()}});
+ if(!LST.lvlSet)setTimeout(()=>{lvm.hidden=false;const o=lvm.querySelector('.lvo');o&&o.focus()},450)}
+/* ---- inicio: qué ofrece Aprender ---- */
+const renderHL=()=>{const h=$('#hl');if(!h)return;
+ const total=LES.length,dn=LES.filter(l=>LST.done[l.id]).length,cont=LST.last&&lesOf(LST.last.id),first=LES.find(l=>!LST.done[l.id])||LES[0],tg=Object.keys(GL).length;
+ const lab=cont?`Continuar: ${cont.t} (paso ${LST.last.step+1})`:dn?'Seguir: '+first.t:'Empezar: '+first.t;
+ h.innerHTML=`<div class="card lhm"><div class="lhm-t"><div class="lhm-art" aria-hidden="true"><svg class="lhm-svg" viewBox="0 0 96 96"><defs><linearGradient id="lhg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" style="stop-color:var(--ac)"/><stop offset="1" style="stop-color:var(--ac2)"/></linearGradient></defs><path d="M8 60c10-6 25-6 40 2 15-8 30-8 40-2v20c-10-6-25-6-40 2-15-8-30-8-40-2z" fill="url(#lhg)" opacity=".92"/><path d="M48 62v20" stroke="#fff" stroke-opacity=".55" stroke-width="2"/><g class="lhm-orb"><ellipse cx="48" cy="32" rx="24" ry="9" fill="none" stroke="url(#lhg)" stroke-width="2"/><ellipse cx="48" cy="32" rx="24" ry="9" fill="none" stroke="url(#lhg)" stroke-width="2" transform="rotate(60 48 32)"/><ellipse cx="48" cy="32" rx="24" ry="9" fill="none" stroke="url(#lhg)" stroke-width="2" transform="rotate(120 48 32)"/><circle cx="72" cy="32" r="3" style="fill:var(--ac2)"/></g><circle cx="48" cy="32" r="5" fill="url(#lhg)"/></svg></div><div><h3>Aprende química paso a paso</h3><p class="mu sm">Lecciones guiadas con simulaciones, ejemplos resueltos y práctica, más un glosario con ${tg} términos. Todo se adapta a tu nivel.</p></div></div><div class="lhm-steps">${['Predice','Explora','Aprende','Ejemplo','Practica'].map((s,i)=>`<span style="--i:${i}"><i>${i+1}</i>${s}</span>`).join('')}</div><div class="lhm-st"><div><b>${dn}/${total}</b><span>lecciones</span></div><div><b>${gSeen()}/${tg}</b><span>términos vistos</span></div><div><b>${uni()?'Universidad':'Prepa'}</b><span>tu nivel</span></div></div><div class="meter"><i style="width:${dn/total*100}%"></i></div><div class="lhm-a"><button class="btn pri" data-open="${cont?cont.id:first.id}" data-step="${cont?LST.last.step:''}">${lab}</button><button class="btn" data-go="l">Ver glosario y módulos</button></div></div>`};
+document.addEventListener('click',ev=>{const o=ev.target.closest('#hl [data-open]');if(o)openLesson(o.dataset.open,o.dataset.step===''||o.dataset.step==null?undefined:+o.dataset.step)});
+const _hp3=homeProg;homeProg=()=>{_hp3();renderHL()};
+renderL();stl();renderHL();
 
+
+})();
+
+/* ===== v19: cápsula de navegación en PC (indicador deslizante) ===== */
+(()=>{
+const bn=document.getElementById('bn');if(!bn)return;
+bn.insertAdjacentHTML('afterbegin','<i class="bnp" aria-hidden="true"></i>');
+const p=bn.querySelector('.bnp');
+const place=()=>{const on=bn.querySelector('button.on');if(!on||getComputedStyle(p).display=='none')return;p.style.width=on.offsetWidth+'px';p.style.transform='translateX('+on.offsetLeft+'px)'};
+const _s7=show2;show2=function(){const r=_s7.apply(this,arguments);place();return r};
+if('ResizeObserver' in window)new ResizeObserver(place).observe(bn);
+addEventListener('resize',place);
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(place);
+place();
 })();
 </script>
 </body></html>
