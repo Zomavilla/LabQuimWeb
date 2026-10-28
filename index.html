@@ -494,6 +494,149 @@ html.scr .hhero::before{animation-play-state:paused!important}
 body.fxt #tbw{margin-inline:auto}
 @media(max-height:520px) and (orientation:landscape){body.fxt .top{display:none}}
 .ctl input[type=range]{min-width:0}
+/* ===== v18: Aprender (lecciones, glosario, práctica) ===== */
+.lhead .row{justify-content:space-between;align-items:flex-end}
+.lhead h2{font-size:1.5rem}
+.lvl .chip{height:34px;padding:0 14px}
+.lcont{margin-top:10px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.mods{display:grid;gap:14px;margin-top:14px;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr))}
+.mcard{display:flex;flex-direction:column;gap:10px}
+.mcard .mh{display:flex;gap:12px;align-items:flex-start}
+.mcard .mi{flex:none;width:46px;height:46px;border-radius:14px;display:grid;place-items:center;color:#fff;background:linear-gradient(135deg,var(--ac),var(--ac2))}
+.mcard .mi svg{width:26px;height:26px}
+.mcard h3{margin:0 0 2px;font-size:1.1rem}
+.lbtn{display:flex;align-items:center;gap:10px;width:100%;text-align:left;padding:9px 12px;border-radius:12px;border:1px solid var(--bd);background:var(--pn2);transition:transform .3s var(--spring),border-color .25s}
+.lbtn:hover{transform:translateX(3px);border-color:var(--ac)}
+.lbtn .ln{flex:none;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-size:.78rem;font-weight:800;background:color-mix(in srgb,var(--ac) 16%,transparent);color:var(--ac)}
+.lbtn.done .ln{background:var(--ok);color:#fff}
+.lbtn b{display:block;font-size:.9rem}.lbtn small{color:var(--mu);font-size:.74rem}
+.lbtn .go{margin-left:auto;opacity:.5}
+.lsl{display:grid;gap:7px}
+/* glosario */
+.glist{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;max-height:240px;overflow:auto}
+.glist .chip{cursor:pointer}
+button.gl{display:inline;padding:0 1px;border:0;border-bottom:1.5px dotted var(--ac);background:none;color:inherit;font:inherit;font-weight:600;cursor:help;border-radius:2px}
+button.gl:hover{background:color-mix(in srgb,var(--ac) 16%,transparent)}
+#gdl{position:fixed;inset:0;z-index:126;display:grid;place-items:center;background:radial-gradient(circle at 50% 42%,color-mix(in srgb,var(--ac) 22%,#000a),#000d 72%);animation:vin .2s both}
+#gdl[hidden]{display:none}
+#gdl .mdc{text-align:left}
+#gdl .mde{margin:0 0 12px}
+#gdl h3{margin:0 0 6px}
+@media(max-width:600px){#gdl{place-items:end center;padding-bottom:max(12px,env(safe-area-inset-bottom))}}
+#lsn,#lrn{font-feature-settings:'cv08'}
+/* lección */
+#lsn{display:grid;gap:14px;max-width:860px;margin:0 auto}
+.ltop h2{font-size:1.5rem;margin:8px 0 4px}
+.ltop .row{justify-content:space-between}
+.obj{margin:8px 0 0;padding-left:20px;display:grid;gap:3px;font-size:.88rem;color:var(--mu)}
+.lbar{display:flex;gap:6px;margin-top:12px}
+.lbar button{flex:1;display:grid;gap:5px;border:0;background:none;padding:2px 0;text-align:center;font:inherit;font-size:.7rem;font-weight:700;color:var(--mu);cursor:pointer;min-width:0}
+.lbar button i{display:block;height:6px;border-radius:6px;background:var(--bd);transition:background .4s}
+.lbar button.on i{background:linear-gradient(90deg,var(--ac),var(--ac2))}
+.lbar button.cur{color:var(--fg)}
+.lbar button:focus-visible{outline:2px solid var(--ac);outline-offset:2px;border-radius:6px}
+.lbl{display:grid;gap:10px}
+.lbl>p{margin:0;line-height:1.55}
+.lh3{margin:6px 0 0!important;font-size:1.05rem}
+.lk{font-size:.98rem}
+.lwarn{border-left:4px solid var(--bad);padding:8px 12px;border-radius:0 10px 10px 0;background:color-mix(in srgb,var(--bad) 9%,transparent);font-size:.9rem;line-height:1.5}
+.lwarn b{color:var(--bad)}
+.lu{border:1px dashed color-mix(in srgb,var(--ac2) 55%,var(--bd));border-radius:14px;padding:12px;background:color-mix(in srgb,var(--ac2) 7%,transparent);display:grid;gap:10px}
+.lu>.ulab{font-size:.68rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--ac2)}
+.ltw{overflow:auto;border:1px solid var(--bd);border-radius:12px}
+.ltb{border-collapse:collapse;width:100%;font-size:.84rem}
+.ltb th,.ltb td{padding:7px 10px;text-align:left;border-bottom:1px solid var(--bd);vertical-align:top}
+.ltb th{background:var(--pn2);font-size:.76rem;color:var(--mu);font-weight:700}
+.ltb tr:last-child td{border-bottom:0}
+.lq{border:1px solid var(--bd);border-radius:14px;padding:12px;background:var(--pn2)}
+.lqt{margin-bottom:8px;line-height:1.5}
+.lq .opts{display:grid;gap:6px;margin:0}
+.lq .lopt{text-align:left;line-height:1.35;height:auto;padding:9px 12px;white-space:normal}
+.lq .lopt[disabled]{opacity:1;pointer-events:none}
+.lq .lopt:not(.ok):not(.bad)[disabled]{opacity:.55}
+.lfb{margin-top:8px;font-size:.88rem;line-height:1.5}
+.lfb:empty{display:none}
+.lfb .note{margin:0}
+.lex{border:1px solid color-mix(in srgb,var(--ac) 40%,var(--bd));border-radius:14px;padding:12px;background:color-mix(in srgb,var(--ac) 6%,transparent);display:grid;gap:8px}
+.lex p{margin:0}
+.lexs{margin:0;padding-left:22px;display:grid;gap:6px;line-height:1.5}
+.lexs li:not([hidden]){animation:rise .45s var(--ease) both}
+.lexr{padding:9px 12px;border-radius:10px;background:color-mix(in srgb,var(--ok) 14%,transparent);border:1px solid color-mix(in srgb,var(--ok) 45%,transparent);font-weight:600;animation:pop .45s var(--spring)}
+.lchk h3{margin:0 0 4px}.lchk{display:grid;gap:10px}
+.chkp{height:6px;border-radius:6px;background:var(--bd);overflow:hidden}.chkp i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--ac),var(--ac2));transition:width .5s var(--ease)}
+.lchr:empty{display:none}.lchr{padding:12px;border-radius:12px;border:1px solid var(--bd);background:var(--pn2);display:grid;gap:8px}
+.lnav{display:flex;gap:10px;justify-content:space-between;flex-wrap:wrap}
+.lnav .btn{flex:1 1 150px}
+/* notación nuclear apilada */
+.nt{display:inline-flex;flex-direction:column;font-size:.62em;line-height:1.05;text-align:right;vertical-align:middle;margin-right:1px;font-weight:700}
+.nt i{font-style:normal}
+/* simuladores */
+.lsim{border:1px solid var(--bd);border-radius:16px;overflow:hidden;background:var(--pn)}
+.lsh{padding:9px 14px;font-weight:800;font-size:.82rem;letter-spacing:.04em;text-transform:uppercase;color:var(--mu);border-bottom:1px solid var(--bd);background:var(--pn2)}
+.lsb{padding:12px;display:grid;gap:10px}
+.lsim .scene{border-radius:12px}
+.lsim svg{display:block;width:100%;height:auto}
+.lsim select{height:38px}
+.stp{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:6px 10px;border:1px solid var(--bd);border-radius:12px;background:var(--pn2)}
+.stp>div{display:flex;align-items:center;gap:8px}
+.stp .btn{width:34px;height:34px;padding:0;display:inline-grid;place-items:center}
+.stp b{min-width:28px;text-align:center;font-family:'Space Grotesk',Inter,sans-serif;font-size:1.1rem}
+.bld{display:grid;gap:10px}
+@media(min-width:720px){.bld{grid-template-columns:1.1fr 1fr;align-items:start}}
+.bout{display:grid;gap:6px;font-size:.88rem}
+.bout .big{font-size:1.6rem}
+.sx{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center}
+.lgd{display:flex;gap:12px;flex-wrap:wrap;font-size:.76rem;color:var(--mu)}
+.lgd i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;vertical-align:-1px}
+.vsr{display:grid;grid-template-columns:auto 1fr 1fr;gap:6px 10px;font-size:.86rem;align-items:center}
+.vsr .h{font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;color:var(--mu);font-weight:700}
+.vsr .w{font-weight:800;color:var(--ac)}
+.vsr .c{padding:6px 10px;border-radius:10px;background:var(--pn2);border:1px solid var(--bd);text-align:center}
+.vsr .c.w{border-color:var(--ac);background:color-mix(in srgb,var(--ac) 14%,transparent)}
+.tlv details{border:1px solid var(--bd);border-radius:12px;background:var(--pn2);margin:6px 0;overflow:hidden}
+.tlv summary{list-style:none;cursor:pointer;display:flex;gap:10px;align-items:center;padding:9px 12px;font-weight:700;font-size:.9rem}
+.tlv summary::-webkit-details-marker{display:none}
+.tlv summary .y{flex:none;min-width:62px;font-family:'Space Grotesk',Inter,sans-serif;color:var(--ac)}
+.tlv summary::after{content:'+';margin-left:auto;font-size:1.2rem;color:var(--mu)}
+.tlv details[open] summary::after{content:'−'}
+.tlv .tb{padding:0 12px 11px 84px;font-size:.86rem;line-height:1.5;color:var(--fg)}
+@media(max-width:520px){.tlv .tb{padding-left:12px}}
+
+.lsel,.lsin{height:40px;border-radius:12px;border:1px solid var(--bd);background:var(--pn2);color:var(--fg);padding:0 12px;font:inherit;max-width:100%}
+.lsin{width:100%}
+.lsim label{display:inline-flex;align-items:center;gap:8px;font-size:.88rem;font-weight:600}
+.lret{display:flex;gap:8px;align-items:baseline;font-size:.84rem;padding:3px 0;color:var(--mu)}
+.lret.ok{color:var(--ok);font-weight:700}
+.lwin{color:var(--ok);font-weight:700}
+.ibar{display:grid;grid-template-columns:72px 1fr;gap:4px 12px;align-items:center;margin:8px 0}
+.ibar .il{font-size:1.05rem}
+.ibar .it{height:14px;border-radius:7px;background:var(--bd);overflow:hidden}
+.ibar .it i{display:block;height:100%;border-radius:7px;background:linear-gradient(90deg,var(--ac),var(--ac2))}
+.ibar .iv{grid-column:2;display:grid;font-size:.88rem}
+.zt{display:grid;gap:4px;margin:8px 0}
+.zrow{display:grid;grid-template-columns:1fr auto auto;gap:10px;font-size:.84rem;padding:6px 10px;border-radius:10px;background:var(--pn2);border:1px solid var(--bd);align-items:center}
+.zrow>span:first-child{color:var(--mu)}
+.zbar{position:relative;display:flex;justify-content:space-between;align-items:center;height:30px;border-radius:10px;border:1px solid var(--bd);overflow:hidden;font-size:.78rem;font-weight:800;padding:0 10px;margin:6px 0;background:color-mix(in srgb,var(--ok) 22%,transparent)}
+.zbar i{position:absolute;left:0;top:0;bottom:0;background:color-mix(in srgb,var(--bad) 30%,transparent)}
+.zbar span{position:relative}
+.zones{position:relative;display:flex;height:12px;border-radius:7px;overflow:visible;margin:8px 0 6px}
+.zones i:nth-child(1){background:#22c55e;border-radius:7px 0 0 7px}.zones i:nth-child(2){background:#f59e0b}.zones i:nth-child(3){background:#f43f5e;border-radius:0 7px 7px 0}
+.zones b{position:absolute;top:-4px;width:6px;height:20px;border-radius:3px;background:var(--fg);transform:translateX(-50%);box-shadow:0 0 0 2px var(--bg)}
+.road{display:grid;gap:6px}
+.rd{display:flex;gap:10px;align-items:center;padding:8px 10px;border:1px solid var(--bd);border-radius:12px;background:var(--pn2)}
+.rd .rn{flex:none;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-size:.76rem;font-weight:800;background:color-mix(in srgb,var(--ac) 16%,transparent);color:var(--ac)}
+.rd b{display:block;font-size:.88rem}.rd small{color:var(--mu);font-size:.74rem}
+.rd .chip{margin-left:auto}
+.chip.soon{opacity:.55}
+.lgo{display:inline-flex;align-items:center;gap:8px}.lgo svg{width:18px;height:18px}
+.tpt{cursor:pointer}.tpt:focus-visible{outline:2px solid #fff}
+.lmcw .card{box-shadow:none}
+.bctl{display:grid;gap:10px;align-content:start}.bret{display:grid;gap:0}
+.dq p{font-size:1.05rem}
+.lsim .scene.sq{max-width:340px;width:100%;margin:0 auto}
+.big{font-family:'Space Grotesk',Inter,sans-serif;font-weight:700}
+@media(prefers-reduced-motion:reduce){.lexs li:not([hidden]),.lexr{animation:none}}
+
 </style></head>
 <body>
 <div class="bgfx" aria-hidden="true"><svg viewBox="-200 -200 400 400" fill="none"><g stroke="currentColor" stroke-opacity=".35" style="color:var(--ac)"><ellipse rx="190" ry="70"/><ellipse rx="190" ry="70" transform="rotate(60)"/><ellipse rx="190" ry="70" transform="rotate(120)"/></g></svg></div>
@@ -526,7 +669,7 @@ body.fxt #tbw{margin-inline:auto}
 </section>
 <!-- MODELOS -->
 <section id="v-m" class="view" hidden>
- <div class="card" style="margin-bottom:14px"><h2>Laboratorio de modelos atómicos</h2><p class="mu sm" style="margin:0 0 10px">Elige un elemento y compáralo en los siete modelos que ha tenido la ciencia, desde la esfera de Dalton hasta la nube cuántica. Toca un modelo para ver su historia.</p>
+ <div class="card" style="margin-bottom:14px"><h2>Laboratorio de modelos atómicos</h2><p class="mu sm" style="margin:0 0 10px">Elige un elemento y compáralo en seis modelos del átomo, desde la esfera de Dalton hasta la nube cuántica, y en la notación de Lewis (1916). Toca uno para ver su historia.</p>
  <div class="row"><select id="mz" aria-label="Elemento"></select><button class="btn" id="mpv" aria-label="Anterior"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button><button class="btn" id="mnx" aria-label="Siguiente"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button></div></div>
  <div class="lab" id="lab"></div>
  <div class="card" id="mdet" style="margin-top:14px"></div>
@@ -551,10 +694,11 @@ body.fxt #tbw{margin-inline:auto}
 <!-- RETO -->
 <section id="v-q" class="view" hidden><div id="quiz"></div></section>
 <section id="v-h" class="view" hidden>
- <div class="card"><div class="hv"><div><h2 class="h1">LabQuimWeb</h2><p>Tu laboratorio de química de bolsillo para preparatoria y universidad: explora la tabla, aprende con animaciones y practica con retos. Tu progreso se guarda en este dispositivo y la app funciona sin conexión.</p></div><div class="duo"><figure id="hu"><figcaption>Uranio: inestable, sus electrones vibran</figcaption></figure><figure id="ho"><figcaption>Oganesón: estable, solo gira</figcaption></figure></div></div></div>
+ <div class="card"><div class="hv"><div><h2 class="h1">LabQuimWeb</h2><p>Tu laboratorio de química de bolsillo para preparatoria y universidad: explora la tabla, aprende con animaciones y practica con retos. Tu progreso se guarda en este dispositivo y la app funciona sin conexión.</p></div><div class="duo"><figure id="hu"><figcaption>Uranio: reactivo y radiactivo, sus electrones vibran</figcaption></figure><figure id="ho"><figcaption>Neón: capa completa, sus electrones solo giran</figcaption></figure></div></div></div>
  <div class="card" id="hp" style="margin:14px 0"></div><div id="hx"></div>
 </section>
-<section id="v-l" class="view" hidden><div class="card"><h2>Aprender</h2><p class="mu sm" style="margin:0">Cuatro temas con animaciones: elige uno y avanza a tu ritmo.</p></div><div id="lx" style="margin-top:14px"></div></section>
+<section id="v-l" class="view" hidden><div id="lrn"></div><h3 class="sec">Laboratorios interactivos</h3><p class="mu sm" style="margin:0 0 8px">Simuladores para explorar por tu cuenta, sin guion.</p><div id="lx"></div></section>
+<section id="v-n" class="view" hidden><div id="lsn"></div></section>
 <section id="v-r" class="view" hidden><div class="card"><h2>Retos</h2><p class="mu sm" style="margin:0">Practica por tema o mezcla todo. Cada acierto suma XP y tu avance queda guardado.</p></div><div id="rx" style="margin:14px 0"></div><div class="card" id="rp"></div></section>
 <section id="v-c" class="view" hidden><div class="grid2" style="align-items:start">
  <div class="card"><h2>Enlace covalente coordinado</h2><p class="mu sm" style="margin:0 0 8px">Elige un mecanismo y reprodúcelo, o arrastra el control para avanzar paso a paso.</p><div class="chips wrap" id="mch"></div><div id="msv" style="margin:8px 0"></div><div class="row"><button class="btn pri" id="mpl"></button><input type="range" id="mrg" min="0" max="100" value="0" aria-label="Progreso del mecanismo" style="flex:1"></div><div class="note" id="mst" style="margin-top:10px" aria-live="polite"></div></div>
@@ -565,7 +709,7 @@ body.fxt #tbw{margin-inline:auto}
 <section id="v-e" class="view" hidden><div id="me"></div></section>
 <section id="v-x" class="view" hidden><div id="mx"></div></section>
 <section id="v-a" class="view" hidden><div class="grid2" style="align-items:start">
- <div class="card"><h2>Acerca de LabQuimWeb</h2><div class="chips" style="margin:0 0 10px"><span class="chip on">Versión (Beta) V0.5.1</span></div><p>App de química interactiva para estudiantes de preparatoria y universidad: tabla periódica, modelos atómicos, regla del octeto, enlaces, enlace coordinado y retos con progreso guardado.</p><h3 style="margin:12px 0 4px">Creador</h3><p style="margin:0"><b>Rafael López Zomavilla</b></p><h3 style="margin:14px 0 6px">Apariencia</h3><div class="chips" id="thm"></div>
+ <div class="card"><h2>Acerca de LabQuimWeb</h2><div class="chips" style="margin:0 0 10px"><span class="chip on">Versión V1.1.0</span></div><p>App de química interactiva para estudiantes de preparatoria y universidad: tabla periódica, modelos atómicos, regla del octeto, enlaces, enlace coordinado y retos con progreso guardado.</p><h3 style="margin:12px 0 4px">Creador</h3><p style="margin:0"><b>Rafael López Zomavilla</b></p><h3 style="margin:14px 0 6px">Apariencia</h3><div class="chips" id="thm"></div>
  <h3 style="margin:14px 0 6px">Instalar</h3><button class="btn pri" id="ins" hidden>Instalar la app</button><p class="mu sm" style="margin:6px 0 0">Android/Chrome: menú, Instalar app. iPhone: Compartir, Agregar a inicio.</p>
  <h3 style="margin:14px 0 6px">Datos</h3><button class="btn" id="rst">Borrar mi progreso</button><p class="mu sm" style="margin:6px 0 0">Todo se guarda localmente en este dispositivo.</p></div>
  <div class="card"><h2>Fuentes del proyecto</h2><ul class="lst"><li>IUPAC: tabla periódica, masas atómicas y <i>Nomenclature of Inorganic Chemistry</i> (Libro Rojo).</li><li>NIST Physical Measurement Laboratory: configuraciones electrónicas y pesos atómicos.</li><li>PubChem Periodic Table (NIH) y Royal Society of Chemistry: propiedades y clasificación.</li><li>L. Pauling, <i>The Nature of the Chemical Bond</i>: electronegatividad.</li><li>G. N. Lewis (1916): modelo de puntos y enlace covalente; modelos de Dalton, Thomson, Rutherford, Bohr y Sommerfeld.</li><li>Textos de química general (Chang, Brown y Atkins) para el octeto y el enlace coordinado.</li></ul><p class="mu sm">Los datos se compilaron con fines educativos; contrástalos con las fuentes originales para trabajos formales.</p></div></div></section>
@@ -580,6 +724,13 @@ const S='H He Li Be B C N O F Ne Na Mg Al Si P S Cl Ar K Ca Sc Ti V Cr Mn Fe Co 
 const N='Hidrógeno,Helio,Litio,Berilio,Boro,Carbono,Nitrógeno,Oxígeno,Flúor,Neón,Sodio,Magnesio,Aluminio,Silicio,Fósforo,Azufre,Cloro,Argón,Potasio,Calcio,Escandio,Titanio,Vanadio,Cromo,Manganeso,Hierro,Cobalto,Níquel,Cobre,Zinc,Galio,Germanio,Arsénico,Selenio,Bromo,Kriptón,Rubidio,Estroncio,Itrio,Circonio,Niobio,Molibdeno,Tecnecio,Rutenio,Rodio,Paladio,Plata,Cadmio,Indio,Estaño,Antimonio,Telurio,Yodo,Xenón,Cesio,Bario,Lantano,Cerio,Praseodimio,Neodimio,Prometio,Samario,Europio,Gadolinio,Terbio,Disprosio,Holmio,Erbio,Tulio,Iterbio,Lutecio,Hafnio,Tántalo,Wolframio,Renio,Osmio,Iridio,Platino,Oro,Mercurio,Talio,Plomo,Bismuto,Polonio,Astato,Radón,Francio,Radio,Actinio,Torio,Protactinio,Uranio,Neptunio,Plutonio,Americio,Curio,Berkelio,Californio,Einstenio,Fermio,Mendelevio,Nobelio,Lawrencio,Rutherfordio,Dubnio,Seaborgio,Bohrio,Hassio,Meitnerio,Darmstadtio,Roentgenio,Copernicio,Nihonio,Flerovio,Moscovio,Livermorio,Teneso,Oganesón'.split(',');
 const M='1.008 4.0026 6.94 9.0122 10.81 12.011 14.007 15.999 18.998 20.18 22.99 24.305 26.982 28.085 30.974 32.06 35.45 39.948 39.098 40.078 44.956 47.867 50.942 51.996 54.938 55.845 58.933 58.693 63.546 65.38 69.723 72.63 74.922 78.971 79.904 83.798 85.468 87.62 88.906 91.224 92.906 95.95 98 101.07 102.91 106.42 107.87 112.41 114.82 118.71 121.76 127.6 126.9 131.29 132.91 137.33 138.91 140.12 140.91 144.24 145 150.36 151.96 157.25 158.93 162.5 164.93 167.26 168.93 173.05 174.97 178.49 180.95 183.84 186.21 190.23 192.22 195.08 196.97 200.59 204.38 207.2 208.98 209 210 222 223 226 227 232.04 231.04 238.03 237 244 243 247 247 251 252 257 258 259 266 267 268 269 270 277 278 281 282 285 286 289 290 293 294 294'.split(' ').map(Number);
 const EN=('2.2 0 .98 1.57 2.04 2.55 3.04 3.44 3.98 0 .93 1.31 1.61 1.9 2.19 2.58 3.16 0 .82 1 1.36 1.54 1.63 1.66 1.55 1.83 1.88 1.91 1.9 1.65 1.81 2.01 2.18 2.55 2.96 3 .82 .95 1.22 1.33 1.6 2.16 1.9 2.2 2.28 2.2 1.93 1.69 1.78 1.96 2.05 2.1 2.66 2.6 .79 .89 1.1 1.12 1.13 1.14 1.13 1.17 1.2 1.2 1.1 1.22 1.23 1.24 1.25 1.1 1.27 1.3 1.5 2.36 1.9 2.2 2.2 2.28 2.54 2 1.62 2.33 2.02 2 2.2 2.2 .7 .9 1.1 1.3 1.5 1.38 1.36 1.28 1.13 1.28 1.3 1.3 1.3 1.3 1.3 1.3 1.3'+' 0'.repeat(15)).split(' ').map(Number);
+
+/* ===== datos de tendencias periódicas =====
+   Radio covalente (pm): Cordero et al., Dalton Trans. 2008, 2832 (enlace sencillo). Mn, Fe y Co se omiten: dependen del espín.
+   1.ª energía de ionización: NIST (eV), convertida a kJ/mol (1 eV = 96.4853 kJ/mol). */
+const RAD={1:31,2:28,3:128,4:96,5:84,6:76,7:71,8:66,9:57,10:58,11:166,12:141,13:121,14:111,15:107,16:105,17:102,18:106,19:203,20:176,21:170,22:160,23:153,24:139,28:124,29:132,30:122,31:122,32:120,33:119,34:120,35:120,36:116,37:220,38:195,39:190,40:175,41:164,42:154,43:147,44:146,45:142,46:139,47:145,48:144,49:142,50:139,51:139,52:138,53:139,54:140,55:244,56:215};
+const IEV=[13.5984,24.5874,5.3917,9.3227,8.2980,11.2603,14.5341,13.6181,17.4228,21.5645,5.1391,7.6462,5.9858,8.1517,10.4867,10.3600,12.9676,15.7596,4.3407,6.1132,6.5615,6.8281,6.7462,6.7665,7.4340,7.9024,7.8810,7.6399,7.7264,9.3942,5.9993,7.8994,9.7886,9.7524,11.8138,13.9996,4.1771,5.6949,6.2173,6.6339,6.7589,7.0924,7.28,7.3605,7.4589,8.3369,7.5762,8.9938,5.7864,7.3439,8.6084,9.0096,10.4513,12.1298,3.8939,5.2117];
+const IEN={};IEV.forEach((v,i)=>IEN[i+1]=Math.round(v*96.4853*10)/10);
 /* origen del nombre */
 const ET='del griego «hydro-genes», generador de agua|del griego «helios», Sol|del griego «lithos», piedra|de «beryllos», el mineral berilo|del árabe «buraq», bórax|del latín «carbo», carbón|del griego «nitron-genes», generador de nitro|del griego «oxys-genes», generador de ácidos|del latín «fluere», fluir (fluorita)|del griego «neos», nuevo|de «natrón», sal mineral|de Magnesia, región de Grecia|del latín «alumen», alumbre|del latín «silex», pedernal|del griego «phosphoros», portador de luz|del latín «sulphur», azufre|del griego «chloros», verde amarillento|del griego «argos», inactivo|del árabe «qali», cenizas|del latín «calx», cal|de Escandinavia|de los Titanes, mitología griega|de Vanadis, diosa nórdica|del griego «chroma», color|de «magnes», mineral magnético|del latín «ferrum»|del alemán «Kobold», duende de las minas|del alemán «Kupfernickel», falso cobre|del latín «cuprum», de Chipre|del alemán «Zink»|de «Gallia», Francia|de «Germania», Alemania|del griego «arsenikon», pigmento amarillo|del griego «selene», Luna|del griego «bromos», hedor|del griego «kryptos», oculto|del latín «rubidus», rojo intenso|de Strontian, pueblo de Escocia|de Ytterby, Suecia|del persa «zargun», color dorado|de Níobe, mitología griega|del griego «molybdos», plomo|del griego «technetos», artificial|de Rutenia, antiguo nombre de Rusia|del griego «rhodon», rosa|del asteroide Palas|del latín «argentum»|del griego «kadmeia», calamina|del índigo, por su línea espectral|del latín «stannum»|del latín «stibium»|del latín «tellus», Tierra|del griego «iodes», violeta|del griego «xenos», extraño|del latín «caesius», azul celeste|del griego «barys», pesado|del griego «lanthanein», estar oculto|del asteroide Ceres|del griego «prasios didymos», gemelo verde|del griego «neos didymos», gemelo nuevo|de Prometeo, mitología griega|del mineral samarskita|de Europa|de Johan Gadolin|de Ytterby, Suecia|del griego «dysprositos», difícil de obtener|de Holmia, nombre latino de Estocolmo|de Ytterby, Suecia|de Thule, región de Escandinavia|de Ytterby, Suecia|de Lutecia, nombre latino de París|de Hafnia, nombre latino de Copenhague|de Tántalo, mitología griega|del alemán «Wolfram»|del río Rin (latín «Rhenus»)|del griego «osme», olor|del griego «iris», arcoíris|del español «platina», plata pequeña|del latín «aurum», aurora resplandeciente|del dios Mercurio; latín «hydrargyrum»|del griego «thallos», rama verde|del latín «plumbum»|del alemán «Wismut», prado blanco|de Polonia|del griego «astatos», inestable|del radio, del que se emana|de Francia|del latín «radius», rayo|del griego «aktis», rayo|de Thor, dios nórdico|del griego «protos», antes del actinio|del planeta Urano|del planeta Neptuno|del planeta Plutón|de América|de Marie y Pierre Curie|de Berkeley, California|de California|de Albert Einstein|de Enrico Fermi|de Dmitri Mendeléyev|de Alfred Nobel|de Ernest Lawrence|de Ernest Rutherford|de Dubna, Rusia|de Glenn Seaborg|de Niels Bohr|de Hesse, Alemania|de Lise Meitner|de Darmstadt, Alemania|de Wilhelm Röntgen|de Nicolás Copérnico|de Nihon, Japón|del laboratorio Flerov|de Moscú|del Laboratorio Livermore|de Tennessee|de Yuri Oganesián'.split('|');
 const LAT={Na:'natrium',K:'kalium',Fe:'ferrum',Cu:'cuprum',Ag:'argentum',Au:'aurum',Hg:'hydrargyrum',Pb:'plumbum',Sn:'stannum',Sb:'stibium',W:'wolframium'};
@@ -594,11 +745,13 @@ const E=[null];
 for(let z=1;z<=118;z++){const[row,col]=pos(z),e={z,s:S[z-1],n:N[z-1],m:M[z-1],en:EN[z-1],c:cat(z),row,col,o:occ(z),g:row<9?col:null,et:ET[z-1]};
  e.p=row<9?row:row-3;e.b=e.g==null?'f':(z==2||e.g<3)?'s':e.g>12?'p':'d';e.v=z==2?2:(e.g==1||e.g==2)?e.g:e.g>12?e.g-10:null;
  e.st=[35,80].includes(z)?1:GAS.includes(z)?2:z>=104?3:0;
- e.rad=z>=93||z==43||z==61?2:z>=83?1:0; /* 0 estable · 1 radiactivo natural · 2 sintético */
+ e.rad=z>=93||z==43||z==61?2:z>=84?1:0; /* 0 estable · 1 radiactivo natural · 2 sintético */
  e.k=(e.n+' '+e.s).normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase()+' '+z;E.push(e)}
 const noA=t=>t.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
 /* ===== utilidades químicas ===== */
-const Q=e=>e.v==null?null:(e.g==1||e.g==2||e.g==13)?e.v:(e.g>=15&&e.g<=17)?e.v-8:0;
+/* QV: metales con carga variable / efecto del par inerte: no tienen un único ion «típico» por la regla del octeto */
+const QV=new Set([50,81,82,83,84,113,114,115,116]);
+const Q=e=>e.v==null||QV.has(e.z)?null:e.z==5?0:(e.g==1||e.g==2||e.g==13)?e.v:(e.g>=15&&e.g<=17)?e.v-8:0;
 const sup=(q)=>`<sup>${Math.abs(q)>1?Math.abs(q):''}${q>0?'+':'−'}</sup>`;
 const ion=(s,q)=>`${s}${sup(q)}`;
 const sb=n=>n>1?`<sub>${n}</sub>`:'',gcd=(a,b)=>b?gcd(b,a%b):a;
@@ -612,7 +765,7 @@ const isNoble=e=>e.c==8;
 function shells(e){const sh={};for(const k in e.o)sh[k[0]]=(sh[k[0]]||0)+e.o[k];return Object.keys(sh).sort((a,b)=>a-b).map(k=>sh[k]).filter(x=>x>0)}
 const SHN='KLMNOPQ';
 /* estados de oxidación */
-const OXM={Li:[1],Na:[1],K:[1],Rb:[1],Cs:[1],Fr:[1],Be:[2],Mg:[2],Ca:[2],Sr:[2],Ba:[2],Ra:[2],Al:[3],Ga:[3],In:[3],Tl:[1,3],Sn:[2,4],Pb:[2,4],Bi:[3],Zn:[2],Cd:[2],Hg:[1,2],Ag:[1],Au:[1,3],Cu:[1,2],Sc:[3],Y:[3],La:[3],Ti:[2,3,4],V:[2,3,4,5],Cr:[2,3,6],Mn:[2,3,4,7],Fe:[2,3],Co:[2,3],Ni:[2,3],Zr:[4],Hf:[4],Nb:[3,5],Ta:[5],Mo:[4,6],W:[4,6],Tc:[4,7],Re:[4,7],Ru:[3,4],Os:[4],Rh:[3],Ir:[3,4],Pd:[2,4],Pt:[2,4],Ce:[3,4],Eu:[2,3],Yb:[2,3],Sm:[2,3],Th:[4],U:[4,6],Np:[4,5],Pu:[3,4],Am:[3],Cm:[3],Sb:[3,5],As:[3,5],Ge:[2,4]};
+const OXM={Li:[1],Na:[1],K:[1],Rb:[1],Cs:[1],Fr:[1],Be:[2],Mg:[2],Ca:[2],Sr:[2],Ba:[2],Ra:[2],Po:[2,4],Al:[3],Ga:[3],In:[3],Tl:[1,3],Sn:[2,4],Pb:[2,4],Bi:[3],Zn:[2],Cd:[2],Hg:[1,2],Ag:[1],Au:[1,3],Cu:[1,2],Sc:[3],Y:[3],La:[3],Ti:[2,3,4],V:[2,3,4,5],Cr:[2,3,6],Mn:[2,3,4,7],Fe:[2,3],Co:[2,3],Ni:[2,3],Zr:[4],Hf:[4],Nb:[3,5],Ta:[5],Mo:[4,6],W:[4,6],Tc:[4,7],Re:[4,7],Ru:[3,4],Os:[4],Rh:[3],Ir:[3,4],Pd:[2,4],Pt:[2,4],Ce:[3,4],Eu:[2,3],Yb:[2,3],Sm:[2,3],Th:[4],U:[4,6],Np:[4,5],Pu:[3,4],Am:[3],Cm:[3],Sb:[3,5],As:[3,5],Ge:[2,4]};
 const OXN={C:[2,4],N:[1,2,3,4,5],P:[3,5],As:[3,5],Sb:[3,5],S:[2,4,6],Se:[4,6],Te:[4,6],Cl:[1,3,5,7],Br:[1,3,5],I:[1,3,5,7],At:[1],Xe:[2,4,6],Kr:[2],B:[3],Si:[4],Ge:[2,4],H:[1],O:[2],F:[1],Ne:[0],He:[0],Ar:[0],Rn:[2]};
 function metalStates(e){if(OXM[e.s])return OXM[e.s];if(e.c==9||e.c==10)return[3];const g=e.g;return g>=3&&g<=7?[Math.min(g,3)]:[2]}
 /* anión (carga negativa) de un no metal cuando se combina con un metal o un elemento menos electronegativo */
@@ -670,12 +823,15 @@ const pctIon=d=>Math.round((1-Math.exp(-d*d/4))*100);
 /* nombre de iones de un elemento */
 function ionNames(e){const out=[];if(isNoble(e))return out;
  if(isMetal(e)){metalStates(e).forEach(n=>{const multi=metalStates(e).length>1;out.push({f:ion(e.s,n),t:`catión ${lc(e.n)}${multi?`(${ROM[n]})`:''}`+(multi&&TRADN[e.s]&&metalStates(e).length==2?` · ion ${TRADN[e.s][metalStates(e).indexOf(n)]}`:'')})});}
- else{const q=anQ(e);if(q&&e.z!=1)out.push({f:ion(e.s,-q),t:`anión ${ANION[e.s]||lc(e.n)+'uro'}`});if(e.z==1){out.push({f:'H<sup>+</sup>',t:'catión hidrógeno (protón)'},{f:'H<sup>−</sup>',t:'anión hidruro'})}}
+ else{const q=anQ(e);if(q&&e.z!=1&&e.s!='C'&&e.s!='Si')out.push({f:ion(e.s,-q),t:`anión ${ANION[e.s]||lc(e.n)+'uro'}`});if(e.z==1){out.push({f:'H<sup>+</sup>',t:'catión hidrógeno (protón)'},{f:'H<sup>−</sup>',t:'anión hidruro'})}}
  return out}
 function octetText(e){const v=e.v,s=e.s,q=Q(e);
  if(v==null)return'Metal de transición o tierra rara: no sigue el octeto de forma estricta. Cede electrones ns y (n−1)d y forma cationes de carga variable.';
  if(e.z==1)return'Busca el dueto (2 e⁻): puede ganar 1 e⁻ (H⁻, como He), perder 1 (H⁺) o compartir 1 en un enlace covalente.';
  if(e.z==2||v==8)return`Capa completa (${e.z==2?'dueto de 2 e⁻':'octeto de 8 e⁻'}). Es un gas noble: muy estable y casi no reacciona.`;
+ if(e.z==5)return'Excepción al octeto: el boro comparte sus 3 e⁻ y forma compuestos con solo 6 e⁻ en la capa de valencia (octeto incompleto, como en BF₃). El ion B³⁺ prácticamente no existe como tal.';
+ if(e.z>=113&&e.z<=117)return'Elemento superpesado sintético: se han obtenido muy pocos átomos y su química casi no se conoce de forma experimental; sus propiedades se estiman por tendencias y cálculos.';
+ if(QV.has(e.z))return`Metal post-transición: según el elemento pierde solo los e⁻ p o también los s (efecto del par inerte), por eso tiene más de un estado de oxidación (${metalStates(e).map(n=>'+'+n).join(', ')}) y no hay un único ion «típico» que se deduzca del octeto.`;
  if(e.g==14)return'Le faltan 4 e⁻ para el octeto. Los comparte formando 4 enlaces covalentes.';
  if(q>0){const t=e.z-q;return`Cede ${q} e⁻ y forma ${ion(s,q)}, con capa llena${G8.includes(t)?` como ${S[t-1]}`:''}.`}
  return`Le faltan ${8-v} e⁻ para el octeto: gana ${8-v} e⁻ y forma ${ion(s,q)} (isoelectrónico con ${S[e.z-q-1]}) o los comparte en enlaces covalentes.`}
@@ -692,8 +848,8 @@ const MODELS=[
 {id:'rutherford',n:'Rutherford',y:1911,a:'Ernest Rutherford',idea:'Casi toda la masa y la carga positiva están en un núcleo diminuto y denso; los electrones giran a su alrededor en un átomo casi vacío.',gana:'Explica la desviación de las partículas alfa en la lámina de oro: la mayoría pasa y unas pocas rebotan.',lim:'En física clásica un electrón orbitando perdería energía y caería al núcleo; tampoco explica los espectros atómicos.'},
 {id:'bohr',n:'Bohr',y:1913,a:'Niels Bohr',idea:'Los electrones ocupan órbitas circulares con energía cuantizada (capas K, L, M…). Absorben o emiten un fotón al saltar de una a otra.',gana:'Explica el espectro del hidrógeno y justifica la organización por capas de la tabla periódica.',lim:'Solo reproduce bien al hidrógeno; las órbitas con trayectoria definida no existen en realidad.'},
 {id:'sommerfeld',n:'Sommerfeld',y:1916,a:'Arnold Sommerfeld',idea:'Amplía a Bohr con órbitas elípticas y subniveles (s, p, d, f). La velocidad cambia a lo largo de la elipse y esta precesiona.',gana:'Explica la estructura fina de los espectros y da origen a los números cuánticos secundarios.',lim:'Mantiene trayectorias definidas, algo incompatible con el principio de incertidumbre de Heisenberg.'},
-{id:'quantum',n:'Cuántico',y:1926,a:'Schrödinger, Heisenberg y Born',idea:'El electrón se comporta como onda: no tiene órbita, solo una probabilidad de encontrarse en cada punto. Las regiones más probables son los orbitales s, p, d y f.',gana:'Es el modelo actual: explica la tabla periódica, la forma de las moléculas y los enlaces.',lim:'Matemáticamente complejo: solo se resuelve exactamente para el átomo de hidrógeno.'},
-{id:'lewis',n:'Lewis',y:1916,a:'Gilbert N. Lewis',idea:'Representa solo los electrones de valencia como puntos alrededor del símbolo. Un enlace es un par de electrones compartido o transferido.',gana:'Predice fórmulas, tipos de enlace y la regla del octeto con un dibujo rápido.',lim:'No muestra geometría, energías ni los electrones internos; falla con metales de transición.'}];
+{id:'lewis',n:'Lewis',y:1916,a:'Gilbert N. Lewis',idea:'Más que un modelo del átomo, es una notación: representa solo los electrones de valencia como puntos alrededor del símbolo. Un enlace es un par de electrones compartido o transferido.',gana:'Predice fórmulas, tipos de enlace y la regla del octeto con un dibujo rápido.',lim:'No muestra geometría, energías ni los electrones internos; falla con metales de transición.'},
+{id:'quantum',n:'Cuántico',y:1926,a:'Schrödinger, Heisenberg y Born',idea:'El electrón se comporta como onda: no tiene órbita, solo una probabilidad de encontrarse en cada punto. Las regiones más probables son los orbitales s, p, d y f.',gana:'Es el modelo actual: explica la tabla periódica, la forma de las moléculas y los enlaces.',lim:'Matemáticamente complejo: solo se resuelve exactamente para el átomo de hidrógeno.'}];
 const MID=Object.fromEntries(MODELS.map(m=>[m.id,m]));
 const MICON={dalton:'<circle cx="12" cy="12" r="8"/><path d="M8 9a5 5 0 0 1 4-2" />',thomson:'<circle cx="12" cy="12" r="9"/><circle cx="9" cy="10" r="1.2" fill="currentColor"/><circle cx="14" cy="9" r="1.2" fill="currentColor"/><circle cx="12" cy="14" r="1.2" fill="currentColor"/><circle cx="16" cy="14" r="1.2" fill="currentColor"/>',rutherford:'<circle cx="12" cy="12" r="2" fill="currentColor"/><circle cx="12" cy="12" r="9" stroke-dasharray="2 3"/><circle cx="20" cy="9" r="1.5" fill="currentColor"/>',bohr:'<circle cx="12" cy="12" r="2" fill="currentColor"/><circle cx="12" cy="12" r="5.5"/><circle cx="12" cy="12" r="9.5"/><circle cx="17.5" cy="12" r="1.3" fill="currentColor"/>',sommerfeld:'<circle cx="12" cy="12" r="1.8" fill="currentColor"/><ellipse cx="10" cy="12" rx="10" ry="5.5" transform="rotate(-25 12 12)"/><circle cx="20" cy="8" r="1.3" fill="currentColor"/>',quantum:'<ellipse cx="12" cy="6.5" rx="3" ry="5" /><ellipse cx="12" cy="17.5" rx="3" ry="5"/><ellipse cx="6.5" cy="12" rx="5" ry="3"/><ellipse cx="17.5" cy="12" rx="5" ry="3"/>',lewis:'<text x="12" y="16" text-anchor="middle" font-size="11" font-weight="800" fill="currentColor" stroke="none">X</text><circle cx="12" cy="4" r="1.2" fill="currentColor"/><circle cx="20" cy="12" r="1.2" fill="currentColor"/><circle cx="12" cy="20" r="1.2" fill="currentColor"/><circle cx="4" cy="12" r="1.2" fill="currentColor"/>'};
 const micon=id=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">${MICON[id]}</svg>`;
@@ -803,8 +959,10 @@ const MODES={
  st:{n:'Estado a 25 °C',d:'Sólido, líquido o gas',L:[['Sólido','#FBBF24'],['Líquido','#38BDF8'],['Gas','#F472B6'],['Desconocido','#94A3B8']],f:e=>e.st},
  en:{n:'Electronegatividad',d:'Atracción por los electrones (Pauling)',cont:1,lo:.7,hi:4,stops:['#BAE6FD','#A5B4FC','#F0ABFC','#FDA4AF','#FB923C'],v:e=>e.en||null,txt:v=>v.toFixed(1)},
  mass:{n:'Masa atómica',d:'Escala logarítmica en u',cont:1,lo:1,hi:294,log:1,stops:['#FEF9C3','#FDE68A','#FDBA74','#F9A8D4','#C4B5FD'],v:e=>e.m,txt:v=>Math.round(v)+' u'},
+ ar:{n:'Radio atómico',d:'Radio covalente en pm (Z ≤ 56; gris = sin dato)',cont:1,lo:28,hi:244,stops:['#BAE6FD','#A5B4FC','#F0ABFC','#FDA4AF','#FB923C'],v:e=>RAD[e.z]||null,txt:v=>Math.round(v)+' pm'},
+ ie:{n:'Energía de ionización',d:'1.ª EI en kJ/mol (Z ≤ 56; gris = sin dato)',cont:1,lo:375,hi:2372,stops:['#FEF9C3','#FDE68A','#FDBA74','#F472B6','#7C3AED'],v:e=>IEN[e.z]||null,txt:v=>Math.round(v)+' kJ/mol'},
  ve:{n:'Electrones de valencia',d:'En la última capa',L:[1,2,3,4,5,6,7,8].map((n,i)=>[n+' e⁻',['#FCA5A5','#FDBA74','#FDE047','#BEF264','#86EFAC','#5EEAD4','#7DD3FC','#C4B5FD'][i]]).concat([['Variable (d/f)','#94A3B8']]),f:e=>e.v?e.v-1:8},
- ion:{n:'Ion típico',d:'Carga que adopta por el octeto',L:[['+1','#FCA5A5'],['+2','#FDBA74'],['+3','#FDE047'],['0 (grupo 14 y nobles)','#C4B5FD'],['−1','#5EEAD4'],['−2','#7DD3FC'],['−3','#86EFAC'],['Variable (d/f)','#94A3B8']],f:e=>{if(e.v==null)return 7;const q=Q(e);return q>0?q-1:q<0?3-q:3}},
+ ion:{n:'Ion típico',d:'Carga que adopta por el octeto',L:[['+1','#FCA5A5'],['+2','#FDBA74'],['+3','#FDE047'],['0 (B, C, Si y nobles)','#C4B5FD'],['−1','#5EEAD4'],['−2','#7DD3FC'],['−3','#86EFAC'],['Variable (d/f o par inerte)','#94A3B8']],f:e=>{if(e.v==null||Q(e)==null)return 7;const q=Q(e);return q>0?q-1:q<0?3-q:3}},
  grp:{n:'Grupo',d:'Columna de la tabla',L:[...GC.map((c,i)=>['Grupo '+(i+1),c]),['Bloque f','#CBD5E1']],f:e=>e.g==null?18:e.g-1},
  per:{n:'Periodo',d:'Fila (nº de capas)',L:['#FDA4AF','#FDBA74','#FDE047','#BEF264','#5EEAD4','#7DD3FC','#C4B5FD'].map((c,i)=>['Periodo '+(i+1),c]),f:e=>e.p-1},
  rad:{n:'Origen y estabilidad',d:'Estable, radiactivo o sintético',L:[['Estable','#86EFAC'],['Radiactivo natural','#FDE047'],['Sintético','#FDA4AF']],f:e=>e.rad}};
@@ -896,11 +1054,11 @@ function markSel(){tb.querySelectorAll('.c').forEach(c=>c.classList.toggle('sel'
 function show(z,quiet){sel=z;if(!quiet)SELHIDE=false;const e=E[z],[cn,cc]=CT[e.c-1];stopAll(PST);
  const sl=e.z<=2?2:8,neu=Math.round(e.m)-z,iso=(q=>q&&G8.includes(z-q)?` · isoelectrónico con ${S[z-q-1]}`:'')(Q(e));
  const stat=[['Nº atómico',z],['Masa (u)',e.m],['Grupo',e.g??'f'],['Periodo',e.p],['Bloque',e.b],['Estado',ST[e.st]]];
- pn.innerHTML=`<div class="grab" aria-hidden="true"></div><button class="x" aria-label="Cerrar"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button><div class="pbody"><div class="hero" style="--hc:${cc}"><div class="htop"><div class="bx"><i>${z}</i><b>${e.s}</b></div><div><h2>${e.n}</h2><div class="cat">${cn}</div><div class="sub">${LAT[e.s]?`Latín: ${LAT[e.s]} · `:''}${e.rad==2?'Sintético':e.rad==1?'Radiactivo':'Estable'}</div></div></div>
+ pn.innerHTML=`<div class="grab" aria-hidden="true"></div><button class="x" aria-label="Cerrar"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button><div class="pbody"><div class="hero" style="--hc:${cc}"><div class="htop"><div class="bx"><i>${z}</i><b>${e.s}</b></div><div><h2>${e.n}</h2><div class="cat">${cn}</div><div class="sub">${LAT[e.s]?`Latín: ${LAT[e.s]} · `:''}${e.rad==2?'Sintético':e.rad==1?'Radiactivo':e.z==83?'Casi estable':'Estable'}</div></div></div>
  <div class="viz"><span class="tag" id="vtag"></span><div class="tg2"><button data-act="lab" title="Comparar los siete modelos" aria-label="Comparar modelos"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="8" rx="2"/><rect x="3" y="13" width="8" height="8" rx="2"/><rect x="13" y="13" width="8" height="8" rx="2"/></svg></button></div></div>
  <div class="chips" id="pmc">${modelChips(CM,'data-pm')}</div></div>
  <dl class="stat">${stat.map(([a,b],i)=>`<div style="--i:${i}"><dt>${a}</dt><dd>${b}</dd></div>`).join('')}</dl>
- ${hist(e)}${window.V4?det(e):''}${acc('prop','Propiedades',`EN ${e.en||'—'}`,`<div class="row" style="justify-content:space-between">${gauge(e.en)}<dl class="kv"><dt>Neutrones (aprox.)</dt><dd>${neu}</dd><dt>Capas</dt><dd>${shells(e).join(' · ')}</dd><dt>e⁻ de valencia</dt><dd>${e.v??'variable'}</dd><dt>Categoría</dt><dd>${cn}</dd></dl></div>`)}
+ ${hist(e)}${window.V4?det(e):''}${acc('prop','Propiedades',`EN ${e.en||'—'}`,`<div class="row" style="justify-content:space-between">${gauge(e.en)}<dl class="kv"><dt>Neutrones (aprox.)</dt><dd>${neu}</dd><dt>Capas</dt><dd>${shells(e).join(' · ')}</dd><dt>e⁻ de valencia</dt><dd>${e.v??'variable'}</dd><dt>Categoría</dt><dd>${cn}</dd>${RAD[z]?`<dt>Radio covalente</dt><dd>${RAD[z]} pm</dd>`:''}${IEN[z]?`<dt>1.ª EI</dt><dd>${IEN[z]} kJ/mol</dd>`:''}</dl></div>`)}
  ${acc('cfg','Configuración electrónica',e.b+' · '+e.s,`<code>${fmt(e.o)}</code><code class="mu">${abbr(e)}</code>${EX[z]?'<p class="note">Excepción a la regla de Madelung: una configuración con subcapas semillenas o llenas es más estable.</p>':''}${orbDiagram(e)}`)}
  ${acc('oct','Regla del octeto',e.v!=null?e.v+' e⁻ de valencia':'metal d/f',`<div class="lwr"><div id="lwh" style="width:120px"></div><div>${e.v!=null?`<b>${e.v} e⁻ de valencia</b><div class="sl" aria-hidden="true">${Array.from({length:sl},(_,i)=>`<span class="${i<e.v?'f':''}" style="animation-delay:${i*80}ms"></span>`).join('')}</div>`:''}</div></div><p style="margin:6px 0">${octetText(e)}${iso}</p><button class="btn pri" data-act="oct">Ver la animación →</button>`)}
  ${acc('nom','Nomenclatura','nombre y iones',nomHtml(e))}
@@ -1083,7 +1241,7 @@ function bondInfo(r,a,b){const c=r.list[BIDX],d=dEN(a,b);let h='',t='',pr=null,t
   <p style="margin-top:10px">${net?`Cada átomo de ${lc(e.n)} comparte 4 e⁻ con otros 4 vecinos y forma una red tridimensional (como el diamante).`:`Cada átomo necesita ${k} e⁻ para completar su capa y los comparte con el otro: enlace <b>${nm}</b>. Los dos átomos atraen igual los electrones (ΔEN = 0): covalente no polar.`}</p>${acc('bp','Propiedades típicas',net?'red':'molécula',`<ul>${(net?PROP.net:PROP.cov).map(x=>`<li>${x}</li>`).join('')}</ul>`)}${acc('bm','Con el modelo de '+MID[BM].n,MID[BM].n,`<p>${BMTXT[BM]}</p>${modelInfo(BM)}`)}</div>`}
  const ionic=c.type=='ionic',nm=c.names,ci=pctIon(d);
  type=ionic?(d>=1.7?'Enlace iónico':'Iónico con carácter covalente'):(d<.4?'Covalente no polar':'Covalente polar');
- if(ionic){const q=anQ(c.B);t=`Cada átomo de ${lc(c.A.n)} cede <b>${c.n} e⁻</b> y cada átomo de ${lc(c.B.n)} recibe <b>${q} e⁻</b>. Hacen falta <b>${c.x}</b> de ${c.A.s} y <b>${c.y}</b> de ${c.B.s}: los electrones cedidos (${c.n}×${c.x} = ${c.n*c.x}) igualan los recibidos (${q}×${c.y} = ${q*c.y}). Ambos iones quedan con capa llena: ${ion(c.A.s,c.n)} y ${ion(c.B.s,-q)}.`+(d<1.7?` Como ΔEN es baja, el enlace tiene mucho carácter covalente.`:'');pr=PROP.ionic}
+ if(ionic){const q=anQ(c.B);t=`Cada átomo de ${lc(c.A.n)} cede <b>${c.n} e⁻</b> y cada átomo de ${lc(c.B.n)} recibe <b>${q} e⁻</b>. Hacen falta <b>${c.x}</b> de ${c.A.s} y <b>${c.y}</b> de ${c.B.s}: los electrones cedidos (${c.n}×${c.x} = ${c.n*c.x}) igualan los recibidos (${q}×${c.y} = ${q*c.y}). Ambos iones quedan con capa llena: ${ion(c.A.s,c.n)} y ${ion(c.B.s,-q)}.`+(d<1.7?` Como ΔEN es baja, el enlace tiene mucho carácter covalente.`:'');if(['C','Si'].includes(c.B.s))t+=' <br><i>Aviso: es la fórmula que predice la regla del octeto. Los carburos y siliciuros reales (p. ej. CaC₂, con el ion C₂²⁻, o Al₄C₃) tienen estructuras y estequiometrías propias y enlaces con mucho carácter covalente.</i>';pr=PROP.ionic}
  else{const sp=bondSpec(r,a,b),w=sp.edges.reduce((s,e)=>s+e.w,0),big=sp.atoms.some(x=>x.e.v+sp.edges.filter(e=>e.a==sp.atoms.indexOf(x)||e.b==sp.atoms.indexOf(x)).reduce((s,e)=>s+e.w,0)>8);
   t=`Se comparten <b>${w} par${w>1?'es':''}</b> de electrones. ${c.A.s} aporta ${c.n} e⁻ por átomo y ${c.B.s} aporta ${anQ(c.B)||8-c.B.v}: se combinan <b>${c.x}</b> de ${c.A.s} con <b>${c.y}</b> de ${c.B.s}.`+(d>=.4?` ${c.A.en<c.B.en?c.B.s:c.A.s} atrae más los electrones: carga parcial δ− en ${c.A.en<c.B.en?c.B.s:c.A.s} y δ+ en ${c.A.en<c.B.en?c.A.s:c.B.s}.`:' Los dos átomos atraen casi igual los electrones.')+(big?(Math.min(c.A.p,c.B.p)<3&&[c.A,c.B].some(x=>x.p==2&&x.v+ (x==c.A?c.n:anQ(x))>8)?' <br><i>Estructura formal simplificada: el N o el C no pueden superar 8 e⁻; en la realidad hay enlaces dativos y cargas formales.</i>':' <br><i>Capa de valencia expandida: permitido para elementos del periodo 3 en adelante.</i>'):'');
   if(c.A.s=='B'||c.B.s=='B')t+=' <br><i>Excepción: el boro queda con 6 e⁻ (octeto incompleto).</i>';if(c.A.z==1||c.B.z==1)t+=' <br><i>El hidrógeno completa un dueto (2 e⁻), no un octeto.</i>';pr=PROP.cov}
@@ -1128,12 +1286,12 @@ const QLV={1:['ion','val','name','ionname','bond','build','formula'],2:['ion','v
 const QLN={1:'Fácil',2:'Medio',3:'Difícil'};
 const Z=s=>E[S.indexOf(s)+1],pick=a=>a[Math.random()*a.length|0],shuf=a=>{a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
 const uniq=(a,k)=>{const s=new Set(),o=[];a.forEach(x=>{const y=k(x);if(!s.has(y)){s.add(y);o.push(x)}});return o};
-const lvMax=l=>l==1?20:l==2?54:118;
+const lvMax=l=>l==1?20:l==2?54:86;
 const plain=h=>h.replace(/<sup>([^<]*)<\/sup>/g,'$1').replace(/<sub>([^<]*)<\/sub>/g,(m,d)=>subs(d)).replace(/<[^>]+>/g,'');
 const fh=(c,x,y)=>{const cn=e=>e==c.A?x:y,f1=c.first,f2=c.second;return`${f1.s}${sb(cn(f1))}${f2.s}${sb(cn(f2))}`};
 const QS={lv:+store.get('tp-lv',1)||1,on:new Set(),ok:0,n:0,streak:0,best:+store.get('tp-best',0)||0,by:{},q:null,done:0,cur:0};
 function syncOn(){QS.on=new Set(QLV[QS.lv].filter(k=>!QS.off||!QS.off.has(k)))}QS.off=new Set();syncOn();
-const ionPool=l=>E.slice(1).filter(e=>e.v!=null&&Q(e)!=null&&!isNoble(e)&&e.z<=lvMax(l));
+const ionPool=l=>E.slice(1).filter(e=>e.v!=null&&Q(e)!=null&&!isNoble(e)&&!(e.g==14&&e.z>14)&&e.z<=lvMax(l));
 const LA={1:['Li','Be','Na','Mg','Al','K','Ca'],2:['Na','Mg','Al','K','Ca','Zn','Ag','Cu','Fe','Sn','Ba','Cr','Mn','Ni','Co'],3:['Na','Al','Ca','Ba','Fe','Cu','Sn','Pb','Hg','Au','Cr','Mn','Ti','Co','Ni','Tl']};
 const LB={1:['H','N','O','F','P','S','Cl'],2:['F','Cl','Br','I','O','S','N','P'],3:['F','Cl','Br','I','O','S','N','P','Se']};
 const CP={2:[['H','Cl'],['N','H'],['C','O'],['C','H'],['H','O'],['S','O'],['C','Cl'],['P','H'],['Si','H']],3:[['N','O'],['S','O'],['P','Cl'],['Cl','O'],['C','O'],['P','O'],['Cl','F'],['Xe','F'],['As','O'],['S','F'],['Br','O']]};
@@ -1165,7 +1323,7 @@ cname(l){const c=randComp(l),good=nameOf(c),pool=[];
  [c.A,c.B].forEach(x=>{for(let i=0;i<4;i++){const p=Z(pick(c.A==x?LB[l]:LA[l]));if(p.z==c.A.z||p.z==c.B.z)continue;const r=c.A==x?compounds(c.A,p):compounds(p,c.B);if(r.list.length)pool.push(nameOf(pick(r.list)))}});
  const w=uniq(shuf(pool).filter(x=>x&&x!=good),x=>x).slice(0,3);while(w.length<3)w.push(nameOf(randComp(l)));
  return{ttl:'Nombre de compuestos',pr:`¿Cómo se llama <b style="font-size:1.35em">${c.f}</b>?${c.type=='ionic'?' <span class="mu sm">(nomenclatura Stock)</span>':' <span class="mu sm">(nomenclatura sistemática)</span>'}`,vis:null,opts:shuf([good,...w]).map(h=>({h,ok:h==good})),ex:`<b>${good}</b>. Otras formas: ${c.names.sys}${c.names.trad?` · ${c.names.trad}`:''}${c.names.common?` · ${c.names.common}`:''}.`}},
-bond(l){let a,b,r,d,ans,tries=0;const pool=E.slice(1).filter(e=>e.z<=lvMax(l)+(l>1?20:0)&&!isNoble(e));
+bond(l){let a,b,r,d,ans,tries=0;const pool=E.slice(1).filter(e=>e.z<=Math.min(lvMax(l)+(l>1?20:0),86)&&!isNoble(e));
  do{a=pick(pool);b=pick(pool);d=dEN(a,b);const ma=isMetal(a),mb=isMetal(b);ans=ma&&mb?'Metálico':(ma!=mb)?(d>=1.7?'Iónico':null):(a.z==b.z||d<.4?'Covalente no polar':'Covalente polar');if(ans&&ans!='Metálico'&&anQ(ma?b:a)==0&&ma!=mb)ans=null;tries++}while(!ans&&tries<80);
  const opts=['Iónico','Covalente polar','Covalente no polar','Metálico'];
  return{ttl:'Tipo de enlace',pr:`¿Qué tipo de enlace forman <b>${lc(a.n)}</b> (${a.s}) y <b>${lc(b.n)}</b> (${b.s})?`,vis:()=>{const d=document.createElement('div');d.className='lwr';d.style.justifyContent='center';d.append(viewAtom(a,'lewis',{}),Object.assign(document.createElement('b'),{textContent:'+'}),viewAtom(b,'lewis',{}));d.querySelectorAll('svg').forEach(s=>s.style.width='96px');return d},opts:opts.map(t=>({h:t,ok:t==ans})),ex:`ΔEN = ${d.toFixed(2)} (${a.s}: ${a.en||'—'}, ${b.s}: ${b.en||'—'}). ${ans=='Metálico'?'Dos metales comparten un mar de electrones.':ans=='Iónico'?'Metal + no metal con ΔEN ≥ 1,7: un átomo cede electrones y el otro los recibe.':ans=='Covalente no polar'?'ΔEN < 0,4: los electrones se reparten casi por igual.':'ΔEN entre 0,4 y 1,7: se comparten, pero uno atrae más.'}`}},
@@ -1234,7 +1392,7 @@ $('#bk').innerHTML=SV('<path d="M15 5l-7 7 7 7"/>');
 const PR=Object.assign({xp:0,ok:0,n:0,best:0,by:{},days:{}},JSON.parse(store.get('ql-prog','{}')||'{}'));
 const saveP=()=>store.set('ql-prog',JSON.stringify(PR));
 const LVL=()=>Math.floor(Math.sqrt(PR.xp/25))+1;
-const TOPN={octeto:'Octeto',sim:'Símbolos',num:'Números y posición',spin:'Spin y orbitales',cfg:'Configuración',dat:'Enlace coordinado'};
+const TOPN={atomo:'Átomo e isótopos',tend:'Tendencias periódicas',octeto:'Octeto',sim:'Símbolos',num:'Números y posición',spin:'Spin y orbitales',cfg:'Configuración',dat:'Enlace coordinado'};
 function rec(k,ok){PR.n++;const b=PR.by[k]=PR.by[k]||[0,0];b[1]++;if(ok){PR.ok++;PR.xp+=10;b[0]++}PR.days[new Date().toISOString().slice(0,10)]=1;saveP()}
 function homeProg(){const L=LVL(),a=PR.xp-25*(L-1)**2,b=25*L*L-25*(L-1)**2,pc=PR.n?Math.round(PR.ok/PR.n*100):0;
  $('#hp').innerHTML=`<h3 style="margin-bottom:8px">Tu progreso</h3><div class="row" style="justify-content:space-between"><div><div class="mu sm">Nivel</div><div class="big">${L}</div></div><div><div class="mu sm">Precisión</div><div class="big">${pc}%</div></div><div><div class="mu sm">Aciertos</div><div class="big">${PR.ok}/${PR.n}</div></div><div><div class="mu sm">Mejor racha</div><div class="big">${Math.max(PR.best,QS.best)}</div></div></div><div class="meter" style="margin-top:10px"><i style="width:${Math.min(100,a/b*100)}%"></i></div><div class="mu sm">${a} / ${b} XP para el nivel ${L+1}</div>`}
@@ -1288,7 +1446,7 @@ orb(){const e=pick(P86.filter(x=>x.z>2)),{k}=lastOrb(e);return{ttl:'Orbitales',p
 cfg(){const e=pick(P86.filter(x=>x.z>10&&!EX[x.z]));return{ttl:'Configuración',pr:`¿Cuál es la <b>configuración abreviada</b> del ${lc(e.n)}?`,opts:OP(abbr(e),[e.z-2,e.z-1,e.z+1,e.z+2].map(z=>E[z]).filter(x=>x&&x.z>10&&!EX[x.z]).map(abbr)),ex:`${e.n}: <code>${abbr(e)}</code>.`}},
 dat(){const b=pick(DQ);return{ttl:'Enlace coordinado',pr:b[0],opts:OP(b[1],b[2]),ex:b[3]}}};
 const TM={sim:'sim',num:'num',pos:'num',fam:'num',val:'cfg',cfg:'cfg',spin:'spin',unp:'spin',orb:'spin',dat:'dat'};
-const memGen=t=>{const ks=Object.keys(MQ).filter(k=>k!='dat'&&(t=='all'||TM[k]==t)),k=pick(ks),q=MQ[k]();q.topic=TM[k];return q};
+const memGen=t=>{const ks=Object.keys(MQ).filter(k=>k!='dat'&&!['atomo','tend'].includes(TM[k])&&(t=='all'||TM[k]==t)),k=pick(ks),q=MQ[k]();q.topic=TM[k];return q};
 const mixGen=()=>{if(Math.random()<.35){const q=G[pick(['ion','val','name','ionname','bond'])](QS.lv);q.topic='octeto';return q}const k=pick(Object.keys(MQ)),q=MQ[k]();q.topic=TM[k];return q};
 function mcMount(id,title,gen,chips,onA){const R=$('#'+id);let q,done=0,st=0,top='all',stp=[];const g=s=>$('#'+id+s);
  R.innerHTML=`<div class="card"><div class="row" style="justify-content:space-between"><h2 style="margin:0">${title}</h2><span class="chip on" id="${id}k">Racha 0</span></div>${chips?`<div class="chips wrap" style="margin-top:8px">${Object.entries(chips).map(([k,v])=>`<button class="chip${k=='all'?' on':''}" data-t="${k}">${v}</button>`).join('')}</div>`:''}<div class="mu sm" id="${id}t" style="margin:10px 0 4px"></div><div id="${id}v" style="text-align:center;margin:6px 0"></div><p id="${id}p" style="font-size:1.08rem;margin:6px 0 10px"></p><div class="qbtn" id="${id}o"></div><div id="${id}f" aria-live="polite"></div><div class="row" id="${id}b" style="margin-top:10px"></div></div>`;
@@ -1339,14 +1497,14 @@ let DIP;addEventListener('beforeinstallprompt',e=>{e.preventDefault();DIP=e;$('#
   add('manifest',URL.createObjectURL(new Blob([JSON.stringify({name:'LabQuimWeb',short_name:'LabQuimWeb',description:'Química interactiva para preparatoria y universidad',lang:'es',start_url:u,scope:u.replace(/[^/]*$/,''),display:'standalone',background_color:'#060a15',theme_color:'#070b16',icons:[{src:a,sizes:'192x192',type:'image/png',purpose:'any maskable'},{src:b,sizes:'512x512',type:'image/png',purpose:'any maskable'}]})],{type:'application/manifest+json'})))}
  if('serviceWorker' in navigator&&/^https?:/.test(location.protocol))navigator.serviceWorker.register('sw.js').catch(()=>{})})();
 /* ---- inicio ---- */
-{const u=viewAtom(E[92],'bohr'),o=viewAtom(E[118],'bohr');u.style.width=o.style.width='100%';$('#hu').prepend(u);$('#ho').prepend(o)}
+{const u=viewAtom(E[92],'bohr'),o=viewAtom(E[10],'bohr');u.style.width=o.style.width='100%';$('#hu').prepend(u);$('#ho').prepend(o)}
 /* ===== QUÍMICALAB v3 ===== */
 /* ---- historia con año y descubridor ---- */
 const YR='1766 1895 1817 1798 1808 0 1772 1774 1886 1898 1807 1808 1825 1824 1669 0 1774 1894 1807 1808 1879 1791 1801 1797 1774 0 1735 1751 0 1746 1875 1886 1250 1817 1826 1898 1861 1790 1794 1789 1801 1781 1937 1844 1803 1803 0 1817 1863 0 0 1782 1811 1898 1860 1808 1839 1803 1885 1885 1945 1879 1901 1880 1843 1886 1878 1843 1879 1878 1907 1923 1802 1783 1925 1803 1803 1735 0 0 1861 0 1753 1898 1940 1900 1939 1898 1899 1829 1913 1789 1940 1940 1944 1944 1949 1950 1952 1952 1955 1958 1961 1964 1968 1974 1981 1984 1982 1994 1994 1996 2003 1998 2003 2000 2010 2002'.split(' ').map(Number);
 const DSC={H:'Henry Cavendish',He:'Janssen, Lockyer y Ramsay',Li:'Johan Arfwedson',Be:'Louis Vauquelin',B:'Davy y Gay-Lussac',N:'Daniel Rutherford',O:'Priestley y Scheele',F:'Henri Moissan',Ne:'Ramsay y Travers',Na:'Humphry Davy',K:'Humphry Davy',Mg:'Humphry Davy',Ca:'Humphry Davy',Ba:'Humphry Davy',Al:'Hans Ørsted',Si:'Jöns Berzelius',P:'Hennig Brand',Cl:'Carl Scheele',Ar:'Rayleigh y Ramsay',Sc:'Lars Nilson',Cr:'Louis Vauquelin',Mn:'Johan Gahn',Ga:'Lecoq de Boisbaudran',Ge:'Clemens Winkler',Br:'Antoine Balard',Rb:'Bunsen y Kirchhoff',Cs:'Bunsen y Kirchhoff',I:'Bernard Courtois',Tc:'Perrier y Segrè',Po:'Marie y Pierre Curie',Ra:'Marie y Pierre Curie',Rn:'Friedrich Dorn',U:'Martin Klaproth',Pu:'Seaborg y colaboradores',Og:'Oganessian y colaboradores'};
-hist=e=>{const y=YR[e.z-1],d=DSC[e.s],x=10+Math.max(0,Math.min(1,(y-1600)/430))*280,st=e.rad==2?'Es un elemento <b>sintético</b>: se obtiene en aceleradores o reactores.':e.rad==1?'Es <b>radiactivo</b>: sus núcleos se desintegran.':'Tiene isótopos <b>estables</b>.';
+hist=e=>{const y=YR[e.z-1],d=DSC[e.s],x=10+Math.max(0,Math.min(1,(y-1600)/430))*280,st=e.z==83?'Su único isótopo natural, el <sup>209</sup>Bi, es técnicamente radiactivo (vida media ≈ 2×10<sup>19</sup> años, más de mil millones de veces la edad del universo), así que en la práctica se comporta como estable.':e.rad==2?'Es un elemento <b>sintético</b>: se obtiene en aceleradores o reactores.':e.rad==1?'Es <b>radiactivo</b>: sus núcleos se desintegran.':'Tiene isótopos <b>estables</b>.';
  const tl=y?`<svg viewBox="0 0 300 46" style="width:100%;max-width:440px" role="img" aria-label="Descubierto en ${y}"><path d="M10 20H290" stroke="var(--bd)" stroke-width="2" stroke-linecap="round"/>${[1600,1700,1800,1900,2000].map(a=>`<path d="M${10+(a-1600)/430*280} 17V23" stroke="var(--mu)" stroke-width="1" opacity=".6"/>`).join('')}${[1600,1700,1800,1900,2000].map(a=>`<text x="${10+(a-1600)/430*280}" y="42" font-size="8" text-anchor="middle" fill="var(--mu)">${a}</text>`).join('')}<path d="M${x-4.5} 10L${x+4.5} 10L${x} 17.5Z" fill="var(--ac)"/><text x="${x}" y="8" font-size="8.5" font-weight="700" text-anchor="middle" fill="var(--ac)">${y}</text></svg>`:'';
- return acc('his','Historia y origen','el nombre',`<p class="hl"><b>Origen del nombre.</b> ${e.et?ucf(e.et):e.n}.</p><p><b>Descubrimiento:</b> ${y?y+(d?' · '+d:''):'conocido desde la antigüedad'}.</p>${tl}<p>${st} ${LAT[e.s]?`Su símbolo <b>${e.s}</b> viene del latín <i>${LAT[e.s]}</i>.`:`Su símbolo es <b>${e.s}</b>.`}</p><p class="mu sm">${CT[e.c-1][0]} · periodo ${e.p}. En su animación ${e.c==8&&e.rad!=1?'los electrones solo giran: es estable.':e.rad?'los electrones vibran con fuerza: es inestable.':'la vibración refleja su reactividad.'}</p>`)};
+ return acc('his','Historia y origen','el nombre',`<p class="hl"><b>Origen del nombre.</b> ${e.et?ucf(e.et):e.n}.</p><p><b>Descubrimiento:</b> ${y?y+(d?' · '+d:''):'conocido desde la antigüedad'}.</p>${tl}<p>${st} ${LAT[e.s]?`Su símbolo <b>${e.s}</b> viene del latín <i>${LAT[e.s]}</i>.`:`Su símbolo es <b>${e.s}</b>.`}</p><p class="mu sm">${CT[e.c-1][0]} · periodo ${e.p}. En su animación ${e.c==8&&!e.rad?'los electrones solo giran: capa completa, muy poco reactivo.':e.c==8?'la capa de valencia está completa (poco reactivo), pero el núcleo es radiactivo y por eso los electrones vibran.':e.rad?'la vibración es una metáfora visual: representa un núcleo radiactivo (inestable), que es distinto de la reactividad química.':'la vibración es una metáfora visual de su reactividad química: más vibración, más tendencia a ganar, perder o compartir electrones.'}</p>`)};
 /* ---- más mecanismos y preguntas ---- */
 MECH.push({t:'CO (O→C)',d:'O',dc:'#f87171',dn:'O',a:'C',ac:'#9ca3af',an:'C',hy:1,s:['C y O comparten dos enlaces normales, pero el C solo llega a 6 e⁻.','El O conserva un par libre y el C tiene un orbital p vacío.','El par libre del O se mueve hacia el C (flecha curva).','Se forma el tercer enlace, dativo O→C: queda :C≡O: con octeto completo en ambos.']},
 {t:'NH₃ + AlCl₃',d:'N',dc:'#60a5fa',dn:'NH₃',a:'Al',ac:'#a5b4fc',an:'AlCl₃',s:['El N del NH₃ aporta su par libre: base de Lewis.','El Al del AlCl₃ tiene solo 6 e⁻ y un orbital vacío: ácido de Lewis.','El par del N se acerca al Al (flecha curva).','Se forma Cl₃Al←NH₃ y el Al completa su octeto.']},
@@ -1468,7 +1626,7 @@ IC.det='<path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M12 12l8-4.5M12 12v9M
 const ION={1:1,2:2,13:3,15:-3,16:-2,17:-1},SUPS=q=>`<sup>${Math.abs(q)>1?Math.abs(q):''}${q>0?'+':'−'}</sup>`;
 function lewisSym(e){const v=e.v;if(v==null||v<1||v>8||(e.g>2&&e.g<13))return'';const sl=[[-7,-22],[7,-22],[22,-7],[22,7],[7,22],[-7,22],[-22,7],[-22,-7]],od=[1,3,5,7,0,2,4,6];
  return`<svg viewBox="-40 -36 80 72" width="96" role="img" aria-label="Símbolo de Lewis de ${e.n}: ${v} electrones de valencia" style="display:block;margin:6px 0"><text x="0" y="1" text-anchor="middle" dominant-baseline="central" font-size="22" font-weight="800" fill="var(--fg)">${e.s}</text>${od.slice(0,v).map(i=>`<circle cx="${sl[i][0]}" cy="${sl[i][1]}" r="3.2" fill="var(--ac)"/>`).join('')}</svg>`}
-function det(e){const{k,c,b}=lastOrb(e),l='spdf'.indexOf(k[1]),ml=c<=b?-l+c-1:-l+(c-b)-1,ms=c<=b?'+½':'−½',sh=Object.entries(e.o).reduce((a,[o,n])=>{a[o[0]-1]=(a[o[0]-1]||0)+n;return a},[]).join(', '),u=ubn(e),q=ION[e.g],zi=q?e.z-q:0,iso=[2,10,18,36,54,86].includes(zi)?E[zi]:null,A=Math.round(+e.m);
+function det(e){const{k,c,b}=lastOrb(e),l='spdf'.indexOf(k[1]),ml=c<=b?-l+c-1:-l+(c-b)-1,ms=c<=b?'+½':'−½',sh=Object.entries(e.o).reduce((a,[o,n])=>{a[o[0]-1]=(a[o[0]-1]||0)+n;return a},[]).join(', '),u=ubn(e),q=Q(e),zi=q?e.z-q:0,iso=[2,10,18,36,54,86].includes(zi)?E[zi]:null,A=Math.round(+e.m);
  const us=USO[e.z-1]||'Solo investigación científica: se sintetiza en pocos átomos en aceleradores de partículas.';
  return acc('det','Ficha atómica','usos y estructura',`<p class="hl"><b>Usos y presencia cotidiana.</b> ${us}.</p><ul class="lst"><li><b>Partículas:</b> ${e.z} protones y ${e.z} electrones en el átomo neutro.</li><li><b>Último electrón:</b> n = ${k[0]}, l = ${l} (${k}), m<sub>l</sub> = ${ml<0?'−'+-ml:ml}, m<sub>s</sub> = ${ms}${EX[e.z]?' · excepción a Aufbau: revisa la configuración real':''}.</li><li><b>Electrones desapareados:</b> ${u} · ${u?'paramagnético (lo atrae un imán)':'diamagnético (el imán lo repele débilmente)'}.</li>${q?`<li><b>Ion frecuente:</b> ${e.s}${SUPS(q)}${iso?`, isoelectrónico con ${iso.n} (${iso.s})`:''}.</li>`:''}</ul>${lewisSym(e)?`<div class="mu sm">Símbolo de Lewis</div>${lewisSym(e)}`:''}`)}
 /* ---- enlaces: ¿dónde los ves en la vida diaria? ---- */
@@ -1490,7 +1648,7 @@ const RM=matchMedia('(prefers-reduced-motion:reduce)');
 addEventListener('pointerdown',ev=>{const t=ev.target.closest&&ev.target.closest('.btn,.bn button,.ib');if(!t||t.disabled)return;hap('tap');if(RM.matches)return;const r=document.createElement('i');r.className='hrp';r.style.left=ev.clientX+'px';r.style.top=ev.clientY+'px';document.body.appendChild(r);setTimeout(()=>r.remove(),650)},{passive:true});
 const setHap=(on,quiet)=>{hapOn=on;try{localStorage.setItem('ql-hap',on?'1':'0')}catch(e){}document.querySelectorAll('[data-hap]').forEach(b=>{const x=(b.dataset.hap=='1')==on;b.classList.toggle('on',x);b.setAttribute('aria-pressed',x)});if(!on&&_v)try{_v(0)}catch(e){}if(!quiet){if(on)hap('win');toast(on?'Vibración activada':'Vibración desactivada')}};
 const thm=document.getElementById('thm');
-if(thm)thm.insertAdjacentHTML('afterend',`<h3 style="margin:14px 0 6px">Vibración</h3><div class="chips" id="hapc"><button class="chip" data-hap="1">Activada</button><button class="chip" data-hap="0">Desactivada</button></div><p class="mu sm" style="margin:6px 0 0">${_v?'Mantén pulsado un átomo: si sus electrones son estables vibra leve; si son inestables, la vibración es fuerte y agresiva. Los botones dan un toque suave.':'Este dispositivo no permite vibrar; verás solo el efecto visual (sacudida y brillo) al mantener pulsado un átomo.'}</p>`);
+if(thm)thm.insertAdjacentHTML('afterend',`<h3 style="margin:14px 0 6px">Vibración</h3><div class="chips" id="hapc"><button class="chip" data-hap="1">Activada</button><button class="chip" data-hap="0">Desactivada</button></div><p class="mu sm" style="margin:6px 0 0">${_v?'Mantén pulsado un átomo: vibra según su reactividad química y su radiactividad (los gases nobles estables casi no vibran). Los botones dan un toque suave.':'Este dispositivo no permite vibrar; verás solo el efecto visual (sacudida y brillo) al mantener pulsado un átomo.'}</p>`);
 document.addEventListener('click',ev=>{const b=ev.target.closest('[data-hap]');if(b)setHap(b.dataset.hap=='1')});
 setHap(hapOn,1);
 /* mantener pulsado un átomo: vibra según su inestabilidad (jitOf); los gases nobles no vibran */
@@ -1513,10 +1671,10 @@ const fixSvg=()=>document.querySelectorAll('svg:not([focusable])').forEach(s=>{s
 let sq=0;fixSvg();new MutationObserver(ms=>{if(sq)return;for(const m of ms)for(const n of m.addedNodes)if(n.nodeType==1&&(n.tagName=='svg'||(!(n instanceof SVGElement)&&n.querySelector('svg')))){sq=requestAnimationFrame(()=>{sq=0;fixSvg()});return}}).observe(document.body,{childList:true,subtree:true});
 addEventListener('keydown',ev=>{const t=ev.target;if(/INPUT|SELECT|TEXTAREA/.test(t.tagName)||ev.metaKey||ev.ctrlKey||ev.altKey)return;const k=ev.key,M={'0':'h','1':'t','2':'m','3':'o','4':'b','5':'q'};
 if(M[k]){typeof show2=='function'?show2(M[k]):go(M[k]);hap('tap')}else if(k=='/'){const i=document.querySelector('#v-t:not([hidden]) #q,#gs');if(i){ev.preventDefault();i.focus()}}else if(k=='v'||k=='V')setHap(!hapOn);else if(k=='?')toast('Atajos: 0-5 secciones · / buscar · V vibración · ← → elemento')});
-const YR='1766 1895 1817 1798 1808 0 1772 1774 1886 1898 1807 1755 1825 1824 1669 0 1774 1894 1807 1808 1879 1791 1801 1797 1774 0 1735 1751 0 1746 1875 1886 1250 1817 1826 1898 1861 1790 1794 1789 1801 1781 1937 1844 1803 1803 0 1817 1863 0 0 1782 1811 1898 1860 1808 1839 1803 1885 1885 1945 1879 1901 1880 1843 1886 1878 1843 1879 1878 1907 1923 1802 1783 1925 1803 1803 1735 0 0 1861 0 1753 1898 1940 1900 1939 1898 1899 1828 1913 1789 1940 1940 1944 1944 1949 1950 1952 1952 1955 1958 1961 1964 1967 1974 1981 1984 1982 1994 1994 1996 2003 1998 2003 2000 2010 2002'.split(' ').map(Number);
-const FACT={1:'Es el elemento más abundante del universo.',2:'Se detectó en el Sol (1868) antes de encontrarse en la Tierra; su nombre viene de helios.',3:'Es el metal más ligero y alimenta las baterías de iones de litio.',6:'Diamante y grafito son el mismo elemento con distinta estructura.',7:'Forma cerca del 78 % del aire que respiramos.',8:'Casi la mitad de la masa de la corteza terrestre es oxígeno, en óxidos.',9:'Es el elemento más electronegativo (3.98).',10:'Sus tubos brillan rojo-anaranjado; otros gases dan otros colores.',11:'Reacciona violentamente con el agua, por eso se guarda bajo aceite.',13:'En el siglo XIX fue más caro que el oro, hasta que se abarató su extracción.',14:'Base de los chips; la arena (SiO₂) es su fuente.',15:'Se obtuvo de orina en 1669 y brilla en la oscuridad.',17:'Desinfecta el agua potable; en la sal común va como Cl⁻.',18:'Es el tercer gas más abundante del aire.',19:'Es esencial para nervios y músculos.',20:'Forma huesos, dientes y conchas.',26:'La hemoglobina usa hierro para transportar O₂ en la sangre.',27:'Da el azul cobalto a vidrios y cerámicas.',29:'Con estaño forma bronce, que dio nombre a una edad histórica.',30:'Recubre al acero (galvanizado) para evitar que se oxide.',35:'Es el único no metal líquido a 25 °C.',43:'Fue el primer elemento obtenido artificialmente (1937).',47:'Es el mejor conductor eléctrico y térmico de los metales.',53:'La sal yodada ayuda a prevenir el bocio.',55:'El segundo se define con la frecuencia del cesio-133.',74:'Tiene el punto de fusión más alto de los metales; su símbolo W viene de wolfram.',79:'No se oxida y se puede laminar en hojas casi transparentes.',80:'Es el único metal líquido a 25 °C.',82:'Los romanos lo usaron en tuberías (plumbum, de ahí Pb); es tóxico.',86:'Gas radiactivo que puede acumularse en sótanos mal ventilados.',92:'Su fisión alimenta los reactores nucleares.',118:'Es el elemento más pesado conocido y muy inestable.'};
+
+const FACT={83:'Se consideraba el elemento estable más pesado; en 2003 se detectó que el Bi-209 decae por alfa con una vida media de ≈ 2×10¹⁹ años.',1:'Es el elemento más abundante del universo.',2:'Se detectó en el Sol (1868) antes de encontrarse en la Tierra; su nombre viene de helios.',3:'Es el metal más ligero y alimenta las baterías de iones de litio.',6:'Diamante y grafito son el mismo elemento con distinta estructura.',7:'Forma cerca del 78 % del aire que respiramos.',8:'Casi la mitad de la masa de la corteza terrestre es oxígeno, en óxidos.',9:'Es el elemento más electronegativo (3.98).',10:'Sus tubos brillan rojo-anaranjado; otros gases dan otros colores.',11:'Reacciona violentamente con el agua, por eso se guarda bajo aceite.',13:'En el siglo XIX fue más caro que el oro, hasta que se abarató su extracción.',14:'Base de los chips; la arena (SiO₂) es su fuente.',15:'Se obtuvo de orina en 1669 y brilla en la oscuridad.',17:'Desinfecta el agua potable; en la sal común va como Cl⁻.',18:'Es el tercer gas más abundante del aire.',19:'Es esencial para nervios y músculos.',20:'Forma huesos, dientes y conchas.',26:'La hemoglobina usa hierro para transportar O₂ en la sangre.',27:'Da el azul cobalto a vidrios y cerámicas.',29:'Con estaño forma bronce, que dio nombre a una edad histórica.',30:'Recubre al acero (galvanizado) para evitar que se oxide.',35:'Es el único no metal líquido a 25 °C.',43:'Fue el primer elemento obtenido artificialmente (1937).',47:'Es el mejor conductor eléctrico y térmico de los metales.',53:'La sal yodada ayuda a prevenir el bocio.',55:'El segundo se define con la frecuencia del cesio-133.',74:'Tiene el punto de fusión más alto de los metales; su símbolo W viene de wolfram.',79:'No se oxida y se puede laminar en hojas casi transparentes.',80:'Es el único metal líquido a 25 °C.',82:'Los romanos lo usaron en tuberías (plumbum, de ahí Pb); es tóxico.',86:'Gas radiactivo que puede acumularse en sótanos mal ventilados.',92:'Su fisión alimenta los reactores nucleares.',118:'Es el elemento más pesado conocido y muy inestable.'};
 function info(z){const pn=document.getElementById('pn'),e=E[z];if(!pn||!e)return;const o=pn.querySelector('.nf');if(o)o.remove();const y=YR[z-1],n=Math.max(0,Math.round(+e.m)-z),f=FACT[z]||(e.rad==2?'Se produce en aceleradores o reactores; casi no existe en la naturaleza.':'');
-(pn.querySelector('.pbody')||pn).insertAdjacentHTML('beforeend',`<div class="nf"><div class="rw"><span class="chip">Descubrimiento: ${y?y:'Antigüedad'}</span><span class="chip">${z} p⁺ · ${n} n⁰ · ${z} e⁻</span><span class="chip">${['Estable','Radiactivo natural','Sintético'][e.rad]}</span></div>${f?`<p><b>Dato curioso:</b> ${f}</p>`:''}</div>`)}
+(pn.querySelector('.pbody')||pn).insertAdjacentHTML('beforeend',`<div class="nf"><div class="rw"><span class="chip">Descubrimiento: ${y?y:'Antigüedad'}</span><span class="chip">${z} p⁺ · ${n} n⁰ · ${z} e⁻</span><span class="chip">${e.z==83?'Casi estable (T½ ≈ 2×10¹⁹ años)':['Estable','Radiactivo natural','Sintético'][e.rad]}</span></div>${f?`<p><b>Dato curioso:</b> ${f}</p>`:''}</div>`)}
 if(typeof show=='function'){const _s=show;show=function(z){const r=_s.apply(this,arguments);try{info(z)}catch(e){}return r}}
 })();
 
@@ -1754,7 +1912,7 @@ setInterval(()=>{scan();dirty=1},700);scan();requestAnimationFrame(loop);
 const hero=document.querySelector('#v-h .card');if(!hero)return;hero.classList.add('hhero');
 hero.insertAdjacentHTML('afterbegin','<svg class="orb" viewBox="-200 -200 400 400" fill="none" aria-hidden="true"><g stroke="currentColor" stroke-opacity=".4" style="color:var(--ac)"><ellipse rx="190" ry="70"/><ellipse rx="190" ry="70" transform="rotate(60)"/><ellipse rx="190" ry="70" transform="rotate(120)"/></g><circle r="14" fill="var(--ac2)" opacity=".8"/><g fill="var(--ac)"><circle r="6"><animateMotion dur="9s" repeatCount="indefinite" path="M190 0A190 70 0 1 1 -190 0A190 70 0 1 1 190 0"/></circle><g transform="rotate(60)"><circle r="6"><animateMotion dur="12s" repeatCount="indefinite" path="M190 0A190 70 0 1 1 -190 0A190 70 0 1 1 190 0"/></circle></g><g transform="rotate(120)" fill="var(--ac2)"><circle r="6"><animateMotion dur="15s" repeatCount="indefinite" path="M190 0A190 70 0 1 1 -190 0A190 70 0 1 1 190 0"/></circle></g></g></svg>');
 const h2=hero.querySelector('h2');h2.innerHTML='LabQuim<span>Web</span>';
-hero.querySelector('p').insertAdjacentHTML('afterend','<div class="cta"><button class="btn pri" data-go="t">Abrir la tabla</button><button class="btn" data-go="x">Reto mixto</button><button class="btn" data-go="c">Enlace coordinado</button></div><div class="stt"><span><b>118</b> elementos</span><span><b>7</b> modelos atómicos</span><span><b>6</b> mecanismos</span><span><b>11</b> retos</span></div><div class="fact" id="fct" aria-live="polite"></div>');
+hero.querySelector('p').insertAdjacentHTML('afterend','<div class="cta"><button class="btn pri" data-go="t">Abrir la tabla</button><button class="btn" data-go="x">Reto mixto</button><button class="btn" data-go="c">Enlace coordinado</button></div><div class="stt"><span><b>118</b> elementos</span><span><b>6</b> modelos + Lewis</span><span><b>6</b> mecanismos</span><span><b>6</b> retos</span><span><b id="stl">0</b> lecciones</span></div><div class="fact" id="fct" aria-live="polite"></div>');
 const F=()=>{const e=pick(E.slice(1,99)),y=YR[e.z-1],a=Math.random();return a<.5?['Para qué sirve',`${e.n} (${e.s}): ${USO[e.z-1]}.`]:['Historia',`${e.n} ${y?'se descubrió en '+y+(DSC[e.s]?', por '+DSC[e.s]:''):'se conoce desde la antigüedad'}.`]},ft=document.getElementById('fct');
 const say=()=>{const[k,t]=F();ft.classList.add('sw');setTimeout(()=>{ft.innerHTML=`<small>${k}</small><span class="ft">${t}</span>`;ft.classList.remove('sw')},350)};ft.innerHTML='<small>Dato</small><span class="ft">Gira, toca y explora.</span>';setTimeout(say,600);setInterval(()=>{if(CUR=='h'&&!document.hidden)say()},7000);
 const cells=E.slice(1).map(e=>`<button class="c" data-el="${e.z}" style="--cb:${CT[e.c-1][1]};--ct:${lum(CT[e.c-1][1])>.38?'#0b1220':'#fff'}" aria-label="${e.n}"><i>${e.z}</i><b>${e.s}</b><small style="--n:${e.n.length}">${e.n}</small></button>`).join('');
@@ -1789,4 +1947,751 @@ addEventListener('resize',()=>setTimeout(sync,90));addEventListener('orientation
 /* ===== v17: al deslizar la página se pausan los adornos para que los electrones no se traben ===== */
 (()=>{const R=document.documentElement;let t=0,on=0;const orb=()=>document.querySelector('.hhero .orb');
 addEventListener('scroll',()=>{if(!on){on=1;R.classList.add('scr');try{const o=orb();o&&o.pauseAnimations()}catch(e){}}clearTimeout(t);t=setTimeout(()=>{on=0;R.classList.remove('scr');try{const o=orb();o&&!window.__lite&&CUR=='h'&&o.unpauseAnimations()}catch(e){}},160)},{passive:true})})();
-</script></body></html>
+</script><script>
+(()=>{
+/* ===== v18: datos de Aprender ===== */
+const f2=(x,d=2)=>(+x).toFixed(d);
+const NT=(s,z,a,q)=>`<span class="nt"><i>${a}</i><i>${z<0?'−'+(-z):z}</i></span>${s}${q?sup(q):''}`;
+const ISO={
+ H:[[1,1.007825,99.9885],[2,2.014102,0.0115]],
+ B:[[10,10.012937,19.9],[11,11.009305,80.1]],
+ C:[[12,12,98.93],[13,13.003355,1.07]],
+ Ne:[[20,19.99244,90.48],[21,20.993847,0.27],[22,21.991386,9.25]],
+ Mg:[[24,23.985042,78.99],[25,24.985837,10.00],[26,25.982593,11.01]],
+ Cl:[[35,34.968853,75.76],[37,36.965903,24.24]],
+ Cu:[[63,62.929598,69.15],[65,64.92779,30.85]],
+ Br:[[79,78.918338,50.69],[81,80.916291,49.31]]};
+const avgOf=s=>ISO[s].reduce((a,[,m,p])=>a+m*p/100,0);
+const SUCC={Na:[495.8,4562,6910.3,9543,13354],Mg:[737.7,1450.7,7732.7,10542.5,13630],Al:[577.5,1816.7,2744.8,11577,14842],Si:[786.5,1577.1,3231.6,4355.5,16091]};
+const DEC=[
+ {k:'C14',n:'Carbono-14',s:'C',a:14,z:6,t:5730,u:'años',d:'Fechado de restos orgánicos de hasta ~50 000 años.'},
+ {k:'I131',n:'Yodo-131',s:'I',a:131,z:53,t:8.02,u:'días',d:'Se usa en medicina nuclear para la tiroides.'},
+ {k:'Tc99m',n:'Tecnecio-99m',s:'Tc',a:99,z:43,t:6.01,u:'horas',d:'Isótopo de diagnóstico más usado en hospitales.'},
+ {k:'Co60',n:'Cobalto-60',s:'Co',a:60,z:27,t:5.27,u:'años',d:'Radioterapia y esterilización industrial.'},
+ {k:'Ra226',n:'Radio-226',s:'Ra',a:226,z:88,t:1600,u:'años',d:'Descubierto por los Curie; ya no se usa en pinturas luminosas.'},
+ {k:'U238',n:'Uranio-238',s:'U',a:238,z:92,t:4.468e9,u:'años',d:'Casi toda la edad de la Tierra (4 540 millones de años) en una vida media.'}];
+const NUC=[
+ {p:['U',238,92],d:['Th',234,90],t:'a'},{p:['Ra',226,88],d:['Rn',222,86],t:'a'},{p:['Po',210,84],d:['Pb',206,82],t:'a'},
+ {p:['C',14,6],d:['N',14,7],t:'b-'},{p:['Th',234,90],d:['Pa',234,91],t:'b-'},{p:['Co',60,27],d:['Ni',60,28],t:'b-'},
+ {p:['Na',22,11],d:['Ne',22,10],t:'b+'},{p:['C',11,6],d:['B',11,5],t:'b+'}];
+const NUCT={a:['α','He',4,2,'partícula alfa'],'b-':['β⁻','e',0,-1,'electrón (+ antineutrino)'],'b+':['β⁺','e',0,1,'positrón (+ neutrino)']};
+const ISOION=[['O²⁻ (8 p)',140,8],['F⁻ (9 p)',133,9],['Na⁺ (11 p)',102,11],['Mg²⁺ (12 p)',72,12],['Al³⁺ (13 p)',54,13]];
+const ISOION2=[['S²⁻ (16 p)',184,16],['Cl⁻ (17 p)',181,17],['K⁺ (19 p)',138,19],['Ca²⁺ (20 p)',100,20],['Sc³⁺ (21 p)',75,21]];
+/* regla de Slater para electrones s/p de grupos principales (Z ≤ 54) */
+function slater(z){const e=E[z];if(!e||z>54||(e.b!='s'&&e.b!='p'))return null;
+ const sh={};for(const k in e.o)sh[+k[0]]=(sh[+k[0]]||0)+e.o[k];
+ const n=Math.max(...Object.keys(sh).map(Number)),same=sh[n]-1,m1=sh[n-1]||0;let m2=0;for(let q=1;q<n-1;q++)m2+=sh[q]||0;
+ const S=n==1?same*.3:same*.35+m1*.85+m2;return{n,same,m1,m2,S:+S.toFixed(2),zef:+(z-S).toFixed(2)}}
+/* ===== glosario ===== */
+const GL={
+atomo:['Átomo','Unidad básica de un elemento: un núcleo (protones y neutrones) rodeado de electrones. Es neutro cuando tiene tantos protones como electrones.'],
+proton:['Protón','Partícula del núcleo con carga +1 y masa ≈ 1 u. Su número (Z) define qué elemento es.'],
+neutron:['Neutrón','Partícula del núcleo sin carga y con masa ≈ 1 u (un poco mayor que la del protón). Aporta masa y estabilidad nuclear, pero no carga.'],
+electron:['Electrón','Partícula de carga −1 y masa ≈ 1/1836 u que forma la nube electrónica. De él depende casi todo el comportamiento químico.'],
+nucleo:['Núcleo','Región central y diminuta (~10⁻¹⁵ m) que concentra casi toda la masa del átomo y toda su carga positiva.'],
+z:['Número atómico (Z)','Número de protones del núcleo. Identifica al elemento; en un átomo neutro también es el número de electrones.'],
+a:['Número de masa (A)','Protones + neutrones (A = Z + N). Es un entero y no es lo mismo que la masa atómica de la tabla periódica.'],
+nuclido:['Nucleido','Especie nuclear definida por su Z y su A, por ejemplo el carbono-14. Los inestables se llaman radionucleidos.'],
+isotopo:['Isótopo','Átomos del mismo elemento (mismo Z) con distinto número de neutrones y, por tanto, distinto A.'],
+isobaro:['Isóbaros','Nucleidos de elementos distintos con el mismo número de masa A, como ¹⁴C y ¹⁴N.'],
+ion:['Ion','Átomo (o grupo de átomos) con carga neta porque ganó o perdió electrones. Los protones no cambian, así que el elemento tampoco.'],
+cation:['Catión','Ion positivo: perdió electrones (Na⁺, Mg²⁺).'],
+anion:['Anión','Ion negativo: ganó electrones (Cl⁻, O²⁻).'],
+u:['Unidad de masa atómica (u)','1/12 de la masa de un átomo de carbono-12: 1 u ≈ 1.66054 × 10⁻²⁷ kg. También se llama dalton (Da).'],
+masaat:['Masa atómica','Promedio ponderado de las masas de los isótopos naturales de un elemento. Es el valor que aparece en la tabla periódica.'],
+abund:['Abundancia isotópica','Porcentaje de los átomos de un elemento que corresponde a cada isótopo en la naturaleza.'],
+mol:['Mol','Cantidad de sustancia con 6.02214076 × 10²³ entidades. La masa molar (g/mol) coincide numéricamente con la masa atómica (u).'],
+espectro:['Espectrometría de masas','Técnica que ioniza una muestra y separa los iones según su relación masa/carga. Permite medir masas isotópicas y abundancias.'],
+radiact:['Radiactividad','Emisión espontánea de radiación por núcleos inestables que se transforman en otros. La descubrió Becquerel en 1896.'],
+desint:['Desintegración','Transformación espontánea de un núcleo inestable en otro, con emisión de partículas o radiación.'],
+alfa:['Partícula alfa (α)','Núcleo de helio-4 (2 protones y 2 neutrones). Al emitirla, A baja 4 y Z baja 2. Es poco penetrante: la frena una hoja de papel.'],
+beta:['Partícula beta (β)','Electrón (β⁻) o positrón (β⁺) emitido por el núcleo. En β⁻ un neutrón se convierte en protón (Z sube 1); en β⁺ un protón se convierte en neutrón (Z baja 1). A no cambia.'],
+gamma:['Radiación gamma (γ)','Fotón de muy alta energía emitido por un núcleo excitado. No cambia ni A ni Z. Es muy penetrante.'],
+vmedia:['Vida media (T½)','Tiempo en el que se desintegra la mitad de los núcleos de una muestra. No depende de cuánta muestra haya ni de la temperatura.'],
+actividad:['Actividad','Desintegraciones por segundo de una muestra. Se mide en becquerel (Bq): 1 Bq = 1 desintegración por segundo.'],
+grupo:['Grupo','Columna de la tabla periódica. Los elementos de un grupo tienen igual número de electrones de valencia y propiedades parecidas.'],
+periodo:['Periodo','Fila de la tabla periódica. Coincide con el número de la capa más externa ocupada (n).'],
+valencia:['Electrones de valencia','Electrones de la capa más externa. Son los que participan en los enlaces. En los grupos principales 1 y 2 coinciden con el número de grupo; en 13–18 equivalen al número de grupo − 10.'],
+cfg:['Configuración electrónica','Distribución de los electrones en subniveles (1s² 2s² 2p⁶…) según el principio de Aufbau, Pauli y Hund.'],
+subnivel:['Subnivel','Conjunto de orbitales con el mismo n y l (s, p, d, f). Cada subnivel s admite 2 e⁻, p 6, d 10 y f 14.'],
+penetra:['Penetración','Capacidad de un electrón de acercarse al núcleo atravesando las capas internas. Orden: s > p > d > f en un mismo nivel n.'],
+zef:['Carga nuclear efectiva (Zef)','Carga positiva neta que «siente» un electrón: Zef = Z − S, donde S es el blindaje de los demás electrones.'],
+blindaje:['Apantallamiento (blindaje)','Reducción de la atracción del núcleo sobre un electrón externo por la repulsión de los electrones internos.'],
+slater:['Reglas de Slater','Método sencillo para estimar S: 0.35 por cada otro e⁻ de la misma capa, 0.85 por cada e⁻ de la capa n−1 y 1.00 por cada e⁻ más interno (0.30 si la capa es 1s).'],
+radioat:['Radio atómico','Medida del tamaño del átomo. Según cómo se mida hay radio covalente, metálico o de van der Waals; no son intercambiables.'],
+radiocov:['Radio covalente','Mitad de la distancia entre los núcleos de dos átomos iguales unidos por un enlace sencillo.'],
+radioion:['Radio iónico','Tamaño de un ion en un cristal. Los cationes son más pequeños que su átomo y los aniones, más grandes.'],
+isoelec:['Isoelectrónicos','Especies con el mismo número de electrones (por ejemplo O²⁻, F⁻, Ne, Na⁺, Mg²⁺: todas con 10 e⁻).'],
+ei:['Energía de ionización (EI)','Energía necesaria para arrancar un electrón de un átomo gaseoso: X(g) → X⁺(g) + e⁻. La primera EI se da en kJ/mol o en eV.'],
+ae:['Afinidad electrónica (AE)','Energía que se libera (convención más común) cuando un átomo gaseoso gana un electrón: X(g) + e⁻ → X⁻(g).'],
+en:['Electronegatividad (EN)','Tendencia de un átomo, dentro de un enlace, a atraer hacia sí el par de electrones compartido. La escala de Pauling va de ≈0.7 (Fr) a 3.98 (F).'],
+polar:['Enlace covalente polar','Enlace covalente con reparto desigual de electrones por diferencia de electronegatividad; aparecen cargas parciales δ+ y δ−.'],
+metal:['Metal','Elemento que tiende a perder electrones (baja EI y baja EN), conduce la electricidad y forma cationes.'],
+nometal:['No metal','Elemento que tiende a ganar o compartir electrones (alta EI y alta EN); suele formar aniones o enlaces covalentes.'],
+nobles:['Gases nobles','Elementos del grupo 18, con capa de valencia completa; son muy poco reactivos y tienen las EI más altas de cada periodo.']
+};
+/* ===== lecciones ===== */
+const TL1=[['1803','Dalton: átomos como esferas','Propone que la materia está formada por átomos indivisibles, iguales entre sí para cada elemento.'],
+['1897','Thomson: el electrón','Con tubos de rayos catódicos descubre partículas negativas mucho más ligeras que cualquier átomo.'],
+['1896–98','Becquerel y los Curie','Descubren la radiactividad. Marie Curie aísla polonio y radio. Prueba de que el átomo «no es indivisible».'],
+['1911','Rutherford: el núcleo','Los experimentos de Geiger y Marsden (1909) muestran que la carga positiva y casi toda la masa están en un núcleo diminuto.'],
+['1913–19','Soddy y Aston: isótopos','Soddy acuña la palabra «isótopo» (1913). Aston, con su espectrógrafo de masas, separa los isótopos del neón (1919).'],
+['1919','Rutherford: el protón','Al bombardear nitrógeno con partículas alfa identifica el núcleo de hidrógeno como partícula constituyente del núcleo.'],
+['1932','Chadwick: el neutrón','Identifica la partícula neutra que explica por qué la masa del núcleo es mayor que la de sus protones.']];
+const LES=[
+{id:'a1',m:'atomo',n:1,t:'Las partículas del átomo',min:12,
+ obj:['Comparar protones, neutrones y electrones por carga, masa y ubicación.','Interpretar Z y A en la notación nuclear.','Calcular las partículas de un átomo neutro, un catión o un anión.'],
+ steps:[
+ {k:'Predice',b:[
+  {t:'p',h:'Antes de ver la teoría, apuesta. Equivocarse aquí es parte del aprendizaje: la explicación llega enseguida.'},
+  {t:'q',q:'Un átomo de sodio tiene 11 protones. Si pierde un electrón, ¿qué pasa con su identidad química?',o:['Sigue siendo sodio: ahora es el ion Na⁺','Se convierte en neón','Se convierte en magnesio','Deja de ser un átomo'],ex:'La identidad la fija el número de protones (Z). Perder un electrón solo cambia la carga: el átomo se vuelve un <b>ion</b> Na⁺, pero sigue siendo sodio.'},
+  {t:'q',q:'¿Qué tiene más masa: <b>todos los electrones</b> de un átomo de carbono juntos, o <b>un solo protón</b>?',o:['Un solo protón','Los 6 electrones juntos','Tienen casi la misma masa','Depende del isótopo'],ex:'Un protón pesa ≈ 1.0073 u; un electrón ≈ 0.00055 u. Los 6 electrones suman ≈ 0.0033 u: ¡unas 300 veces menos que un protón!'}]},
+ {k:'Explora',b:[
+  {t:'p',h:'Construye átomos con los controles. Observa qué cambia cuando varías protones, neutrones o electrones, y completa los 6 retos.'},
+  {t:'sim',id:'build'}]},
+ {k:'Aprende',b:[
+  {t:'h',h:'Tres partículas, tres papeles'},
+  {t:'tab',head:['Partícula','Carga','Masa (u)','Dónde está'],rows:[['[[proton]]','+1','1.00728','Núcleo'],['[[neutron]]','0','1.00867','Núcleo'],['[[electron]]','−1','0.000549 (≈ 1/1836)','Nube electrónica']]},
+  {t:'key',h:'El número de protones ([[z|Z]]) define el elemento. Cambiar Z es cambiar de elemento; cambiar electrones solo cambia la carga; cambiar neutrones da otro [[isotopo|isótopo]].'},
+  {t:'p',h:'<b>Notación nuclear:</b> '+NT('X','Z','A')+' donde <b>A = Z + N</b> ([[a|número de masa]]) y N es el número de neutrones. En un átomo neutro, electrones = Z. En un [[ion|ion]] de carga <i>q</i>: <b>electrones = Z − q</b>.'},
+  {t:'tab',head:['Especie','Protones','Neutrones','Electrones','Carga'],rows:[['<sup>12</sup>C','6','6','6','0'],['<sup>23</sup>Na⁺ ([[cation|catión]])','11','12','10','+1'],['<sup>35</sup>Cl⁻ ([[anion|anión]])','17','18','18','−1'],['<sup>16</sup>O²⁻','8','8','10','−2']]},
+  {t:'warn',h:'<b>Error común:</b> confundir el número de masa A (entero, de un isótopo) con la <b>masa atómica</b> de la tabla (promedio de isótopos). Cl-35 tiene A = 35; la tabla dice 35.45.'},
+  {t:'warn',h:'<b>Error común:</b> pensar que un ion es otro elemento. Na y Na⁺ tienen 11 protones: son el mismo elemento con distinta carga.'},
+  {t:'h',h:'Cómo llegamos aquí'},
+  {t:'tl',i:TL1},
+  {u:1,t:'p',h:'<b>Escalas.</b> El núcleo mide ~10⁻¹⁵ m y el átomo ~10⁻¹⁰ m: el átomo es de 10⁴ a 10⁵ veces más ancho. Si el núcleo fuera una canica de 1 cm, el átomo tendría desde cientos de metros hasta ~1 km. Casi todo el átomo es espacio donde «vive» la nube electrónica.'},
+  {u:1,t:'p',h:'<b>Más adentro.</b> Protones y neutrones no son elementales: están formados por quarks (protón = uud, neutrón = udd) que la interacción nuclear fuerte mantiene unidos. El electrón sí se considera elemental.'}]},
+ {k:'Ejemplo',b:[
+  {t:'ex',p:'¿Cuántos protones, neutrones y electrones tiene el ion '+NT('Cl',17,35,-1)+'?',s:['<b>Protones</b> = Z = 17 (cloro).','<b>Neutrones</b> = A − Z = 35 − 17 = 18.','<b>Electrones</b> = Z − q = 17 − (−1) = 18: ganó un electrón.'],r:'17 protones, 18 neutrones y 18 electrones (¡los mismos electrones que el argón!).'},
+  {t:'ex',p:'Un ion tiene 26 protones, 30 neutrones y 24 electrones. Escribe su símbolo completo.',s:['Z = 26 → el elemento es el <b>hierro</b> (Fe).','A = Z + N = 26 + 30 = 56.','Carga = protones − electrones = 26 − 24 = +2.'],r:NT('Fe',26,56,2)}]},
+ {k:'Practica',b:[
+  {t:'chk',qs:[
+   {q:'¿Qué partícula determina la identidad de un elemento?',o:['Los protones','Los neutrones','Los electrones','Los neutrones y los electrones'],ex:'Z, el número de protones, identifica al elemento.'},
+   {q:'El ion '+NT('Na',11,23,1)+' tiene…',o:['11 protones, 12 neutrones y 10 electrones','11 protones, 12 neutrones y 12 electrones','12 protones, 11 neutrones y 10 electrones','10 protones, 12 neutrones y 11 electrones'],ex:'N = 23 − 11 = 12; electrones = 11 − (+1) = 10.'},
+   {q:'¿Qué carga tiene una especie con 8 protones y 10 electrones?',o:['2−','2+','0','10−'],ex:'q = protones − electrones = 8 − 10 = −2: es el ion óxido, O²⁻.'},
+   {q:'¿Cuál afirmación es correcta?',o:['Protón y neutrón tienen masas casi iguales; el electrón es unas 1836 veces más ligero','El electrón y el protón tienen la misma masa','El neutrón es mucho más ligero que el protón','Los neutrones están en la nube electrónica'],ex:'m(p) ≈ m(n) ≈ 1 u; m(e⁻) ≈ 1/1836 u. Protones y neutrones están en el núcleo.'}]},
+  {t:'mc',g:'atomo',h:'Practica libre (cada acierto suma XP en «Átomo e isótopos»)'}]}]},
+{id:'a2',m:'atomo',n:2,t:'Isótopos',min:10,
+ obj:['Definir isótopo y escribirlo en notación y en palabras (carbono-14).','Calcular neutrones de cada isótopo.','Explicar por qué los isótopos se parecen químicamente pero difieren en masa.'],
+ steps:[
+ {k:'Predice',b:[
+  {t:'q',q:'¿Qué crees que tienen en común el <sup>12</sup>C y el <sup>14</sup>C?',o:['El mismo número de protones; difieren en neutrones','El mismo número de neutrones; difieren en protones','Nada: son elementos distintos','El mismo número de masa A'],ex:'Los dos son carbono (Z = 6). El carbono-14 tiene 8 neutrones y el carbono-12, 6. Son <b>isótopos</b>.'},
+  {t:'q',q:'El agua común (H₂O) y el agua pesada (D₂O) ¿se comportan químicamente igual?',o:['Casi igual: la química la dictan los electrones, que son los mismos','Totalmente distinta, porque D es otro elemento','Idéntica en todo, incluida la densidad','El agua pesada no reacciona con nada'],ex:'D (deuterio) es hidrógeno con un neutrón. Tiene los mismos electrones, por eso la química es casi igual, pero la mayor masa cambia propiedades físicas (el D₂O tiene densidad 1.105 g/mL, funde a 3.8 °C…).'}]},
+ {k:'Explora',b:[
+  {t:'p',h:'Elige un elemento y mira sus isótopos naturales: protones iguales, neutrones distintos, abundancias muy diferentes.'},
+  {t:'sim',id:'abund'}]},
+ {k:'Aprende',b:[
+  {t:'key',h:'[[isotopo|Isótopos]] = mismo Z, distinto N. Se nombran con el elemento y A: «carbono-14» o C-14, y se escriben '+NT('C',6,14)+'.'},
+  {t:'tab',head:['Isótopo del H','Nombre','p','n','Abundancia natural','Nota'],rows:[[NT('H',1,1),'protio','1','0','99.9885 %','estable'],[NT('H',1,2),'deuterio (D)','1','1','0.0115 %','estable'],[NT('H',1,3),'tritio (T)','1','2','trazas','radiactivo, T½ = 12.3 años']]},
+  {t:'p',h:'Solo el hidrógeno tiene nombres propios para sus isótopos. Los demás se nombran «elemento-A».'},
+  {t:'h',h:'¿Por qué se parecen químicamente?'},
+  {t:'p',h:'La química depende sobre todo de los [[electron|electrones]] y estos son los mismos en todos los isótopos de un elemento. La masa distinta afecta propiedades físicas (densidad, velocidad de difusión, punto de fusión) y, en el hidrógeno, algo las velocidades de reacción (efecto isotópico cinético).'},
+  {t:'tab',head:['Propiedad','H₂O','D₂O'],rows:[['Densidad a 20 °C','0.998 g/mL','1.105 g/mL'],['Punto de fusión','0.0 °C','3.8 °C'],['Punto de ebullición','100.0 °C','101.4 °C']]},
+  {t:'h',h:'Usos de los isótopos'},
+  {t:'p',h:'<b>C-14:</b> fechado de restos orgánicos. <b>O-18:</b> clima del pasado (hielo y conchas). <b>I-131, Tc-99m:</b> diagnóstico y terapia. <b>U-235:</b> combustible de fisión. <b>D (deuterio):</b> disolventes para RMN (CDCl₃, D₂O) y trazadores.'},
+  {t:'warn',h:'<b>Error común:</b> isótopo ≠ ion. El isótopo cambia los <i>neutrones</i>; el ion cambia los <i>electrones</i>.'},
+  {t:'warn',h:'<b>Error común:</b> dos átomos con igual A y distinto Z no son isótopos; son [[isobaro|isóbaros]] (por ejemplo <sup>14</sup>C y <sup>14</sup>N).'},
+  {t:'p',h:'Algunos elementos tienen un solo isótopo estable (F, Na, Al, P, Au…); el récord de isótopos estables es el estaño, con 10.'},
+  {u:1,t:'p',h:'<b>Espectrometría de masas.</b> Un [[espectro|espectrómetro de masas]] separa iones por m/z. El Cl₂ muestra picos en m/z = 70, 72 y 74 (<sup>35</sup>Cl<sub>2</sub>, <sup>35</sup>Cl<sup>37</sup>Cl, <sup>37</sup>Cl<sub>2</sub>) con intensidades cercanas a 9 : 6 : 1, porque Cl-35 : Cl-37 ≈ 3 : 1. Aston (1919) usó una técnica así para separar los isótopos del neón (Ne-20 y Ne-22).'}]},
+ {k:'Ejemplo',b:[
+  {t:'ex',p:'El cobre natural es una mezcla de '+NT('Cu',29,63)+' y '+NT('Cu',29,65)+'. ¿Cuántos neutrones tiene cada isótopo?',s:['Z(Cu) = 29 en los dos (si no, no serían cobre).','Cu-63: N = 63 − 29 = <b>34</b>.','Cu-65: N = 65 − 29 = <b>36</b>.'],r:'Cu-63 tiene 34 neutrones y Cu-65 tiene 36. Ambos tienen 29 protones y 29 electrones (si son neutros).'},
+  {t:'ex',p:'¿Son isótopos el '+NT('C',6,14)+' y el '+NT('N',7,14)+'?',s:['Comparamos Z: 6 ≠ 7 → son elementos distintos.','Tienen igual A (14): relación de isóbaros.'],r:'No son isótopos: son isóbaros. (De hecho el C-14 se desintegra en N-14.)'}]},
+ {k:'Practica',b:[
+  {t:'chk',qs:[
+   {q:'Dos átomos son isótopos si tienen el mismo número de ___ y distinto número de ___.',o:['protones / neutrones','neutrones / protones','electrones / protones','protones / electrones'],ex:'Mismo Z (elemento), distinto N (y por tanto A).'},
+   {q:'¿Cuántos neutrones tiene el carbono-14?',o:['8','6','14','7'],ex:'N = A − Z = 14 − 6 = 8.'},
+   {q:'¿Cuál de estos pares son isótopos?',o:['<sup>12</sup>C y <sup>14</sup>C','<sup>14</sup>C y <sup>14</sup>N','<sup>23</sup>Na y <sup>23</sup>Na⁺','<sup>35</sup>Cl⁻ y <sup>40</sup>Ar'],ex:'Solo ¹²C y ¹⁴C tienen igual Z (6) y distinto A. ¹⁴C/¹⁴N son isóbaros y Na/Na⁺ son el mismo nucleido con distinta carga.'},
+   {q:'El D₂O funde a 3.8 °C y el H₂O a 0 °C. ¿Qué explica la diferencia?',o:['La mayor masa del deuterio cambia propiedades físicas, aunque los electrones sean los mismos','El deuterio tiene más electrones','El D₂O tiene otro tipo de enlace químico','El deuterio es otro elemento'],ex:'Mismos electrones (química casi igual), pero distinta masa (propiedades físicas distintas).'}]},
+  {t:'mc',g:'atomo',h:'Practica libre'}]}]},
+{id:'a3',m:'atomo',n:3,t:'Masa atómica promedio',min:12,
+ obj:['Distinguir número de masa, masa isotópica y masa atómica.','Calcular la masa atómica promedio ponderada.','Deducir abundancias a partir de la masa de la tabla.'],
+ steps:[
+ {k:'Predice',b:[
+  {t:'q',q:'El cloro tiene dos isótopos, Cl-35 y Cl-37, y su masa atómica en la tabla es 35.45 u. ¿Cuál es más abundante?',o:['Cl-35','Cl-37','Son igual de abundantes','No se puede saber'],ex:'35.45 está mucho más cerca de 35 que de 37: el promedio se «inclina» hacia el isótopo más abundante, el Cl-35 (≈ 76 %).'},
+  {t:'q',q:'¿Existe algún átomo de cloro que pese exactamente 35.45 u?',o:['No: es un promedio de muchos átomos','Sí, es el más común','Sí, el Cl-36','Solo en el estado gaseoso'],ex:'Los átomos reales son Cl-35 (34.969 u) o Cl-37 (36.966 u). El 35.45 es un promedio ponderado.'}]},
+ {k:'Explora',b:[
+  {t:'p',h:'Mueve la abundancia y mira cómo se mueve la masa promedio. Intenta que coincida con la de la tabla.'},
+  {t:'sim',id:'avg'}]},
+ {k:'Aprende',b:[
+  {t:'key',h:'[[masaat|Masa atómica]] = Σ (fracción de abundancia × masa isotópica). La fracción es el porcentaje entre 100.'},
+  {t:'p',h:'Se mide en [[u|unidades de masa atómica]]: 1 u = 1/12 de la masa de un átomo de C-12. La masa de un isótopo (por ejemplo 34.969 u para Cl-35) es casi, pero no exactamente, su número de masa A.'},
+  {t:'tab',head:['Isótopo','Masa (u)','Abundancia','Aporte'],rows:[['Cl-35',f2(ISO.Cl[0][1],3),ISO.Cl[0][2]+' %',f2(ISO.Cl[0][1]*ISO.Cl[0][2]/100,3)+' u'],['Cl-37',f2(ISO.Cl[1][1],3),ISO.Cl[1][2]+' %',f2(ISO.Cl[1][1]*ISO.Cl[1][2]/100,3)+' u'],['<b>Promedio</b>','','100 %','<b>'+f2(avgOf('Cl'),2)+' u</b>']]},
+  {t:'p',h:'Con el [[mol|mol]], el número de la masa atómica (en u) es la masa molar en g/mol: 1 mol de Cl pesa ≈ 35.45 g.'},
+  {t:'warn',h:'<b>Error común:</b> promediar sin ponderar. (35 + 37)/2 = 36 ≠ 35.45: ignora que hay tres veces más Cl-35.'},
+  {t:'warn',h:'<b>Error común:</b> usar el porcentaje sin dividir entre 100 (76 en lugar de 0.76).'},
+  {u:1,t:'p',h:'<b>Precisión.</b> IUPAC publica para elementos como Cl o B un <i>intervalo</i> (Cl: 35.446–35.457; B: 10.806–10.821) porque la abundancia isotópica varía según el origen de la muestra; el valor 35.45 es el «convencional» para usos cotidianos.'}]},
+ {k:'Ejemplo',b:[
+  {t:'ex',p:'Calcula la masa atómica del cloro: Cl-35 (34.969 u, 75.76 %) y Cl-37 (36.966 u, 24.24 %).',s:['Fracciones: 0.7576 y 0.2424.','Aportes: 0.7576 × 34.969 = '+f2(.7576*34.969,2)+' u; 0.2424 × 36.966 = '+f2(.2424*36.966,2)+' u.','Suma: '+f2(.7576*34.969,2)+' + '+f2(.2424*36.966,2)+' = '+f2(.7576*34.969+.2424*36.966,2)+' u.'],r:'M(Cl) ≈ 35.45 u, igual al valor de la tabla.'},
+  {t:'ex',p:'El boro tiene dos isótopos: B-10 (≈ 10 u) y B-11 (≈ 11 u). Su masa atómica es 10.81 u. Estima el % de B-10.',s:['Sea <i>x</i> la fracción de B-10; la de B-11 es 1 − <i>x</i>.','Planteamos: 10<i>x</i> + 11(1 − <i>x</i>) = 10.81.','Simplificamos: 11 − <i>x</i> = 10.81 → <i>x</i> = 0.19.'],r:'≈ 19 % de B-10 (el valor real es 19.9 %; la diferencia viene de redondear las masas).'}]},
+ {k:'Practica',b:[
+  {t:'chk',qs:[
+   {q:'Un elemento tiene dos isótopos: uno de 50 u (60 %) y otro de 52 u (40 %). ¿Cuál es su masa atómica?',o:['50.8 u','51.0 u','50.4 u','51.2 u'],ex:'0.60 × 50 + 0.40 × 52 = 30 + 20.8 = 50.8 u.'},
+   {q:'La masa atómica del magnesio es 24.305 u, muy cerca de 24. ¿Qué implica?',o:['El Mg-24 es el isótopo más abundante','Solo existe Mg-24','Los otros isótopos no tienen masa','24.305 es la masa de un átomo real'],ex:'El promedio se acerca al isótopo dominante: Mg-24 (79 %).'},
+   {q:'Si un elemento tiene dos isótopos con 50 % de abundancia cada uno, su masa atómica es…',o:['el punto medio de las dos masas','la masa del más ligero','la masa del más pesado','la suma de las dos masas'],ex:'Con pesos iguales, el promedio ponderado es el promedio simple.'},
+   {q:'La unidad de masa atómica (u) se define como…',o:['1/12 de la masa de un átomo de carbono-12','la masa de un protón','la masa de un electrón','1/16 de la masa del oxígeno natural'],ex:'Por definición 1 u = m(¹²C)/12 ≈ 1.6605 × 10⁻²⁷ kg.'}]},
+  {t:'mc',g:'atomo',h:'Practica libre'}]}]},
+{id:'a4',m:'atomo',n:4,t:'Radiactividad y vida media',min:15,
+ obj:['Distinguir las emisiones α, β y γ.','Completar ecuaciones nucleares conservando A y Z.','Calcular la cantidad que queda con la vida media y entender el fechado con C-14.'],
+ steps:[
+ {k:'Predice',b:[
+  {t:'q',q:'Una muestra radiactiva tiene una vida media de 10 días y empiezas con 80 g. ¿Cuánto queda a los 20 días?',o:['20 g','40 g','0 g','60 g'],ex:'Cada 10 días se reduce a la mitad: 80 → 40 (10 d) → 20 g (20 d). La desintegración no es lineal.'},
+  {t:'q',q:'En una muestra con millones de núcleos, ¿podemos predecir <i>cuándo</i> se desintegrará un núcleo en particular?',o:['No: solo podemos predecir la fracción que lo hará en un tiempo dado','Sí, exactamente, con la vida media','Sí, si conocemos su edad','Solo si la temperatura es alta'],ex:'La desintegración es un proceso aleatorio: la vida media describe el comportamiento estadístico del conjunto, no el de un núcleo individual.'}]},
+ {k:'Explora',b:[
+  {t:'p',h:'Primero, una muestra de 100 núcleos: pasa vidas medias y compara lo simulado con lo teórico. Luego balancea ecuaciones nucleares.'},
+  {t:'sim',id:'decay'},{t:'sim',id:'nuc'}]},
+ {k:'Aprende',b:[
+  {t:'key',h:'La [[radiact|radiactividad]] es la emisión de partículas o radiación por núcleos inestables. En toda [[desint|desintegración]] se conservan la suma de A y la suma de Z.'},
+  {t:'tab',head:['Emisión','Qué es','Cambio en el núcleo','Penetración'],rows:[['[[alfa|α]]','<sup>4</sup><sub>2</sub>He (2 p + 2 n)','A − 4, Z − 2','Poca: la frena una hoja de papel'],['[[beta|β⁻]]','electrón (n → p)','A igual, Z + 1','Media: láminas de aluminio de pocos mm'],['β⁺','positrón (p → n)','A igual, Z − 1','Media'],['[[gamma|γ]]','fotón de alta energía','Sin cambio en A ni Z','Alta: requiere plomo o concreto grueso']]},
+  {t:'p',h:'<b>Ejemplos:</b> '+NT('U',92,238)+' → '+NT('Th',90,234)+' + '+NT('He',2,4)+' (α) · '+NT('C',6,14)+' → '+NT('N',7,14)+' + '+NT('e',-1,0)+' + ν̄ (β⁻).'},
+  {t:'p',h:'<b>Estabilidad.</b> En núcleos ligeros estables N ≈ Z; en los pesados hacen falta más neutrones (N/Z hasta ≈ 1.5). Ningún elemento con Z > 83 tiene isótopos estables, ni el Tc (43) ni el Pm (61). Por eso aparecen marcados como radiactivos en la tabla.'},
+  {t:'h',h:'Vida media'},
+  {t:'key',h:'N = N₀ · (½)<sup>t / T½</sup>. Tras 1 [[vmedia|vida media]] queda ½, tras 2 queda ¼, tras 3 queda ⅛…'},
+  {t:'tab',head:['Nucleido','T½','Uso o dato'],rows:[['Tc-99m','6.0 h','diagnóstico médico'],['I-131','8.02 d','tiroides'],['Co-60','5.27 años','radioterapia'],['Cs-137','30.2 años','residuo de fisión'],['C-14','5730 años','fechado'],['Pu-239','24 100 años','combustible nuclear'],['U-238','4.47 × 10⁹ años','edad de la Tierra']]},
+  {t:'p',h:'<b>Fechado con C-14.</b> La atmósfera genera C-14 (rayos cósmicos sobre N-14). Mientras vive, un organismo mantiene una proporción constante; al morir deja de incorporarlo y el C-14 decae. Midiendo cuánto queda se estima la edad (hasta ≈ 50 000 años, unas 8–9 vidas medias) y se calibra con anillos de árboles y otras series.'},
+  {t:'warn',h:'<b>Error común:</b> creer que «en 2 vidas medias se acaba». Tras 2 vidas medias queda 25 %, no 0 %.'},
+  {t:'warn',h:'<b>Error común:</b> pensar que la vida media cambia con la temperatura, la presión o la cantidad: es una propiedad del nucleido.'},
+  {u:1,t:'p',h:'<b>Ley exponencial.</b> N = N₀ e<sup>−λt</sup>, con constante de desintegración λ = ln 2 / T½. La actividad es A = λN (en Bq). La vida media «promedio» de un núcleo es τ = 1/λ = T½ / ln 2 ≈ 1.443 T½. El tiempo transcurrido es t = T½ · log₂(N₀/N).'}]},
+ {k:'Ejemplo',b:[
+  {t:'ex',p:'Tienes 80 mg de I-131 (T½ ≈ 8 días). ¿Cuánto queda tras 24 días?',s:['Número de vidas medias: n = 24 / 8 = 3.','Cada una divide entre 2: (½)³ = 1/8.','Queda 80 mg / 8 = 10 mg.'],r:'Quedan 10 mg.'},
+  {t:'ex',p:'Un hueso conserva el 25 % del C-14 de un organismo vivo. ¿Qué edad tiene (T½ = 5730 años)?',s:['25 % = ¼ = (½)².','Entonces han pasado n = 2 vidas medias.','Edad = 2 × 5730 años.'],r:'≈ 11 460 años.'},
+  {t:'ex',p:'Completa: '+NT('U',92,238)+' → ? + '+NT('He',2,4),s:['Conservamos A: 238 = A(?) + 4 → A(?) = 234.','Conservamos Z: 92 = Z(?) + 2 → Z(?) = 90.','Z = 90 corresponde al torio (Th).'],r:NT('Th',90,234)},
+  {u:1,t:'ex',p:'Un fragmento conserva el 30 % de su C-14. ¿Edad?',s:['t = T½ · log₂(N₀/N) = 5730 · log₂(1/0.30).','log₂(1/0.30) = ln(3.333)/ln 2 = 1.204 / 0.6931 = 1.737.','t = 5730 × 1.737.'],r:'≈ 9 950 años.'}]},
+ {k:'Practica',b:[
+  {t:'chk',qs:[
+   {q:'En una desintegración α, el núcleo hijo tiene…',o:['2 protones y 2 neutrones menos','1 protón menos y 1 neutrón más','2 protones más','el mismo número de protones'],ex:'La partícula α es ⁴₂He: se lleva 2 p y 2 n (A − 4, Z − 2).'},
+   {q:'El '+NT('Th',90,234)+' emite una partícula β⁻. El núcleo hijo es…',o:[NT('Pa',91,234),NT('Ra',88,230),NT('Th',90,235),NT('Ac',89,234)],ex:'En β⁻, Z sube 1 y A no cambia: Z = 91 (protactinio), A = 234.'},
+   {q:'¿Cuánto queda de una muestra de 200 mg tras 4 vidas medias?',o:['12.5 mg','50 mg','25 mg','0 mg'],ex:'200 / 2⁴ = 200 / 16 = 12.5 mg.'},
+   {q:'¿Qué radiación es la más penetrante?',o:['Gamma','Alfa','Beta','Todas lo son igual'],ex:'La γ atraviesa mucho más material que la β, y esta más que la α.'}]},
+  {t:'mc',g:'atomo',h:'Practica libre'}]}]},
+/* ====== Tendencias periódicas ====== */
+{id:'t1',m:'tend',n:1,t:'Carga nuclear efectiva',min:12,
+ obj:['Explicar por qué un electrón externo «siente» menos que la carga total del núcleo.','Estimar Zef con las reglas de Slater.','Usar Zef para justificar las tendencias periódicas.'],
+ steps:[
+ {k:'Predice',b:[
+  {t:'q',q:'En el litio (Z = 3), el electrón 2s está rodeado de dos electrones 1s. ¿Qué carga nuclear «siente», aproximadamente?',o:['Entre +1 y +2, más cerca de +1','+3, toda la del núcleo','0','Más de +3'],ex:'Los dos electrones internos apantallan casi por completo: Zef ≈ 3 − 2 × 0.85 = <b>1.30</b>.'},
+  {t:'q',q:'De Li a Ne (mismo periodo) ¿qué crece más, Z o el apantallamiento por los electrones de la misma capa?',o:['Z crece 1 por paso; el apantallamiento solo ≈ 0.35','Crecen igual','El apantallamiento crece más','Ninguno cambia'],ex:'Cada paso suma +1 al núcleo y solo ≈ +0.35 de blindaje: la Zef sube ≈ 0.65 por elemento.'}]},
+ {k:'Explora',b:[
+  {t:'p',h:'Elige un elemento: el simulador desglosa el blindaje S y la Zef. Después compara periodos y grupos.'},
+  {t:'sim',id:'zef'},{t:'sim',id:'trend',pre:{prop:'zef',scope:'p',val:2}}]},
+ {k:'Aprende',b:[
+  {t:'key',h:'[[zef|Zef]] = Z − S. Los electrones internos [[blindaje|apantallan]] mucho; los de la misma capa, poco. Por eso la Zef sobre los electrones de valencia crece de izquierda a derecha en un periodo.'},
+  {t:'p',h:'Las [[slater|reglas de Slater]] estiman S para un electrón s o p: <b>0.35</b> por cada otro electrón de su capa (0.30 si es 1s), <b>0.85</b> por cada electrón de la capa n − 1 y <b>1.00</b> por cada electrón más interno.'},
+  {t:'tab',head:['','Li','Be','B','C','N','O','F','Ne'],rows:[['Z','3','4','5','6','7','8','9','10'],['Zef (Slater)'].concat([3,4,5,6,7,8,9,10].map(z=>f2(slater(z).zef))),['Zef (Clementi)','1.28','1.91','2.42','3.14','3.83','4.45','5.10','5.76']]},
+  {t:'p',h:'Hacia abajo en un grupo, los electrones de valencia ocupan capas cada vez más lejanas; la Zef cambia poco (con Slater: Li 1.30, Na 2.20, K 2.20), pero la distancia al núcleo sí aumenta.'},
+  {t:'warn',h:'<b>Error común:</b> decir que Zef = Z. Solo vale para el H (un único electrón, sin blindaje).'},
+  {t:'warn',h:'<b>Error común:</b> creer que los electrones de la misma capa no se apantallan: lo hacen, pero solo la mitad de eficazmente que los internos (0.35 vs 0.85–1.00).'},
+  {u:1,t:'p',h:'<b>Penetración.</b> Dentro de una capa, un electrón s pasa más tiempo cerca del núcleo que uno p, y este más que uno d ([[penetra|penetración]]: s > p > d > f). Eso explica que el 2s tenga menor energía que el 2p y que 4s se llene antes que 3d. Los cálculos de Clementi y Raimondi (1963) dan valores algo mayores que Slater, pero la misma tendencia.'}]},
+ {k:'Ejemplo',b:[
+  {t:'ex',p:'Calcula la Zef que siente un electrón 2p del nitrógeno (Z = 7).',s:['Configuración: 1s² 2s² 2p³ → 2 e⁻ en la capa n−1 (1s) y 4 otros e⁻ en la capa 2.','S = 2 × 0.85 + 4 × 0.35 = 1.70 + 1.40 = 3.10.','Zef = Z − S = 7 − 3.10.'],r:'Zef ≈ 3.90.'},
+  {t:'ex',p:'Compara la Zef del Na y del Mg para un electrón de valencia (Z = 11 y 12).',s:['Na (1s² 2s² 2p⁶ 3s¹): S = 2 × 1.00 + 8 × 0.85 = 8.80 → Zef = 2.20.','Mg (…3s²): S = 8.80 + 1 × 0.35 = 9.15 → Zef = 12 − 9.15 = 2.85.'],r:'Mg tiene mayor Zef (2.85 vs 2.20): su electrón de valencia está más atraído, por eso el Mg es más pequeño y le cuesta más ionizarse.'}]},
+ {k:'Practica',b:[
+  {t:'chk',qs:[
+   {q:'Con las reglas de Slater, la Zef del flúor (Z = 9) para un electrón 2p es…',o:['5.20','7.00','9.00','3.90'],ex:'S = 2 × 0.85 + 6 × 0.35 = 3.80 → Zef = 9 − 3.80 = 5.20.'},
+   {q:'¿Quién siente mayor Zef sobre su electrón de valencia: Na o Cl?',o:['Cl','Na','Igual','No se puede saber'],ex:'Mismo periodo: Zef aumenta hacia la derecha. Slater: Na 2.20 y Cl 6.10.'},
+   {q:'El apantallamiento sobre un electrón de valencia lo producen sobre todo…',o:['los electrones de capas internas','los protones','los neutrones','los electrones de otros átomos'],ex:'Los electrones internos se interponen entre el núcleo y el electrón externo.'},
+   {q:'A lo largo de un periodo, de izquierda a derecha, la Zef…',o:['aumenta','disminuye','no cambia','aumenta y luego disminuye'],ex:'Cada elemento suma un protón y el blindaje de la misma capa es débil (≈ 0.35).'}]},
+  {t:'mc',g:'tend',h:'Practica libre'}]}]},
+{id:'t2',m:'tend',n:2,t:'Radio atómico e iónico',min:12,
+ obj:['Describir y explicar la tendencia del radio en periodos y grupos.','Comparar un átomo con sus iones.','Ordenar especies isoelectrónicas.'],
+ steps:[
+ {k:'Predice',b:[
+  {t:'q',q:'¿Cuál es más grande: Na o Cl?',o:['Na','Cl','Son iguales','Depende del isótopo'],ex:'Mismo periodo (n = 3): Cl tiene más protones y mayor Zef, así que atrae más fuerte a la capa de valencia y es más pequeño que Na.'},
+  {t:'q',q:'¿Qué es más grande: el átomo de Na o el ion Na⁺?',o:['El átomo de Na','El ion Na⁺','Igual','Depende de la temperatura'],ex:'Na⁺ pierde toda su capa 3s: queda con la capa n = 2 como más externa, y con menos electrones repelidos; es mucho más pequeño.'},
+  {t:'q',q:'O²⁻, F⁻, Na⁺ y Mg²⁺ tienen 10 electrones. ¿Cuál es el más pequeño?',o:['Mg²⁺','O²⁻','F⁻','Na⁺'],ex:'Mismos electrones, pero Mg²⁺ tiene 12 protones que los atraen más.'}]},
+ {k:'Explora',b:[
+  {t:'p',h:'Grafica el radio covalente en periodos y grupos, y compara una serie isoelectrónica.'},
+  {t:'sim',id:'trend',pre:{prop:'rad',scope:'p',val:3}},{t:'sim',id:'iso'},{t:'tbl',mode:'ar',h:'Ver el radio atómico en la tabla periódica'}]},
+ {k:'Aprende',b:[
+  {t:'key',h:'El [[radioat|radio atómico]] <b>disminuye a lo largo de un periodo</b> (la Zef crece) y <b>aumenta al bajar en un grupo</b> (se añaden capas).'},
+  {t:'p',h:'Aquí usamos el [[radiocov|radio covalente]] (Cordero et al., 2008). Otros radios (metálico, van der Waals) dan números distintos: el de van der Waals del Cl es ≈ 175 pm frente a 102 pm covalente.'},
+  {t:'tab',head:['Periodo 2','Li','Be','B','C','N','O','F'],rows:[['Radio covalente (pm)'].concat([3,4,5,6,7,8,9].map(z=>RAD[z]))]},
+  {t:'h',h:'Átomos frente a iones'},
+  {t:'p',h:'Un [[cation|catión]] es <b>más pequeño</b> que su átomo (pierde la capa externa o disminuye la repulsión entre electrones). Un [[anion|anión]] es <b>más grande</b> (más electrones que protones: se repelen entre sí y el núcleo los sujeta peor). Ejemplo: Na (radio metálico ≈ 186 pm) → Na⁺ (102 pm); Cl (covalente 102 pm) → Cl⁻ (181 pm). Son escalas distintas, pero el cambio de tamaño es enorme.'},
+  {t:'p',h:'En una serie [[isoelec|isoelectrónica]] el radio disminuye al aumentar Z: O²⁻ (140 pm) > F⁻ (133) > Na⁺ (102) > Mg²⁺ (72) > Al³⁺ (54).'},
+  {t:'warn',h:'<b>Error común:</b> decir que bajan los radios en el periodo «porque hay menos capas». No: la capa es la misma; lo que aumenta es la Zef.'},
+  {t:'warn',h:'<b>Error común:</b> esperar que los gases nobles sigan la tendencia. Casi no forman enlaces, así que su radio se estima de otra manera (en esta tabla el Ne, 58 pm, sale incluso mayor que el F, 57 pm).'},
+  {u:1,t:'p',h:'<b>Contracción de los lantánidos.</b> Los 14 electrones 4f apantallan mal: el radio de los elementos 5d queda casi igual al de los 4d (Zr 175 pm ≈ Hf 175 pm). Es la razón de que Zr y Hf sean casi gemelos químicos.'}]},
+ {k:'Ejemplo',b:[
+  {t:'ex',p:'Ordena de menor a mayor radio: S²⁻, Cl⁻, K⁺ y Ca²⁺.',s:['Todos tienen 18 electrones (isoelectrónicos con el Ar).','Con más protones, la atracción es mayor y el radio, menor.','Protones: Ca²⁺ (20) > K⁺ (19) > Cl⁻ (17) > S²⁻ (16).'],r:'Ca²⁺ < K⁺ < Cl⁻ < S²⁻ (≈ 100 < 138 < 181 < 184 pm).'},
+  {t:'ex',p:'¿Quién tiene mayor radio: Mg, Ca o Al?',s:['Mg y Ca están en el grupo 2: Ca tiene una capa más → Ca > Mg.','Mg y Al están en el periodo 3: Mg está más a la izquierda → Mg > Al.'],r:'Ca > Mg > Al (176 > 141 > 121 pm).'}]},
+ {k:'Practica',b:[
+  {t:'chk',qs:[
+   {q:'¿Cuál es el orden correcto de radio atómico?',o:['Li < Na < K','K < Na < Li','Na < Li < K','Li < K < Na'],ex:'En un grupo el radio aumenta al bajar: Li (128) < Na (166) < K (203 pm).'},
+   {q:'El radio atómico disminuye a lo largo de un periodo porque…',o:['aumenta la carga nuclear efectiva','se pierde una capa','disminuye el número de protones','aumenta el apantallamiento total'],ex:'Más protones con apantallamiento casi constante → Zef mayor → el átomo se contrae.'},
+   {q:'¿Cuál es más grande: Br o Br⁻?',o:['Br⁻','Br','Igual','Depende del enlace'],ex:'Los aniones son mayores que su átomo: más electrones con la misma carga nuclear.'},
+   {q:'¿Cuál es el orden correcto de menor a mayor radio?',o:['Al³⁺ < Mg²⁺ < Na⁺ < F⁻','F⁻ < Na⁺ < Mg²⁺ < Al³⁺','Na⁺ < F⁻ < Al³⁺ < Mg²⁺','Mg²⁺ < Al³⁺ < F⁻ < Na⁺'],ex:'Serie isoelectrónica (10 e⁻): mayor Z → menor radio.'}]},
+  {t:'mc',g:'tend',h:'Practica libre'}]}]},
+{id:'t3',m:'tend',n:3,t:'Energía de ionización',min:14,
+ obj:['Definir la energía de ionización y leer su tendencia.','Explicar las excepciones Be > B y N > O.','Deducir los electrones de valencia a partir de EI sucesivas.'],
+ steps:[
+ {k:'Predice',b:[
+  {t:'q',q:'¿Cuál de estos átomos pierde más fácilmente su electrón de valencia: Li, Na, K o Cs?',o:['Cs','Li','Na','K'],ex:'El electrón del Cs está en la capa más lejana y más apantallada: la primera EI del Cs es la más baja del grupo (≈ 376 kJ/mol).'},
+  {t:'q',q:'El Mg tiene EI₁ = 738, EI₂ = 1451 y EI₃ = 7733 kJ/mol. ¿Cuántos electrones de valencia tiene?',o:['2','1','3','8'],ex:'El gran salto entre EI₂ y EI₃ indica que el tercer electrón sale de una capa interna: el Mg tiene 2 electrones de valencia.'}]},
+ {k:'Explora',b:[
+  {t:'p',h:'Mira la primera EI en un periodo y busca las dos «irregularidades». Luego compara EI sucesivas de Na, Mg, Al y Si.'},
+  {t:'sim',id:'trend',pre:{prop:'ie',scope:'p',val:2}},{t:'sim',id:'succ'},{t:'tbl',mode:'ie',h:'Ver la energía de ionización en la tabla periódica'}]},
+ {k:'Aprende',b:[
+  {t:'key',h:'La [[ei|energía de ionización]] es la energía para arrancar un electrón a un átomo gaseoso: X(g) → X⁺(g) + e⁻. Aumenta a lo largo del periodo y disminuye al bajar en el grupo.'},
+  {t:'p',h:'Se expresa en kJ/mol o en eV (1 eV = 96.485 kJ/mol). Los valores van de ≈ 376 kJ/mol (Cs) a 2372 kJ/mol (He). Los [[nobles|gases nobles]] tienen los máximos de cada periodo y los alcalinos los mínimos.'},
+  {t:'tab',head:['Periodo 2','Li','Be','B','C','N','O','F','Ne'],rows:[['1.ª EI (kJ/mol)'].concat([3,4,5,6,7,8,9,10].map(z=>Math.round(IEN[z])))]},
+  {t:'h',h:'Dos irregularidades en el periodo 2 y 3'},
+  {t:'p',h:'<b>Be > B:</b> el electrón que sale del B es 2p, de mayor energía y menos penetrante que el 2s del Be.'},
+  {t:'p',h:'<b>N > O:</b> en el O hay un par de electrones en un mismo orbital 2p; la repulsión entre ellos facilita arrancar uno.'},
+  {t:'h',h:'EI sucesivas y capa de valencia'},
+  {t:'p',h:'Cada electrón extra cuesta más (EI₁ < EI₂ < EI₃…). Cuando se rompe la capa de valencia y hay que tomar un electrón de una capa interna, la EI se dispara. El lugar de ese salto indica los electrones de [[valencia|valencia]].'},
+  {t:'warn',h:'<b>Error común:</b> confundir EI con afinidad electrónica. La EI es sacar un electrón; la afinidad, añadirlo.'},
+  {t:'warn',h:'<b>Error común:</b> explicar el salto EI₁→EI₂ del Na con «el Na⁺ es muy estable»; la causa es que el segundo electrón sale de una capa interna con mucha Zef.'},
+  {u:1,t:'p',h:'<b>Medición.</b> Las EI se obtienen por espectroscopía fotoelectrónica y de emisión. La relación con la Zef es aproximadamente EI ≈ 13.6 eV · Zef² / n*² (n* = número cuántico efectivo), una extensión del modelo de Bohr.'}]},
+ {k:'Ejemplo',b:[
+  {t:'ex',p:'Un elemento tiene EI (kJ/mol): 590, 1145, 4912, 6491. ¿A qué grupo pertenece?',s:['Los dos primeros valores son bajos y parecidos.','Entre EI₂ (1145) y EI₃ (4912) hay un salto de ≈ 4.3 veces.','Dos electrones son de valencia → grupo 2.'],r:'Grupo 2 (alcalinotérreo). Son los valores del calcio.'},
+  {t:'ex',p:'Convierte 5.14 eV a kJ/mol (EI₁ del sodio).',s:['1 eV por átomo = 96.485 kJ/mol.','5.14 × 96.485 = 495.9.'],r:'≈ 496 kJ/mol.'}]},
+ {k:'Practica',b:[
+  {t:'chk',qs:[
+   {q:'El elemento con la mayor primera energía de ionización es…',o:['He','Ne','F','H'],ex:'El He (2372 kJ/mol): electrones muy cerca del núcleo y sin blindaje interno.'},
+   {q:'¿Por qué la EI del N es mayor que la del O?',o:['En el O hay un par de electrones en un orbital 2p que se repelen','El O tiene menos protones','El N tiene más capas','El O tiene menor Zef'],ex:'Es una excepción a la tendencia general: la repulsión del par facilita arrancar un electrón del O.'},
+   {q:'Un elemento con EI = 578, 1817, 2745 y 11 577 kJ/mol está en el grupo…',o:['13','2','14','1'],ex:'El salto grande aparece tras el 3.er electrón: 3 electrones de valencia (aluminio).'},
+   {q:'Al bajar en un grupo, la EI disminuye porque…',o:['el electrón de valencia está más lejos y más apantallado','la carga nuclear disminuye','hay menos electrones','el radio disminuye'],ex:'Mayor distancia y más blindaje → más fácil sacar el electrón.'}]},
+  {t:'mc',g:'tend',h:'Practica libre'}]}]},
+{id:'t4',m:'tend',n:4,t:'Afinidad y electronegatividad',min:12,
+ obj:['Definir afinidad electrónica y electronegatividad y distinguirlas.','Explicar la tendencia de la EN.','Usar ΔEN para clasificar enlaces.'],
+ steps:[
+ {k:'Predice',b:[
+  {t:'q',q:'En un enlace H–F, ¿qué átomo atrae con más fuerza al par de electrones?',o:['El F','El H','Los dos igual','Ninguno'],ex:'El flúor es el elemento más electronegativo (3.98); el par se desplaza hacia el F.'},
+  {t:'q',q:'¿Qué tipo de enlace es, aproximadamente, el del HCl (EN: H 2.20; Cl 3.16)?',o:['Covalente polar','Iónico','Covalente no polar','Metálico'],ex:'ΔEN = 3.16 − 2.20 = 0.96: reparto desigual de electrones → covalente polar.'}]},
+ {k:'Explora',b:[
+  {t:'p',h:'Revisa la tendencia de la electronegatividad, calcula ΔEN entre dos elementos y juega al duelo de propiedades.'},
+  {t:'sim',id:'trend',pre:{prop:'en',scope:'p',val:3}},{t:'sim',id:'den'},{t:'sim',id:'duel'},{t:'tbl',mode:'en',h:'Ver la electronegatividad en la tabla'}]},
+ {k:'Aprende',b:[
+  {t:'key',h:'[[ae|Afinidad electrónica]] (AE): energía asociada a que un <i>átomo aislado</i> gane un electrón. [[en|Electronegatividad]] (EN): capacidad de un átomo <i>dentro de un enlace</i> para atraer los electrones compartidos.'},
+  {t:'tab',head:['Elemento','AE (kJ/mol)','EN (Pauling)'],rows:[['H','72.8','2.20'],['C','121.8','2.55'],['N','≈ 0 (−7)','3.04'],['O','141.0','3.44'],['F','328.2','3.98'],['Cl','348.6','3.16'],['Br','324.5','2.96'],['I','295.2','2.66']]},
+  {t:'p',h:'<b>Anomalía F–Cl:</b> el Cl libera más energía al ganar un electrón que el F. El F es tan pequeño que el electrón añadido sufre una gran repulsión por los electrones ya presentes. Pero la EN del F sigue siendo la mayor.'},
+  {t:'p',h:'La EN <b>aumenta hacia la derecha en un periodo</b> y <b>disminuye al bajar en un grupo</b> (excluyendo gases nobles). El más electronegativo es el F (3.98); los menos, Cs y Fr.'},
+  {t:'h',h:'ΔEN y tipo de enlace (guía, no ley)'},
+  {t:'tab',head:['ΔEN','Tipo','Ejemplo'],rows:[['< 0.4','Covalente casi apolar','Cl₂ (0), C–H (0.35)'],['0.4 – 1.7','Covalente polar [[polar|(δ⁺ ... δ⁻)]]','HCl (0.96), C–O (0.89)'],['> 1.7','Predomina carácter iónico','NaCl (2.23), KF']]},
+  {t:'warn',h:'<b>Error común:</b> usar los umbrales como reglas absolutas. El HF (ΔEN 1.78) es una molécula covalente polar; el carácter iónico es gradual.'},
+  {t:'warn',h:'<b>Error común:</b> decir «los gases nobles tienen EN cero». Simplemente no se les asigna valor (salvo Kr y Xe, que sí forman compuestos).'},
+  {t:'h',h:'Mapa de tendencias'},
+  {t:'tab',head:['Propiedad','Periodo →','Grupo ↓','Causa'],rows:[['Zef','aumenta','casi constante','Más protones, mismo blindaje'],['Radio atómico','disminuye','aumenta','Zef↑ / más capas'],['1.ª EI','aumenta*','disminuye','Más atracción / más lejos'],['AE (valor)','tiende a aumentar','tiende a disminuir (con excepciones)','Zef y tamaño'],['EN','aumenta','disminuye','Atracción en el enlace']]},
+  {t:'p',h:'* con las excepciones Be/B y N/O.'},
+  {u:1,t:'p',h:'<b>Escala de Mulliken.</b> χ ≈ ½ (EI + AE) (en las mismas unidades): promedia lo que cuesta quitar un electrón y lo que se gana al añadirlo; es consistente con la escala de Pauling tras un reescalamiento. Allen definió la EN con la energía media de los electrones de valencia.'}]},
+ {k:'Ejemplo',b:[
+  {t:'ex',p:'Clasifica el enlace C–O (EN: C 2.55, O 3.44).',s:['ΔEN = 3.44 − 2.55 = 0.89.','Está entre 0.4 y 1.7.','El oxígeno atrae más al par: carga parcial δ⁻ en el O y δ⁺ en el C.'],r:'Enlace covalente polar.'},
+  {t:'ex',p:'Clasifica el NaCl (Na 0.93, Cl 3.16).',s:['ΔEN = 3.16 − 0.93 = 2.23.','Es mayor que 1.7.'],r:'Carácter predominantemente iónico: Na⁺ y Cl⁻ en una red cristalina.'}]},
+ {k:'Practica',b:[
+  {t:'chk',qs:[
+   {q:'El elemento más electronegativo es…',o:['F','Cl','O','Fr'],ex:'El flúor (3.98).'},
+   {q:'El enlace C–O es…',o:['covalente polar','iónico','covalente apolar','metálico'],ex:'ΔEN = 0.89 → covalente polar, δ⁻ en el O.'},
+   {q:'¿Quién libera más energía al ganar un electrón, F o Cl?',o:['Cl','F','Igual','Ninguno'],ex:'Anomalía conocida: Cl ≈ 349 kJ/mol y F ≈ 328 kJ/mol, por la repulsión en el pequeño átomo de F.'},
+   {q:'La electronegatividad (sin contar gases nobles) aumenta hacia…',o:['arriba y a la derecha','abajo y a la izquierda','abajo y a la derecha','arriba y a la izquierda'],ex:'Aumenta en el periodo y disminuye al bajar en el grupo.'}]},
+  {t:'mc',g:'tend',h:'Practica libre'}]}]}
+];
+const MODS=[
+ {id:'atomo',t:'Átomo e isótopos',d:'Partículas, isótopos, masa atómica y radiactividad.',ic:'<circle cx="12" cy="12" r="2"/><ellipse cx="12" cy="12" rx="9" ry="3.5"/><ellipse cx="12" cy="12" rx="9" ry="3.5" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9" ry="3.5" transform="rotate(120 12 12)"/>'},
+ {id:'tend',t:'Tendencias periódicas',d:'Zef, radio, energía de ionización, afinidad y electronegatividad.',ic:'<path d="M4 20V4M4 20h16M7 16l4-5 3 3 5-8"/>'}];
+const ROAD=[
+ ['Configuración electrónica y orbitales','Aufbau, Hund, Pauli, excepciones','lab:e'],
+ ['Regla del octeto e iones','Cargas típicas y nombres','lab:o'],
+ ['Enlaces: iónico, covalente y metálico','Propiedades y modelos','lab:b'],
+ ['Enlace coordinado','Dativo y complejos','lab:c'],
+ ['Geometría molecular y polaridad','VSEPR, dipolos',''],
+ ['Fuerzas intermoleculares','London, dipolo, puente de H',''],
+ ['Estequiometría y mol','Masa molar, reactivo limitante','lab:z'],
+ ['Reacciones y balanceo','Tipos, ecuaciones iónicas','lab:z'],
+ ['Disoluciones y concentración','Molaridad, dilución',''],
+ ['Gases','Leyes y gas ideal',''],
+ ['Termoquímica','Entalpía y ley de Hess',''],
+ ['Equilibrio y cinética','Q, K, Le Châtelier',''],
+ ['Ácidos y bases','pH, Ka, amortiguadores',''],
+ ['Redox y electroquímica','Pilas, E°, electrólisis',''],
+ ['Química orgánica básica','Grupos funcionales','']];
+
+/* ===== v18: simuladores de las lecciones ===== */
+const mk=(tag,cls,html)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(html!=null)e.innerHTML=html;return e};
+const RMQ=matchMedia('(prefers-reduced-motion:reduce)');
+const animOK=()=>!window.__lite&&!RMQ.matches;
+const shell=(t,body)=>{const w=mk('div','lsim');w.innerHTML=`<div class="lsh">${t}</div><div class="lsb"></div>`;const b=w.querySelector('.lsb');if(typeof body=='string')b.innerHTML=body;else b.appendChild(body);return w};
+const fmtN=(x,d=2)=>(+x).toLocaleString('es-MX',{maximumFractionDigits:d,minimumFractionDigits:0});
+const catC=e=>{try{return catColor(e)}catch(_){return'#818cf8'}};
+const SIMS={};
+
+/* ---------- 1. Construye un átomo ---------- */
+SIMS.build=()=>{
+ const st={p:6,n:6,e:6},cap=[2,8,8,8,8],R=[40,62,84,106],done=new Set();
+ const RET=[
+  ['Un átomo neutro de carbono-12',(p,n,e)=>p==6&&n==6&&e==6],
+  ['El isótopo carbono-14 (neutro)',(p,n,e)=>p==6&&n==8&&e==6],
+  ['El ion Na⁺ del isótopo Na-23',(p,n,e)=>p==11&&n==12&&e==10],
+  ['El ion Cl⁻ con A = 35',(p,n,e)=>p==17&&n==18&&e==18],
+  ['El ion O²⁻ del isótopo O-16',(p,n,e)=>p==8&&n==8&&e==10],
+  ['Un catión Mg²⁺ con 12 neutrones',(p,n,e)=>p==12&&n==12&&e==10]];
+ const w=shell('Construye un átomo',`<div class="bld"><div class="scene"><svg viewBox="0 0 300 250" role="img" aria-label="Átomo construido con las partículas elegidas"></svg></div><div class="bctl"></div></div>`);
+ const svg=w.querySelector('svg'),ctl=w.querySelector('.bctl');
+ const rows=[['p','Protones (Z)'],['n','Neutrones'],['e','Electrones']];
+ ctl.innerHTML=rows.map(([k,l])=>`<div class="stp"><span>${l}</span><div><button class="btn" data-k="${k}" data-d="-1" aria-label="Quitar ${l}">−</button><b id="bv${k}">0</b><button class="btn" data-k="${k}" data-d="1" aria-label="Añadir ${l}">+</button></div></div>`).join('')+'<div class="bout" aria-live="polite"></div><div class="mu sm" style="font-weight:700">Retos</div><div class="bret"></div>';
+ const out=ctl.querySelector('.bout'),ret=ctl.querySelector('.bret');
+ const draw=()=>{
+  const {p,n,e}=st,N=p+n,a=[];let pi=0,ni=0;
+  for(let i=0;i<N;i++){if(pi<p&&(ni>=n||pi/Math.max(p,1)<=ni/Math.max(n,1))){a.push(1);pi++}else{a.push(0);ni++}}
+  let s='';
+  const anim=animOK();
+  let left=e,idx=0;
+  const shells=[];while(left>0&&idx<cap.length){const c=Math.min(cap[idx],left);shells.push(c);left-=c;idx++}
+  shells.forEach((c,k)=>{
+   s+=`<circle cx="150" cy="125" r="${R[k]}" fill="none" stroke="#94a3b8" stroke-opacity=".35" stroke-dasharray="3 4"/>`;
+   let g='';for(let j=0;j<c;j++){const an=j/c*Math.PI*2+k;g+=`<circle cx="${(150+R[k]*Math.cos(an)).toFixed(1)}" cy="${(125+R[k]*Math.sin(an)).toFixed(1)}" r="4.6" fill="#38bdf8" stroke="#0b1220" stroke-width=".8"/>`}
+   s+=`<g>${anim?`<animateTransform attributeName="transform" type="rotate" from="0 150 125" to="${k%2?-360:360} 150 125" dur="${9+k*5}s" repeatCount="indefinite"/>`:''}${g}</g>`});
+  const sc=N>30?3.6:N>14?4.4:5.4;
+  a.forEach((t,i)=>{const r=sc*Math.sqrt(i+.5),an=i*2.39996;s+=`<circle cx="${(150+r*Math.cos(an)).toFixed(1)}" cy="${(125+r*Math.sin(an)).toFixed(1)}" r="${(sc*.58).toFixed(1)}" fill="${t?'#f87171':'#94a3b8'}" stroke="#0b1220" stroke-width=".6"/>`});
+  const q=p-e;
+  s+=`<text x="12" y="22" fill="#e8eeff" font-size="13" font-weight="800">${E[p].s}${q?(q>0?' '+(q>1?q:'')+'+':' '+(q<-1?-q:'')+'−'):''}</text><g font-size="10" fill="#a9b8d8"><circle cx="14" cy="${H0}" r="4" fill="#f87171"/><text x="22" y="${H0+3.5}">protón</text><circle cx="72" cy="${H0}" r="4" fill="#94a3b8"/><text x="80" y="${H0+3.5}">neutrón</text><circle cx="140" cy="${H0}" r="4" fill="#38bdf8"/><text x="148" y="${H0+3.5}">electrón</text></g>`;
+  svg.innerHTML=s;
+  ['p','n','e'].forEach(k=>ctl.querySelector('#bv'+k).textContent=st[k]);
+  const el=E[p],A=p+n,kind=q==0?'átomo neutro':q>0?`catión (${q}+)`:`anión (${-q}−)`;
+  out.innerHTML=`<div><b>${el.n}</b> (${el.s}), Z = ${p}</div><div class="big">${NT(el.s,p,A,q)}</div><div>${kind} · A = ${p} + ${n} = <b>${A}</b></div><div class="mu sm">Nombre del isótopo: ${lc(el.n)}-${A}</div>`;
+  RET.forEach((r,i)=>{if(!done.has(i)&&r[1](p,n,e)){done.add(i);if(window.hap)hap('tap')}});
+  ret.innerHTML=RET.map((r,i)=>`<div class="lret${done.has(i)?' ok':''}"><span>${done.has(i)?'✓':'○'}</span>${r[0]}</div>`).join('')+`<div class="mu sm">${done.size} de ${RET.length}</div>`;
+ };
+ const H0=238;
+ ctl.addEventListener('click',ev=>{const b=ev.target.closest('[data-k]');if(!b)return;const k=b.dataset.k,d=+b.dataset.d,lim={p:[1,20],n:[0,24],e:[0,22]}[k];st[k]=Math.max(lim[0],Math.min(lim[1],st[k]+d));draw()});
+ draw();return w};
+
+/* ---------- 2. Abundancia isotópica ---------- */
+SIMS.abund=()=>{
+ const ks=Object.keys(ISO);
+ const w=shell('Isótopos naturales',`<div class="sx"><label>Elemento <select class="lsel">${ks.map(k=>`<option value="${k}">${Z(k).n} (${k})</option>`).join('')}</select></label></div><div class="iso-b"></div>`);
+ const sel=w.querySelector('select'),box=w.querySelector('.iso-b');sel.value='Cl';
+ const draw=()=>{const s=sel.value,e=Z(s),L=ISO[s],mx=Math.max(...L.map(x=>x[2]));
+  box.innerHTML=L.map(([a,m,p])=>`<div class="ibar"><div class="il">${NT(s,e.z,a)}</div><div class="it"><i style="width:${Math.max(2,p)}%"></i></div><div class="iv"><b>${fmtN(p,4)} %</b><span class="mu sm">p = ${e.z} · n = ${a-e.z} · ${fmtN(m,5)} u</span></div></div>`).join('')+
+  `<div class="note">Promedio ponderado = Σ (fracción × masa) = <b>${f2(avgOf(s),3)} u</b>. En la tabla: ${e.m} u.</div>`};
+ sel.onchange=draw;draw();return w};
+
+/* ---------- 3. Masa atómica promedio ---------- */
+SIMS.avg=()=>{
+ const ks=Object.keys(ISO).filter(k=>ISO[k].length==2);
+ const w=shell('Masa atómica promedio',`<div class="sx"><label>Elemento <select class="lsel">${ks.map(k=>`<option value="${k}">${Z(k).n} (${k})</option>`).join('')}</select></label><button class="btn" id="real">Poner la abundancia real</button></div><div class="ctl"><label class="sx" style="width:100%"><span id="lbl"></span><input type="range" min="0" max="100" step="0.1" value="50" aria-label="Abundancia del isótopo ligero"></label></div><div class="scene"><svg viewBox="0 0 320 96" role="img" aria-label="Recta con la masa promedio calculada y el valor de la tabla"></svg></div><div class="bout" aria-live="polite"></div>`);
+ const sel=w.querySelector('select'),rg=w.querySelector('input'),svg=w.querySelector('svg'),out=w.querySelector('.bout'),lbl=w.querySelector('#lbl');sel.value='Cl';
+ const draw=()=>{const s=sel.value,e=Z(s),[[a1,m1],[a2,m2]]=ISO[s],x=+rg.value,avg=(m1*x+m2*(100-x))/100,tb=e.m,X=v=>30+(v-m1)/(m2-m1)*260;
+  lbl.innerHTML=`${NT(s,e.z,a1)}: <b>${f2(x,1)} %</b> · ${NT(s,e.z,a2)}: <b>${f2(100-x,1)} %</b>`;
+  svg.innerHTML=`<line x1="30" y1="52" x2="290" y2="52" stroke="#94a3b8" stroke-width="3" stroke-linecap="round"/><circle cx="30" cy="52" r="7" fill="#818cf8"/><circle cx="290" cy="52" r="7" fill="#22d3ee"/><text x="30" y="80" text-anchor="middle" font-size="10" fill="#a9b8d8">${a1}: ${f2(m1,3)} u</text><text x="290" y="80" text-anchor="middle" font-size="10" fill="#a9b8d8">${a2}: ${f2(m2,3)} u</text><line x1="${X(tb)}" y1="38" x2="${X(tb)}" y2="66" stroke="#f59e0b" stroke-width="2.5"/><text x="${X(tb)}" y="30" text-anchor="middle" font-size="10" fill="#f59e0b" font-weight="800">tabla ${tb}</text><path d="M${X(avg)} 52l-6-14h12z" fill="#22c55e"/><text x="${X(avg)}" y="16" text-anchor="middle" font-size="11" fill="#86efac" font-weight="800">tu promedio ${f2(avg,3)}</text>`;
+  const d=Math.abs(avg-tb);out.innerHTML=`<div>Masa promedio = ${f2(m1,3)}·${f2(x/100,3)} + ${f2(m2,3)}·${f2(1-x/100,3)} = <b>${f2(avg,3)} u</b></div><div class="${d<.02?'lwin':'mu'}">${d<.02?'¡Coincide con la tabla! Esta es (casi) la abundancia real.':'Diferencia con la tabla: '+f2(d,2)+' u. '+(avg<tb?'Súbele peso al isótopo pesado.':'Súbele peso al isótopo ligero.')}</div>`};
+ rg.oninput=draw;sel.onchange=()=>{rg.value=50;draw()};
+ w.querySelector('#real').onclick=()=>{rg.value=ISO[sel.value][0][2];rg.dispatchEvent(new Event('input'))};
+ draw();return w};
+
+/* ---------- 4. Vida media con 100 núcleos ---------- */
+SIMS.decay=(pre,ctx)=>{
+ const w=shell('Vida media: 100 núcleos',`<div class="sx"><label>Nucleido <select class="lsel">${DEC.map((d,i)=>`<option value="${i}">${d.n}</option>`).join('')}</select></label></div><div class="mu sm dd"></div><div class="scene sq"><svg viewBox="0 0 220 220" role="img" aria-label="Cuadrícula de 100 núcleos; los apagados ya se desintegraron"></svg></div><div class="row"><button class="btn pri" id="step">Pasar 1 vida media</button><button class="btn" id="auto">Auto</button><button class="btn" id="rst">Reiniciar</button></div><div class="bout dout" aria-live="polite"></div>`);
+ const sel=w.querySelector('select'),svg=w.querySelector('svg'),out=w.querySelector('.dout'),dd=w.querySelector('.dd');
+ let alive,hist,timer=0;
+ const reset=()=>{alive=Array(100).fill(1);hist=[100];stopA();draw()};
+ const stopA=()=>{clearInterval(timer);timer=0;const b=w.querySelector('#auto');b&&(b.textContent='Auto')};
+ ctx&&ctx.stop.push(stopA);
+ const d=()=>DEC[+sel.value];
+ const draw=()=>{let s='';alive.forEach((v,i)=>{s+=`<circle cx="${12+(i%10)*21.8}" cy="${12+Math.floor(i/10)*21.8}" r="8" fill="${v?'#f87171':'#334155'}" fill-opacity="${v?1:.55}" stroke="${v?'#fecaca':'#475569'}" stroke-width=".8"/>`});svg.innerHTML=s;
+  const k=hist.length-1,left=hist[k],teo=100/2**k,x=d();
+  dd.innerHTML=`${NT(x.s,x.z,x.a)} · T½ = ${fmtN(x.t,3)} ${x.u}. ${x.d}`;
+  out.innerHTML=`<div>Vidas medias transcurridas: <b>${k}</b> · tiempo = ${fmtN(k*x.t,3)} ${x.u}</div><div>Núcleos que quedan: <b>${left}</b> · teoría: ${fmtN(teo,1)}</div><div class="mu sm">${hist.map((v,i)=>i+': '+v).join(' → ')}</div>${k>0?'<div class="note">La desintegración es <b>aleatoria</b>: pulsa Reiniciar y repite; no saldrá exactamente lo mismo, pero con muchos núcleos el promedio se acerca a la teoría.</div>':''}`};
+ const step=()=>{if(hist[hist.length-1]<1)return stopA();alive=alive.map(v=>v&&Math.random()<.5?0:v);hist.push(alive.reduce((a,b)=>a+b,0));draw();if(window.hap)hap('tap')};
+ w.querySelector('#step').onclick=step;w.querySelector('#rst').onclick=reset;
+ w.querySelector('#auto').onclick=ev=>{if(timer)return stopA();ev.target.textContent='Pausa';timer=setInterval(()=>{if(hist.length>8||hist[hist.length-1]<1)stopA();else step()},900)};
+ sel.onchange=reset;reset();return w};
+
+/* ---------- 5. Ecuaciones nucleares ---------- */
+SIMS.nuc=()=>{
+ const w=shell('Completa la ecuación nuclear',`<div class="nq"></div><div class="qbtn nopt"></div><div class="lfb" aria-live="polite"></div><div class="row"><button class="btn pri nnx" hidden>Otra ecuación →</button></div>`);
+ const q=w.querySelector('.nq'),op=w.querySelector('.nopt'),fb=w.querySelector('.lfb'),nx=w.querySelector('.nnx');let last=-1,cur;
+ const sym=(z,a)=>E[z]?NT(E[z].s,z,a):'?';
+ const next=()=>{let i;do{i=Math.random()*NUC.length|0}while(i==last&&NUC.length>1);last=i;
+  const r=NUC[i],[ps,pa,pz]=r.p,[ds,da,dz]=r.d,t=NUCT[r.t],ok=sym(dz,da);
+  const w1=[sym(dz,da+2),sym(dz+1,da),sym(dz-1,da-4),sym(pz,pa-4),sym(dz,da-1),sym(dz+2,da),sym(pz-1,pa)].filter(x=>x!=ok&&!x.includes('?'));
+  const o=sshuf([ok,...[...new Set(w1)].slice(0,3)],'nuc'+i+Math.random());
+  cur={ok,r,t,pa,pz,da,dz};
+  q.innerHTML=`<div class="hl" style="font-size:1.15rem;text-align:center">${NT(ps,pz,pa)} → ? + ${t[1]=='e'?NT('e',t[3],t[2]):NT(t[1],t[3],t[2])} <span class="mu sm">(${t[0]}: ${t[4]})</span></div>`;
+  op.innerHTML=o.map(h=>`<button class="btn" data-h="${h.replace(/"/g,'&quot;')}">${h}</button>`).join('');fb.innerHTML='';nx.hidden=true};
+ op.onclick=ev=>{const b=ev.target.closest('[data-h]');if(!b||op.dataset.done)return;op.dataset.done=1;const good=b.dataset.h==cur.ok;b.classList.add(good?'ok':'bad');op.querySelectorAll('[data-h]').forEach(x=>{if(x.dataset.h==cur.ok)x.classList.add('ok')});
+  const e=cur;fb.innerHTML=`<div class="note" style="border-color:var(--${good?'ok':'bad'})"><b>${good?'Correcto.':'No es esa.'}</b> A: ${e.pa} = ${e.da} + ${e.t[2]} · Z: ${e.pz} = ${e.dz} + (${e.t[3]<0?'−'+(-e.t[3]):e.t[3]}). El núcleo hijo es ${E[e.dz].n.toLowerCase()} (${E[e.dz].s}).</div>`;nx.hidden=false;if(good)burst(b,12)};
+ nx.onclick=()=>{delete op.dataset.done;next()};
+ next();return w};
+
+/* ---------- 6. Carga nuclear efectiva (Slater) ---------- */
+SIMS.zef=()=>{
+ const els=E.filter(e=>e&&slater(e.z));
+ const w=shell('Calculadora de Zef (Slater)',`<div class="sx"><label>Elemento <select class="lsel">${[1,2,3,4,5,6,7].map(p=>`<optgroup label="Periodo ${p}">${els.filter(e=>e.p==p).map(e=>`<option value="${e.z}">${e.s} · ${e.n} (Z=${e.z})</option>`).join('')}</optgroup>`).join('')}</select></label></div><div class="zbody"></div>`);
+ const sel=w.querySelector('select'),box=w.querySelector('.zbody');sel.value=11;
+ const draw=()=>{const z=+sel.value,e=E[z],r=slater(z),k=z==1||(z==2)?.3:.35,h1=r.n==1;
+  const m2=r.m2,m1=r.m1,sm=r.same;
+  const row=(lab,cnt,f)=>cnt?`<div class="zrow"><span>${lab}</span><span><b>${cnt}</b> e⁻ × ${f}</span><b>= ${f2(cnt*f,2)}</b></div>`:'';
+  const S=r.S,pct=Math.min(100,S/z*100);
+  box.innerHTML=`<div class="mu sm">${fmt(e.o)} · electrón de valencia en n = ${r.n}</div>`+
+   `<div class="zt">${row('Capas más internas (n−2 y menores)',m2,'1.00')}${row(h1?'Otro electrón 1s':'Capa n−1',h1?sm:m1,h1?'0.30':'0.85')}${h1?'':row('Misma capa (n), sin contar al que estudias',sm,'0.35')}</div>`+
+   `<div class="zbar" role="img" aria-label="La carga nuclear Z=${z} se reparte en blindaje S=${f2(S,2)} y Zef=${f2(r.zef,2)}"><i style="width:${pct}%"></i><span>S = ${f2(S,2)}</span><span>Zef = ${f2(r.zef,2)}</span></div>`+
+   `<div class="bout"><div>Blindaje <b>S = ${f2(S,2)}</b></div><div class="big">Zef = ${z} − ${f2(S,2)} = ${f2(r.zef,2)}</div><div class="mu sm">Un electrón de valencia del ${lc(e.n)} «siente» ${f2(r.zef,2)} de las ${z} cargas positivas del núcleo.</div></div>`};
+ sel.onchange=draw;draw();return w};
+
+/* ---------- 7. Gráfica de tendencias ---------- */
+const TP={
+ zef:['Carga nuclear efectiva (Slater)','',z=>{const s=slater(z);return s?s.zef:null}],
+ rad:['Radio covalente','pm',z=>RAD[z]||null],
+ ie:['1.ª energía de ionización','kJ/mol',z=>IEN[z]||null],
+ en:['Electronegatividad (Pauling)','',z=>(E[z]&&E[z].en)||null]};
+SIMS.trend=(pre)=>{
+ const st={prop:pre.prop||'rad',scope:pre.scope||'p',val:pre.val||2};
+ const w=shell('Gráfica de tendencias',`<div class="sx"><select class="lsel" data-k="prop" aria-label="Propiedad">${Object.entries(TP).map(([k,v])=>`<option value="${k}">${v[0]}</option>`).join('')}</select><div class="chips" role="group" aria-label="Comparar por"><button class="chip" data-s="p">Un periodo</button><button class="chip" data-s="g">Un grupo</button></div><select class="lsel" data-k="val" aria-label="Número"></select></div><div class="scene"><svg viewBox="0 0 340 210" role="img"></svg></div><div class="bout" aria-live="polite"></div>`);
+ const svg=w.querySelector('svg'),out=w.querySelector('.bout'),sp=w.querySelector('[data-k=prop]'),sv=w.querySelector('[data-k=val]');
+ const fill=()=>{const n=st.scope=='p'?7:18;sv.innerHTML=Array.from({length:n},(_,i)=>`<option value="${i+1}">${st.scope=='p'?'Periodo ':'Grupo '}${i+1}</option>`).join('');if(st.val>n)st.val=1;sv.value=st.val};
+ const draw=()=>{
+  w.querySelectorAll('[data-s]').forEach(b=>b.classList.toggle('on',b.dataset.s==st.scope));sp.value=st.prop;sv.value=st.val;
+  const T=TP[st.prop],fv=v=>st.prop=='ie'||st.prop=='rad'?fmtN(v,0):f2(v,2),L=E.filter(e=>e&&(st.scope=='p'?e.p==st.val:e.g==st.val)&&e.z!=0&&!(st.scope=='g'&&e.b=='f')),pts=L.map(e=>({e,v:T[2](e.z)}));
+  const vs=pts.map(p=>p.v).filter(v=>v!=null);
+  if(!vs.length){svg.innerHTML='<text x="170" y="105" text-anchor="middle" fill="#a9b8d8" font-size="13">Sin datos para esta selección</text>';out.innerHTML='<div class="mu sm">Prueba otro periodo, otro grupo u otra propiedad.</div>';return}
+  const lo=Math.min(...vs),hi=Math.max(...vs),pad=(hi-lo)*.18||hi*.1||1,y0=Math.max(0,lo-pad),y1=hi+pad,W=340,H=210,L0=44,R0=12,T0=14,B0=44,n=pts.length;
+  const X=i=>n==1?(L0+W-R0)/2:L0+i*(W-L0-R0)/(n-1),Y=v=>T0+(1-(v-y0)/(y1-y0))*(H-T0-B0);
+  let s='';for(let k=0;k<=3;k++){const v=y0+(y1-y0)*k/3,y=Y(v);s+=`<line x1="${L0}" y1="${y}" x2="${W-R0}" y2="${y}" stroke="#94a3b8" stroke-opacity=".22"/><text x="${L0-5}" y="${y+3.5}" text-anchor="end" font-size="9.5" fill="#a9b8d8">${st.prop=='ie'||st.prop=='rad'?Math.round(v):f2(v,1)}</text>`}
+  let seg='';pts.forEach((p,i)=>{if(p.v==null){seg+='|';return}seg+=(seg&&seg.slice(-1)!='|'?'L':'M')+X(i).toFixed(1)+' '+Y(p.v).toFixed(1)+' '});
+  seg.split('|').forEach(d=>{if(d.trim().length>8)s+=`<path d="${d.trim()}" fill="none" stroke="#818cf8" stroke-width="2.2" stroke-linejoin="round"/>`});
+  pts.forEach((p,i)=>{s+=`<text x="${X(i)}" y="${H-26}" text-anchor="middle" font-size="10.5" font-weight="700" fill="#e8eeff">${p.e.s}</text><text x="${X(i)}" y="${H-14}" text-anchor="middle" font-size="8.5" fill="#a9b8d8">${p.e.z}</text>`;
+   if(p.v!=null)s+=`<circle class="tpt" data-i="${i}" cx="${X(i)}" cy="${Y(p.v)}" r="5.5" fill="${catC(p.e)}" stroke="#fff" stroke-width="1.4" tabindex="0" role="button" aria-label="${p.e.n}: ${f2(p.v,2)} ${T[1]}"/>`});
+  s+=`<text x="10" y="${H/2-10}" font-size="9.5" fill="#a9b8d8" transform="rotate(-90 10 ${H/2-10})" text-anchor="middle">${T[1]||T[0].split(' ')[0]}</text>`;
+  svg.innerHTML=s;
+  const have=pts.filter(p=>p.v!=null),a=have[0],b=have[have.length-1];
+  const info=have.length<2?'':b.v>a.v?`de ${a.e.s} a ${b.e.s} <b>aumenta</b> (${fv(a.v)} → ${fv(b.v)} ${T[1]})`:`de ${a.e.s} a ${b.e.s} <b>disminuye</b> (${fv(a.v)} → ${fv(b.v)} ${T[1]})`;
+  out.innerHTML=`<div>${T[0]}: ${info||'un solo dato'}.</div><div class="mu sm" id="tsel">Toca un punto para ver su valor.</div>${st.scope=='p'&&st.val>=4&&st.prop!='en'?'<div class="mu sm">En los periodos largos la serie de transición (bloque d) casi no cambia: el electrón nuevo entra en una capa interna.</div>':''}`};
+ w.addEventListener('click',ev=>{
+  const c=ev.target.closest('.chip[data-s]');if(c){st.scope=c.dataset.s;fill();return draw()}
+  const t=ev.target.closest('.tpt');if(t){const i=+t.dataset.i,L=E.filter(e=>e&&(st.scope=='p'?e.p==st.val:e.g==st.val)&&!(st.scope=='g'&&e.b=='f')),e=L[i],T=TP[st.prop],el=out.querySelector('#tsel');if(el)el.innerHTML=`<b>${e.n}</b> (${e.s}): ${st.prop=='ie'||st.prop=='rad'?fmtN(T[2](e.z),0):f2(T[2](e.z),2)} ${T[1]}`}});
+ w.addEventListener('keydown',ev=>{if((ev.key=='Enter'||ev.key==' ')&&ev.target.classList&&ev.target.classList.contains('tpt')){ev.preventDefault();ev.target.dispatchEvent(new MouseEvent('click',{bubbles:true}))}});
+ sp.onchange=()=>{st.prop=sp.value;draw()};sv.onchange=()=>{st.val=+sv.value;draw()};
+ fill();draw();return w};
+
+/* ---------- 8. Series isoelectrónicas ---------- */
+SIMS.iso=()=>{
+ const S={'10 electrones (como el Ne)':[ISOION,'Ne'],'18 electrones (como el Ar)':[ISOION2,'Ar']};
+ const w=shell('Serie isoelectrónica',`<div class="sx"><label>Serie <select class="lsel">${Object.keys(S).map(k=>`<option>${k}</option>`).join('')}</select></label></div><div class="scene"><svg viewBox="0 0 340 170" role="img" aria-label="Iones con los mismos electrones ordenados por radio"></svg></div><div class="bout"></div>`);
+ const sel=w.querySelector('select'),svg=w.querySelector('svg'),out=w.querySelector('.bout');
+ const draw=()=>{const L=S[sel.value][0],mx=Math.max(...L.map(x=>x[1]));let s='';
+  L.forEach((x,i)=>{const cx=34+i*68,r=x[1]/mx*30+4,neg=x[0].includes('−');s+=`<circle cx="${cx}" cy="70" r="${r.toFixed(1)}" fill="${neg?'#fb7185':'#60a5fa'}" fill-opacity=".8" stroke="#fff" stroke-width="1.2"/><text x="${cx}" y="${74}" text-anchor="middle" font-size="11" font-weight="800" fill="#0b1220">${x[2]}p</text><text x="${cx}" y="128" text-anchor="middle" font-size="11" font-weight="700" fill="#e8eeff">${x[0].split(' ')[0]}</text><text x="${cx}" y="143" text-anchor="middle" font-size="10" fill="#a9b8d8">${x[1]} pm</text>`});
+  svg.innerHTML=s+`<text x="170" y="162" text-anchor="middle" font-size="9.5" fill="#a9b8d8">más protones → mayor atracción → menor radio</text>`;
+  out.innerHTML=`<div>Todos tienen <b>${sel.value.split(' ')[0]} electrones</b>, pero el núcleo tiene de ${L[0][2]} a ${L[L.length-1][2]} protones. Radios iónicos de Shannon (pm, CN = 6).</div>`};
+ sel.onchange=draw;draw();return w};
+
+/* ---------- 9. Energías de ionización sucesivas ---------- */
+SIMS.succ=()=>{
+ const w=shell('Energías de ionización sucesivas',`<div class="chips" role="group" aria-label="Elemento">${Object.keys(SUCC).map(k=>`<button class="chip" data-k="${k}">${k}</button>`).join('')}</div><div class="scene"><svg viewBox="0 0 340 210" role="img"></svg></div><div class="bout" aria-live="polite"></div>`);
+ const svg=w.querySelector('svg'),out=w.querySelector('.bout');let cur='Mg';
+ const draw=()=>{const v=SUCC[cur],lg=v.map(Math.log10),mn=2.4,mx=4.4,H=170,bw=38,s0=[];let s='',jump=0,ji=0;
+  for(let i=0;i<v.length-1;i++){const r=v[i+1]/v[i];if(r>jump){jump=r;ji=i}}
+  v.forEach((x,i)=>{const h=(lg[i]-mn)/(mx-mn)*H,cx=34+i*60,hot=i==ji+1;s+=`<rect x="${cx}" y="${185-h}" width="${bw}" height="${h}" rx="5" fill="${hot?'#f43f5e':'#818cf8'}"/><text x="${cx+bw/2}" y="${180-h}" text-anchor="middle" font-size="10.5" font-weight="800" fill="#e8eeff">${fmtN(x,0)}</text><text x="${cx+bw/2}" y="203" text-anchor="middle" font-size="10.5" fill="#a9b8d8">EI${'₁₂₃₄₅'[i]}</text>`});
+  svg.innerHTML=s+`<text x="12" y="14" font-size="9" fill="#a9b8d8">kJ/mol (escala logarítmica)</text>`;
+  const e=Z(cur);out.innerHTML=`<div>El mayor salto es de EI${'₁₂₃₄₅'[ji]} a EI${'₁₂₃₄₅'[ji+1]} (×${f2(jump,1)}).</div><div class="note">Después de <b>${ji+1}</b> electrón(es) hay que entrar a una capa interna: el ${lc(e.n)} tiene <b>${ji+1} electrones de valencia</b> (grupo ${e.g}).</div>`;
+  w.querySelectorAll('.chip').forEach(b=>b.classList.toggle('on',b.dataset.k==cur))};
+ w.querySelector('.chips').onclick=ev=>{const b=ev.target.closest('.chip');if(b){cur=b.dataset.k;draw()}};
+ draw();return w};
+
+/* ---------- 10. Calculadora de ΔEN ---------- */
+SIMS.den=()=>{
+ const els=E.filter(e=>e&&e.en>0&&e.z<=86);
+ const opts=els.map(e=>`<option value="${e.z}">${e.s} · ${e.n}</option>`).join('');
+ const w=shell('Diferencia de electronegatividad',`<div class="sx"><select class="lsel" id="da" aria-label="Elemento A">${opts}</select><span>y</span><select class="lsel" id="db" aria-label="Elemento B">${opts}</select></div><div class="scene"><svg viewBox="0 0 340 130" role="img"></svg></div><div class="denb"></div><div class="bout"></div>`);
+ const a=w.querySelector('#da'),b=w.querySelector('#db'),svg=w.querySelector('svg'),zb=w.querySelector('.denb'),out=w.querySelector('.bout');a.value=1;b.value=17;
+ const draw=()=>{const A=E[+a.value],B=E[+b.value],d=Math.abs(A.en-B.en),hi=A.en>=B.en?A:B,lo=hi==A?B:A,two=A.z==B.z;
+  const kind=d<.4?'Covalente casi apolar':d<=1.7?'Covalente polar':'Predomina el carácter iónico';
+  const sh=Math.min(1,d/3)*34,xa=95,xb=245,hiR=hi==B;
+  svg.innerHTML=`<ellipse cx="${(xa+xb)/2+(hiR?sh:-sh)*.5}" cy="65" rx="${95+Math.min(d,3)*8}" ry="38" fill="#38bdf8" fill-opacity=".18" stroke="#38bdf8" stroke-opacity=".5"/><circle cx="${xa}" cy="65" r="26" fill="${catC(A)}" stroke="#fff" stroke-width="1.5"/><circle cx="${xb}" cy="65" r="26" fill="${catC(B)}" stroke="#fff" stroke-width="1.5"/><text x="${xa}" y="70" text-anchor="middle" font-size="16" font-weight="800" fill="#0b1220">${A.s}</text><text x="${xb}" y="70" text-anchor="middle" font-size="16" font-weight="800" fill="#0b1220">${B.s}</text>${d>=.4&&!two?`<text x="${hiR?xb:xa}" y="28" text-anchor="middle" font-size="14" font-weight="800" fill="#fb7185">δ−</text><text x="${hiR?xa:xb}" y="28" text-anchor="middle" font-size="14" font-weight="800" fill="#60a5fa">δ+</text><path d="M${hiR?xa+34:xb-34} 104h${hiR?160:-160}" stroke="#f59e0b" stroke-width="2.4" marker-end="url(#arr)"/>`:''}<defs><marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#f59e0b"/></marker></defs>`;
+  const pos=Math.min(100,d/3.5*100);
+  zb.innerHTML=`<div class="zones"><i style="width:${.4/3.5*100}%"></i><i style="width:${1.3/3.5*100}%"></i><i style="flex:1"></i><b style="left:${pos}%"></b></div><div class="lgd"><span><i style="background:#22c55e"></i>&lt; 0.4 casi apolar</span><span><i style="background:#f59e0b"></i>0.4–1.7 polar</span><span><i style="background:#f43f5e"></i>&gt; 1.7 iónico</span></div>`;
+  out.innerHTML=`<div>EN ${A.s} = <b>${A.en}</b> · EN ${B.s} = <b>${B.en}</b></div><div class="big">ΔEN = ${f2(d,2)}</div><div><b>${kind}</b>${d>=.4&&!two?` · el par se desplaza hacia el ${lc(hi.n)}`:''}</div><div class="mu sm">Los umbrales son una guía: el carácter iónico es gradual.</div>`};
+ a.onchange=b.onchange=draw;draw();return w};
+
+/* ---------- 11. Duelo de propiedades ---------- */
+SIMS.duel=()=>{
+ const P=[['rad','radio atómico (covalente)','pm'],['ie','1.ª energía de ionización','kJ/mol'],['en','electronegatividad','']];
+ const pool=E.filter(e=>e&&e.z>=3&&e.z<=56&&RAD[e.z]&&IEN[e.z]&&e.en>0&&e.g!=18);
+ const w=shell('Duelo de propiedades',`<div class="chips" role="group" aria-label="Propiedad"><button class="chip on" data-k="mix">Mixto</button>${P.map(p=>`<button class="chip" data-k="${p[0]}">${p[1].split(' (')[0]}</button>`).join('')}</div><div class="dq"></div><div class="qbtn dopt"></div><div class="lfb" aria-live="polite"></div><div class="row"><span class="chip on" id="ds">Racha 0</span><button class="btn pri dnx" hidden>Siguiente →</button></div>`);
+ const q=w.querySelector('.dq'),op=w.querySelector('.dopt'),fb=w.querySelector('.lfb'),nx=w.querySelector('.dnx'),ds=w.querySelector('#ds');let mode='mix',cur,st=0;
+ const val=(k,e)=>k=='rad'?RAD[e.z]:k=='ie'?IEN[e.z]:e.en;
+ const next=()=>{const p=mode=='mix'?pick(P):P.find(x=>x[0]==mode);let a,b,t=0;do{a=pick(pool);b=pick(pool);t++}while((a==b||Math.abs(val(p[0],a)-val(p[0],b))<(p[0]=='en'?.12:p[0]=='rad'?6:25))&&t<300);
+  const big=val(p[0],a)>val(p[0],b)?a:b;cur={p,a,b,big};
+  q.innerHTML=`<p style="margin:0;text-align:center">¿Quién tiene mayor <b>${p[1]}</b>?</p>`;
+  op.innerHTML=[a,b].map(e=>`<button class="btn" data-z="${e.z}">${e.n} (${e.s})</button>`).join('');fb.innerHTML='';nx.hidden=true;delete op.dataset.done};
+ op.onclick=ev=>{const b=ev.target.closest('[data-z]');if(!b||op.dataset.done)return;op.dataset.done=1;const ok=+b.dataset.z==cur.big.z;b.classList.add(ok?'ok':'bad');op.querySelectorAll('[data-z]').forEach(x=>{if(+x.dataset.z==cur.big.z)x.classList.add('ok')});
+  st=ok?st+1:0;ds.textContent='Racha '+st;const u=cur.p[2]?' '+cur.p[2]:'';
+  fb.innerHTML=`<div class="note" style="border-color:var(--${ok?'ok':'bad'})"><b>${ok?'Correcto.':'No es esa.'}</b> ${cur.a.s}: ${f2(val(cur.p[0],cur.a),cur.p[0]=='en'?2:0)}${u} · ${cur.b.s}: ${f2(val(cur.p[0],cur.b),cur.p[0]=='en'?2:0)}${u}.</div>`;nx.hidden=false;if(ok)burst(b,10)};
+ nx.onclick=next;
+ w.querySelector('.chips').onclick=ev=>{const c=ev.target.closest('.chip');if(!c)return;mode=c.dataset.k;w.querySelectorAll('.chips .chip').forEach(x=>x.classList.toggle('on',x==c));st=0;ds.textContent='Racha 0';next()};
+ next();return w};
+
+/* ===== v18: motor de Aprender ===== */
+const hs=s=>{let h=2166136261;for(const c of String(s)){h^=c.charCodeAt(0);h=Math.imul(h,16777619)}return h>>>0};
+const prng=seed=>()=>{seed=(seed+0x6D2B79F5)|0;let t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296};
+const sshuf=(a,key)=>{const r=prng(hs(key)),b=[...a];for(let i=b.length-1;i>0;i--){const j=r()*(i+1)|0;[b[i],b[j]]=[b[j],b[i]]}return b};
+/* ---- estado guardado ---- */
+let LST={};try{LST=JSON.parse(store.get('ql-les','{}')||'{}')||{}}catch(e){LST={}}
+for(const k of['done','at','q','rx','gl'])if(!LST[k]||typeof LST[k]!='object')LST[k]={};
+if(LST.lvl!='uni')LST.lvl='prepa';
+const saveL=()=>store.set('ql-les',JSON.stringify(LST));
+const uni=()=>LST.lvl=='uni';
+const LC={id:null,step:0,stop:[],after:[]};
+/* ---- glosario ---- */
+const gx=h=>String(h).replace(/\[\[(\w+)(?:\|([^\]]+))?\]\]/g,(m,k,t)=>GL[k]?`<button class="gl" data-g="${k}" aria-haspopup="dialog">${t||GL[k][0]}</button>`:(t||k));
+document.body.insertAdjacentHTML('beforeend','<div id="gdl" hidden role="dialog" aria-modal="true" aria-labelledby="gdt"><div class="mdc"><h3 id="gdt"></h3><p class="mde" id="gdd"></p><div class="mdb"><button class="btn pri" id="gdk">Entendido</button></div></div></div>');
+const gdl=$('#gdl');let gprev=null;
+const gClose=()=>{gdl.hidden=true;gprev&&gprev.focus&&gprev.focus();gprev=null};
+const gOpen=k=>{if(!GL[k])return;gprev=document.activeElement;$('#gdt').textContent=GL[k][0];$('#gdd').innerHTML=GL[k][1];gdl.hidden=false;$('#gdk').focus();if(!LST.gl[k]){LST.gl[k]=1;saveL();const c=$('#gct');c&&(c.textContent=Object.keys(LST.gl).length+' de '+Object.keys(GL).length+' vistos')}if(window.hap)hap('tap')};
+$('#gdk').onclick=gClose;gdl.addEventListener('click',ev=>{if(ev.target===gdl)gClose()});
+gdl.addEventListener('keydown',ev=>{if(ev.key=='Escape'){ev.stopPropagation();gClose()}else if(ev.key=='Tab'){ev.preventDefault();$('#gdk').focus()}});
+document.addEventListener('click',ev=>{const b=ev.target.closest('button.gl');if(b)gOpen(b.dataset.g)});
+/* ---- generadores de práctica libre ---- */
+const nz=n=>String(+n.toFixed(2));
+const MG=E.filter(e=>e&&e.z>=3&&e.z<=54&&(e.b=='s'||e.b=='p')&&e.g!=18);
+const ISOP=[];Object.keys(ISO).forEach(s=>ISO[s].forEach(([a])=>ISOP.push([Z(s),a])));
+const GEN={
+atomo:{
+ neu(){const[e,a]=pick(ISOP),n=a-e.z;return{ttl:'Neutrones',pr:`¿Cuántos <b>neutrones</b> tiene el nucleido ${NT(e.s,e.z,a)}?`,opts:OP(n,[e.z,a,n+1,n-1,a+e.z]),ex:`N = A − Z = ${a} − ${e.z} = <b>${n}</b>.`}},
+ ele(){const e=pick(MG.filter(x=>x.z<=35&&Q(x)!=null&&Q(x)!=0)),q=Q(e),a=Math.round(e.m),el=e.z-q;return{ttl:'Electrones de un ion',pr:`¿Cuántos <b>electrones</b> tiene el ion ${NT(e.s,e.z,a,q)}?`,opts:OP(el,[e.z,e.z+q,el+1,el-1,a-e.z]),ex:`Electrones = Z − q = ${e.z} − (${q>0?'+':'−'}${Math.abs(q)}) = <b>${el}</b>. ${q>0?'Perdió':'Ganó'} ${Math.abs(q)} electrón(es); los protones no cambian.`}},
+ sym(){const e=pick(MG.filter(x=>x.z<=20&&Q(x)!=null&&Q(x)!=0)),q=Q(e),a=Math.round(e.m),n=a-e.z,el=e.z-q,f=(s,z,aa,qq)=>NT(s,z,aa,qq);
+  const ws=[f(e.s,e.z,a,-q),f(e.s,e.z,a+1,q),f(e.s,e.z,e.z+el,q),f(e.s,e.z,a,0)];
+  return{ttl:'Notación nuclear',pr:`Un ion tiene <b>${e.z} protones</b>, <b>${n} neutrones</b> y <b>${el} electrones</b>. ¿Cuál es su símbolo completo?`,opts:OP(f(e.s,e.z,a,q),ws),ex:`Z = ${e.z} (${lc(e.n)}); A = ${e.z} + ${n} = ${a}; carga = ${e.z} − ${el} = ${q>0?'+':''}${q}. Símbolo: ${f(e.s,e.z,a,q)}.`}},
+ avg(){const e=pick([['Cl',35,37],['Cu',63,65],['Br',79,81],['B',10,11]].map(x=>x)),p=pick([10,20,25,30,40,60,70,75,80,90]),[s,a,b]=e,v=(a*p+b*(100-p))/100;
+  return{ttl:'Masa atómica promedio',pr:`Un elemento tiene dos isótopos: <b>${a} u</b> (${p} %) y <b>${b} u</b> (${100-p} %). ¿Cuál es su masa atómica promedio?`,opts:OP(f2(v,2),[f2((a+b)/2,2),f2((b*p+a*(100-p))/100,2),f2(v+.2,2),f2(v-.2,2)]),ex:`${a}·${p/100} + ${b}·${nz((100-p)/100)} = <b>${f2(v,2)} u</b>. Es un promedio ponderado, no el punto medio (${f2((a+b)/2,2)}).`}},
+ half(){const N0=pick([80,120,160,240,400,640]),T=pick([2,4,5,8,10,12]),n=pick([2,3,4]),r=N0/2**n;
+  return{ttl:'Vida media',pr:`Una muestra de <b>${N0} mg</b> tiene una vida media de <b>${T} días</b>. ¿Cuántos mg quedan tras <b>${n*T} días</b>?`,opts:OP(nz(r),[nz(N0/2**(n-1)),nz(N0/2**(n+1)),nz(N0/n),nz(N0*.75),nz(N0/(2*n))]),ex:`${n*T} / ${T} = ${n} vidas medias → ${N0} × (½)<sup>${n}</sup> = <b>${nz(r)} mg</b>.`}},
+ age(){const f=pick([[50,1],[25,2],[12.5,3],[6.25,4]]),t=f[1]*5730;
+  return{ttl:'Fechado con C-14',pr:`Un resto conserva <b>${f[0]} %</b> del carbono-14 que tenía en vida (T½ = 5730 años). ¿Qué edad tiene?`,opts:OP(fmtN(t,0)+' años',[fmtN(5730*(f[1]+1),0)+' años',fmtN(5730*Math.max(1,f[1]-1),0)+' años',fmtN(5730*f[0]/10,0)+' años',fmtN(5730*f[1]*2,0)+' años',fmtN(5730*f[1]*3,0)+' años',fmtN(5730/2,0)+' años']),ex:`${f[0]} % = (½)<sup>${f[1]}</sup>, es decir ${f[1]} vida(s) media(s): ${f[1]} × 5730 = <b>${fmtN(t,0)} años</b>.`}},
+ eq(){const r=pick(NUC),[ps,pa,pz]=r.p,[,da,dz]=r.d,t=NUCT[r.t],sy=(z,a)=>NT(E[z].s,z,a),ok=sy(dz,da);
+  const ws=[sy(dz,da+2),sy(dz+1,da),sy(dz-1,da-4),sy(pz,pa-4),sy(dz,da-1)].filter(x=>x!=ok);
+  return{ttl:'Ecuación nuclear',pr:`Completa: ${NT(ps,pz,pa)} → ? + ${t[1]=='e'?NT('e',t[3],t[2]):NT(t[1],t[3],t[2])} (${t[0]})`,opts:OP(ok,ws),ex:`Conservamos A (${pa} = ${da} + ${t[2]}) y Z (${pz} = ${dz} + ${t[3]}). El núcleo hijo es ${lc(E[dz].n)}: ${ok}.`}}},
+tend:{
+ rad(){let a,b,t=0,r;do{a=pick(MG);b=pick(MG);const sg=a.g==b.g&&a.p!=b.p,sp=a.p==b.p&&a.g!=b.g,ra=RAD[a.z],rb=RAD[b.z];r=null;if(ra&&rb&&Math.abs(ra-rb)>=6){const exp=sg?(a.p>b.p?a:b):sp?(a.z<b.z?a:b):null;if(exp&&((ra>rb?a:b)==exp))r=exp}t++}while(!r&&t<400);if(!r)return GEN.tend.zef();
+  const o=r==a?b:a,why=a.g==b.g?'Mismo grupo: al bajar se añaden capas.':'Mismo periodo: a la izquierda hay menor Zef.';
+  return{ttl:'Radio atómico',pr:`¿Cuál tiene <b>mayor radio atómico</b>: ${lc(a.n)} (${a.s}) o ${lc(b.n)} (${b.s})?`,opts:[{h:`${a.n} (${a.s})`,ok:a==r},{h:`${b.n} (${b.s})`,ok:b==r}],ex:`${why} Radios covalentes: ${r.s} = ${RAD[r.z]} pm; ${o.s} = ${RAD[o.z]} pm.`}},
+ ie(){const ex=pick([['Be','B','el electrón que sale del B es 2p (menos penetrante y de mayor energía que el 2s del Be)'],['N','O','en el O hay un par de electrones en un mismo orbital 2p y se repelen'],['Mg','Al','el electrón del Al es 3p, de mayor energía que el 3s del Mg'],['P','S','en el S hay un par de electrones en un orbital 3p y se repelen']]);
+  if(Math.random()<.3){const[ah,bh,why]=ex,A=Z(ah),B=Z(bh);return{ttl:'Excepción de la EI',pr:`¿Cuál tiene <b>mayor primera energía de ionización</b>: ${lc(A.n)} (${A.s}) o ${lc(B.n)} (${B.s})?`,opts:[{h:`${A.n} (${A.s})`,ok:true},{h:`${B.n} (${B.s})`,ok:false}].sort(()=>Math.random()-.5),ex:`${A.s} = ${Math.round(IEN[A.z])} kJ/mol y ${B.s} = ${Math.round(IEN[B.z])} kJ/mol. Es una <b>excepción</b> a la tendencia: ${why}.`}}
+  let a,b,t=0,r;do{a=pick(MG);b=pick(MG);const sg=a.g==b.g&&a.p!=b.p,sp=a.p==b.p&&a.g!=b.g,ia=IEN[a.z],ib=IEN[b.z];r=null;if(ia&&ib&&Math.abs(ia-ib)>=40){const exp=sg?(a.p<b.p?a:b):sp?(a.z>b.z?a:b):null;if(exp&&((ia>ib?a:b)==exp))r=exp}t++}while(!r&&t<400);if(!r)return GEN.tend.zef();
+  const o=r==a?b:a,why=a.g==b.g?'Mismo grupo: arriba el electrón está más cerca del núcleo.':'Mismo periodo: más a la derecha, mayor Zef.';
+  return{ttl:'Energía de ionización',pr:`¿Cuál tiene <b>mayor primera energía de ionización</b>: ${lc(a.n)} (${a.s}) o ${lc(b.n)} (${b.s})?`,opts:[{h:`${a.n} (${a.s})`,ok:a==r},{h:`${b.n} (${b.s})`,ok:b==r}],ex:`${why} ${r.s} = ${Math.round(IEN[r.z])} kJ/mol; ${o.s} = ${Math.round(IEN[o.z])} kJ/mol.`}},
+ en(){let a,b,t=0,r;do{a=pick(MG.filter(x=>x.z<=36));b=pick(MG.filter(x=>x.z<=36));const sg=a.g==b.g&&a.p!=b.p,sp=a.p==b.p&&a.g!=b.g;r=null;if(a.en&&b.en&&Math.abs(a.en-b.en)>=.15){const exp=sg?(a.p<b.p?a:b):sp?(a.z>b.z?a:b):null;if(exp&&((a.en>b.en?a:b)==exp))r=exp}t++}while(!r&&t<400);if(!r)return GEN.tend.zef();
+  const o=r==a?b:a;return{ttl:'Electronegatividad',pr:`¿Cuál es <b>más electronegativo</b>: ${lc(a.n)} (${a.s}) o ${lc(b.n)} (${b.s})?`,opts:[{h:`${a.n} (${a.s})`,ok:a==r},{h:`${b.n} (${b.s})`,ok:b==r}],ex:`La EN aumenta hacia la derecha en un periodo y hacia arriba en un grupo. Pauling: ${r.s} = ${r.en}; ${o.s} = ${o.en}.`}},
+ zef(){const e=pick(MG.filter(x=>x.z>=3&&x.z<=18&&slater(x.z))),r=slater(e.z),v=r.zef;
+  return{ttl:'Carga nuclear efectiva',pr:`Con las reglas de Slater, ¿cuál es la <b>Zef</b> de un electrón de valencia del ${lc(e.n)} (Z = ${e.z})?`,opts:OP(f2(v,2),[f2(v+.35,2),f2(v-.35,2),f2(v+.85,2),String(e.z)+'.00',f2(v-.65,2)]),ex:`${fmt(e.o)}. S = ${r.m2?r.m2+'·1.00 + ':''}${r.m1}·0.85 + ${r.same}·0.35 = ${f2(r.S,2)} → Zef = ${e.z} − ${f2(r.S,2)} = <b>${f2(v,2)}</b>.`}},
+ den(){const P=['H','C','N','O','F','Na','Mg','Al','Si','P','S','Cl','K','Ca','Br','I'].map(Z);let a,b,d,t=0;do{a=pick(P);b=pick(P);d=Math.abs(a.en-b.en);t++}while((a==b||(a.en<1.5&&b.en<1.5)||Math.abs(d-.4)<.08||Math.abs(d-1.7)<.12)&&t<400);
+  const k=d<.4?0:d<=1.7?1:2,L=['Covalente casi apolar','Covalente polar','Predomina el carácter iónico'];
+  return{ttl:'Tipo de enlace por ΔEN',pr:`${a.s} (EN ${a.en}) y ${b.s} (EN ${b.en}). Con ΔEN = ${f2(d,2)}, ¿qué tipo de enlace se espera?`,opts:OP(L[k],[...L.filter((_,i)=>i!=k),'Metálico']),ex:`ΔEN = |${a.en} − ${b.en}| = ${f2(d,2)}. Guía: &lt; 0.4 casi apolar, 0.4–1.7 polar, &gt; 1.7 iónico.`}},
+ iso(){const S=pick([ISOION,ISOION2]),[a,b]=sshuf(S,'i'+Math.random()).slice(0,2),big=a[1]>b[1]?a:b,sm=big==a?b:a;
+  return{ttl:'Serie isoelectrónica',pr:`${a[0].split(' ')[0]} y ${b[0].split(' ')[0]} tienen los mismos electrones. ¿Cuál tiene <b>mayor radio</b>?`,opts:[{h:a[0].split(' ')[0],ok:a==big},{h:b[0].split(' ')[0],ok:b==big}],ex:`Con igual número de electrones, el que tiene <b>menos protones</b> los atrae menos y es más grande: ${big[0].split(' ')[0]} (${big[2]} p, ${big[1]} pm) frente a ${sm[0].split(' ')[0]} (${sm[2]} p, ${sm[1]} pm).`}},
+ succ(){const k=pick(Object.keys(SUCC)),v=SUCC[k],e=Z(k),n=e.g==1?1:e.g==2?2:e.g-10;
+  return{ttl:'EI sucesivas',pr:`Las energías de ionización sucesivas (kJ/mol) de un elemento son: ${v.slice(0,n+1).map(x=>fmtN(x,0)).join('; ')}. ¿Cuántos <b>electrones de valencia</b> tiene?`,opts:OP(n,[1,2,3,4,5].filter(x=>x!=n)),ex:`El gran salto (de ${fmtN(v[n-1],0)} a ${fmtN(v[n],0)}) aparece tras el electrón n.º ${n}: hay ${n} electrones de valencia. Es el ${lc(e.n)}.`}}}};
+const gen=(m)=>()=>{const G=GEN[m],ks=Object.keys(G),k=pick(ks),q=G[k]();q.topic=m;return q};
+const LGEN={atomo:gen('atomo'),tend:gen('tend')};
+/* ---- bloques ---- */
+let MCN=0;
+const askNode=(it,key,graded,topic,onAns)=>{
+ const o=sshuf(it.o.map((_,i)=>i),key),w=mk('div','lq');
+ w.innerHTML=`<div class="lqt">${gx(it.q)}</div><div class="opts">${o.map(i=>`<button class="btn lopt" data-i="${i}">${it.o[i]}</button>`).join('')}</div><div class="lfb" aria-live="polite"></div>`;
+ const fb=w.querySelector('.lfb');
+ const show=i=>{const ok=i==0;w.querySelectorAll('.lopt').forEach(b=>{b.disabled=true;const j=+b.dataset.i;if(j==0)b.classList.add('ok');else if(j==i)b.classList.add('bad')});fb.innerHTML=`<div class="note" style="border-color:var(--${ok?'ok':'bad'})"><b>${ok?'Correcto.':'No es esa.'}</b> ${gx(it.ex)}</div>`;return ok};
+ if(LST.q[key]!=null)show(LST.q[key]);
+ w.onclick=ev=>{const b=ev.target.closest('.lopt');if(!b||b.disabled)return;const i=+b.dataset.i,ok=i==0;LST.q[key]=i;if(graded&&!LST.rx[key]){LST.rx[key]=1;rec(topic,ok)}saveL();show(i);if(window.hap)hap(ok?'tap':'tap');if(ok)burst(b,14);onAns&&onAns()};
+ return w};
+const chkNode=(b,ctx)=>{
+ const L=ctx.L,kb=ctx.key,n=b.qs.length,w=mk('div','lchk');
+ w.innerHTML=`<h3>Comprueba lo aprendido</h3><div class="chkp"><i></i></div><div class="lchr" aria-live="polite"></div>`;
+ const bar=w.querySelector('.chkp i'),res=w.querySelector('.lchr');
+ const upd=()=>{let a=0,ok=0;b.qs.forEach((_,i)=>{const v=LST.q[kb+':'+i];if(v!=null){a++;if(v==0)ok++}});bar.style.width=a/n*100+'%';
+  if(a<n){res.innerHTML='';return}
+  const pc=ok/n;res.innerHTML=`<div><b>${ok} de ${n} correctas.</b> ${pc==1?'¡Impecable!':pc>=.75?'Muy bien.':pc>=.5?'Vas bien; repasa los errores marcados.':'Vuelve al paso Aprende y mira los errores comunes.'}</div><button class="btn lrt">Intentarlo otra vez (sin XP extra)</button>`};
+ b.qs.forEach((it,i)=>w.insertBefore(askNode(it,kb+':'+i,true,L.m,upd),res));
+ res.onclick=ev=>{if(!ev.target.closest('.lrt'))return;b.qs.forEach((_,i)=>delete LST.q[kb+':'+i]);saveL();renderLesson(true)};
+ upd();return w};
+const exNode=b=>{
+ const w=mk('div','lex'),N=b.s.length;
+ w.innerHTML=`<p><b>Problema.</b> ${gx(b.p)}</p><p class="mu sm">Intenta resolverlo tú antes de ver cada paso.</p><ol class="lexs">${b.s.map(s=>`<li hidden>${gx(s)}</li>`).join('')}</ol><div class="lexr" hidden><b>Resultado:</b> ${b.r}</div><div><button class="btn pri lexb">Mostrar el paso 1 de ${N}</button></div>`;
+ let k=0;const btn=w.querySelector('.lexb'),li=w.querySelectorAll('li'),res=w.querySelector('.lexr');
+ btn.onclick=()=>{li[k++].hidden=false;if(window.hap)hap('tap');if(k>=N){res.hidden=false;btn.parentNode.hidden=true}else btn.textContent=`Mostrar el paso ${k+1} de ${N}`};
+ return w};
+function blk(b,ctx){
+ if(b.u&&!uni()){ctx.hid++;return null}
+ let n;
+ switch(b.t){
+  case'p':n=mk('p',null,gx(b.h));break;
+  case'h':n=mk('h3','lh3',gx(b.h));break;
+  case'key':n=mk('div','hl lk',gx(b.h));break;
+  case'warn':n=mk('div','lwarn',gx(b.h));break;
+  case'tab':n=mk('div','ltw',`<table class="ltb"><thead><tr>${b.head.map(h=>`<th scope="col">${h}</th>`).join('')}</tr></thead><tbody>${b.rows.map(r=>`<tr>${r.map(c=>`<td>${gx(c)}</td>`).join('')}</tr>`).join('')}</tbody></table>`);break;
+  case'tl':n=mk('div','tlv',b.i.map(x=>`<details><summary><span class="y">${x[0]}</span>${x[1]}</summary><div class="tb">${x[2]}</div></details>`).join(''));break;
+  case'q':n=askNode(b,ctx.key,false,ctx.L.m);break;
+  case'ex':n=exNode(b);break;
+  case'chk':n=chkNode(b,ctx);break;
+  case'mc':{const id='lmc'+(++MCN);n=mk('div','lmcw',`<p class="mu sm">${b.h||''}</p><div id="${id}"></div>`);ctx.after.push(()=>mcMount(id,'Práctica libre',LGEN[b.g]));break}
+  case'sim':n=SIMS[b.id](b.pre||{},ctx);break;
+  case'tbl':n=mk('div',null,`<button class="btn lgo">${SV('<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>')} ${b.h}</button>`);n.querySelector('button').onclick=()=>{md=b.mode;act=null;store.set('tp-mode',md);go('t');paint(1)};break;
+  default:return null}
+ if(b.u){const w=mk('div','lu');w.appendChild(mk('div','ulab','Nivel universidad · ampliación'));w.appendChild(n);return w}
+ return n}
+/* ---- vista de lección ---- */
+const lesOf=id=>LES.find(x=>x.id==id);
+const modOf=L=>MODS.find(m=>m.id==L.m);
+const lstate=L=>LST.done[L.id]?'Completada':LST.at[L.id]!=null?`Paso ${LST.at[L.id]+1} de ${L.steps.length}`:'Sin empezar';
+function renderLesson(keep){
+ const L=lesOf(LC.id);if(!L)return;const M=modOf(L),S=L.steps,si=LC.step;
+ stopAll(LC.stop);LC.after=[];
+ LST.at[L.id]=Math.max(LST.at[L.id]||0,si);LST.last={id:L.id,step:si};saveL();
+ const root=$('#lsn');
+ root.innerHTML=`<div class="card ltop"><div class="row"><button class="btn" id="lback">${SV('<path d="M15 5l-7 7 7 7"/>')} Aprender</button><span class="chip">${M.t} · ${L.n} de ${LES.filter(x=>x.m==L.m).length}</span><span class="mu sm">${L.min} min</span><span class="chips lvl" style="margin-left:auto"><button class="chip${uni()?'':' on'}" data-l="prepa">Prepa</button><button class="chip${uni()?' on':''}" data-l="uni">Universidad</button></span></div><h2>${L.t}</h2><ul class="obj">${L.obj.map(o=>`<li>${o}</li>`).join('')}</ul><div class="lbar" role="tablist" aria-label="Pasos de la lección">${S.map((s,i)=>`<button role="tab" aria-selected="${i==si}" class="${i<=Math.max(si,LST.at[L.id])?'on':''}${i==si?' cur':''}" data-s="${i}"><i></i>${s.k}</button>`).join('')}</div></div><div class="card lbl" id="lbody"></div><div class="lnav"></div>`;
+ const body=$('#lbody'),ctx={L,si,key:'',hid:0,stop:LC.stop,after:LC.after};
+ S[si].b.forEach((b,bi)=>{ctx.key=`${L.id}:${si}:${bi}`;const n=blk(b,ctx);if(n)body.appendChild(n)});
+ if(ctx.hid){const t=mk('div','mu sm',`Hay ${ctx.hid} bloque(s) de ampliación para nivel universidad. <button class="chip" id="lup">Mostrarlos</button>`);body.appendChild(t)}
+ const nav=root.querySelector('.lnav');
+ nav.innerHTML=`<button class="btn" id="lprev"${si==0?' disabled':''}>← ${si?S[si-1].k:'Anterior'}</button><button class="btn pri" id="lnext">${si<S.length-1?'Siguiente: '+S[si+1].k+' →':'Terminar lección ✓'}</button>`;
+ LC.after.forEach(f=>f());
+ if(!keep)window.scrollTo({top:0})}
+function finishLesson(){
+ const L=lesOf(LC.id),first=!LST.done[L.id];
+ if(first){LST.done[L.id]=Date.now();PR.xp+=25;PR.days[new Date().toISOString().slice(0,10)]=1;saveP()}
+ LST.last=null;saveL();stl();stopAll(LC.stop);
+ const same=LES.filter(x=>x.m==L.m),idx=same.indexOf(L),nx=same[idx+1]||LES.find(x=>!LST.done[x.id]&&x!=L);
+ let a=0,ok=0;L.steps.forEach((s,si)=>s.b.forEach((b,bi)=>{if(b.t=='chk')b.qs.forEach((_,i)=>{const v=LST.q[`${L.id}:${si}:${bi}:${i}`];if(v!=null){a++;if(v==0)ok++}})}));
+ $('#lsn').innerHTML=`<div class="card" style="text-align:center;display:grid;gap:10px"><div class="lpi" style="margin:0 auto;width:64px;height:64px;border-radius:20px;display:grid;place-items:center;color:#fff;background:linear-gradient(135deg,#22c55e,#06b6d4)">${SV('<path d="M5 12l5 5 9-10"/>')}</div><h2 style="margin:0">¡Lección completada!</h2><p class="mu" style="margin:0">${L.t}</p>${first?'<div class="chip on" style="justify-self:center">+25 XP</div>':'<div class="mu sm">Ya la habías completado antes: sin XP extra.</div>'}<p class="mu sm" style="margin:0">${a?`Comprobación: ${ok} de ${a} correctas en la primera vuelta.`:'Todavía no respondiste la comprobación; puedes volver al paso Practica.'}</p><div class="row" style="justify-content:center">${nx?`<button class="btn pri" data-open="${nx.id}">Siguiente: ${nx.t} →</button>`:''}<button class="btn" id="lback2">Volver a Aprender</button><button class="btn" data-open="${L.id}">Repasar</button></div></div>`;
+ if(first){burst($('#lsn .btn'),40);toast('+25 XP · lección completada')}
+ window.scrollTo({top:0})}
+function openLesson(id,step){LC.id=id;LC.step=step!=null?step:(LST.done[id]?0:LST.at[id]||0);renderLesson();go('n')}
+$('#lsn').addEventListener('click',ev=>{
+ const t=ev.target;
+ if(t.closest('#lback,#lback2'))return go('l');
+ const o=t.closest('[data-open]');if(o)return openLesson(o.dataset.open,0);
+ const lv=t.closest('.lvl .chip');if(lv){LST.lvl=lv.dataset.l;saveL();return renderLesson(true)}
+ if(t.closest('#lup')){LST.lvl='uni';saveL();return renderLesson(true)}
+ const sb=t.closest('.lbar button');if(sb){LC.step=+sb.dataset.s;return renderLesson()}
+ if(t.closest('#lprev')){LC.step=Math.max(0,LC.step-1);return renderLesson()}
+ if(t.closest('#lnext')){const L=lesOf(LC.id);if(LC.step<L.steps.length-1){LC.step++;renderLesson()}else finishLesson()}});
+/* ---- pantalla Aprender ---- */
+const stl=()=>{const e=$('#stl');if(e)e.textContent=Object.keys(LST.done).length};
+function renderL(){
+ const total=LES.length,dn=LES.filter(l=>LST.done[l.id]).length,cont=LST.last&&lesOf(LST.last.id);
+ const first=LES.find(l=>!LST.done[l.id])||LES[0];
+ $('#lrn').innerHTML=`<div class="card lhead"><div class="row"><div><h2 style="margin:0">Aprende química</h2><p class="mu sm" style="margin:4px 0 0">Cada lección tiene 5 pasos: <b>predice</b>, <b>explora</b>, <b>aprende</b>, mira un <b>ejemplo resuelto</b> y <b>practica</b>.</p></div><div class="chips lvl" role="group" aria-label="Nivel"><button class="chip${uni()?'':' on'}" data-l="prepa">Prepa</button><button class="chip${uni()?' on':''}" data-l="uni">Universidad</button></div></div><div class="meter" style="margin-top:12px"><i style="width:${dn/total*100}%"></i></div><div class="mu sm">${dn} de ${total} lecciones completadas · ${uni()?'Nivel universidad: con ampliaciones y matemática extra.':'Nivel prepa: lo esencial, sin ampliaciones.'}</div><div class="lcont"><button class="btn pri" data-open="${cont?cont.id:first.id}" data-step="${cont?LST.last.step:''}">${cont?`Continuar: ${cont.t} (paso ${LST.last.step+1})`:dn?'Seguir: '+first.t:'Empezar: '+first.t}</button></div></div>`+
+ `<div class="mods">${MODS.map(m=>{const ls=LES.filter(l=>l.m==m.id),d=ls.filter(l=>LST.done[l.id]).length;return`<div class="card mcard"><div class="mh"><span class="mi">${SV(m.ic)}</span><div><h3>${m.t}</h3><p class="mu sm" style="margin:0">${m.d}</p></div></div><div class="meter"><i style="width:${d/ls.length*100}%"></i></div><div class="lsl">${ls.map(l=>`<button class="lbtn${LST.done[l.id]?' done':''}" data-open="${l.id}"><span class="ln">${LST.done[l.id]?'✓':l.n}</span><span><b>${l.t}</b><small>${l.min} min · ${lstate(l)}</small></span><span class="go">›</span></button>`).join('')}</div></div>`}).join('')}</div>`+
+ `<h3 class="sec">Glosario</h3><div class="card"><div class="row" style="justify-content:space-between"><span class="mu sm">Toca un término para ver su definición. Los términos subrayados con puntos en las lecciones abren la misma ventana.</span><span class="chip" id="gct">${Object.keys(LST.gl).length} de ${Object.keys(GL).length} vistos</span></div><input type="search" class="lsin" id="gsq" placeholder="Buscar término…" aria-label="Buscar en el glosario" style="margin-top:10px"><div class="glist" id="gsl"></div></div>`+
+ `<h3 class="sec">Ruta completa de química general</h3><div class="card"><p class="mu sm" style="margin-top:0">Dos módulos ya están completos; el resto de la ruta se irá abriendo. Mientras tanto, los laboratorios de abajo cubren varios temas.</p><div class="road">${ROAD.map((r,i)=>`<div class="rd"><span class="rn">${i+1}</span><span><b>${r[0]}</b><small>${r[1]}</small></span>${r[2]?`<button class="chip" data-go="${r[2].slice(4)}">Abrir laboratorio</button>`:'<span class="chip soon">Próximamente</span>'}</div>`).join('')}</div></div>`;
+ gFill('')}
+const gFill=q=>{q=lc(q.trim());const ks=Object.keys(GL).sort((a,b)=>GL[a][0].localeCompare(GL[b][0],'es')).filter(k=>!q||lc(GL[k][0]).includes(q)||lc(GL[k][1]).includes(q));
+ const box=$('#gsl');if(box)box.innerHTML=ks.length?ks.map(k=>`<button class="chip gl2" data-g="${k}">${GL[k][0]}</button>`).join(''):'<span class="mu sm">Ningún término coincide.</span>'};
+$('#lrn').addEventListener('click',ev=>{
+ const t=ev.target,lv=t.closest('.lvl .chip');if(lv){LST.lvl=lv.dataset.l;saveL();return renderL()}
+ const o=t.closest('[data-open]');if(o)return openLesson(o.dataset.open,o.dataset.step===''||o.dataset.step==null?undefined:+o.dataset.step);
+ const g=t.closest('.gl2');if(g)return gOpen(g.dataset.g)});
+$('#lrn').addEventListener('input',ev=>{if(ev.target.id=='gsq')gFill(ev.target.value)});
+/* ---- navegación ---- */
+TIT.n='Lección';GRP.n='l';
+const _s9=show2;show2=function(t){const r=_s9.apply(this,arguments);
+ if(t=='l')renderL();
+ if(t=='n'){const b=$('.tab[data-t="l"]');$$('.tab').forEach(x=>x.classList.toggle('on',x==b));b&&pillTo(b)}
+ stl();return r};
+TL.l[1]='Lecciones guiadas, glosario y práctica';TL.m[1]='Seis modelos del átomo y la notación de Lewis.';
+document.querySelectorAll('.tile[data-go="m"] .mu').forEach(e=>e.textContent=TL.m[1]);
+{const h=[...$('#hx').querySelectorAll('h3.sec')].find(x=>/Explorar y aprender/.test(x.textContent));
+ if(h)h.insertAdjacentHTML('beforebegin','<h3 class="sec">Lecciones guiadas</h3>'+tiles(['l']))}
+renderL();stl();
+
+})();
+</script>
+</body></html>
