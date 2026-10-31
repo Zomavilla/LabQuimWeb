@@ -1113,16 +1113,12 @@ h3.sec::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,colo
 .hk-s input{height:50px;border-radius:16px;border:1.5px solid color-mix(in srgb,var(--ac) 55%,var(--bd));box-shadow:0 0 0 4px color-mix(in srgb,var(--ac) 12%,transparent),0 12px 26px -16px var(--ac);transition:box-shadow .3s var(--eo),border-color .3s}
 .hk-s input:focus{box-shadow:0 0 0 5px color-mix(in srgb,var(--ac) 22%,transparent),0 14px 30px -14px var(--ac)}
 .hk-fig{position:relative}
-.hkfx{position:absolute;z-index:3;display:grid;place-content:center;width:46px;height:50px;border-radius:12px;background:var(--hc);color:var(--ht);text-align:center;font:800 1.2rem 'Space Grotesk',Inter,sans-serif;box-shadow:0 12px 22px -10px var(--hc),inset 0 1px 0 #fff6;pointer-events:none}
-.hkfx i{position:absolute;left:5px;top:3px;font:700 .56rem Inter,sans-serif;opacity:.75}
-.hkfx.a{top:-16px;left:calc(50% - 23px)}.hkfx.b{top:-12px;left:12px}.hkfx.c{top:-12px;right:12px}
-.hhero.hvis .hkfx.a{animation:pmfloat 5s ease-in-out infinite}.hhero.hvis .hkfx.b{animation:pmfloat 6.2s ease-in-out -2s infinite}.hhero.hvis .hkfx.c{animation:pmfloat 5.6s ease-in-out -1s infinite}
 .hk-fig .duo figure{transition:transform .4s var(--eo),border-color .3s}
 @media(hover:hover) and (pointer:fine){.hk-fig .duo figure:hover{transform:translate3d(0,-3px,0);border-color:var(--ac)}}
 /* ---- Aprender: cabecera con panal y navegación fija por secciones ---- */
 .lhm{position:relative;isolation:isolate;overflow:hidden}
 .lhm::before{content:"";position:absolute;inset:-52px;z-index:-1;pointer-events:none;background:var(--hexp);-webkit-mask-image:radial-gradient(60% 100% at 90% 0%,#000,transparent 75%);mask-image:radial-gradient(60% 100% at 90% 0%,#000,transparent 75%)}
-#lnav{position:sticky;top:calc(var(--tbh,58px) + 6px);z-index:25;display:flex;gap:6px;overflow-x:auto;padding:6px;margin:0 0 12px;border-radius:999px;border:1px solid var(--bd);background:color-mix(in srgb,var(--pn) 82%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 14px 30px -20px #000b}
+#lnav{position:sticky;top:calc(var(--tbh,58px) + 8px);z-index:25;display:flex;gap:6px;overflow-x:auto;padding:6px;margin:0 0 12px;border-radius:999px;border:1px solid var(--bd);background:color-mix(in srgb,var(--pn) 82%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 14px 30px -20px #000b}
 #lnav button{flex:1 0 auto;display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:8px 14px;border:0;border-radius:999px;background:none;color:var(--mu);font-weight:700;font-size:.82rem;white-space:nowrap;transition:background-color .3s var(--eo),color .3s var(--eo),transform .3s var(--eo)}
 #lnav button svg{width:16px;height:16px}
 #lnav button.on{background:linear-gradient(135deg,var(--ac),var(--ac2));color:#fff;box-shadow:0 10px 20px -12px var(--ac)}
@@ -1130,8 +1126,18 @@ h3.sec::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,colo
 #v-l h3.sec,#v-l #lrn,#v-l .mods{scroll-margin-top:calc(var(--tbh,58px) + 70px)}
 .mcard{transition:transform .38s var(--eo)}
 @media(hover:hover) and (pointer:fine){.mcard:hover{transform:translate3d(0,-3px,0)}}
-@media(prefers-reduced-motion:reduce){.hhero::before,.hkorb,.hk-kick svg,.hhero h2.h1 span,.hkfx,.hkch .chip{animation:none!important}.btn,.tile,.lbtn,.mcard,#lnav button{transition:none!important}}
-html.lite .hhero::before,html.lite .hkorb,html.lite .hkfx,html.lite .hk-kick svg,html.lite .hhero h2.h1 span{animation:none!important}
+@media(prefers-reduced-motion:reduce){.hhero::before,.hkorb,.hk-kick svg,.hhero h2.h1 span,.hkch .chip{animation:none!important}.btn,.tile,.lbtn,.mcard,#lnav button{transition:none!important}}
+html.lite .hhero::before,html.lite .hkorb,html.lite .hk-kick svg,html.lite .hhero h2.h1 span{animation:none!important}
+
+/* ===== v30: Aprender con subventanas que se deslizan; app instalada sin «jalar para recargar» ===== */
+#lrn{display:contents}
+#lps{position:relative}
+#lps>.lp,#lrn>.lp{display:none}
+#lps .lp.on{display:block}
+#lps.sw{overflow-x:clip}
+#lps .lp.out{display:block;position:absolute;left:0;right:0;top:0;pointer-events:none}
+@media(display-mode:standalone),(display-mode:fullscreen),(display-mode:minimal-ui){html,body{overscroll-behavior-y:none}}
+html.app,html.app body{overscroll-behavior-y:none}
 </style></head>
 <body>
 <div class="bgfx" aria-hidden="true"><svg viewBox="-200 -200 400 400" fill="none"><g stroke="currentColor" stroke-opacity=".35" style="color:var(--ac)"><ellipse rx="190" ry="70"/><ellipse rx="190" ry="70" transform="rotate(60)"/><ellipse rx="190" ry="70" transform="rotate(120)"/></g></svg></div>
@@ -1193,7 +1199,7 @@ html.lite .hhero::before,html.lite .hkorb,html.lite .hkfx,html.lite .hk-kick svg
  <div class="card"><div class="hv"><div><h2 class="h1">LabQuimWeb</h2><p>Tu laboratorio de química de bolsillo para preparatoria y universidad: explora la tabla, aprende con animaciones y practica con retos. Tu progreso se guarda en este dispositivo y la app funciona sin conexión.</p></div><div class="duo"><figure id="hu"><figcaption>Uranio: reactivo y radiactivo, sus electrones vibran</figcaption></figure><figure id="ho"><figcaption>Neón: capa completa, sus electrones solo giran</figcaption></figure></div></div></div>
  <div class="card" id="hp" style="margin:14px 0"></div><div id="hx"></div>
 </section>
-<section id="v-l" class="view" hidden><div id="lrn"></div><h3 class="sec">Laboratorios interactivos</h3><p class="mu sm" style="margin:0 0 8px">Simuladores para explorar por tu cuenta, sin guion.</p><div id="lx"></div></section>
+<section id="v-l" class="view" hidden><div id="lps"><div id="lrn"></div><div class="lp" data-p="2" role="tabpanel"><h3 class="sec">Laboratorios interactivos</h3><p class="mu sm" style="margin:0 0 8px">Simuladores para explorar por tu cuenta, sin guion.</p><div id="lx"></div></div></div></section>
 <section id="v-n" class="view" hidden><div id="lsn"></div></section>
 <section id="v-r" class="view" hidden><div class="card"><h2>Retos</h2><p class="mu sm" style="margin:0">Practica por tema o mezcla todo. Cada acierto suma XP y tu avance queda guardado.</p></div><div id="rx" style="margin:14px 0"></div><div class="card" id="rp"></div></section>
 <section id="v-c" class="view" hidden><div class="grid2" style="align-items:start">
@@ -3666,10 +3672,9 @@ const stl=()=>{const e=$('#stl');if(e)e.textContent=LES.length};
 function renderL(){
  const total=LES.length,dn=LES.filter(l=>LST.done[l.id]).length,cont=LST.last&&lesOf(LST.last.id);
  const first=LES.find(l=>!LST.done[l.id])||LES[0];
- $('#lrn').innerHTML=`<div class="card lhead"><div class="row"><div><h2 style="margin:0">Aprende química</h2><p class="mu sm" style="margin:4px 0 0">Cada lección tiene 5 pasos: <b>predice</b>, <b>explora</b>, <b>aprende</b>, mira un <b>ejemplo resuelto</b> y <b>practica</b>.</p></div><button class="chip lvb" data-go="a" title="Cambia tu nivel en Acerca de">${SV(LVI[uni()?'uni':'prepa'])}Nivel: ${uni()?'Universidad':'Prepa'} · cambiar</button></div><div class="meter" style="margin-top:12px"><i style="width:${dn/total*100}%"></i></div><div class="mu sm">${dn} de ${total} lecciones completadas · ${uni()?'Nivel universidad: con ampliaciones y matemática extra.':'Nivel prepa: lo esencial, sin ampliaciones.'}</div><div class="lcont"><button class="btn pri" data-open="${cont?cont.id:first.id}" data-step="${cont?LST.last.step:''}">${cont?`Continuar: ${cont.t} (paso ${LST.last.step+1})`:dn?'Seguir: '+first.t:'Empezar: '+first.t}</button></div></div>`+
+ $('#lrn').innerHTML=`<div class="lp" data-p="0" role="tabpanel"><div class="card lhead"><div class="row"><div><h2 style="margin:0">Aprende química</h2><p class="mu sm" style="margin:4px 0 0">Cada lección tiene 5 pasos: <b>predice</b>, <b>explora</b>, <b>aprende</b>, mira un <b>ejemplo resuelto</b> y <b>practica</b>.</p></div><button class="chip lvb" data-go="a" title="Cambia tu nivel en Acerca de">${SV(LVI[uni()?'uni':'prepa'])}Nivel: ${uni()?'Universidad':'Prepa'} · cambiar</button></div><div class="meter" style="margin-top:12px"><i style="width:${dn/total*100}%"></i></div><div class="mu sm">${dn} de ${total} lecciones completadas · ${uni()?'Nivel universidad: con ampliaciones y matemática extra.':'Nivel prepa: lo esencial, sin ampliaciones.'}</div><div class="lcont"><button class="btn pri" data-open="${cont?cont.id:first.id}" data-step="${cont?LST.last.step:''}">${cont?`Continuar: ${cont.t} (paso ${LST.last.step+1})`:dn?'Seguir: '+first.t:'Empezar: '+first.t}</button></div></div>`+
  `<div class="mods">${MODS.map(m=>{const ls=LES.filter(l=>l.m==m.id),d=ls.filter(l=>LST.done[l.id]).length;return`<div class="card mcard"><div class="mh"><span class="mi">${SV(m.ic)}</span><div><h3>${m.t}</h3><p class="mu sm" style="margin:0">${m.d}</p></div></div><div class="meter"><i style="width:${d/ls.length*100}%"></i></div><div class="lsl">${ls.map(l=>`<button class="lbtn${LST.done[l.id]?' done':''}" data-open="${l.id}"><span class="ln">${LST.done[l.id]?'✓':l.n}</span><span><b>${l.t}</b><small>${l.min} min · ${lstate(l)}</small></span><span class="go">›</span></button>`).join('')}</div></div>`}).join('')}</div>`+
- `<h3 class="sec">Biblioteca y seguridad</h3>${tiles(['cb','sg'])}`+`<h3 class="sec" id="glos">Glosario</h3><div class="card gcard" id="gcard"></div>`+
- `<h3 class="sec">Ruta completa de química general</h3><div class="card"><p class="mu sm" style="margin-top:0">Tres módulos ya tienen lecciones completas; el resto de la ruta se irá abriendo. Mientras tanto, los laboratorios de abajo cubren varios temas.</p><div class="road">${ROAD.map((r,i)=>`<div class="rd"><span class="rn">${i+1}</span><span><b>${r[0]}</b><small>${r[1]}${r[3]?' · <em class="rdl">'+r[3]+'</em>':''}</small></span>${r[2]?`<button class="chip" data-go="${r[2].slice(4)}">Abrir laboratorio</button>`:'<span class="chip soon">Próximamente</span>'}</div>`).join('')}</div></div>`;
+ `<h3 class="sec">Ruta completa de química general</h3><div class="card"><p class="mu sm" style="margin-top:0">Tres módulos ya tienen lecciones completas; el resto de la ruta se irá abriendo. Mientras tanto, los laboratorios (pestaña «Laboratorios», arriba) cubren varios temas.</p><div class="road">${ROAD.map((r,i)=>`<div class="rd"><span class="rn">${i+1}</span><span><b>${r[0]}</b><small>${r[1]}${r[3]?' · <em class="rdl">'+r[3]+'</em>':''}</small></span>${r[2]?`<button class="chip" data-go="${r[2].slice(4)}">Abrir laboratorio</button>`:'<span class="chip soon">Próximamente</span>'}</div>`).join('')}</div></div>`+`</div>`+`<div class="lp" data-p="1" role="tabpanel"><h3 class="sec">Biblioteca y seguridad</h3>${tiles(['cb','sg'])}</div>`+`<div class="lp" data-p="3" role="tabpanel"><h3 class="sec" id="glos">Glosario</h3><div class="card gcard" id="gcard"></div></div>`;
  gShell();FIX()}
 /* ---- glosario v2: tarjeta en Aprender ---- */
 const GS={q:'',c:'all',f:'all',n:24};let gKeysNow=[];
@@ -4254,7 +4259,8 @@ document.addEventListener('click',ev=>{if(!SR.hidden&&!ev.target.closest('.hk-s'
 /* ===== v28: foco que sigue al cursor, inicio rediseñado y navegación de Aprender ===== */
 (()=>{
 const FINE=matchMedia('(hover:hover) and (pointer:fine)'),top=document.querySelector('.top');
-const setTbh=()=>document.documentElement.style.setProperty('--tbh',(top?top.offsetHeight:58)+'px');setTbh();addEventListener('resize',setTbh);
+const setTbh=()=>document.documentElement.style.setProperty('--tbh',(top?top.offsetHeight:58)+'px');setTbh();addEventListener('resize',setTbh);if(top&&'ResizeObserver' in window)new ResizeObserver(setTbh).observe(top);
+document.documentElement.classList.toggle('app',['standalone','fullscreen','minimal-ui'].some(m=>matchMedia('(display-mode:'+m+')').matches)||navigator.standalone===true||/; wv\)/.test(navigator.userAgent));
 /* foco luminoso: un solo manejador, una escritura por fotograma, solo con ratón */
 if(FINE.matches){let t=null,x=0,y=0,q=0;document.addEventListener('pointermove',e=>{const b=e.target.closest&&e.target.closest('.btn,.tile,button.chip,.lbtn');if(!b)return;t=b;x=e.clientX;y=e.clientY;
  if(!q)q=requestAnimationFrame(()=>{q=0;const r=t.getBoundingClientRect();t.style.setProperty('--mx',(x-r.left)+'px');t.style.setProperty('--my',(y-r.top)+'px')})},{passive:true})}
@@ -4267,9 +4273,6 @@ if(hk){
  const CH=[['118 elementos',TL.t[2]],['7 modelos atómicos',TL.m[2]],['12 lecciones',TL.l[2]],[nC+' compuestos',TL.cb?TL.cb[2]:TL.b[2]],['Funciona sin conexión','<path d="M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0M12 19.5v.01"/>']];
  const hp=hk.querySelector('.hk-p');
  if(hp)hp.insertAdjacentHTML('afterend','<div class="pmc hkch">'+CH.map((c,i)=>`<span class="chip" style="--k:${i}">${SV(c[1])}${c[0]}</span>`).join('')+'</div>');
- /* elementos que flotan junto a los átomos */
- const fg=hk.querySelector('.hk-fig');
- if(fg)fg.insertAdjacentHTML('beforeend',[['a',26],['b',8],['c',79]].map(([k,z])=>{const e=E[z],c=CT[e.c-1][1];return`<span class="hkfx ${k}" aria-hidden="true" style="--hc:${c};--ht:${lum(c)>.38?'#0b1220':'#fff'}"><i>${z}</i>${e.s}</span>`}).join(''));
  /* animaciones solo mientras el hero se ve */
  if('IntersectionObserver' in window)new IntersectionObserver(es=>es.forEach(x=>hk.classList.toggle('hvis',x.isIntersecting)),{threshold:.05}).observe(hk);else hk.classList.add('hvis');
  /* buscador que se "escribe" solo mientras no lo uses */
@@ -4282,20 +4285,44 @@ if(hk){
    inp.placeholder='Busca: '+w.slice(0,Math.max(0,pos))+(pos>=0?'│':'')};
   setInterval(tick,85)}
 }
-/* ---- Aprender: navegación fija por secciones con indicador activo ---- */
-const vl=document.getElementById('v-l'),lrn=document.getElementById('lrn');
-if(vl&&lrn){
+/* ---- Aprender: subventanas (Lecciones · Biblioteca · Laboratorios · Glosario) que se deslizan ---- */
+const vl=document.getElementById('v-l'),lrn=document.getElementById('lrn'),lps=document.getElementById('lps');
+if(vl&&lrn&&lps){
  const IC={l:'<path d="M3 6c3-2 6-2 9 0 3-2 6-2 9 0v13c-3-2-6-2-9 0-3-2-6-2-9 0zM12 6v13"/>',b:'<path d="M12 3l7.5 4.3v8.6L12 21l-7.5-4.3V7.3z"/><circle cx="12" cy="12" r="3"/>',x:'<path d="M9 3v6L4 19a2 2 0 0 0 2 3h12a2 2 0 0 0 2-3l-5-10V3M8 3h8"/>',g:'<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/>'};
- const S=[['l','Lecciones','Aprende química'],['b','Biblioteca','Biblioteca y seguridad'],['x','Laboratorios','Laboratorios interactivos'],['g','Glosario','Glosario']];
- const nav=document.createElement('nav');nav.id='lnav';nav.setAttribute('aria-label','Secciones de Aprender');
- nav.innerHTML=S.map((s,i)=>`<button type="button" data-i="${i}"${i?'':' class="on"'}>${SV(IC[s[0]])}${s[1]}</button>`).join('');vl.insertBefore(nav,vl.firstChild);
- const tgt=i=>i==0?lrn:[...vl.querySelectorAll('h3')].find(h=>h.textContent.trim().startsWith(S[i][2]));
- const RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
- nav.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const el=tgt(+b.dataset.i);if(el)el.scrollIntoView({behavior:RM?'auto':'smooth',block:'start'})});
- let q=0;const spy=()=>{q=0;if(vl.hidden)return;const y=(top?top.offsetHeight:58)+90;let cur=0;S.forEach((s,i)=>{const el=tgt(i);if(el&&el.getBoundingClientRect().top<=y)cur=i});
-  if(innerHeight+scrollY>=document.documentElement.scrollHeight-4)cur=S.length-1;
-  nav.querySelectorAll('button').forEach((b,i)=>b.classList.toggle('on',i==cur))};
- addEventListener('scroll',()=>{if(!q)q=requestAnimationFrame(spy)},{passive:true});
+ const S=[['l','Lecciones'],['b','Biblioteca'],['x','Laboratorios'],['g','Glosario']];
+ const nav=document.createElement('nav');nav.id='lnav';nav.setAttribute('aria-label','Secciones de Aprender');nav.setAttribute('role','tablist');
+ nav.innerHTML=S.map((s,i)=>`<button type="button" role="tab" data-i="${i}" aria-selected="${i?'false':'true'}"${i?' tabindex="-1" class=""':' class="on"'}>${SV(IC[s[0]])}${s[1]}</button>`).join('');
+ vl.insertBefore(nav,vl.firstChild);
+ const btns=[...nav.querySelectorAll('button')];
+ const pane=i=>lps.querySelector(`.lp[data-p="${i}"]`),panes=()=>[...lps.querySelectorAll('.lp')];
+ let cur=0,busy=null;
+ /* 0 = sin animación (movimiento reducido), 1 = solo desvanece (modo ligero), 2 = desliza */
+ const mode=()=>matchMedia('(prefers-reduced-motion:reduce)').matches?0:document.documentElement.classList.contains('lite')?1:2;
+ const paintNav=sc=>{btns.forEach((b,i)=>{const on=i==cur;b.classList.toggle('on',on);b.setAttribute('aria-selected',on);b.tabIndex=on?0:-1});
+  if(sc){const b=btns[cur];nav.scrollTo({left:b.offsetLeft-(nav.clientWidth-b.offsetWidth)/2,behavior:mode()?'smooth':'auto'})}};
+ const apply=()=>panes().forEach(p=>{p.classList.toggle('on',+p.dataset.p==cur);p.classList.remove('out')});
+ const stop=()=>{if(busy){busy.forEach(a=>{try{a.cancel()}catch(e){}});busy=null}lps.classList.remove('sw');apply()};
+ const open=i=>{
+  if(i==cur){const p=pane(i);if(p&&p.classList.contains('on'))return}
+  const prev=cur,dir=i>prev?1:-1,m=mode();
+  stop();cur=i;paintNav(true);
+  const to=pane(i),from=pane(prev);
+  /* al cambiar de subventana se empieza arriba, justo debajo de las barras fijas */
+  const bar=(parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--tbh'))||58)+8+nav.offsetHeight+12;
+  const y=lps.getBoundingClientRect().top+scrollY-bar;if(scrollY>y)scrollTo(0,Math.max(0,y));
+  if(!to||!from||!m){apply();return}
+  lps.classList.add('sw');to.classList.add('on');from.classList.add('on','out');
+  const mv=m==2?55:0,A=[
+   to.animate([{transform:`translateX(${dir*mv}%)`,opacity:0},{transform:'translateX(0)',opacity:1}],{duration:m==2?380:160,easing:'cubic-bezier(.22,.8,.2,1)',fill:'both'}),
+   from.animate([{transform:'translateX(0)',opacity:1},{transform:`translateX(${-dir*mv}%)`,opacity:0}],{duration:m==2?300:140,easing:'cubic-bezier(.5,0,.75,0)',fill:'both'})];
+  busy=A;
+  Promise.all(A.map(x=>x.finished)).then(()=>{if(busy===A){busy=null;A.forEach(x=>x.cancel());lps.classList.remove('sw');apply()}}).catch(()=>{});
+ };
+ nav.addEventListener('click',e=>{const b=e.target.closest('button');if(b)open(+b.dataset.i)});
+ nav.addEventListener('keydown',e=>{const k=e.key;if(k!='ArrowRight'&&k!='ArrowLeft'&&k!='Home'&&k!='End')return;e.preventDefault();
+  const i=k=='Home'?0:k=='End'?S.length-1:(cur+(k=='ArrowRight'?1:-1)+S.length)%S.length;open(i);btns[i].focus()});
+ /* si Aprender se vuelve a dibujar (nivel, progreso…), se conserva la subventana abierta */
+ new MutationObserver(()=>{if(!busy)apply()}).observe(lrn,{childList:true});apply();
 }
 })();
 
