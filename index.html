@@ -1138,6 +1138,66 @@ html.lite .hhero::before,html.lite .hkorb,html.lite .hk-kick svg,html.lite .hher
 #lps .lp.out{display:block;position:absolute;left:0;right:0;top:0;pointer-events:none}
 @media(display-mode:standalone),(display-mode:fullscreen),(display-mode:minimal-ui){html,body{overscroll-behavior-y:none}}
 html.app,html.app body{overscroll-behavior-y:none}
+
+/* ===== v31: mega actualización — retos, estrellas, guías, herramientas e inicio en tarjetas ===== */
+.kpw{max-width:330px;margin:0 auto}
+.kpd{min-height:3.5rem;display:grid;place-items:center;margin-bottom:10px;border-radius:16px;border:1px solid var(--bd);background:var(--bg);font:800 2rem 'Space Grotesk',Inter,sans-serif;letter-spacing:.12em}
+.kpd.ok{border-color:var(--ok);box-shadow:0 0 0 3px color-mix(in srgb,var(--ok) 25%,transparent)}.kpd.bad{border-color:var(--bad);box-shadow:0 0 0 3px color-mix(in srgb,var(--bad) 25%,transparent)}
+.kpg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.kpk{min-height:54px;font-size:1.25rem;font-weight:800;justify-content:center}.kpk.pri{font-size:.95rem}
+.kpa{text-align:center;margin-top:8px;font-size:.95rem}
+.nhc{margin-top:12px;padding:12px 14px;border-radius:18px;border:1px solid color-mix(in srgb,#f59e0b 50%,var(--bd));background:color-mix(in srgb,#f59e0b 9%,var(--pn))}
+.nhc h4{margin:0 0 10px;display:flex;align-items:center;gap:8px;font-size:.92rem}.nhc h4 svg{width:20px;height:20px;color:#f59e0b;flex:none}
+.nhc ol{list-style:none;margin:0;padding:0;counter-reset:nh;display:grid;gap:9px}
+.nhc li{counter-increment:nh;display:grid;grid-template-columns:26px minmax(0,1fr);gap:10px;align-items:start;font-size:.86rem;line-height:1.4;animation:rise .4s var(--ease) both;animation-delay:calc(var(--i)*80ms)}
+.nhc li::before{content:counter(nh);display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,#f59e0b,#ef4444);color:#fff;font-weight:800;font-size:.78rem}
+.nhc .res{margin-top:10px;padding:9px 12px;border-radius:12px;background:var(--bg);border:1px dashed var(--bd);font-size:.88rem}
+.stl{display:grid;grid-template-columns:minmax(0,1fr);gap:0 22px;margin-top:6px}
+@media(min-width:640px){.stl{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.str{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:7px 0;border-bottom:1px dashed var(--bd);font-size:.86rem}
+.str small{font-size:.72rem}
+.sts{display:inline-flex;gap:2px;flex:none}.sts svg{width:17px;height:17px;stroke-width:1.6;stroke-linejoin:round}
+.sts svg.f{fill:#f59e0b;stroke:#f59e0b}.sts svg.o{fill:none;stroke:var(--bd)}
+.insok{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border-radius:14px;border:1px solid color-mix(in srgb,var(--ok) 45%,var(--bd));background:color-mix(in srgb,var(--ok) 9%,var(--pn));font-size:.88rem}
+.insok svg{width:22px;height:22px;color:var(--ok);flex:none;margin-top:1px}
+
+/* ===== v32: Estudio con subventanas; herramientas con etiquetas; tabla de solubilidad completa ===== */
+.cfx{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.cfx.c3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.cfx.c4{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(min-width:560px){.cfx.c4{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:420px){.cfx.c3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.cfx label{display:grid;gap:4px;font-size:.78rem;color:var(--mu);min-width:0}
+.cfx .inp{min-width:0;width:100%}
+.phbar{position:relative;height:12px;margin:12px 0 6px;border-radius:99px;background:linear-gradient(90deg,hsl(0 80% 55%),hsl(60 80% 55%),hsl(120 80% 50%),hsl(200 80% 55%),hsl(270 80% 55%))}
+.phbar i{position:absolute;top:-4px;width:20px;height:20px;border-radius:50%;border:3px solid #fff;transform:translateX(-50%);box-shadow:0 2px 6px #0006;left:21%;transition:left .25s}
+.vsv{display:block;width:100%;max-width:360px;margin:10px auto;color:var(--fg)}
+.lebars{display:grid;gap:8px;margin:12px 0}.lebar{display:grid;grid-template-columns:40px minmax(0,1fr) 46px;gap:8px;align-items:center;font-size:.85rem}
+.lebg{height:14px;border-radius:99px;background:var(--bg);border:1px solid var(--bd);overflow:hidden}.lebg i{display:block;height:100%;border-radius:99px;transition:width .5s var(--ease)}
+.ztags{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}.ztags::-webkit-scrollbar{display:none}.ztags .chip{flex:none}
+.zp{min-width:0}
+.rdb{display:flex;gap:6px;flex:none;flex-wrap:wrap;justify-content:flex-end}
+.rxg{margin:16px 0 4px;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--mu)}
+.rxi{padding:10px 12px;margin:8px 0;border-radius:14px;border:1px solid var(--bd);background:var(--bg)}
+.rxq{font:700 1.02rem 'Space Grotesk',Inter,sans-serif;line-height:1.5;overflow-wrap:anywhere}.rxq sub{font-size:.7em}
+.rxi .mu{margin:3px 0 8px}
+.slw{overflow-x:auto;border-radius:14px;border:1px solid var(--bd);margin-top:12px;background:var(--pn);-webkit-overflow-scrolling:touch}
+table.sol{border-collapse:separate;border-spacing:0;min-width:900px;width:100%;font-size:.78rem}
+.sol th,.sol td{padding:5px 3px;text-align:center;border-bottom:1px solid var(--bd)}
+.sol thead th{font-weight:700;background:var(--bg);white-space:nowrap;position:sticky;top:0;z-index:1}
+.sol tbody th{position:sticky;left:0;z-index:1;background:var(--bg);font-weight:700;text-align:left;padding-left:10px;border-right:1px solid var(--bd);white-space:nowrap}
+.sol thead th:first-child{position:sticky;left:0;z-index:3;border-right:1px solid var(--bd)}
+.slc{width:32px;height:28px;border-radius:9px;border:1px solid transparent;font:800 .8rem Inter,system-ui,sans-serif;cursor:pointer;color:#fff;transition:opacity .2s}
+.slc.S{background:#16a34a}.slc.P{background:#d97706}.slc.I{background:#dc2626}.slc.D{background:#64748b}
+.slc.sel{outline:3px solid var(--ac);outline-offset:1px}.slc.dim{opacity:.16}
+.sol tr.hr th,.sol tr.hr td,.sol th.hc,.sol td.hc{background:color-mix(in srgb,var(--ac) 12%,var(--bg))}
+.sll{display:flex;flex-wrap:wrap;gap:6px 8px;margin:8px 0 0}
+.slm{position:fixed;z-index:60;right:10px;bottom:calc(10px + var(--bnh,0px) + env(safe-area-inset-bottom,0px));width:min(330px,calc(100vw - 20px));max-height:min(58vh,460px);display:flex;flex-direction:column;border-radius:18px;border:1px solid var(--bd);background:var(--pn);color:var(--fg);box-shadow:0 18px 40px -12px #000a;overflow:hidden}
+.slm[hidden]{display:none}
+.slh{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:11px 14px;text-align:left;font:inherit;font-size:.92rem;color:var(--fg);background:color-mix(in srgb,var(--ac) 14%,var(--pn));border:0;cursor:pointer}
+.slc2{transition:transform .2s;flex:none}.slm.min .slc2{transform:rotate(180deg)}
+.slb{padding:10px 14px 14px;overflow:auto;display:grid;gap:9px}.slb[hidden]{display:none}
+.slbadge{justify-self:start;padding:4px 10px;border-radius:99px;color:#fff;font-weight:800;font-size:.78rem}
+.slrow{display:grid;gap:1px;font-size:.84rem}.slrow span{font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;color:var(--mu)}
 </style></head>
 <body>
 <div class="bgfx" aria-hidden="true"><svg viewBox="-200 -200 400 400" fill="none"><g stroke="currentColor" stroke-opacity=".35" style="color:var(--ac)"><ellipse rx="190" ry="70"/><ellipse rx="190" ry="70" transform="rotate(60)"/><ellipse rx="190" ry="70" transform="rotate(120)"/></g></svg></div>
@@ -1199,7 +1259,7 @@ html.app,html.app body{overscroll-behavior-y:none}
  <div class="card"><div class="hv"><div><h2 class="h1">LabQuimWeb</h2><p>Tu laboratorio de química de bolsillo para preparatoria y universidad: explora la tabla, aprende con animaciones y practica con retos. Tu progreso se guarda en este dispositivo y la app funciona sin conexión.</p></div><div class="duo"><figure id="hu"><figcaption>Uranio: reactivo y radiactivo, sus electrones vibran</figcaption></figure><figure id="ho"><figcaption>Neón: capa completa, sus electrones solo giran</figcaption></figure></div></div></div>
  <div class="card" id="hp" style="margin:14px 0"></div><div id="hx"></div>
 </section>
-<section id="v-l" class="view" hidden><div id="lps"><div id="lrn"></div><div class="lp" data-p="2" role="tabpanel"><h3 class="sec">Laboratorios interactivos</h3><p class="mu sm" style="margin:0 0 8px">Simuladores para explorar por tu cuenta, sin guion.</p><div id="lx"></div></div></div></section>
+<section id="v-l" class="view" hidden><div id="lps"><div id="lrn"></div><div class="lp" data-p="2" role="tabpanel"><h3 class="sec">Laboratorio</h3><p class="mu sm" style="margin:0 0 8px">Simulaciones interactivas para ver cómo se forman los átomos, los enlaces y sus tipos. Los conceptos fijos están en el Glosario.</p><div id="lx"></div></div></div></section>
 <section id="v-n" class="view" hidden><div id="lsn"></div></section>
 <section id="v-r" class="view" hidden><div class="card"><h2>Retos</h2><p class="mu sm" style="margin:0">Practica por tema o mezcla todo. Cada acierto suma XP y tu avance queda guardado.</p></div><div id="rx" style="margin:14px 0"></div><div class="card" id="rp"></div></section>
 <section id="v-c" class="view" hidden><div class="grid2" style="align-items:start">
@@ -1212,7 +1272,7 @@ html.app,html.app body{overscroll-behavior-y:none}
 <section id="v-x" class="view" hidden><div id="mx"></div></section>
 <section id="v-a" class="view" hidden><div class="grid2" style="align-items:start">
  <div class="card"><h2>Acerca de LabQuimWeb</h2><div class="chips" style="margin:0 0 10px"><span class="chip on">Versión Beta V1.6.0</span></div><p>App de química interactiva para estudiantes de preparatoria y universidad: tabla periódica, modelos atómicos, regla del octeto, enlaces, enlace coordinado y retos con progreso guardado.</p><h3 style="margin:12px 0 4px">Creador</h3><p style="margin:0"><b>Rafael López Zomavilla</b></p><h3 style="margin:14px 0 6px">Apariencia</h3><div class="chips" id="thm"></div>
- <h3 style="margin:14px 0 6px">Instalar</h3><button class="btn pri" id="ins" hidden>Instalar la app</button><p class="mu sm" style="margin:6px 0 0">Android/Chrome: menú, Instalar app. iPhone: Compartir, Agregar a inicio.</p>
+ <div id="insa"><h3 style="margin:14px 0 6px">Instalar</h3><button class="btn pri" id="ins" hidden>Instalar la app</button><p class="mu sm" style="margin:6px 0 0">Android/Chrome: menú, Instalar app. iPhone: Compartir, Agregar a inicio.</p></div><div id="insd" hidden><h3 style="margin:14px 0 6px">App instalada</h3><div class="insok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l3 3 5-6"/></svg><span id="insm"></span></div></div>
  <h3 style="margin:14px 0 6px">Datos</h3><button class="btn" id="rst">Borrar mi progreso</button><p class="mu sm" style="margin:6px 0 0">Todo se guarda localmente en este dispositivo.</p></div>
  <div class="card"><h2>Fuentes del proyecto</h2><ul class="lst"><li>IUPAC: tabla periódica, masas atómicas y <i>Nomenclature of Inorganic Chemistry</i> (Libro Rojo).</li><li>NIST Physical Measurement Laboratory: configuraciones electrónicas y pesos atómicos.</li><li>PubChem Periodic Table (NIH) y Royal Society of Chemistry: propiedades y clasificación.</li><li>L. Pauling, <i>The Nature of the Chemical Bond</i>: electronegatividad.</li><li>G. N. Lewis (1916): modelo de puntos y enlace covalente; modelos de Dalton, Thomson, Rutherford, Bohr y Sommerfeld.</li><li>Textos de química general (Chang, Brown y Atkins) para el octeto y el enlace coordinado.</li></ul><p class="mu sm">Los datos se compilaron con fines educativos; contrástalos con las fuentes originales para trabajos formales.</p></div></div></section>
 </main><nav class="bn" id="bn" aria-label="Navegación principal"></nav><div id="toast" role="status"></div>
@@ -1816,17 +1876,17 @@ ionname(l){const pool=ionPool(l).filter(e=>ionNames(e).length&&!(e.z==1));const 
  const others=[];shuf(E.slice(1).filter(x=>x.z!=e.z&&x.z<=lvMax(l+1))).forEach(x=>{ionNames(x).forEach(i=>{if(others.length<14&&!others.some(o=>o.t==i.t)&&i.t!=c.t&&!all.some(a=>a.t==i.t))others.push(i)})});
  const same=others.filter(o=>o.t.split(' ')[0]==c.t.split(' ')[0]),dif=others.filter(o=>o.t.split(' ')[0]!=c.t.split(' ')[0]);
  const o=shuf([c,...same.slice(0,2),...dif.slice(0,3-Math.min(2,same.length))]).slice(0,4);if(!o.includes(c))o[0]=c;
- return{ttl:'Nombre de iones',pr:`¿Cómo se llama el ion <b style="font-size:1.3em">${c.f}</b>?`,vis:null,opts:uniq(o,x=>x.t).map(x=>({h:ucf(x.t.split(' · ')[0]),ok:x==c})),ex:`${c.f} es el <b>${c.t}</b>. Los cationes se nombran con «catión» y los aniones terminan en «-uro» (o «óxido»). Si el metal tiene varias cargas se indica con números romanos.`}},
+ return{ttl:'Nombre de iones',ie:e,ic:c,pr:`¿Cómo se llama el ion <b style="font-size:1.3em">${c.f}</b>?`,vis:null,opts:uniq(o,x=>x.t).map(x=>({h:ucf(x.t.split(' · ')[0]),ok:x==c})),ex:`${c.f} es el <b>${c.t}</b>. Los cationes se nombran con «catión» y los aniones terminan en «-uro» (o «óxido»). Si el metal tiene varias cargas se indica con números romanos.`}},
 formula(l){const c=randComp(l);const cor=c.f,wrong=[];
  [[c.y,c.x],[c.x+1,c.y],[c.x,c.y+1],[c.x*2,c.y*2]].forEach(([x,y])=>{if(x>0&&y>0&&x<=9&&y<=9)wrong.push(fh(c,x,y))});
  const r=compounds(c.A,c.B).list;r.forEach(o=>{if(o.f!=cor)wrong.push(o.f)});
  const w=uniq(shuf(wrong).filter(x=>x!=cor),x=>x).slice(0,3);while(w.length<3){const h=fh(c,1+Math.random()*4|0,1+Math.random()*4|0);if(h!=cor&&!w.includes(h))w.push(h)}
- const nm=nameOf(c);return{ttl:'Fórmula de compuestos',pr:`¿Cuál es la <b>fórmula</b> de: <b>${nm}</b>?`,vis:null,opts:shuf([cor,...w]).map(h=>({h:`<span class="big" style="font-size:1.3rem">${h}</span>`,ok:h==cor})),ex:`${c.type=='ionic'?`${c.A.n} (${ion(c.A.s,c.n)}) con ${lc(c.B.n)} (${ion(c.B.s,-anQ(c.B))}): se cruzan las cargas y queda ${cor}.`:`${nm}: los prefijos indican cuántos átomos hay de cada elemento → ${cor}.`} ${c.names.common?`Se conoce como ${c.names.common}.`:''}`}},
+ const nm=nameOf(c);return{ttl:'Fórmula de compuestos',c,pr:`¿Cuál es la <b>fórmula</b> de: <b>${nm}</b>?`,vis:null,opts:shuf([cor,...w]).map(h=>({h:`<span class="big" style="font-size:1.3rem">${h}</span>`,ok:h==cor})),ex:`${c.type=='ionic'?`${c.A.n} (${ion(c.A.s,c.n)}) con ${lc(c.B.n)} (${ion(c.B.s,-anQ(c.B))}): se cruzan las cargas y queda ${cor}.`:`${nm}: los prefijos indican cuántos átomos hay de cada elemento → ${cor}.`} ${c.names.common?`Se conoce como ${c.names.common}.`:''}`}},
 cname(l){const c=randComp(l),good=nameOf(c),pool=[];
  compounds(c.A,c.B).list.forEach(o=>{pool.push(nameOf(o));pool.push(o.names.stock);pool.push(o.names.sys);if(o.names.trad)pool.push(o.names.trad)});
  [c.A,c.B].forEach(x=>{for(let i=0;i<4;i++){const p=Z(pick(c.A==x?LB[l]:LA[l]));if(p.z==c.A.z||p.z==c.B.z)continue;const r=c.A==x?compounds(c.A,p):compounds(p,c.B);if(r.list.length)pool.push(nameOf(pick(r.list)))}});
  const w=uniq(shuf(pool).filter(x=>x&&x!=good),x=>x).slice(0,3);while(w.length<3)w.push(nameOf(randComp(l)));
- return{ttl:'Nombre de compuestos',pr:`¿Cómo se llama <b style="font-size:1.35em">${c.f}</b>?${c.type=='ionic'?' <span class="mu sm">(nomenclatura Stock)</span>':' <span class="mu sm">(nomenclatura sistemática)</span>'}`,vis:null,opts:shuf([good,...w]).map(h=>({h,ok:h==good})),ex:`<b>${good}</b>. Otras formas: ${c.names.sys}${c.names.trad?` · ${c.names.trad}`:''}${c.names.common?` · ${c.names.common}`:''}.`}},
+ return{ttl:'Nombre de compuestos',c,pr:`¿Cómo se llama <b style="font-size:1.35em">${c.f}</b>?${c.type=='ionic'?' <span class="mu sm">(nomenclatura Stock)</span>':' <span class="mu sm">(nomenclatura sistemática)</span>'}`,vis:null,opts:shuf([good,...w]).map(h=>({h,ok:h==good})),ex:`<b>${good}</b>. Otras formas: ${c.names.sys}${c.names.trad?` · ${c.names.trad}`:''}${c.names.common?` · ${c.names.common}`:''}.`}},
 bond(l){let a,b,r,d,ans,tries=0;const pool=E.slice(1).filter(e=>e.z<=Math.min(lvMax(l)+(l>1?20:0),86)&&!isNoble(e));
  do{a=pick(pool);b=pick(pool);d=dEN(a,b);const ma=isMetal(a),mb=isMetal(b);ans=ma&&mb?'Metálico':(ma!=mb)?(d>=1.7?'Iónico':null):(a.z==b.z||d<.4?'Covalente no polar':'Covalente polar');if(ans&&ans!='Metálico'&&anQ(ma?b:a)==0&&ma!=mb)ans=null;tries++}while(!ans&&tries<80);
  const opts=['Iónico','Covalente polar','Covalente no polar','Metálico'];
@@ -1847,7 +1907,7 @@ function qStats(){const L=QS,pct=L.n?Math.round(L.ok/L.n*100):0,C=2*Math.PI*38,t
  ${types.length?`<h3>Por tipo</h3>${types.map(k=>{const[a,b]=L.by[k];return`<div style="margin:6px 0"><div class="row" style="justify-content:space-between;font-size:.8rem"><span>${QT[k]}</span><b>${a}/${b}</b></div><div class="meter"><i style="width:${a/b*100}%"></i></div></div>`}).join('')}`:'<p class="mu sm">Responde preguntas para ver tu avance por tema.</p>'}<button class="btn" id="qrs" style="margin-top:10px">Reiniciar marcador</button>`}
 let qStop=[];
 function qNext(){const L=QS;stopAll(qStop);const keys=[...L.on];if(!keys.length){$('#qpr').textContent='Activa al menos un tipo de pregunta.';return}
- const k=pick(keys);L.k=k;const q=L.q=G[k](L.lv);L.done=0;L.cur=q.build?q.build.e.v:0;
+ const k=pick(keys);L.k=k;const q=L.q=G[k](L.lv);q.gk=k;L.done=0;L.cur=q.build?q.build.e.v:0;
  $('#qttl').textContent=`${QT[k]} · Nivel ${QLN[L.lv]}`;$('#qpr').innerHTML=q.pr;$('#qf').innerHTML='';$('#qb').innerHTML='';
  const vis=$('#qvis');vis.innerHTML='';
  if(q.build){buildDraw();$('#qo').innerHTML='';$('#qb').innerHTML='<button class="btn" id="qm">− e⁻</button><button class="btn" id="qp">+ e⁻</button><button class="btn pri" id="qc">Comprobar</button>'}
@@ -1858,7 +1918,7 @@ function buildDraw(){const{e,q}=QS.q.build,v=QS.cur,vis=$('#qvis');stopAll(qStop
  const t=document.createElement('div');t.className='big';t.style.cssText='margin-top:2px';t.innerHTML=`${v} e⁻ de valencia · carga ${ch>0?'+':ch<0?'−':''}${Math.abs(ch)}`;vis.appendChild(t)}
 function qAnswer(ok,btn){const L=QS,q=L.q;if(L.done)return;L.done=1;L.n++;if(ok){L.ok++;L.streak++;if(L.streak>L.best){L.best=L.streak;store.set('tp-best',L.best)}}else L.streak=0;
  const b=L.by[L.k]=L.by[L.k]||[0,0];b[1]++;if(ok)b[0]++;
- $('#qf').innerHTML=`<div class="note" style="border-color:${ok?'var(--ok)':'var(--bad)'}"><b>${ok?['¡Correcto!','¡Exacto!','¡Muy bien!','¡Así es!'][L.n%4]+(L.streak>=3?` Racha de ${L.streak}`:''):'No es esa.'}</b> ${q.ex}</div>`;
+ $('#qf').innerHTML=`<div class="note" style="border-color:${ok?'var(--ok)':'var(--bad)'}"><b>${ok?['¡Correcto!','¡Exacto!','¡Muy bien!','¡Así es!'][L.n%4]+(L.streak>=3?` Racha de ${L.streak}`:''):'No es esa.'}</b> ${q.ex}</div>${ok?'':hintCard(q)}`;
  $('#qb').innerHTML='<button class="btn pri" id="qn">Siguiente →</button>';if(ok)burst(btn,L.streak>=5?40:18);qStats();$('#qbar').style.width=Math.min(100,L.streak*10)+'%';$('#qn').focus({preventScroll:true})}
 function burst(el,n){const r=(el||$('#qmain')).getBoundingClientRect(),f=document.createElement('div');f.className='fx';const cols=['#6366f1','#06b6d4','#22c55e','#f59e0b','#f43f5e','#a855f7'];
  for(let i=0;i<n;i++){const p=document.createElement('i'),a=Math.random()*Math.PI*2,d=60+Math.random()*130;p.style.cssText=`left:${r.left+r.width/2}px;top:${r.top+r.height/2}px;background:${pick(cols)};--tx:${Math.cos(a)*d}px;--ty:${Math.sin(a)*d+60}px;--r:${Math.random()*720}deg`;f.appendChild(p)}
@@ -1875,7 +1935,7 @@ $('#quiz').addEventListener('click',ev=>{const L=QS;
 HOOK.q=()=>{if(!QS.q||!$('#qmain'))qShell()};
 /* ===== QUÍMICALAB: capa de aplicación ===== */
 const SV=p=>SVI(p);
-const TIT={h:'Inicio',t:'Tabla periódica',m:'Modelos atómicos',o:'Regla del octeto',b:'Enlaces',c:'Enlace coordinado',q:'Reto del octeto',e:'Memoria de la tabla',x:'Reto mixto',l:'Aprender',r:'Retos',a:'Acerca de'};
+const TIT={h:'Inicio',t:'Tabla periódica',m:'Modelos atómicos',o:'Regla del octeto',b:'Enlaces',c:'Enlace coordinado',q:'Reto del octeto',e:'Memoria de la tabla',x:'Reto mixto',l:'Estudio',r:'Retos',a:'Acerca de'};
 const TL={t:['Tabla periódica','118 elementos con modos de color, filtros y detalle.','<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>'],
 m:['Modelos atómicos','Siete modelos, de Dalton a la nube cuántica.','<ellipse cx="12" cy="12" rx="10" ry="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/>'],
 o:['Regla del octeto','Cómo ganan, pierden o comparten electrones.','<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2"/>'],
@@ -1884,11 +1944,11 @@ c:['Enlace coordinado','Dativo paso a paso, con mecanismos animados.','<circle c
 q:['Reto del octeto','Iones, valencia, nombres y compuestos.','<path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0zM17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/>'],
 e:['Memoria de la tabla','Símbolos, grupos, spin y configuraciones.','<rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9 9.5a3 3 0 1 1 4 2.8c-.7.3-1 .8-1 1.7M12 17.5v.1"/>'],
 x:['Reto mixto','Preguntas al azar de todos los temas.','<path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/>'],
-l:['Aprender','','<path d="M3 6c3-2 6-2 9 0 3-2 6-2 9 0v13c-3-2-6-2-9 0-3-2-6-2-9 0zM12 6v13"/>'],
+l:['Estudio','','<path d="M3 6c3-2 6-2 9 0 3-2 6-2 9 0v13c-3-2-6-2-9 0-3-2-6-2-9 0zM12 6v13"/>'],
 r:['Retos','','<path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"/>'],
 h:['Inicio','','<path d="M3 11l9-8 9 8M5 10v10h5v-6h4v6h5V10"/>'],a:['Acerca de','','<circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.1"/>']};
 const tiles=ids=>`<div class="tl">${ids.map((k,i)=>`<button class="tile" data-go="${k}" style="animation-delay:${i*50}ms"><span class="ti">${SV(TL[k][2])}</span><span><b>${TL[k][0]}</b><span class="mu sm">${TL[k][1]}</span></span></button>`).join('')}</div>`;
-$('#bn').innerHTML=['h','t','l','r','a'].map(k=>`<button data-go="${k}" aria-label="${TL[k][0]}">${SV(TL[k][2])}<span class="s">${({t:'Tabla',a:'Acerca'})[k]||TL[k][0]}</span><span class="l">${({h:'Inicio',t:'Tabla periódica',l:'Aprender',r:'Retos',a:'Acerca de'})[k]}</span></button>`).join('');
+$('#bn').innerHTML=['h','t','l','r','a'].map(k=>`<button data-go="${k}" aria-label="${TL[k][0]}">${SV(TL[k][2])}<span class="s">${({t:'Tabla',a:'Acerca'})[k]||TL[k][0]}</span><span class="l">${({h:'Inicio',t:'Tabla periódica',l:'Estudio',r:'Retos',a:'Acerca de'})[k]}</span></button>`).join('');
 $('#hx').innerHTML='<h3 class="sec">Explorar</h3>'+tiles(['t','m','o','b'])+'<h3 class="sec">Aprender</h3>'+tiles(['c'])+'<h3 class="sec">Practicar</h3>'+tiles(['q','e','x']);
 $('#lx').innerHTML=tiles(['m','o','b','c']);$('#rx').innerHTML=tiles(['q','e','x']);
 $('#bk').innerHTML=SV('<path d="M15 5l-7 7 7 7"/>');
@@ -1896,10 +1956,10 @@ $('#bk').innerHTML=SV('<path d="M15 5l-7 7 7 7"/>');
 const PR=Object.assign({xp:0,ok:0,n:0,best:0,by:{},days:{}},JSON.parse(store.get('ql-prog','{}')||'{}'));
 const saveP=()=>store.set('ql-prog',JSON.stringify(PR));
 const LVL=()=>Math.floor(Math.sqrt(PR.xp/25))+1;
-const TOPN={atomo:'Átomo e isótopos',tend:'Tendencias periódicas',octeto:'Octeto',sim:'Símbolos',num:'Números y posición',spin:'Spin y orbitales',cfg:'Configuración',dat:'Enlace coordinado'};
+const TOPN={atomo:'Átomo e isótopos',tend:'Tendencias periódicas',octeto:'Octeto',sim:'Símbolos',num:'Números y posición',spin:'Spin y orbitales',cfg:'Configuración',dat:'Enlace coordinado',masa:'Masa atómica',enl:'Enlaces y moléculas',est:'Cantidades y reacciones',dis:'Disoluciones y gases',ene:'Energía y equilibrio',aci:'Ácidos, bases y redox',org:'Química orgánica'};
 function rec(k,ok){PR.n++;const b=PR.by[k]=PR.by[k]||[0,0];b[1]++;if(ok){PR.ok++;PR.xp+=10;b[0]++}PR.days[new Date().toISOString().slice(0,10)]=1;saveP()}
 function homeProg(){const L=LVL(),a=PR.xp-25*(L-1)**2,b=25*L*L-25*(L-1)**2,pc=PR.n?Math.round(PR.ok/PR.n*100):0;
- $('#hp').innerHTML=`<h3 style="margin-bottom:8px">Tu progreso</h3><div class="row" style="justify-content:space-between"><div><div class="mu sm">Nivel</div><div class="big">${L}</div></div><div><div class="mu sm">Precisión</div><div class="big">${pc}%</div></div><div><div class="mu sm">Aciertos</div><div class="big">${PR.ok}/${PR.n}</div></div><div><div class="mu sm">Mejor racha</div><div class="big">${Math.max(PR.best,QS.best)}</div></div></div><div class="meter" style="margin-top:10px"><i style="width:${Math.min(100,a/b*100)}%"></i></div><div class="mu sm">${a} / ${b} XP para el nivel ${L+1}</div>`}
+ $('#hp').innerHTML=`<h3 style="margin-bottom:8px">Tu progreso</h3><div class="row" style="justify-content:space-between"><div><div class="mu sm">Nivel</div><div class="big">${L}</div></div><div><div class="mu sm">Precisión</div><div class="big">${pc}%</div></div><div><div class="mu sm">Aciertos</div><div class="big">${PR.ok}/${PR.n}</div></div><div><div class="mu sm">Mejor racha</div><div class="big">${Math.max(PR.best,QS.best)}</div></div></div><div class="meter" style="margin-top:10px"><i style="width:${Math.min(100,a/b*100)}%"></i></div><div class="mu sm">${a} / ${b} XP para el nivel ${L+1}</div>${starsHTML()}`}
 function topProg(){$('#rp').innerHTML='<h3 style="margin-bottom:6px">Dominio por tema</h3>'+Object.entries(TOPN).map(([k,n])=>{const[a,b]=PR.by[k]||[0,0];return`<div style="margin:8px 0"><div class="row" style="justify-content:space-between;font-size:.82rem"><span>${n}</span><b>${a}/${b}</b></div><div class="meter"><i style="width:${b?a/b*100:0}%"></i></div></div>`}).join('')}
 /* ---- navegación con historial ---- */
 const GRP={t:'t',m:'l',o:'l',b:'l',c:'l',l:'l',q:'r',e:'r',x:'r',r:'r',a:'a',h:'h'};
@@ -1948,23 +2008,35 @@ spin(){const e=pick(P86.filter(x=>!EX[x.z]&&x.z>2)),{k,c,b}=lastOrb(e),up=c<=b;r
 unp(){const e=pick(P86.filter(x=>!EX[x.z])),u=ubn(e),{k,c}=lastOrb(e);return{ttl:'Electrones desapareados',pr:`¿Cuántos <b>electrones desapareados</b> tiene el ${lc(e.n)} en estado basal?`,opts:OP(u,[0,1,2,3,4,5,6,u+1]),ex:`${fmt(e.o)}. Desapareados: <b>${u}</b> ${u?'(paramagnético)':'(diamagnético)'}.${box(k,c)}`}},
 orb(){const e=pick(P86.filter(x=>x.z>2)),{k}=lastOrb(e);return{ttl:'Orbitales',pr:`Según Aufbau, ¿en qué <b>subnivel</b> entra el último electrón del ${lc(e.n)}?`,opts:OP(k,shuf(ORD)),ex:`Con el orden 1s 2s 2p 3s 3p 4s 3d… el último e⁻ de ${e.n} (Z = ${e.z}) entra en <b>${k}</b>: n = ${k[0]}, l = ${'spdf'.indexOf(k[1])}.`}},
 cfg(){const e=pick(P86.filter(x=>x.z>10&&!EX[x.z]));return{ttl:'Configuración',pr:`¿Cuál es la <b>configuración abreviada</b> del ${lc(e.n)}?`,opts:OP(abbr(e),[e.z-2,e.z-1,e.z+1,e.z+2].map(z=>E[z]).filter(x=>x&&x.z>10&&!EX[x.z]).map(abbr)),ex:`${e.n}: <code>${abbr(e)}</code>.`}},
-dat(){const b=pick(DQ);return{ttl:'Enlace coordinado',pr:b[0],opts:OP(b[1],b[2]),ex:b[3]}}};
-const TM={sim:'sim',num:'num',pos:'num',fam:'num',val:'cfg',cfg:'cfg',spin:'spin',unp:'spin',orb:'spin',dat:'dat'};
+dat(){const b=pick(DQ);return{ttl:'Enlace coordinado',pr:b[0],opts:OP(b[1],b[2]),ex:b[3]}},
+numk(){const e=pick(P86),rev=Math.random()<.4;return{ttl:'Número atómico con teclado',pr:rev?`Escribe el <b>número atómico</b> (Z) del elemento con símbolo <b>${e.s}</b>.`:`Escribe el <b>número atómico</b> (Z) del <b>${lc(e.n)}</b> (${e.s}).`,pad:{ans:e.z,max:3},ex:`${e.n} (${e.s}) tiene Z = ${e.z}: ${e.z} protones y, neutro, ${e.z} electrones.`}},
+masa(){const e=pick(P86.filter(x=>x.z>2)),near=P86.filter(x=>x.z!=e.z&&Math.abs(x.m-e.m)>=3&&Math.abs(x.m-e.m)<=30),any=P86.filter(x=>x.z!=e.z&&Math.abs(x.m-e.m)>=3),o=shuf(near.length>=3?near:any).slice(0,3);
+ return{ttl:'Adivina el elemento por su masa',vis:()=>{const d=document.createElement('div');d.className='big';d.style.cssText='font-size:2.7rem;text-align:center;padding:8px 0';d.innerHTML=`${e.m}<span class="mu" style="font-size:1rem"> u</span>`;return d},pr:`Este elemento tiene una <b>masa atómica</b> de ${e.m} u. ¿Cuál es?`,opts:shuf([e,...o]).map(x=>({h:x.n,ok:x==e})),ex:`<b>${e.n}</b> (${e.s}, Z = ${e.z}) tiene una masa atómica de ${e.m} u. La masa atómica es el promedio ponderado de sus isótopos.`}}};
+const TM={sim:'sim',num:'num',pos:'num',fam:'num',val:'cfg',cfg:'cfg',spin:'spin',unp:'spin',orb:'spin',dat:'dat',numk:'num',masa:'masa'};
 const memGen=t=>{const ks=Object.keys(MQ).filter(k=>k!='dat'&&!['atomo','tend'].includes(TM[k])&&(t=='all'||TM[k]==t)),k=pick(ks),q=MQ[k]();q.topic=TM[k];return q};
-const mixGen=()=>{if(Math.random()<.35){const q=G[pick(['ion','val','name','ionname','bond'])](QS.lv);q.topic='octeto';return q}const k=pick(Object.keys(MQ)),q=MQ[k]();q.topic=TM[k];return q};
-function mcMount(id,title,gen,chips,onA){const R=$('#'+id);let q,done=0,st=0,top='all',stp=[];const g=s=>$('#'+id+s);
+const mixGen=()=>{if(Math.random()<.35){const gk=pick(['ion','val','name','ionname','bond']),q=G[gk](QS.lv);q.gk=gk;q.topic='octeto';return q}const k=pick(Object.keys(MQ)),q=MQ[k]();q.topic=TM[k];return q};
+function mcMount(id,title,gen,chips,onA){const R=$('#'+id);let q,done=0,st=0,top='all',stp=[],val='';const g=s=>$('#'+id+s);
  R.innerHTML=`<div class="card"><div class="row" style="justify-content:space-between"><h2 style="margin:0">${title}</h2><span class="chip on" id="${id}k">Racha 0</span></div>${chips?`<div class="chips wrap" style="margin-top:8px">${Object.entries(chips).map(([k,v])=>`<button class="chip${k=='all'?' on':''}" data-t="${k}">${v}</button>`).join('')}</div>`:''}<div class="mu sm" id="${id}t" style="margin:10px 0 4px"></div><div id="${id}v" style="text-align:center;margin:6px 0"></div><p id="${id}p" style="font-size:1.08rem;margin:6px 0 10px"></p><div class="qbtn" id="${id}o"></div><div id="${id}f" aria-live="polite"></div><div class="row" id="${id}b" style="margin-top:10px"></div></div>`;
- const nx=()=>{stopAll(stp);q=gen(top);done=0;g('t').textContent=q.ttl+' · '+TOPN[q.topic];g('p').innerHTML=q.pr;const v=g('v');v.innerHTML='';
+ const padH=()=>`<div class="kpd" id="${id}d" aria-live="polite">&nbsp;</div><div class="kpg">${['1','2','3','4','5','6','7','8','9','del','0','go'].map(k=>`<button class="btn kpk${k=='go'?' pri':''}" data-kp="${k}" aria-label="${k=='del'?'Borrar':k=='go'?'Comprobar':k}">${k=='del'?'⌫':k=='go'?'Comprobar':k}</button>`).join('')}</div>`;
+ const nx=()=>{stopAll(stp);q=gen(top);done=0;val='';g('t').textContent=q.ttl+' · '+TOPN[q.topic];g('p').innerHTML=q.pr;const v=g('v');v.innerHTML='';
   if(q.vis){const x=q.vis();v.appendChild(x);if(x._stop)stp.push(x._stop);x.querySelectorAll&&x.querySelectorAll('svg').forEach(s=>s._stop&&stp.push(s._stop));if(x.tagName=='svg')x.style.cssText='width:150px;max-width:60%'}
-  g('o').innerHTML=q.opts.map((o,i)=>`<button class="btn" data-o="${i}" style="animation:rise .45s var(--ease) both;animation-delay:${i*60}ms">${o.h}</button>`).join('');g('f').innerHTML='';g('b').innerHTML=''};
- R.onclick=ev=>{const o=ev.target.closest('[data-o]'),c=ev.target.closest('[data-t]');
+  const o=g('o');o.className=q.pad?'kpw':'qbtn';
+  o.innerHTML=q.pad?padH():q.opts.map((o,i)=>`<button class="btn" data-o="${i}" style="animation:rise .45s var(--ease) both;animation-delay:${i*60}ms">${o.h}</button>`).join('');g('f').innerHTML='';g('b').innerHTML=''};
+ /* respuesta (opciones o teclado): racha, XP, explicación y, si falla nomenclatura, guía paso a paso */
+ const fin=(ok,el)=>{st=ok?st+1:0;if(st>PR.best)PR.best=st;rec(q.topic,ok);if(onA)onA(ok);navigator.vibrate&&navigator.vibrate(ok?15:[40,30,40]);g('k').textContent='Racha '+st;
+  g('f').innerHTML=`<div class="note" style="border-color:${ok?'var(--ok)':'var(--bad)'}"><b>${ok?'Correcto.':'No es esa.'}</b> ${q.ex}</div>`+(ok?'':hintCard(q));
+  g('b').innerHTML='<button class="btn pri nxt">Siguiente →</button>';if(ok)burst(el,st>=5?36:16)};
+ const key=k=>{const d=g('d');if(!d)return;if(k=='del')val=val.slice(0,-1);else if(k=='go'){if(!val)return;done=1;const ok=+val==q.pad.ans;d.classList.add(ok?'ok':'bad');if(!ok)d.insertAdjacentHTML('afterend',`<div class="kpa">Respuesta correcta: <b>${q.pad.ans}</b></div>`);return fin(ok,d)}else if(val.length<(q.pad.max||3)&&!(val==''&&k=='0'))val+=k;d.innerHTML=val||'&nbsp;'};
+ R.onclick=ev=>{const o=ev.target.closest('[data-o]'),c=ev.target.closest('[data-t]'),kp=ev.target.closest('[data-kp]');
   if(c){top=c.dataset.t;R.querySelectorAll('[data-t]').forEach(b=>b.classList.toggle('on',b==c));return nx()}
-  if(ev.target.closest('.nxt'))return nx();if(!o||done||R.lock)return;done=1;const ok=q.opts[+o.dataset.o].ok;
-  o.classList.add(ok?'ok':'bad');R.querySelectorAll('[data-o]').forEach((b,i)=>q.opts[i].ok&&b.classList.add('ok'));
-  st=ok?st+1:0;if(st>PR.best)PR.best=st;rec(q.topic,ok);if(onA)onA(ok);navigator.vibrate&&navigator.vibrate(ok?15:[40,30,40]);g('k').textContent='Racha '+st;
-  g('f').innerHTML=`<div class="note" style="border-color:${ok?'var(--ok)':'var(--bad)'}"><b>${ok?'Correcto.':'No es esa.'}</b> ${q.ex}</div>`;
-  g('b').innerHTML='<button class="btn pri nxt">Siguiente →</button>';if(ok)burst(o,st>=5?36:16)};R.nx=nx;R.rs=()=>{st=0;g('k').textContent='Racha 0'};nx()}
-mcMount('me','Memoria de la tabla',memGen,{all:'Todo',sim:'Símbolos',num:'Números y posición',spin:'Spin y orbitales',cfg:'Configuración'});
+  if(ev.target.closest('.nxt'))return nx();
+  if(kp&&q&&q.pad&&!done&&!R.lock){key(kp.dataset.kp);return}
+  if(!o||done||R.lock)return;done=1;const ok=q.opts[+o.dataset.o].ok;
+  o.classList.add(ok?'ok':'bad');R.querySelectorAll('[data-o]').forEach((b,i)=>q.opts[i].ok&&b.classList.add('ok'));fin(ok,o)};
+ R.addEventListener('keydown',ev=>{if(!q||!q.pad||done||R.lock||ev.ctrlKey||ev.metaKey||ev.altKey)return;
+  if(/^\d$/.test(ev.key)){ev.preventDefault();key(ev.key)}else if(ev.key=='Backspace'){ev.preventDefault();key('del')}else if(ev.key=='Enter'&&ev.target.tagName!='BUTTON'){ev.preventDefault();key('go')}});
+ R.nx=nx;R.rs=()=>{st=0;g('k').textContent='Racha 0'};nx()}
+mcMount('me','Memoria de la tabla',memGen,{all:'Todo',sim:'Símbolos',num:'Números y posición',masa:'Masa atómica',spin:'Spin y orbitales',cfg:'Configuración'});
 mcMount('mx','Reto mixto',mixGen);
 mcMount('mcd','Practica: enlace coordinado',()=>{const q=MQ.dat();q.topic='dat';return q});
 /* ---- mecanismos del enlace coordinado ---- */
@@ -2017,14 +2089,14 @@ DQ.push(['¿Qué especie es el donante en CO (O→C)?','El O (par libre)',['El C
 mChips();mRender();
 /* ---- utilidades de interfaz ---- */
 TOPN.tabla='Ubicar en la tabla';Object.assign(TIT,{z:'Herramientas',k:'Ubica el elemento',u:'Contrarreloj',p:'Repaso inteligente'});Object.assign(GRP,{z:'l',k:'r',u:'r',p:'r'});
-Object.assign(TL,{z:['Herramientas','Masa molar y balanceo de ecuaciones.','<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 12h2M12 12h2M16 12h0M8 16h2M12 16h2M16 16h0"/>'],k:['Ubica el elemento','Memoriza la forma de la tabla.','<rect x="3" y="4" width="18" height="12" rx="2"/><path d="M7 20h10M9 8v4M13 8v4M17 8v4"/>'],u:['Contrarreloj','60 segundos: bate tu récord.','<circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M9 2h6"/>'],p:['Repaso inteligente','Prioriza tus temas más débiles.','<path d="M21 12a9 9 0 1 1-3-6.7M21 4v5h-5M12 8v4l2 2"/>']});
+Object.assign(TL,{z:['Herramientas','Calculadoras: masa molar, balanceo, reacciones, molaridad, pH y gases.','<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 12h2M12 12h2M16 12h0M8 16h2M12 16h2M16 16h0"/>'],k:['Ubica el elemento','Memoriza la forma de la tabla.','<rect x="3" y="4" width="18" height="12" rx="2"/><path d="M7 20h10M9 8v4M13 8v4M17 8v4"/>'],u:['Contrarreloj','60 segundos: bate tu récord.','<circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M9 2h6"/>'],p:['Repaso inteligente','Prioriza tus temas más débiles.','<path d="M21 12a9 9 0 1 1-3-6.7M21 4v5h-5M12 8v4l2 2"/>']});
 Object.assign(TIT,{cb:'Biblioteca de compuestos',sg:'Seguridad química'});Object.assign(GRP,{cb:'l',sg:'l'});
 Object.assign(TL,{cb:['Biblioteca de compuestos','Busca fórmulas, estructuras, usos y riesgos.','<path d="M12 3l7.5 4.3v8.6L12 21l-7.5-4.3V7.3z"/><circle cx="12" cy="12" r="3"/>'],sg:['Seguridad química','Libro naranja, pictogramas SGA y rombo NFPA.','<path d="M12 3l8 3v6c0 4.5-3.4 8-8 9-4.6-1-8-4.5-8-9V6z"/><path d="M12 8v5M12 16.5v.01"/>']});
 const FIX=()=>$$('.tile').forEach(b=>b.dataset.g=GRP[b.dataset.go]);
 $('#hx').innerHTML='<h3 class="sec">Explorar</h3>'+tiles(['t','m','o','b'])+'<h3 class="sec">Aprender</h3>'+tiles(['c','z'])+'<h3 class="sec">Practicar</h3>'+tiles(['q','e','k','x','u','p']);
-$('#lx').innerHTML=tiles(['m','o','b','c','z']);$('#rx').innerHTML=tiles(['q','e','k','x','u','p']);FIX();
+$('#lx').innerHTML=tiles(['m','o','b','c']);$('#rx').innerHTML=tiles(['q','e','k','x','u','p']);FIX();
 const _s2=show2;show2=t=>{_s2(t);$('.brand small').textContent=t=='h'?'Química interactiva':TIT[t]};
-$('main').insertAdjacentHTML('beforeend',`<section id="v-z" class="view" hidden><div class="grid2" style="align-items:start"><div class="card"><h2>Masa molar</h2><p class="mu sm" style="margin:0 0 8px">Escribe una fórmula, por ejemplo Ca(OH)2 o Al2(SO4)3. Opcional: gramos para obtener moles.</p><div class="row"><input id="mzf" class="inp" value="H2SO4" aria-label="Fórmula" autocapitalize="off" spellcheck="false"><input id="mzg" class="inp" type="number" min="0" step="any" placeholder="gramos" aria-label="Gramos" style="max-width:110px"></div><div id="mzo" style="margin-top:10px"></div></div><div class="card"><h2>Balanceador de ecuaciones</h2><p class="mu sm" style="margin:0 0 8px">Usa «->» entre reactivos y productos. Ejemplo: C3H8 + O2 -> CO2 + H2O</p><input id="mze" class="inp" value="C3H8 + O2 -> CO2 + H2O" aria-label="Ecuación" autocapitalize="off" spellcheck="false"><div id="mzr" style="margin-top:10px" aria-live="polite"></div></div></div></section>
+$('main').insertAdjacentHTML('beforeend',`<section id="v-z" class="view" hidden><div class="card"><h2 style="margin:0">Herramientas</h2><p class="mu sm" style="margin:4px 0 10px">Calculadoras y consulta rápida. Elige una etiqueta.</p><div class="chips ztags" id="ztags" role="tablist" aria-label="Herramientas"></div></div><div id="zpan" style="margin-top:12px"><div class="card zp" data-z="mol" role="tabpanel"><h2>Masa molar</h2><p class="mu sm" style="margin:0 0 8px">Escribe una fórmula, por ejemplo Ca(OH)2 o Al2(SO4)3. Opcional: gramos para obtener moles.</p><div class="row"><input id="mzf" class="inp" value="H2SO4" aria-label="Fórmula" autocapitalize="off" spellcheck="false"><input id="mzg" class="inp" type="number" min="0" step="any" placeholder="gramos" aria-label="Gramos" style="max-width:110px"></div><div id="mzo" style="margin-top:10px"></div></div><div class="card zp" data-z="bal" role="tabpanel" hidden><h2>Balanceador de ecuaciones</h2><p class="mu sm" style="margin:0 0 8px">Usa «->» entre reactivos y productos. Ejemplo: C3H8 + O2 -> CO2 + H2O</p><input id="mze" class="inp" value="C3H8 + O2 -> CO2 + H2O" aria-label="Ecuación" autocapitalize="off" spellcheck="false"><div id="mzr" style="margin-top:10px" aria-live="polite"></div></div><div class="card zp" data-z="rxn" role="tabpanel" hidden></div><div class="zp" data-z="dil" role="tabpanel" hidden></div><div class="zp" data-z="ph" role="tabpanel" hidden></div><div class="zp" data-z="gas" role="tabpanel" hidden></div></div></section>
 <section id="v-k" class="view" hidden><div class="card"><div class="row" style="justify-content:space-between"><h2 style="margin:0">Ubica el elemento</h2><span class="chip on" id="kk">Racha 0</span></div><p id="kp" style="font-size:1.1rem;margin:10px 0"></p><div class="chips"><button class="chip" id="kh">Mostrar familias</button></div><div id="kg" style="margin-top:8px"></div><div id="kf" aria-live="polite"></div></div></section>
 <section id="v-u" class="view" hidden><div id="mu"></div></section><section id="v-p" class="view" hidden><div class="card" style="margin-bottom:12px"><h2>Repaso inteligente</h2><p class="mu sm" style="margin:0">Las preguntas salen más seguido de los temas donde más fallas.</p></div><div id="rv"></div></section>`);
 /* ---- herramientas: masa molar y balanceo ---- */
@@ -2035,7 +2107,7 @@ const fs=s=>s.replace(/(\d+)/g,'<sub>$1</sub>');
 function molar(){const c=pf($('#mzf').value),o=$('#mzo');if(!c){o.innerHTML='<p class="mu sm">Fórmula no válida. Usa mayúsculas y minúsculas: NaCl, Ca(OH)2.</p>';return}
  const rows=Object.entries(c).map(([s,n])=>{const e=Z(s);return[e,n,n*e.m]}),M=rows.reduce((a,r)=>a+r[2],0),g=+$('#mzg').value;
  o.innerHTML=`<div class="big">${M.toFixed(3)} g/mol</div>`+rows.map(([e,n,m])=>`<div style="margin:8px 0"><div class="row" style="justify-content:space-between;font-size:.85rem"><span><b>${e.s}</b> × ${n} · ${e.n}</span><span>${m.toFixed(3)} g · ${(m/M*100).toFixed(1)} %</span></div><div class="meter"><i style="width:${m/M*100}%;background:${CT[e.c-1][1]}"></i></div></div>`).join('')+(g>0?`<div class="note">${g} g ÷ ${M.toFixed(3)} g/mol = <b>${(g/M).toPrecision(4)} mol</b> ≈ ${(g/M*6.02214076e23).toExponential(3)} unidades</div>`:'')}
-function bal(){const [l,r]=$('#mze').value.replace(/→|=>|=/g,'->').split('->'),o=$('#mzr'),sp=s=>(s||'').split('+').map(x=>x.trim()).filter(Boolean),L=sp(l),R=sp(r),P=[...L,...R].map(pf),bad=m=>o.innerHTML=`<p class="mu sm">${m}</p>`;
+function balHTML(txt){const [l,r]=txt.replace(/→|=>|=/g,'->').split('->'),sp=s=>(s||'').split('+').map(x=>x.trim()).filter(Boolean),L=sp(l),R=sp(r),P=[...L,...R].map(pf),bad=m=>`<p class="mu sm">${m}</p>`;
  if(!L.length||!R.length||P.some(x=>!x))return bad('Escribe reactivos -> productos con fórmulas válidas.');
  const els=[...new Set(P.flatMap(Object.keys))],n=P.length,A=els.map(e=>P.map((x,j)=>(x[e]||0)*(j<L.length?1:-1))),pc=[],ab=Math.abs;let r0=0;
  for(let c=0;c<n&&r0<A.length;c++){const p=A.findIndex((w,i)=>i>=r0&&w[c]);if(p<0)continue;[A[r0],A[p]]=[A[p],A[r0]];
@@ -2043,7 +2115,9 @@ function bal(){const [l,r]=$('#mze').value.replace(/→|=>|=/g,'->').split('->')
  const fr=[...Array(n).keys()].filter(c=>!pc.includes(c));if(fr.length!=1)return bad('No se pudo balancear de forma única. Revisa la ecuación.');
  const f=fr[0],x=Array(n).fill(0);x[f]=pc.reduce((a,c,i)=>{const d=ab(A[i][c]);return a*d/gcd(a,d)},1);pc.forEach((c,i)=>x[c]=-A[i][f]*x[f]/A[i][c]);
  const g=x.reduce((u,v)=>gcd(u,ab(v)),0),k=x.map(v=>v/g*(x[f]<0?-1:1));if(k.some(v=>v<=0||!Number.isInteger(v)))return bad('Esa ecuación no tiene un balance con coeficientes positivos.');
- const w=(a,off)=>a.map((s,i)=>(k[i+off]>1?k[i+off]+' ':'')+fs(s)).join(' + ');o.innerHTML=`<div class="big" style="font-size:1.25rem;line-height:1.5">${w(L,0)} → ${w(R,L.length)}</div><p class="mu sm">Átomos conservados: ${els.join(', ')}.</p>`}
+ const w=(a,off)=>a.map((s,i)=>(k[i+off]>1?k[i+off]+' ':'')+fs(s)).join(' + ');return `<div class="big" style="font-size:1.25rem;line-height:1.5">${w(L,0)} → ${w(R,L.length)}</div><p class="mu sm">Átomos conservados: ${els.join(', ')}.</p>`}
+function bal(){$('#mzr').innerHTML=balHTML($('#mze').value)}
+
 $('#mzf').oninput=$('#mzg').oninput=molar;$('#mze').oninput=bal;molar();bal();
 /* ---- ubica el elemento en la tabla ---- */
 let KT,KD=1,KS=0,KH=0;
@@ -2441,6 +2515,60 @@ addEventListener('resize',()=>setTimeout(sync,90));addEventListener('orientation
 /* ===== v17: al deslizar la página se pausan los adornos para que los electrones no se traben ===== */
 (()=>{const R=document.documentElement;let t=0,on=0;const orb=()=>document.querySelector('.hhero .orb');
 addEventListener('scroll',()=>{if(!on){on=1;R.classList.add('scr');try{const o=orb();o&&o.pauseAnimations()}catch(e){}}clearTimeout(t);t=setTimeout(()=>{on=0;R.classList.remove('scr');try{const o=orb();o&&!window.__lite&&CUR=='h'&&o.unpauseAnimations()}catch(e){}},160)},{passive:true})})();
+
+/* ===== v31: estrellas por tema, guías de nomenclatura, herramientas nuevas, inicio en tarjetas, estado de instalación ===== */
+var PREF=['','mono','di','tri','tetra','penta','hexa','hepta','octa','nona','deca'];
+var STARP='<path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4l-5.8 3.1 1.1-6.5L2.6 9.4l6.5-.9z"/>';
+/* 1 a 5 estrellas según aciertos y práctica en cada tema (el Repaso inteligente usa los mismos datos) */
+function starsOf(k){const[a,b]=PR.by[k]||[0,0];if(!b)return 0;const p=a/b;let s=1;if(b>=5&&p>=.5)s++;if(b>=10&&p>=.65)s++;if(b>=15&&p>=.8)s++;if(b>=25&&p>=.9)s++;return s};
+function starsHTML(){
+ const rows=Object.entries(TOPN).map(([k,n])=>{const s=starsOf(k),[a,b]=PR.by[k]||[0,0];
+  return`<div class="str"><span>${n} <small class="mu">· ${b?a+'/'+b:'sin practicar'}</small></span><span class="sts" role="img" aria-label="${s} de 5 estrellas">${[1,2,3,4,5].map(i=>`<svg viewBox="0 0 24 24" class="${i<=s?'f':'o'}" aria-hidden="true">${STARP}</svg>`).join('')}</span></div>`}).join('');
+ return`<h3 style="margin:16px 0 2px">Estrellas por tema</h3><p class="mu sm" style="margin:0">Se calculan con tus aciertos y tu práctica. El <b>Repaso inteligente</b> te pone primero los temas con menos estrellas.</p><div class="stl">${rows}</div><button class="btn" data-go="p" style="margin-top:10px">Ir al repaso inteligente</button>`}
+/* guías rápidas: aparecen solo cuando se falla una pregunta de nomenclatura */
+var hintDefs={
+ cname(q){const c=q.c,A=c.A,B=c.B,an=ANION[B.s]||lc(B.n)+'uro';
+  if(c.type=='ionic'){const multi=metalStates(A).length>1,z=anQ(B);
+   return{t:'nombrar un compuesto iónico',s:[
+    `Separa el <b>metal</b> y el <b>no metal</b>: ${lc(A.n)} (${A.s}) y ${lc(B.n)} (${B.s}).`,
+    `Nombra primero el no metal con <b>«-uro»</b> (el oxígeno es «óxido»): <b>${an}</b>.`,
+    `Añade «de» y el nombre del metal: <b>${an} de ${lc(A.n)}</b>.`,
+    multi?`El ${lc(A.n)} tiene varias cargas, así que calcula la suya: ${c.y} × (−${z}) ÷ ${c.x} = −${c.y*z/c.x}, o sea que el metal es <b>+${c.n}</b>. Escríbelo en romanos: <b>(${ROM[c.n]})</b>.`:`El ${lc(A.n)} solo tiene una carga (+${c.n}), así que <b>no</b> lleva número romano.`],
+    r:`Nombre: <b>${c.names.stock}</b>`}}
+  return{t:'nombrar un compuesto covalente',s:[
+   `Cuenta los átomos de cada elemento: <b>${c.x}</b> de ${lc(A.n)} (${A.s}) y <b>${c.y}</b> de ${lc(B.n)} (${B.s}).`,
+   `Cada cantidad lleva un <b>prefijo</b>: 1 mono · 2 di · 3 tri · 4 tetra · 5 penta · 6 hexa · 7 hepta.`,
+   `El segundo elemento termina en <b>«-uro»</b> (el oxígeno, «óxido») y lleva su prefijo: «${PREF[c.y]}» + ${an}.`,
+   `«Mono» no se escribe en el primer elemento, solo en el segundo.`],r:`Nombre: <b>${c.names.sys}</b>`}},
+ formula(q){const c=q.c,A=c.A,B=c.B;
+  if(c.type=='ionic'){const z=anQ(B);
+   return{t:'escribir la fórmula de un compuesto iónico',s:[
+    `Escribe cada ion con su carga: <b>${A.s}<sup>${c.n}+</sup></b> y <b>${B.s}<sup>${z}−</sup></b>.`,
+    `<b>Cruza las cargas</b>: el número de una carga pasa como subíndice del otro ion → ${A.s}<sub>${z}</sub>${B.s}<sub>${c.n}</sub>.`,
+    `Si los subíndices se pueden dividir entre el mismo número, <b>simplifica</b>; el 1 no se escribe.`],r:`Fórmula: <b>${c.f}</b>`}}
+  return{t:'escribir la fórmula de un compuesto covalente',s:[
+   `Lee los <b>prefijos</b> del nombre: mono = 1, di = 2, tri = 3, tetra = 4, penta = 5…`,
+   `Si el primer elemento no lleva prefijo, hay <b>1</b> átomo de él.`,
+   `Escribe los símbolos y pon esas cantidades como subíndices.`],r:`Fórmula: <b>${c.f}</b>`}},
+ ionname(q){const i=q.ic;return{t:'nombrar un ion',s:[
+   `Mira el signo de la carga de <b>${i.f}</b>: «+» es un <b>catión</b> y «−» es un <b>anión</b>.`,
+   `Catión: escribe «catión» + el nombre del elemento (si el metal tiene varias cargas, añade el número romano).`,
+   `Anión: raíz del elemento + <b>«-uro»</b> (el oxígeno es «óxido»).`],r:`${i.f} → <b>${i.t}</b>`}}};
+function hintCard(q){const f=q&&q.gk&&hintDefs[q.gk];if(!f)return'';let d;try{d=f(q)}catch(e){return''}
+ return`<div class="nhc" role="note"><h4>${SV('<path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/>')}Guía rápida: ${d.t}</h4><ol>${d.s.map((s,i)=>`<li style="--i:${i}"><span>${s}</span></li>`).join('')}</ol><div class="res">${d.r}</div></div>`}
+
+
+{
+/* ---- Acerca de: estado de la instalación ---- */
+const a=$('#insa'),d=$('#insd');
+if(a&&d){const R=document.documentElement,isApp=()=>R.classList.contains('app'),flag=()=>store.get('ql-inst','')=='1';
+ const paint=()=>{const app=isApp(),on=app||flag();a.hidden=on;d.hidden=!on;$('#insm').textContent=app?'Ya usas LabQuimWeb como app: funciona sin conexión y tu progreso se guarda en este dispositivo.':'LabQuimWeb ya está instalada en este dispositivo. Ábrela desde su ícono en tu pantalla de inicio.'};
+ if(isApp())store.set('ql-inst','1');
+ addEventListener('appinstalled',()=>{store.set('ql-inst','1');paint()});
+ addEventListener('beforeinstallprompt',()=>{if(!isApp()){store.set('ql-inst','');paint()}});
+ new MutationObserver(()=>{if(isApp())store.set('ql-inst','1');paint()}).observe(R,{attributes:true,attributeFilter:['class']});paint()}
+}
+
 </script><script>
 (()=>{
 /* ===== v18: datos de Aprender ===== */
@@ -2807,6 +2935,274 @@ G('molalidad','Molalidad (m)','ca','Moles de soluto por kilogramo de disolvente.
  {e:'1.0 mol de glucosa en 500 g de agua → 2.0 mol/kg.',u:'Es la que se usa en las propiedades coligativas (ΔT_eb = K_b · m · i).',r:['molaridad','disolucion']});
 G('dilucion','Dilución','ca','Disminución de la concentración al añadir disolvente: la cantidad de soluto no cambia, por lo que M₁V₁ = M₂V₂.',
  {e:'Para pasar 50 mL de 2.0 M a 0.5 M: V₂ = (2.0 × 50)/0.5 = 200 mL (se añaden 150 mL de agua).',x:'Al diluir ácidos, se añade el ácido al agua, nunca al revés.',r:['molaridad','mol']});
+
+/* ===== glosario ampliado: gases, termoquímica, cinética y equilibrio, ácidos y bases, redox, orgánica y materia ===== */
+GC.push(
+['ga','Gases y estados de la materia','#0ea5e9','<path d="M5 15a3 3 0 0 1 .6-5.9A4.5 4.5 0 0 1 14 7.6 3.4 3.4 0 0 1 18 11a2.6 2.6 0 0 1-.5 5.1H7"/><path d="M8 19h8" opacity=".6"/>'],
+['te','Termoquímica','#f43f5e','<path d="M12 3c2.5 3 5 5 5 9a5 5 0 0 1-10 0c0-2 1-3.4 2-4.6.5 1.4 1.5 2 2.5 2C11.5 7.6 11 5.4 12 3z"/>'],
+['eq','Cinética y equilibrio','#8b5cf6','<path d="M4 9h13M14 5l4 4-4 4M20 15H7M10 11l-4 4 4 4"/>'],
+['ab','Ácidos y bases','#eab308','<path d="M9 3h6M10 3v5L5.5 17A2.4 2.4 0 0 0 7.7 20.5h8.6A2.4 2.4 0 0 0 18.5 17L14 8V3"/><path d="M7.5 14h9"/>'],
+['rd','Redox y electroquímica','#10b981','<path d="M13 3L5 13h6l-1 8 8-10h-6z"/>'],
+['or','Química orgánica','#84cc16','<path d="M12 3l7 4v8l-7 4-7-4V7z"/><path d="M12 8v8M8 10l8 4" opacity=".6"/>'],
+['mt','Materia y laboratorio','#64748b','<path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.8 3h10.4a2 2 0 0 0 1.8-3l-5-9V3"/><circle cx="11" cy="16" r="1"/><circle cx="14.5" cy="14" r=".8"/>']);
+
+/* ---- Cantidades y disoluciones (ampliación) ---- */
+G('solubilidad','Solubilidad','ca','Cantidad máxima de soluto que se disuelve en cierta cantidad de disolvente a una temperatura dada.',
+ {e:'NaCl: ≈ 36 g en 100 g de agua a 25 °C.',x:'Depende de la temperatura: la de los sólidos suele aumentar al calentar y la de los gases disminuye.',r:['disolucion','saturada','precipitado']});
+G('saturada','Disolución saturada','ca','La que ya contiene todo el soluto que puede disolver a esa temperatura: si se agrega más, queda sin disolver. Insaturada: aún admite más; sobresaturada: tiene más de lo normal y es inestable.',
+ {e:'Al añadir sal a agua hasta que ya no se disuelve, se obtiene una disolución saturada.',r:['solubilidad','disolucion']});
+G('concentracion','Concentración','ca','Cantidad de soluto presente en una cantidad dada de disolución (o de disolvente). Se expresa en molaridad, molalidad, % en masa, ppm, fracción molar…',
+ {x:'Una disolución concentrada no es lo mismo que una disolución saturada.',r:['molaridad','molalidad','porcmasa','ppm','fracmolar']});
+G('porcmasa','Porcentaje en masa (% m/m)','ca','Gramos de soluto por cada 100 g de disolución: % = (masa de soluto / masa de disolución) × 100.',
+ {e:'10 g de azúcar en 90 g de agua: 10 g / 100 g = 10 %.',r:['concentracion','ppm']});
+G('ppm','Partes por millón (ppm)','ca','Miligramos de soluto por kilogramo de disolución (en agua diluida, por litro). Sirve para concentraciones muy pequeñas.',
+ {e:'Agua con 0.7 mg/L de fluoruro: 0.7 ppm.',r:['concentracion','porcmasa']});
+G('fracmolar','Fracción molar (χ)','ca','Moles de un componente entre los moles totales de la mezcla. No tiene unidades y la suma de todas las fracciones es 1.',
+ {e:'1 mol de etanol y 3 mol de agua: χ(etanol) = 1/4 = 0.25.',r:['concentracion','daltonp','mol']});
+G('electrolito','Electrolito','ca','Sustancia que al disolverse en agua forma iones y conduce la electricidad. Los fuertes se disocian casi por completo (NaCl, HCl); los débiles, solo en parte (CH₃COOH).',
+ {e:'El agua salada conduce la corriente; el agua con azúcar, no.',r:['disociacion','acfuerte','acdebil']});
+G('disociacion','Disociación','ca','Separación de un compuesto iónico en sus iones al disolverse en agua.',
+ {e:'NaCl(s) → Na⁺(ac) + Cl⁻(ac).',r:['electrolito','solvatacion','ionico']});
+G('solvatacion','Solvatación (hidratación)','ca','Los iones del soluto quedan rodeados por moléculas de disolvente; en agua se llama hidratación y es lo que estabiliza los iones en disolución.',
+ {e:'Cada Na⁺ queda rodeado por el extremo negativo (O) de varias moléculas de agua.',u:'Un sólido iónico se disuelve cuando la energía de hidratación compensa su energía reticular.',r:['disociacion','reticular','polmol']});
+G('precipitado','Precipitado','ca','Sólido insoluble que se forma al mezclar dos disoluciones cuando los iones se combinan. Se usa para identificar iones.',
+ {e:'Ag⁺ + Cl⁻ → AgCl(s), un precipitado blanco.',u:'Precipita si el cociente iónico supera la Ksp de la sal.',r:['solubilidad','ksp']});
+G('ksp','Producto de solubilidad (Ksp)','ca','Constante de equilibrio de la disolución de una sal poco soluble. Entre sales del mismo tipo, a menor Ksp, menos soluble.',
+ {e:'AgCl ⇌ Ag⁺ + Cl⁻: Ksp = [Ag⁺][Cl⁻] = 1.8 × 10⁻¹⁰.',u:'Si Q > Ksp la sal precipita; si Q < Ksp, se sigue disolviendo.',a:1,r:['solubilidad','precipitado','kc']});
+G('coligativas','Propiedades coligativas','ca','Propiedades que dependen de cuántas partículas de soluto hay y no de cuáles son: descenso de la presión de vapor, aumento del punto de ebullición, descenso del punto de congelación y presión osmótica.',
+ {e:'La sal en carreteras baja el punto de congelación del agua y derrite el hielo.',u:'ΔT_c = K_c · m · i, donde i es el factor de van\'t Hoff.',r:['molalidad','osmosis','pvapor']});
+G('osmosis','Ósmosis','ca','Paso de disolvente a través de una membrana semipermeable, desde la disolución más diluida hacia la más concentrada.',
+ {e:'Una pasa se hincha en agua porque el agua entra por ósmosis.',r:['coligativas','disolucion']});
+
+/* ---- Gases y estados de la materia ---- */
+G('presion','Presión','ga','Fuerza por unidad de área. En un gas se debe a los choques de las moléculas con las paredes. Unidades: Pa, atm, mmHg, bar.',
+ {e:'1 atm = 101 325 Pa = 760 mmHg.',r:['boyle','gasideal','tcinetica']});
+G('temperatura','Temperatura','ga','Medida de la energía cinética media de las partículas. En las leyes de los gases se usa siempre en kelvin: K = °C + 273.15.',
+ {x:'Con grados Celsius las leyes de los gases dan resultados absurdos, como volúmenes negativos.',r:['charles','gasideal','calor']});
+G('boyle','Ley de Boyle','ga','A temperatura y cantidad de gas constantes, la presión es inversamente proporcional al volumen: P₁V₁ = P₂V₂.',
+ {e:'Al comprimir el aire de una jeringa a la mitad del volumen, su presión se duplica.',r:['presion','charles','gasideal']});
+G('charles','Ley de Charles','ga','A presión y cantidad constantes, el volumen es directamente proporcional a la temperatura absoluta: V₁/T₁ = V₂/T₂.',
+ {e:'Un globo se encoge al meterlo al congelador.',r:['temperatura','boyle','gaylussac']});
+G('gaylussac','Ley de Gay-Lussac','ga','A volumen y cantidad constantes, la presión es directamente proporcional a la temperatura absoluta: P₁/T₁ = P₂/T₂.',
+ {e:'Por eso un envase de aerosol no debe calentarse: la presión interna aumenta y puede explotar.',r:['charles','boyle','gasideal']});
+G('avogadroley','Ley de Avogadro','ga','A igual presión y temperatura, volúmenes iguales de gases contienen el mismo número de moléculas: V/n = constante.',
+ {e:'2 H₂ + O₂ → 2 H₂O(g): 2 volúmenes de H₂ reaccionan con 1 de O₂.',r:['avogadro','vmolar','gasideal']});
+G('gasideal','Gas ideal: PV = nRT','ga','Modelo en el que las partículas no se atraen y no ocupan volumen. Reúne las leyes anteriores en PV = nRT, con R = 0.08206 atm·L/(mol·K) = 8.314 J/(mol·K).',
+ {e:'¿Volumen de 2 mol a 1 atm y 300 K? V = nRT/P = 2 × 0.08206 × 300 / 1 ≈ 49.2 L.',x:'La temperatura va en kelvin y las unidades deben coincidir con las de R.',r:['boyle','charles','vmolar','gasreal']});
+G('vmolar','Volumen molar','ga','Volumen que ocupa un mol de gas. En condiciones normales (0 °C y 1 atm) vale ≈ 22.4 L/mol para un gas ideal.',
+ {e:'0.5 mol de O₂ a 0 °C y 1 atm ocupan ≈ 11.2 L.',r:['gasideal','avogadroley','mol']});
+G('daltonp','Ley de Dalton de las presiones parciales','ga','La presión total de una mezcla de gases es la suma de las presiones parciales: P_total = P₁ + P₂ + … Cada una es su fracción molar por la presión total.',
+ {e:'Aire a 1 atm: el O₂ (21 %) aporta ≈ 0.21 atm.',r:['fracmolar','presion','gasideal']});
+G('tcinetica','Teoría cinética de los gases','ga','Las partículas de un gas se mueven al azar, chocan de manera elástica y casi no se atraen; la temperatura es proporcional a su energía cinética media.',
+ {e:'Al calentar, las moléculas van más rápido y chocan más fuerte: sube la presión.',r:['presion','temperatura','difusion']});
+G('difusion','Difusión y efusión','ga','Difusión: mezcla espontánea de gases. Efusión: salida por un orificio muy pequeño. Según Graham, la rapidez es inversamente proporcional a la raíz cuadrada de la masa molar.',
+ {e:'El H₂ efunde unas 4 veces más rápido que el O₂ (√32/√2 = 4).',a:1,r:['tcinetica','masamolar']});
+G('gasreal','Gas real (van der Waals)','ga','Los gases reales se desvían del modelo ideal a presiones altas y temperaturas bajas, porque sus moléculas sí se atraen y sí ocupan volumen.',
+ {u:'Ecuación de van der Waals: (P + a·n²/V²)(V − n·b) = nRT.',a:1,r:['gasideal','imf']});
+G('pvapor','Presión de vapor','ga','Presión que ejerce el vapor en equilibrio con su líquido a una temperatura dada. Aumenta al calentar y es menor cuando las fuerzas intermoleculares son más fuertes.',
+ {e:'El éter dietílico tiene más presión de vapor que el agua: se evapora mucho más rápido.',r:['ebullicion','imf']});
+G('ebullicion','Punto de ebullición','ga','Temperatura a la que la presión de vapor de un líquido iguala la presión externa. Depende de las fuerzas intermoleculares y de la presión.',
+ {e:'El agua hierve a 100 °C a 1 atm, pero a menos temperatura en la montaña.',r:['pvapor','imf','puenteh']});
+
+/* ---- Termoquímica ---- */
+G('energia','Energía','te','Capacidad de realizar trabajo o de transferir calor. Se mide en joules (J); 1 cal = 4.184 J.',
+ {x:'Una kilocaloría de los alimentos (Cal) equivale a 1000 cal.',r:['calor','entalpia']});
+G('sistema','Sistema y alrededores','te','El sistema es la parte del universo que se estudia; los alrededores son todo lo demás. Un sistema puede ser abierto, cerrado o aislado.',
+ {e:'En una pila, el sistema es la reacción; el ambiente, los alrededores.',r:['energia','entalpia']});
+G('calor','Calor (q)','te','Energía que se transfiere entre cuerpos por una diferencia de temperatura, de lo caliente a lo frío.',
+ {x:'Calor y temperatura no son lo mismo: la temperatura mide el estado de las partículas; el calor, la energía que se transfiere.',r:['caloresp','temperatura','calorimetria']});
+G('caloresp','Calor específico','te','Energía necesaria para subir 1 °C la temperatura de 1 g de sustancia: q = m · c · ΔT. El agua tiene un valor alto: 4.184 J/(g·°C).',
+ {e:'Calentar 100 g de agua de 20 a 30 °C: q = 100 × 4.184 × 10 = 4184 J.',r:['calor','calorimetria']});
+G('calorimetria','Calorimetría','te','Medición del calor de un proceso con un calorímetro. Si no hay pérdidas: el calor que libera la reacción lo absorbe el agua (q_reacción = −q_agua).',
+ {r:['caloresp','entalpia']});
+G('entalpia','Entalpía (H) y ΔH','te','Contenido de calor de un sistema a presión constante. ΔH es el calor que se absorbe o se libera en una reacción a presión constante.',
+ {e:'CH₄ + 2 O₂ → CO₂ + 2 H₂O: ΔH = −890 kJ/mol.',r:['exotermica','endotermica','hess']});
+G('exotermica','Reacción exotérmica','te','Libera calor al entorno: ΔH < 0 y los productos tienen menos energía que los reactivos.',
+ {e:'Combustión, neutralización, oxidación de los alimentos en el cuerpo.',r:['entalpia','endotermica']});
+G('endotermica','Reacción endotérmica','te','Absorbe calor del entorno: ΔH > 0 y los productos tienen más energía que los reactivos.',
+ {e:'Fotosíntesis, descomposición del CaCO₃, compresas frías instantáneas.',r:['entalpia','exotermica']});
+G('hess','Ley de Hess','te','El ΔH de una reacción es la suma de los ΔH de los pasos en que puede dividirse, sin importar el camino: la entalpía es una función de estado.',
+ {e:'Si invierto una reacción, cambia el signo de ΔH; si la multiplico por n, también multiplico ΔH.',r:['entalpia','hform']});
+G('hform','Entalpía estándar de formación (ΔH°f)','te','Calor que se absorbe o libera al formar 1 mol de compuesto a partir de sus elementos en su estado estándar. Para los elementos puros vale 0.',
+ {u:'ΔH°reacción = Σ n·ΔH°f(productos) − Σ m·ΔH°f(reactivos).',r:['hess','entalpia']});
+G('entropia','Entropía (S)','te','Medida del desorden o del número de maneras de distribuir la energía en un sistema. Tiende a aumentar en los procesos espontáneos.',
+ {e:'Un sólido que se funde y luego se evapora gana entropía en cada paso.',r:['gibbs','espontaneo']});
+G('gibbs','Energía libre de Gibbs (G)','te','Combina entalpía y entropía: ΔG = ΔH − T·ΔS. Si ΔG < 0, el proceso es espontáneo a esa temperatura y presión.',
+ {u:'En el equilibrio ΔG = 0; además ΔG° = −RT ln K.',a:1,r:['entalpia','entropia','espontaneo']});
+G('espontaneo','Proceso espontáneo','te','El que ocurre por sí solo, sin un aporte continuo de energía externa. Espontáneo no significa rápido.',
+ {x:'El diamante se convierte espontáneamente en grafito, pero tarda millones de años.',r:['gibbs','entropia','ea']});
+G('primeraley','Primera ley de la termodinámica','te','La energía no se crea ni se destruye, solo se transforma: ΔU = q + w.',
+ {u:'q es el calor que entra al sistema y w el trabajo realizado sobre él.',a:1,r:['energia','calor']});
+
+/* ---- Cinética y equilibrio ---- */
+G('velreac','Velocidad de reacción','eq','Cuánto cambia la concentración de un reactivo o de un producto por unidad de tiempo (mol/L·s).',
+ {e:'La combustión de la pólvora es rápida; la oxidación del hierro, lenta.',r:['colisiones','ea','catalizador']});
+G('leyvel','Ley de velocidad','eq','Ecuación que relaciona la velocidad con las concentraciones: v = k[A]ᵐ[B]ⁿ. Los exponentes se determinan con experimentos.',
+ {x:'Los exponentes no salen de los coeficientes de la ecuación balanceada (salvo en los pasos elementales).',a:1,r:['ordenrx','velreac','mecanismo']});
+G('ordenrx','Orden de reacción','eq','Suma de los exponentes de la ley de velocidad; indica cómo cambia la velocidad al cambiar las concentraciones.',
+ {e:'Orden 1: si se duplica [A], la velocidad se duplica.',a:1,r:['leyvel','velreac']});
+G('colisiones','Teoría de las colisiones','eq','Para reaccionar, las partículas deben chocar con energía suficiente (≥ Ea) y con la orientación adecuada.',
+ {e:'Subir la temperatura o la concentración aumenta los choques efectivos.',r:['ea','velreac']});
+G('ea','Energía de activación (Ea)','eq','Energía mínima que deben tener los choques para que se rompan los enlaces y ocurra la reacción. Con menor Ea, la reacción es más rápida.',
+ {e:'Una cerilla necesita una chispa (Ea) para encender, aunque después libere mucho calor.',r:['catalizador','colisiones']});
+G('catalizador','Catalizador','eq','Sustancia que acelera una reacción porque ofrece un camino con menor Ea; no se consume y no cambia el equilibrio final.',
+ {e:'Convertidor catalítico de los autos (Pt, Pd, Rh); enzimas en el cuerpo.',x:'Un catalizador no hace que se forme más producto: solo se llega antes al equilibrio.',r:['ea','velreac','lechat']});
+G('mecanismo','Mecanismo de reacción','eq','Serie de pasos elementales por los que ocurre una reacción global; incluye intermediarios que aparecen y desaparecen.',
+ {a:1,r:['leyvel','ea']});
+G('reversible','Reacción reversible','eq','La que puede ocurrir en los dos sentidos; se escribe con la flecha doble ⇌.',
+ {e:'N₂ + 3 H₂ ⇌ 2 NH₃.',r:['equilibrio']});
+G('equilibrio','Equilibrio químico','eq','Estado de una reacción reversible en el que las velocidades directa e inversa son iguales: las concentraciones dejan de cambiar, aunque las reacciones siguen ocurriendo.',
+ {x:'En el equilibrio no hay «mitad y mitad»: las cantidades dependen del valor de K.',r:['kc','lechat','reversible']});
+G('kc','Constante de equilibrio (K)','eq','Cociente de las concentraciones (o presiones) de productos entre las de reactivos, cada una elevada a su coeficiente, en el equilibrio. Si K es grande, se favorecen los productos.',
+ {e:'N₂ + 3 H₂ ⇌ 2 NH₃: K = [NH₃]² / ([N₂][H₂]³).',x:'Los sólidos y líquidos puros no aparecen en la expresión de K.',r:['cocienteq','equilibrio']});
+G('cocienteq','Cociente de reacción (Q)','eq','Se calcula igual que K pero con las concentraciones de un momento cualquiera. Si Q < K la reacción avanza hacia productos; si Q > K, hacia reactivos.',
+ {r:['kc','lechat']});
+G('lechat','Principio de Le Châtelier','eq','Si se perturba un sistema en equilibrio (concentración, presión o temperatura), el sistema se desplaza para contrarrestar el cambio.',
+ {e:'Añadir N₂ al equilibrio del amoníaco desplaza la reacción hacia más NH₃.',x:'Un catalizador no desplaza el equilibrio.',r:['equilibrio','kc','catalizador']});
+G('haber','Proceso Haber-Bosch','eq','Síntesis industrial del amoníaco, N₂ + 3 H₂ ⇌ 2 NH₃, con catalizador de hierro, alta presión y unos 400–500 °C. Sostiene la producción mundial de fertilizantes.',
+ {r:['lechat','catalizador','kc']});
+
+/* ---- Ácidos y bases ---- */
+G('bronsted','Ácido y base de Brønsted–Lowry','ab','Ácido: sustancia que dona un protón (H⁺). Base: sustancia que acepta un protón.',
+ {e:'HCl + H₂O → Cl⁻ + H₃O⁺: el HCl es el ácido y el agua, la base.',r:['acido','parconj','lewisab']});
+G('lewisab','Ácido y base de Lewis','ab','Ácido: acepta un par de electrones. Base: dona un par de electrones. Es la definición más general.',
+ {e:'NH₃ (base) + BF₃ (ácido) → H₃N→BF₃, con un enlace coordinado.',r:['bronsted','coord','ligando']});
+G('parconj','Par ácido–base conjugado','ab','Pareja de especies que se diferencian en un H⁺: al ceder un protón, el ácido se convierte en su base conjugada.',
+ {e:'NH₄⁺/NH₃ y CH₃COOH/CH₃COO⁻.',x:'Cuanto más fuerte es un ácido, más débil es su base conjugada.',r:['bronsted','ka']});
+G('anfiprotica','Sustancia anfótera (anfiprótica)','ab','Puede actuar como ácido o como base, según con qué reaccione.',
+ {e:'H₂O, HCO₃⁻ y Al(OH)₃.',r:['bronsted','hidroxido']});
+G('autoion','Autoionización del agua (Kw)','ab','2 H₂O ⇌ H₃O⁺ + OH⁻. A 25 °C, Kw = [H⁺][OH⁻] = 1.0 × 10⁻¹⁴.',
+ {e:'En agua pura, [H⁺] = [OH⁻] = 1 × 10⁻⁷ M.',r:['ph','poh']});
+G('ph','pH','ab','pH = −log[H⁺]. A 25 °C: pH < 7 es ácido, pH = 7 es neutro y pH > 7 es básico.',
+ {e:'[H⁺] = 1 × 10⁻³ M → pH = 3.',x:'Bajar una unidad de pH significa 10 veces más H⁺, no «un poquito más».',r:['poh','autoion','acfuerte']});
+G('poh','pOH','ab','pOH = −log[OH⁻]. A 25 °C se cumple pH + pOH = 14.',
+ {e:'pH = 11 → pOH = 3 → [OH⁻] = 1 × 10⁻³ M.',r:['ph','autoion']});
+G('acfuerte','Ácido y base fuertes','ab','Se ionizan o disocian casi por completo en agua. Ácidos fuertes: HCl, HBr, HI, HNO₃, H₂SO₄ (primera ionización) y HClO₄. Bases fuertes: hidróxidos del grupo 1 y de Ca, Sr y Ba.',
+ {e:'0.01 M de HCl da pH = 2.',r:['acdebil','ph']});
+G('acdebil','Ácido y base débiles','ab','Solo se ionizan en parte; su equilibrio se describe con Ka (ácidos) o Kb (bases).',
+ {e:'CH₃COOH, HF y NH₃.',x:'Débil no significa diluido: un ácido débil puede estar muy concentrado.',r:['ka','acfuerte']});
+G('ka','Constante de acidez (Ka)','ab','Ka = [H⁺][A⁻] / [HA]. Mientras mayor es Ka, más fuerte es el ácido. Para un par conjugado, Ka · Kb = Kw.',
+ {u:'pKa = −log Ka. Cuando pH = pKa, [A⁻] = [HA].',a:1,r:['acdebil','parconj','hendersonh']});
+G('neutral','Neutralización','ab','Reacción entre un ácido y una base que produce una sal y agua.',
+ {e:'HCl + NaOH → NaCl + H₂O.',r:['acido','hidroxido','titulacion']});
+G('titulacion','Titulación (valoración)','ab','Técnica para hallar la concentración de una disolución añadiendo otra de concentración conocida hasta el punto de equivalencia, que suele detectarse con un indicador.',
+ {e:'Vinagre con NaOH y fenolftaleína: el cambio a rosa marca el final.',r:['neutral','indicador','molaridad']});
+G('indicador','Indicador ácido–base','ab','Sustancia que cambia de color según el pH de la disolución.',
+ {e:'Fenolftaleína: incolora en medio ácido y rosa en medio básico. Papel tornasol: rojo en ácido, azul en base.',r:['ph','titulacion']});
+G('buffer','Disolución amortiguadora (buffer)','ab','Mezcla de un ácido débil y su base conjugada (o al revés) que resiste los cambios bruscos de pH al añadir pequeñas cantidades de ácido o base.',
+ {e:'La sangre mantiene su pH cerca de 7.4 gracias al par H₂CO₃/HCO₃⁻.',r:['parconj','hendersonh','ph']});
+G('hendersonh','Ecuación de Henderson–Hasselbalch','ab','pH = pKa + log([A⁻]/[HA]). Permite calcular el pH de una disolución amortiguadora.',
+ {a:1,r:['buffer','ka']});
+G('hidrolisis','Hidrólisis de sales','ab','Reacción de un ion de una sal con el agua que cambia el pH: las sales de ácido débil y base fuerte dan disoluciones básicas; las de ácido fuerte y base débil, ácidas.',
+ {e:'Na₂CO₃ en agua da una disolución básica (el CO₃²⁻ toma H⁺ del agua).',a:1,r:['sal','acdebil']});
+
+/* ---- Redox y electroquímica ---- */
+G('redox','Reacción redox','rd','Reacción en la que se transfieren electrones: una especie se oxida y otra se reduce, siempre juntas.',
+ {e:'Zn + Cu²⁺ → Zn²⁺ + Cu.',r:['oxidacion','reduccion','noxid']});
+G('oxidacion','Oxidación','rd','Pérdida de electrones; aumenta el número de oxidación.',
+ {e:'Zn → Zn²⁺ + 2 e⁻.',x:'Regla para recordar: «el que pierde, oxida».',r:['reduccion','agred']});
+G('reduccion','Reducción','rd','Ganancia de electrones; disminuye el número de oxidación.',
+ {e:'Cu²⁺ + 2 e⁻ → Cu.',r:['oxidacion','agoxid']});
+G('agoxid','Agente oxidante','rd','La especie que se reduce y por eso provoca la oxidación de otra: gana electrones.',
+ {e:'O₂, Cl₂, KMnO₄, H₂O₂.',r:['reduccion','agred']});
+G('agred','Agente reductor','rd','La especie que se oxida y por eso provoca la reducción de otra: cede electrones.',
+ {e:'Metales como Zn o Na, y el H₂.',r:['oxidacion','agoxid']});
+G('semirx','Semirreacción','rd','Mitad de una reacción redox que muestra solo la oxidación o solo la reducción, con los electrones.',
+ {e:'Oxidación: Zn → Zn²⁺ + 2 e⁻. Reducción: Cu²⁺ + 2 e⁻ → Cu.',r:['redox','pila']});
+G('pila','Celda galvánica (pila)','rd','Dispositivo que produce corriente eléctrica a partir de una reacción redox espontánea, con dos electrodos y un puente salino.',
+ {e:'Pila Daniell: Zn | Zn²⁺ ‖ Cu²⁺ | Cu, de 1.10 V.',r:['anodo','catodo','puentesalino']});
+G('anodo','Ánodo','rd','Electrodo donde ocurre la oxidación. En una pila es el polo negativo.',
+ {x:'«Ánodo = oxidación» y «cátodo = reducción» en cualquier celda, galvánica o electrolítica.',r:['catodo','oxidacion','pila']});
+G('catodo','Cátodo','rd','Electrodo donde ocurre la reducción. En una pila es el polo positivo.',
+ {r:['anodo','reduccion','pila']});
+G('puentesalino','Puente salino','rd','Conecta las dos semiceldas y deja pasar iones para mantener la neutralidad eléctrica de cada una.',
+ {r:['pila','semirx']});
+G('potred','Potencial estándar de reducción (E°)','rd','Tendencia de una especie a reducirse, medida en volts respecto del electrodo estándar de hidrógeno (0 V). E°celda = E°cátodo − E°ánodo.',
+ {e:'Cu²⁺/Cu: +0.34 V; Zn²⁺/Zn: −0.76 V → pila Daniell: 0.34 − (−0.76) = 1.10 V.',r:['pila','serieact','nernst']});
+G('serieact','Serie de actividad de los metales','rd','Orden de los metales según su facilidad para oxidarse. Un metal desplaza de sus disoluciones a los que están debajo de él.',
+ {e:'Fe + CuSO₄ → FeSO₄ + Cu (el hierro desplaza al cobre).',r:['redox','potred']});
+G('electrolisis','Electrólisis','rd','Uso de corriente eléctrica para forzar una reacción redox que no es espontánea.',
+ {e:'2 H₂O → 2 H₂ + O₂; cromado y obtención de aluminio.',r:['pila','faraday']});
+G('faraday','Leyes de Faraday','rd','La cantidad de sustancia producida en un electrodo es proporcional a la carga que circula: m = M·I·t / (n·F), con F = 96 485 C/mol de e⁻.',
+ {a:1,r:['electrolisis']});
+G('corrosion','Corrosión','rd','Oxidación espontánea de un metal por su ambiente. El hierro con O₂ y humedad forma herrumbre (óxido de hierro hidratado).',
+ {e:'Se protege con pintura, galvanizado (zinc) o ánodos de sacrificio.',r:['redox','serieact']});
+G('nernst','Ecuación de Nernst','rd','Corrige el potencial de una celda cuando las concentraciones no son estándar: E = E° − (0.0592/n)·log Q, a 25 °C.',
+ {a:1,r:['potred','cocienteq']});
+G('desproporcion','Desproporción','rd','Reacción en la que una misma especie se oxida y se reduce a la vez.',
+ {e:'2 H₂O₂ → 2 H₂O + O₂.',a:1,r:['redox','peroxido']});
+
+/* ---- Química orgánica ---- */
+G('organica','Química orgánica','or','Estudio de los compuestos del carbono (salvo unos pocos como CO, CO₂ y los carbonatos).',
+ {e:'Combustibles, plásticos, medicinas y los seres vivos.',r:['hidrocarburo','grupofunc']});
+G('hidrocarburo','Hidrocarburo','or','Compuesto formado solo por carbono e hidrógeno.',
+ {e:'CH₄, C₂H₄ y C₆H₆.',r:['alcano','alqueno','alquino','aromatico']});
+G('alcano','Alcano','or','Hidrocarburo con solo enlaces sencillos; fórmula CₙH₂ₙ₊₂. Nombres: met-, et-, prop-, but-, pent-, hex-, hept-, oct-, non-, dec- + «-ano».',
+ {e:'CH₄ metano; C₃H₈ propano; C₆H₁₄ hexano.',r:['hidrocarburo','isomero']});
+G('alqueno','Alqueno','or','Hidrocarburo con al menos un doble enlace C=C; con uno solo, su fórmula es CₙH₂ₙ. Terminación «-eno».',
+ {e:'Eteno (etileno), C₂H₄.',r:['hidrocarburo','alquino','polimero']});
+G('alquino','Alquino','or','Hidrocarburo con un triple enlace C≡C; con uno solo, su fórmula es CₙH₂ₙ₋₂. Terminación «-ino».',
+ {e:'Etino (acetileno), C₂H₂, que se usa en la soldadura.',r:['hidrocarburo','alqueno']});
+G('aromatico','Compuesto aromático','or','Contiene un anillo con electrones deslocalizados, como el benceno (C₆H₆), muy estable.',
+ {r:['hidrocarburo','resonancia']});
+G('grupofunc','Grupo funcional','or','Átomo o grupo de átomos que da a la molécula sus propiedades químicas características.',
+ {e:'–OH (alcohol), –CHO (aldehído), –COOH (ácido carboxílico).',r:['alcohol','aldehido','cetona','acidocarb']});
+G('alcohol','Alcohol','or','Tiene un grupo –OH unido a un carbono saturado; terminación «-ol».',
+ {e:'Etanol, CH₃CH₂OH.',r:['grupofunc','eter']});
+G('aldehido','Aldehído','or','Tiene un carbonilo (C=O) en el extremo de la cadena (–CHO); terminación «-al».',
+ {e:'Metanal (formaldehído).',r:['cetona','grupofunc']});
+G('cetona','Cetona','or','Tiene un carbonilo (C=O) en medio de la cadena; terminación «-ona».',
+ {e:'Propanona (acetona).',r:['aldehido','grupofunc']});
+G('acidocarb','Ácido carboxílico','or','Tiene el grupo –COOH; terminación «-oico».',
+ {e:'Ácido etanoico (acético), el del vinagre.',r:['ester','grupofunc']});
+G('ester','Éster','or','Derivado de un ácido carboxílico y un alcohol: R–COO–R\'. Muchos huelen a fruta.',
+ {e:'Acetato de etilo.',r:['acidocarb','alcohol']});
+G('eter','Éter','or','Oxígeno unido a dos grupos orgánicos: R–O–R\'.',
+ {e:'Éter dietílico.',r:['alcohol','grupofunc']});
+G('amina','Amina','or','Derivado del amoníaco en el que uno o más H se reemplazan por grupos orgánicos.',
+ {e:'Metilamina, CH₃NH₂.',r:['amida','grupofunc']});
+G('amida','Amida','or','Grupo –CONH₂: un carbonilo unido a nitrógeno. Forma los enlaces peptídicos de las proteínas.',
+ {e:'Acetamida; el nailon es una poliamida.',r:['amina','polimero']});
+G('isomero','Isómeros','or','Compuestos con la misma fórmula molecular pero distinta estructura o distribución en el espacio.',
+ {e:'C₄H₁₀: butano e isobutano.',r:['alcano','molecula']});
+G('polimero','Polímero y monómero','or','Un polímero es una molécula muy grande formada por la unión repetida de moléculas pequeñas llamadas monómeros.',
+ {e:'Etileno → polietileno; glucosa → almidón; aminoácidos → proteínas.',r:['alqueno','amida']});
+
+/* ---- Materia y laboratorio ---- */
+G('materia','Materia','mt','Todo lo que tiene masa y ocupa un lugar en el espacio.',
+ {r:['estados','sustpura']});
+G('estados','Estados de la materia','mt','Sólido, líquido y gas (y plasma). Difieren en la distancia y en el movimiento de sus partículas.',
+ {e:'En un sólido las partículas vibran en posiciones fijas; en un gas se mueven libremente.',r:['cambioestado','tcinetica']});
+G('cambioestado','Cambios de estado','mt','Fusión, solidificación, vaporización, condensación, sublimación y depósito. Ocurren al ganar o perder energía.',
+ {e:'El hielo seco sublima: pasa de sólido a gas sin volverse líquido.',r:['estados','ebullicion']});
+G('sustpura','Sustancia pura','mt','Materia de composición fija: un elemento o un compuesto.',
+ {e:'Agua destilada, oro, sal de mesa.',r:['mezcla','elemento','compuesto']});
+G('mezcla','Mezcla homogénea y heterogénea','mt','Dos o más sustancias sin unirse químicamente. En la homogénea se ve una sola fase (disolución); en la heterogénea, varias.',
+ {e:'Aire (homogénea); granito (heterogénea).',r:['disolucion','sustpura','coloide']});
+G('coloide','Coloide y efecto Tyndall','mt','Mezcla en la que partículas muy pequeñas (1–1000 nm) quedan dispersas sin sedimentar; por eso dispersa la luz (efecto Tyndall).',
+ {e:'Leche, niebla, gelatina.',r:['mezcla','disolucion']});
+G('propfisqui','Propiedad física y química','mt','Física: se mide sin cambiar la identidad de la sustancia (densidad, punto de fusión). Química: describe cómo reacciona (inflamabilidad).',
+ {r:['cambiofq','intextensiva']});
+G('intextensiva','Propiedad intensiva y extensiva','mt','Intensiva: no depende de la cantidad de materia (densidad, color). Extensiva: sí depende (masa, volumen).',
+ {r:['propfisqui','densidad']});
+G('densidad','Densidad','mt','Masa por unidad de volumen: ρ = m / V.',
+ {e:'Agua: 1.00 g/mL; hierro: 7.87 g/mL.',x:'Un objeto flota si su densidad es menor que la del líquido, sin importar su tamaño.',r:['intextensiva','masaat']});
+G('cambiofq','Cambio físico y cambio químico','mt','En un cambio físico la sustancia sigue siendo la misma (fusión); en uno químico se forman sustancias nuevas (combustión).',
+ {e:'Señales de cambio químico: burbujas, color, luz, calor o un precipitado.',r:['propfisqui','ecuacion']});
+G('cifras','Cifras significativas','mt','Dígitos confiables de una medida más el primero incierto. Indican la precisión con que se midió.',
+ {x:'Los ceros a la izquierda no cuentan: 0.0045 tiene 2 cifras significativas.',r:['exactitud','notacion']});
+G('exactitud','Exactitud y precisión','mt','Exactitud: qué tan cerca está una medida del valor verdadero. Precisión: qué tan cerca están entre sí varias medidas.',
+ {r:['cifras']});
+G('notacion','Notación científica','mt','Forma de escribir números muy grandes o muy pequeños como a × 10ⁿ, con 1 ≤ a < 10.',
+ {e:'0.00052 = 5.2 × 10⁻⁴; el número de Avogadro: 6.022 × 10²³.',r:['cifras','avogadro']});
+G('filtracion','Filtración y decantación','mt','Separan un sólido insoluble de un líquido: la filtración usa un filtro; la decantación deja que el sólido sedimente y se vierte el líquido.',
+ {r:['destilacion','mezcla']});
+G('destilacion','Destilación','mt','Separa líquidos con distintos puntos de ebullición: se evapora el más volátil y su vapor se condensa aparte.',
+ {e:'Obtención de alcohol a partir de una mezcla con agua; refinación del petróleo.',r:['ebullicion','filtracion','cromatografia']});
+G('cromatografia','Cromatografía','mt','Separa los componentes de una mezcla porque viajan a distinta rapidez sobre una fase fija.',
+ {e:'La tinta negra en papel filtro se separa en varios colores.',r:['destilacion','mezcla']});
+G('iupac','IUPAC','no','Unión Internacional de Química Pura y Aplicada: establece las reglas oficiales de nomenclatura y de símbolos y unidades.',
+ {r:['stock','sistem','trad']});
 
 /* ===== lecciones ===== */
 const TL1=[['1803','Dalton: átomos como esferas','Propone que la materia está formada por átomos indivisibles, iguales entre sí para cada elemento.'],
@@ -3190,22 +3586,357 @@ const MODS=[
  {id:'atomo',t:'Átomo e isótopos',d:'Partículas, isótopos, masa atómica y radiactividad.',ic:'<circle cx="12" cy="12" r="2"/><ellipse cx="12" cy="12" rx="9" ry="3.5"/><ellipse cx="12" cy="12" rx="9" ry="3.5" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9" ry="3.5" transform="rotate(120 12 12)"/>'},
  {id:'tend',t:'Tendencias periódicas',d:'Zef, radio, energía de ionización, afinidad y electronegatividad.',ic:'<path d="M4 20V4M4 20h16M7 16l4-5 3 3 5-8"/>'},
  {id:'cfg',t:'Configuración electrónica',d:'Orbitales, Aufbau, Pauli, Hund, excepciones, iones y magnetismo.',ic:'<rect x="3" y="13" width="5" height="7" rx="1.2"/><rect x="9.5" y="13" width="5" height="7" rx="1.2"/><rect x="16" y="13" width="5" height="7" rx="1.2"/><path d="M5.5 18v-3.5M3.9 16l1.6-1.8L7.1 16M12 14.5V18M10.4 16.5L12 18l1.6-1.5"/><path d="M12 3v6M9 6l3-3 3 3"/>'}];
+/* ===== lecciones nuevas: cubren toda la ruta de química general ===== */
+const LX={p:h=>({t:'p',h}),h:h=>({t:'h',h}),k:h=>({t:'key',h}),w:h=>({t:'warn',h}),q:(q,o,ex)=>({t:'q',q,o,ex}),t:(head,rows)=>({t:'tab',head,rows}),e:(p,s,r)=>({t:'ex',p,s,r}),s:(id)=>({t:'sim',id,pre:{}}),u:b=>Object.assign(b,{u:1}),i:(q,o,ex)=>({q,o,ex}),
+ L:(id,m,n,t,min,obj,pre,exp,lrn,ejm,prc)=>({id,m,n,t,min,obj,steps:[{k:'Predice',b:pre},{k:'Explora',b:exp},{k:'Aprende',b:lrn},{k:'Ejemplo',b:ejm},{k:'Practica',b:[{t:'chk',qs:prc}]}]})};
+const NEWMODS=[
+ {id:'enl',t:'Octeto, enlaces y moléculas',d:'Iones, tipos de enlace, enlace coordinado, geometría y fuerzas intermoleculares.',ic:'<circle cx="7" cy="12" r="4.5"/><circle cx="17" cy="12" r="4.5"/>'},
+ {id:'est',t:'Cantidades y reacciones',d:'Mol, masa molar, balanceo, estequiometría y reactivo limitante.',ic:'<path d="M5 20h14M8 20V9l4-6 4 6v11M10 14h4"/>'},
+ {id:'dis',t:'Disoluciones y gases',d:'Concentración, dilución y leyes de los gases.',ic:'<path d="M9 3h6M10 3v5L5.5 17A2.4 2.4 0 0 0 7.7 20.5h8.6A2.4 2.4 0 0 0 18.5 17L14 8V3"/><path d="M7.5 14h9"/>'},
+ {id:'ene',t:'Energía, velocidad y equilibrio',d:'Termoquímica, cinética, equilibrio y Le Châtelier.',ic:'<path d="M12 3c2.5 3 5 5 5 9a5 5 0 0 1-10 0c0-2 1-3.4 2-4.6.5 1.4 1.5 2 2.5 2C11.5 7.6 11 5.4 12 3z"/>'},
+ {id:'aci',t:'Ácidos, bases y redox',d:'pH, fuerza de ácidos, amortiguadores, pilas y electrólisis.',ic:'<path d="M13 3L5 13h6l-1 8 8-10h-6z"/>'},
+ {id:'org',t:'Química orgánica básica',d:'Hidrocarburos, nomenclatura de alcanos y grupos funcionales.',ic:'<path d="M12 3l7 4v8l-7 4-7-4V7z"/><path d="M12 8v8M8 10l8 4" opacity=".6"/>'}];
+const NEWLES=[];
+
+/* ---------- Octeto e iones ---------- */
+NEWLES.push(LX.L('e1','enl',1,'Regla del octeto e iones',12,
+ ['Enunciar la regla del octeto y sus excepciones más comunes.','Predecir la carga típica de un ion según su grupo.','Nombrar cationes y aniones sencillos.'],
+ [LX.q(`¿Por qué crees que el sodio tiende a formar Na⁺ y el cloro Cl⁻?`,[`Así cada uno queda con 8 electrones en su capa externa, como un gas noble`,`Porque el sodio es más pesado que el cloro`,`Porque el cloro tiene más protones y los atrae todos`,`Porque los metales siempre ganan electrones`],`Ambos iones tienen la configuración de un gas noble (Na⁺ como el neón; Cl⁻ como el argón), que es muy estable.`),
+  LX.q(`¿Qué carga esperas para el ion del magnesio (grupo 2)?`,[`2+`,`1+`,`2−`,`1−`],`Tiene 2 electrones de valencia y los pierde para quedar con un octeto: Mg²⁺.`)],
+ [LX.p(`Abre el laboratorio de la regla del octeto: mueve electrones y observa qué iones se forman. <button class="btn" data-go="o">Abrir el laboratorio</button>`),
+  LX.q(`¿Cuántos electrones debe ganar el azufre (grupo 16) para completar el octeto?`,[`2`,`6`,`8`,`1`],`El azufre tiene 6 electrones de valencia: le faltan 2 para llegar a 8, y forma S²⁻.`)],
+ [LX.h(`Capa de valencia completa = estabilidad`),
+  LX.p(`Los átomos tienden a quedar con <b>8 electrones</b> en su capa de valencia (2 en el caso del H y del He): es la <b>[[octeto|regla del octeto]]</b>. Para lograrlo, ganan, pierden o comparten electrones.`),
+  LX.t([`Grupo`,`Electrones de valencia`,`Tendencia`,`Ion típico`],[[`1`,`1`,`Pierde 1`,`1+ (Na⁺)`],[`2`,`2`,`Pierde 2`,`2+ (Mg²⁺)`],[`13`,`3`,`Pierde 3`,`3+ (Al³⁺)`],[`15`,`5`,`Gana 3`,`3− (N³⁻)`],[`16`,`6`,`Gana 2`,`2− (O²⁻)`],[`17`,`7`,`Gana 1`,`1− (Cl⁻)`],[`18`,`8`,`Ya está completo`,`No forma iones`]]),
+  LX.k(`Un metal pierde electrones y forma un [[cation|catión]]; un no metal los gana y forma un [[anion|anión]]. Los aniones monoatómicos terminan en <b>-uro</b> (cloruro, sulfuro); el oxígeno es «óxido».`),
+  LX.w(`Error común: creer que los átomos «quieren» completar el octeto. Es un modelo: los electrones se reacomodan porque así baja la energía del sistema.`),
+  LX.p(`Hay [[exoctet|excepciones]]: el H y el Li (dúo), el Be y el B (menos de 8) y los elementos del periodo 3 en adelante, que pueden «expandir» el octeto (SF₆, PCl₅).`),
+  LX.u(LX.p(`Los metales de transición forman cationes con varias cargas (Fe²⁺, Fe³⁺): pierden primero los electrones <i>s</i> de la capa más externa.`))],
+ [LX.e(`¿Qué ion forma el calcio y cómo se llama?`,[`El Ca está en el grupo 2: tiene 2 electrones de valencia.`,`Pierde 2 electrones y queda con la configuración del argón.`,`Su carga es +2.`],`Ca²⁺, catión calcio.`),
+  LX.e(`¿Qué ion forma el azufre?`,[`Grupo 16: 6 electrones de valencia.`,`Necesita 2 más para llegar a 8.`,`Gana 2 electrones y queda con carga −2.`],`S²⁻, ion sulfuro (isoelectrónico con el argón).`)],
+ [LX.i(`¿Qué ion forma el aluminio (grupo 13)?`,[`Al³⁺`,`Al³⁻`,`Al⁺`,`Al²⁻`],`Pierde sus 3 electrones de valencia.`),
+  LX.i(`¿Cómo se llama el ion Br⁻?`,[`Bromuro`,`Bromo`,`Bromato`,`Brómico`],`Los aniones monoatómicos terminan en «-uro».`),
+  LX.i(`¿Qué elemento NO suele formar iones?`,[`Argón`,`Sodio`,`Oxígeno`,`Calcio`],`El argón (gas noble) ya tiene el octeto completo.`),
+  LX.i(`¿Cuál es una excepción al octeto?`,[`BF₃`,`NaCl`,`H₂O`,`CH₄`],`El boro queda con 6 electrones en el BF₃.`)]));
+
+/* ---------- Enlaces ---------- */
+NEWLES.push(LX.L('e2','enl',2,'Enlaces: iónico, covalente y metálico',14,
+ ['Distinguir los tres tipos de enlace según los elementos que se combinan.','Relacionar el tipo de enlace con las propiedades (punto de fusión, conductividad).','Usar la diferencia de electronegatividad como guía.'],
+ [LX.q(`¿Qué esperas de un sólido formado por un metal y un no metal, como el NaCl?`,[`Punto de fusión alto, y conduce la corriente solo fundido o disuelto`,`Es blando y siempre conduce la electricidad`,`Es un gas a temperatura ambiente`,`Es un metal brillante y maleable`],`Los sólidos iónicos son cristales duros y frágiles, con puntos de fusión altos; los iones solo se mueven al fundirse o disolverse.`),
+  LX.q(`¿Qué tipo de enlace hay entre H y O en el agua?`,[`Covalente polar`,`Iónico`,`Metálico`,`No hay enlace`],`Son dos no metales que comparten electrones, pero el oxígeno atrae más al par.`)],
+ [LX.p(`Mide la diferencia de electronegatividad entre dos elementos y mira hacia dónde se desplaza el par de electrones.`),LX.s('den'),
+  LX.q(`Con ΔEN ≈ 0 (por ejemplo H–H), ¿qué esperas?`,[`Covalente apolar: el par se comparte por igual`,`Iónico`,`Covalente polar con δ⁺ y δ⁻`,`Metálico`],`Con átomos iguales, nadie atrae más al par.`)],
+ [LX.h(`Tres modelos de enlace`),
+  LX.t([`Enlace`,`Entre…`,`Qué pasa con los electrones`,`Ejemplos`],[[`Iónico`,`Metal + no metal`,`Se transfieren`,`NaCl, MgO`],[`Covalente`,`No metal + no metal`,`Se comparten`,`H₂O, CO₂, CH₄`],[`Metálico`,`Metal + metal`,`Forman un mar de electrones deslocalizados`,`Cu, Fe, Al`]]),
+  LX.p(`La diferencia de electronegatividad ([[en|EN]]) sirve de guía: ΔEN &lt; 0.4 casi apolar; entre 0.4 y 1.7 covalente polar; &gt; 1.7 predomina el carácter iónico. Es una guía, no una frontera exacta.`),
+  LX.t([`Propiedad`,`Iónico`,`Covalente molecular`,`Metálico`],[[`Estado a 25 °C`,`Sólido cristalino`,`Gas, líquido o sólido blando`,`Sólido (excepto Hg)`],[`Punto de fusión`,`Alto`,`Bajo`,`Variable, en general alto`],[`Conduce la electricidad`,`Solo fundido o disuelto`,`No (con pocas excepciones)`,`Sí, siempre`],[`Al golpearlo`,`Se rompe (frágil)`,`Blando o quebradizo`,`Se deforma (maleable)`]]),
+  LX.k(`Iónico = transferencia; covalente = compartición; metálico = mar de electrones.`),
+  LX.w(`Piensa en un continuo, no en dos cajas: el AlCl₃ y muchos hidruros tienen carácter iónico y covalente a la vez.`),
+  LX.u(LX.p(`Los sólidos iónicos se estabilizan por su [[reticular|energía reticular]], que crece con la carga y baja con el tamaño de los iones: el MgO (2+/2−) funde a 2852 °C y el NaCl a 801 °C.`))],
+ [LX.e(`¿Qué tipo de enlace hay en el KBr? (EN: K = 0.82; Br = 2.96)`,[`K es un metal y Br un no metal.`,`ΔEN = 2.96 − 0.82 = 2.14.`,`Es mayor que 1.7.`],`Iónico: K⁺ y Br⁻.`),
+  LX.e(`¿Y en el enlace C–H? (EN: C = 2.55; H = 2.20)`,[`ΔEN = 2.55 − 2.20 = 0.35.`,`Es menor que 0.4.`],`Covalente casi apolar.`)],
+ [LX.i(`¿Qué enlace tiene el Cu?`,[`Metálico`,`Iónico`,`Covalente polar`,`Dativo`],`Un metal puro forma un mar de electrones.`),
+  LX.i(`¿Cuál conduce la corriente en estado sólido?`,[`El cobre`,`El NaCl`,`El azúcar`,`El hielo`],`Solo los metales conducen estando sólidos.`),
+  LX.i(`ΔEN = 2.0 sugiere un enlace…`,[`Predominantemente iónico`,`Covalente apolar`,`Metálico`,`Covalente casi apolar`],`Mayor a 1.7: carácter iónico.`),
+  LX.i(`En una molécula de O₂ el enlace es…`,[`Covalente apolar`,`Iónico`,`Covalente polar`,`Metálico`],`Dos átomos iguales comparten el par por igual.`)]));
+
+/* ---------- Enlace coordinado ---------- */
+NEWLES.push(LX.L('e3','enl',3,'Enlace coordinado (dativo)',12,
+ ['Reconocer un enlace coordinado y dibujarlo con una flecha.','Identificar al donador y al aceptor del par de electrones.','Reconocer iones complejos y ligandos comunes.'],
+ [LX.q(`¿De dónde provienen los dos electrones de un enlace dativo?`,[`De un solo átomo, el donador`,`De los dos átomos, uno cada uno`,`Del núcleo`,`De los neutrones`],`En un enlace coordinado, un átomo aporta el par completo.`),
+  LX.q(`El amoníaco (NH₃) tiene un par libre. ¿Qué puede hacer con él?`,[`Compartirlo con un H⁺ y formar NH₄⁺`,`Perderlo y formar un catión`,`Nada: los pares libres no reaccionan`,`Convertirlo en neutrones`],`Por eso el NH₃ es una base: dona su par al H⁺.`)],
+ [LX.p(`Arma el ion amonio paso a paso en el laboratorio de enlace coordinado. <button class="btn" data-go="c">Abrir el laboratorio</button>`),
+  LX.q(`En NH₃ + H⁺ → NH₄⁺, ¿quién es la base de Lewis?`,[`El NH₃, que dona el par`,`El H⁺, que dona el par`,`Los dos`,`Ninguno`],`La base de Lewis es la especie que dona el par de electrones.`)],
+ [LX.p(`Un [[coord|enlace coordinado]] (o dativo) es un enlace covalente en el que <b>los dos electrones</b> los aporta un solo átomo, el <b>donador</b>. El otro, el <b>aceptor</b>, tiene un orbital vacío. Se dibuja con una flecha que apunta al aceptor.`),
+  LX.k(`Una vez formado, un enlace coordinado es igual a cualquier otro enlace covalente: en el NH₄⁺ los cuatro enlaces N–H son idénticos.`),
+  LX.t([`Donador (base de Lewis)`,`Aceptor (ácido de Lewis)`,`Resultado`],[[`NH₃`,`H⁺`,`NH₄⁺ (ion amonio)`],[`H₂O`,`H⁺`,`H₃O⁺ (ion hidronio)`],[`NH₃`,`BF₃`,`H₃N→BF₃`],[`NH₃`,`Cu²⁺`,`[Cu(NH₃)₄]²⁺ (azul intenso)`],[`CO`,`Ni`,`Ni(CO)₄`]]),
+  LX.p(`En un ion complejo, el metal central acepta pares de varios [[ligando|ligandos]]. El número de enlaces que forma es el [[ncoord|número de coordinación]] (generalmente 4 o 6).`),
+  LX.w(`Error común: pensar que el enlace dativo es «más débil» o «de otro tipo». Solo cambia el origen de los electrones.`),
+  LX.u(LX.p(`El [Fe(CN)₆]⁴⁻ tiene número de coordinación 6 y geometría octaédrica. Ligandos de campo fuerte, como el CN⁻ y el CO, dan complejos de bajo espín.`))],
+ [LX.e(`¿Qué carga tiene el ion complejo [Cu(NH₃)₄] si el metal es Cu²⁺?`,[`El NH₃ es neutro: aporta carga 0.`,`La carga total es la del metal: +2.`],`[Cu(NH₃)₄]²⁺`),
+  LX.e(`Explica cómo se forma el H₃O⁺.`,[`El H₂O tiene dos pares libres en el oxígeno.`,`Un par se comparte con el H⁺, que no aporta electrones.`,`El oxígeno queda con 3 enlaces y un par libre: carga +1.`],`H₂O + H⁺ → H₃O⁺`)],
+ [LX.i(`El aceptor de un enlace dativo debe tener…`,[`Un orbital vacío`,`Un par libre`,`Carga negativa`,`Muchos neutrones`],`El aceptor recibe el par en un orbital vacío.`),
+  LX.i(`En NH₄⁺, ¿cuántos enlaces N–H son coordinados?`,[`Uno, pero es igual a los demás`,`Cuatro`,`Ninguno`,`Tres`],`Un enlace se formó por dativo, pero ya son indistinguibles.`),
+  LX.i(`Los ligandos…`,[`Donan pares de electrones al metal`,`Aceptan pares del metal`,`Son siempre neutros`,`No se unen al metal`],`Son bases de Lewis.`),
+  LX.i(`El número de coordinación del [Cu(NH₃)₄]²⁺ es…`,[`4`,`2`,`1`,`6`],`Hay 4 ligandos unidos al cobre.`)]));
+
+/* ---------- Geometría molecular y polaridad ---------- */
+NEWLES.push(LX.L('e4','enl',4,'Geometría molecular y polaridad',16,
+ ['Predecir la geometría con VSEPR (dominios de electrones).','Distinguir entre geometría electrónica y geometría molecular.','Decidir si una molécula es polar o apolar.'],
+ [LX.q(`¿Por qué el CO₂ es lineal y el H₂O es angular?`,[`El O del agua tiene dos pares libres que empujan a los enlaces`,`El CO₂ es más pesado`,`El agua tiene más átomos`,`Por el color de los átomos`],`Los pares libres también cuentan como dominios de electrones y se repelen.`),
+  LX.q(`El CO₂ tiene enlaces C=O polares. ¿La molécula es polar?`,[`No: por su forma lineal, los dipolos se cancelan`,`Sí, siempre`,`Solo si está disuelta`,`Depende de la temperatura`],`Dos dipolos iguales y opuestos suman cero.`)],
+ [LX.p(`Elige cuántos pares de enlace y cuántos pares libres tiene el átomo central, y observa la forma de la molécula.`),LX.s('vsepr'),
+  LX.q(`Con 3 pares de enlace y 1 par libre (AX₃E), ¿qué forma esperas?`,[`Piramidal trigonal`,`Plana trigonal`,`Tetraédrica`,`Angular`],`Son 4 dominios, pero uno es par libre: queda una pirámide, como el NH₃.`)],
+ [LX.p(`Según [[vsepr|VSEPR]], los pares de electrones alrededor del átomo central se repelen y se acomodan lo más lejos posible. Se cuentan los <b>dominios de electrones</b>: cada enlace (sencillo, doble o triple) cuenta 1, y cada par libre cuenta 1.`),
+  LX.t([`Dominios`,`Pares libres`,`Geometría molecular`,`Ángulo`,`Ejemplo`],[[`2`,`0`,`Lineal`,`180°`,`CO₂, BeCl₂`],[`3`,`0`,`Plana trigonal`,`120°`,`BF₃`],[`3`,`1`,`Angular`,`&lt; 120°`,`SO₂`],[`4`,`0`,`Tetraédrica`,`109.5°`,`CH₄`],[`4`,`1`,`Piramidal trigonal`,`≈ 107°`,`NH₃`],[`4`,`2`,`Angular`,`≈ 104.5°`,`H₂O`],[`5`,`0`,`Bipiramidal trigonal`,`90° y 120°`,`PCl₅`],[`6`,`0`,`Octaédrica`,`90°`,`SF₆`]]),
+  LX.k(`Los pares libres ocupan más espacio que los de enlace y cierran un poco los ángulos: por eso NH₃ ≈ 107° y H₂O ≈ 104.5°, no 109.5°.`),
+  LX.p(`Una molécula es [[polmol|polar]] si tiene enlaces polares y su geometría no cancela los dipolos: hay un <b>momento dipolar</b> neto.`),
+  LX.t([`Molécula`,`Enlaces polares`,`Geometría`,`¿Polar?`],[[`CO₂`,`Sí`,`Lineal: se cancelan`,`No`],[`H₂O`,`Sí`,`Angular: no se cancelan`,`Sí`],[`CH₄`,`Casi apolares`,`Tetraédrica`,`No`],[`CHCl₃`,`Sí`,`Tetraedro distorsionado`,`Sí`],[`CCl₄`,`Sí`,`Tetraédrica: se cancelan`,`No`]]),
+  LX.w(`Error común: «enlaces polares = molécula polar». Hay que ver la geometría: el CO₂ y el CCl₄ tienen enlaces polares y son apolares.`),
+  LX.u(LX.p(`Con 5 y 6 dominios y pares libres aparecen formas como el balancín (SF₄), la T (ClF₃), la plana cuadrada (XeF₄) y la pirámide cuadrada (BrF₅).`))],
+ [LX.e(`Predice la geometría y la polaridad del NH₃.`,[`El N (grupo 15) tiene 5 electrones de valencia: 3 pares de enlace y 1 par libre.`,`Son 4 dominios con 1 par libre: geometría piramidal trigonal.`,`Los dipolos N–H no se cancelan: hay un dipolo neto.`],`Piramidal trigonal, polar.`),
+  LX.e(`Predice la geometría del SO₂.`,[`El S tiene 6 electrones de valencia y forma 2 enlaces dobles con los O: 2 pares de enlace y 1 par libre.`,`Son 3 dominios con 1 par libre.`,`La forma es angular (≈ 119°).`],`Angular, polar.`)],
+ [LX.i(`Geometría del CH₄`,[`Tetraédrica`,`Plana cuadrada`,`Piramidal`,`Lineal`],`4 dominios y 0 pares libres.`),
+  LX.i(`Geometría del H₂O`,[`Angular`,`Lineal`,`Tetraédrica`,`Trigonal plana`],`4 dominios con 2 pares libres: forma angular.`),
+  LX.i(`¿Cuál es apolar aunque tiene enlaces polares?`,[`CCl₄`,`H₂O`,`NH₃`,`HCl`],`La geometría tetraédrica cancela los dipolos.`),
+  LX.i(`Los pares libres, comparados con los de enlace…`,[`Repelen más y cierran los ángulos`,`Repelen menos`,`No cuentan`,`Abren los ángulos`],`Por eso el ángulo del H₂O es menor que 109.5°.`)]));
+
+/* ---------- Fuerzas intermoleculares ---------- */
+NEWLES.push(LX.L('e5','enl',5,'Fuerzas intermoleculares',14,
+ ['Distinguir las fuerzas de London, dipolo–dipolo y puente de hidrógeno.','Relacionar las fuerzas con el punto de ebullición.','Predecir solubilidad con la regla «lo semejante disuelve a lo semejante».'],
+ [LX.q(`¿Por qué el agua hierve a 100 °C y el H₂S (más pesado) a −60 °C?`,[`El agua forma puentes de hidrógeno`,`El H₂S es más ligero`,`El agua tiene enlaces iónicos`,`Por su color`],`Los puentes de hidrógeno entre moléculas de agua son muy fuertes.`),
+  LX.q(`Entre metano (CH₄) y butano (C₄H₁₀), ¿cuál esperas con mayor punto de ebullición?`,[`El butano: más electrones, fuerzas de London mayores`,`El metano`,`Hierven igual`,`No se puede saber`],`Las fuerzas de London crecen con el tamaño y el número de electrones.`)],
+ [LX.p(`Compara los puntos de ebullición de hidruros de un mismo grupo y fíjate cuál «se sale de la línea».`),LX.s('bp'),
+  LX.q(`En el grupo 16 (H₂O, H₂S, H₂Se, H₂Te), ¿qué hidruro rompe la tendencia?`,[`H₂O`,`H₂S`,`H₂Se`,`H₂Te`],`El agua hierve mucho más alto de lo esperado por su masa, gracias a los puentes de hidrógeno.`)],
+ [LX.p(`Las [[imf|fuerzas intermoleculares]] actúan <i>entre</i> moléculas y son mucho más débiles que los enlaces. Determinan puntos de fusión y ebullición, solubilidad y viscosidad.`),
+  LX.t([`Fuerza`,`Se da entre…`,`Intensidad`,`Ejemplos`],[[`[[london|London (dispersión)]]`,`Todas las moléculas (dipolos instantáneos)`,`Crece con el tamaño y los electrones`,`CH₄, I₂, gases nobles`],[`[[dipdip|Dipolo–dipolo]]`,`Moléculas polares`,`Media`,`HCl, acetona`],[`[[puenteh|Puente de hidrógeno]]`,`H unido a N, O o F con un par libre de otro N, O o F`,`La más fuerte de las tres`,`H₂O, NH₃, HF, etanol`]]),
+  LX.k(`Todas las moléculas tienen fuerzas de London; las otras se suman cuando hay polaridad o enlaces H–N/O/F.`),
+  LX.p(`Regla práctica: a tamaño parecido, más fuerzas intermoleculares = mayor punto de ebullición. Y «lo semejante disuelve a lo semejante»: polar con polar, apolar con apolar.`),
+  LX.w(`Error común: llamar «enlace» al puente de hidrógeno. Es una atracción entre moléculas, unas 10 veces más débil que un enlace covalente O–H.`),
+  LX.u(LX.p(`Los iones y las moléculas polares se atraen por fuerzas ion–dipolo; son las que hidratan al Na⁺ y al Cl⁻ cuando se disuelve la sal ([[solvatacion|solvatación]]).`))],
+ [LX.e(`Ordena por punto de ebullición creciente: Ne, HCl, H₂O.`,[`Ne: átomos, solo fuerzas de London (muy débiles).`,`HCl: molécula polar, dipolo–dipolo.`,`H₂O: forma puentes de hidrógeno.`],`Ne (−246 °C) &lt; HCl (−85 °C) &lt; H₂O (100 °C).`),
+  LX.e(`¿Por qué el etanol (78 °C) hierve más alto que el dimetil éter (−24 °C), si ambos son C₂H₆O?`,[`El etanol tiene un grupo O–H: forma puentes de hidrógeno.`,`El éter no tiene H unido a O: solo dipolo–dipolo.`,`Más fuerzas, más energía para separar las moléculas.`],`Por los puentes de hidrógeno del etanol.`)],
+ [LX.i(`La fuerza que tienen TODAS las moléculas es…`,[`London`,`Puente de hidrógeno`,`Dipolo–dipolo`,`Iónica`],`Los dipolos instantáneos existen en cualquier molécula.`),
+  LX.i(`¿Cuál forma puentes de hidrógeno?`,[`NH₃`,`CH₄`,`CO₂`,`HCl`],`Tiene H unido a N y un par libre en el N.`),
+  LX.i(`Una sustancia con mayores fuerzas intermoleculares tiene…`,[`Mayor punto de ebullición`,`Menor punto de ebullición`,`Menor viscosidad siempre`,`Menor densidad siempre`],`Hace falta más energía para separar las moléculas.`),
+  LX.i(`Según «lo semejante disuelve a lo semejante», el aceite (apolar) se disuelve mejor en…`,[`Hexano`,`Agua`,`Etanol`,`Disolución de sal`],`Moléculas apolares se disuelven en disolventes apolares.`)]));
+
+/* ---------- El mol y la masa molar ---------- */
+NEWLES.push(LX.L('s1','est',1,'El mol y la masa molar',14,
+ ['Definir el mol y el número de Avogadro.','Calcular la masa molar de un compuesto.','Convertir entre gramos, moles y partículas.'],
+ [LX.q(`¿Cuántos átomos hay en 1 mol de átomos de cualquier elemento?`,[`6.022 × 10²³`,`12`,`1000`,`Depende del elemento`],`Un mol siempre contiene el número de Avogadro de partículas.`),
+  LX.q(`¿Qué tiene más átomos: 12 g de carbono o 12 g de plomo?`,[`12 g de carbono`,`12 g de plomo`,`Igual cantidad`,`Depende de la temperatura`],`12 g de C son 1 mol; 12 g de Pb son 12 / 207.2 ≈ 0.058 mol.`)],
+ [LX.p(`Escribe una fórmula y unos gramos en la calculadora: observa la masa molar, los moles y las partículas.`),LX.s('cmol'),
+  LX.q(`La masa molar del H₂O es ≈ 18 g/mol. ¿Cuántos moles hay en 36 g?`,[`2 mol`,`0.5 mol`,`36 mol`,`18 mol`],`n = m / M = 36 / 18 = 2 mol.`)],
+ [LX.p(`Un [[mol]] es la cantidad de sustancia que contiene 6.022 × 10²³ partículas (el [[avogadro|número de Avogadro]]). La [[masamolar|masa molar]] (g/mol) es la masa de un mol y coincide numéricamente con la masa atómica o molecular en u.`),
+  LX.k(`Dos puentes: gramos ⇄ moles (con la masa molar) y moles ⇄ partículas (con el número de Avogadro).`),
+  LX.t([`Quiero pasar de…`,`a…`,`Operación`],[[`gramos`,`moles`,`÷ masa molar`],[`moles`,`gramos`,`× masa molar`],[`moles`,`partículas`,`× 6.022 × 10²³`],[`partículas`,`moles`,`÷ 6.022 × 10²³`]]),
+  LX.p(`Para la masa molar de un compuesto se suman las masas atómicas de todos sus átomos: H₂SO₄ = 2(1.008) + 32.06 + 4(16.00) = 98.08 g/mol.`),
+  LX.w(`Error común: olvidar multiplicar por el subíndice. En Ca(OH)₂ hay 2 O y 2 H.`),
+  LX.p(`La [[pcomp|composición porcentual]] dice qué parte de la masa del compuesto aporta cada elemento.`)],
+ [LX.e(`¿Cuántos moles hay en 5.00 g de NaCl? (M = 58.44 g/mol)`,[`n = m / M`,`n = 5.00 g / 58.44 g/mol`],`≈ 0.0856 mol de NaCl.`),
+  LX.e(`¿Cuántas moléculas hay en 0.250 mol de H₂O?`,[`N = n × N<sub>A</sub>`,`N = 0.250 × 6.022 × 10²³`],`≈ 1.51 × 10²³ moléculas.`)],
+ [LX.i(`Masa molar del CO₂`,[`44.01 g/mol`,`28.01 g/mol`,`12.01 g/mol`,`56 g/mol`],`12.01 + 2(16.00) = 44.01.`),
+  LX.i(`¿Cuántos moles hay en 18 g de agua?`,[`≈ 1 mol`,`18 mol`,`0.1 mol`,`2 mol`],`18 g / 18.02 g/mol ≈ 1 mol.`),
+  LX.i(`En 1 mol de moléculas de O₂, ¿cuántos átomos de oxígeno hay?`,[`1.204 × 10²⁴`,`6.022 × 10²³`,`3.011 × 10²³`,`32`],`Cada molécula tiene 2 átomos: 2 × 6.022 × 10²³.`),
+  LX.i(`¿Qué masa tienen 2.00 mol de NaOH? (M = 40.00 g/mol)`,[`80.0 g`,`20.0 g`,`40.0 g`,`160 g`],`m = n × M = 2.00 × 40.00.`)]));
+
+/* ---------- Reacciones y balanceo ---------- */
+NEWLES.push(LX.L('s2','est',2,'Reacciones químicas y balanceo',14,
+ ['Reconocer las partes de una ecuación química.','Balancear ecuaciones por tanteo y comprobarlas con el balanceador.','Clasificar reacciones: síntesis, descomposición, desplazamiento, doble desplazamiento y combustión.'],
+ [LX.q(`¿Qué se conserva siempre en una reacción química?`,[`El número de átomos de cada elemento y la masa total`,`El número de moléculas`,`El volumen`,`El número de compuestos`],`Los átomos solo se reacomodan: no se crean ni se destruyen.`),
+  LX.q(`¿Está balanceada H₂ + O₂ → H₂O?`,[`No: hay 2 O a la izquierda y 1 a la derecha`,`Sí`,`Solo con catalizador`,`No se puede saber`],`Faltan coeficientes: 2 H₂ + O₂ → 2 H₂O.`)],
+ [LX.p(`Escribe una ecuación en el balanceador y revisa los coeficientes que calcula.`),LX.s('cbal'),
+  LX.q(`En 2 H₂ + O₂ → 2 H₂O, ¿cuántos átomos de H hay en el lado derecho?`,[`4`,`2`,`1`,`6`],`2 moléculas de H₂O × 2 H cada una = 4 átomos de H.`)],
+ [LX.p(`Una [[ecuacion|ecuación química]] muestra reactivos → productos. Por la ley de conservación de la masa ([[leycons|Lavoisier]]), debe haber los mismos átomos de cada elemento en ambos lados. Se ajusta con <b>coeficientes</b>, nunca cambiando subíndices.`),
+  LX.h(`Balanceo por tanteo`),
+  LX.t([`Paso`,`Qué hacer`],[[`1`,`Escribe las fórmulas correctas de todas las sustancias.`],[`2`,`Cuenta los átomos de cada elemento a cada lado.`],[`3`,`Ajusta primero los elementos que aparecen en una sola sustancia por lado; deja el H y el O para el final.`],[`4`,`Revisa. Si hay fracciones, multiplica todo para quitarlas.`]]),
+  LX.t([`Tipo`,`Patrón`,`Ejemplo`],[[`Síntesis`,`A + B → AB`,`2 H₂ + O₂ → 2 H₂O`],[`Descomposición`,`AB → A + B`,`2 H₂O₂ → 2 H₂O + O₂`],[`Desplazamiento simple`,`A + BC → AC + B`,`Zn + 2 HCl → ZnCl₂ + H₂`],[`Doble desplazamiento`,`AB + CD → AD + CB`,`AgNO₃ + NaCl → AgCl + NaNO₃`],[`Combustión`,`Combustible + O₂ → CO₂ + H₂O`,`CH₄ + 2 O₂ → CO₂ + 2 H₂O`]]),
+  LX.w(`Error común: cambiar subíndices para balancear. H₂O y H₂O₂ son sustancias distintas.`),
+  LX.p(`En Herramientas → Reacciones comunes hay ecuaciones listas para practicar y balancear.`),
+  LX.u(LX.p(`En las reacciones redox se puede balancear con el método ion-electrón, que balancea también las cargas.`))],
+ [LX.e(`Balancea: Al + O₂ → Al₂O₃`,[`Al: 1 contra 2; O: 2 contra 3.`,`El mínimo común múltiplo de los O es 6: 3 O₂ y 2 Al₂O₃.`,`Ahora hay 4 Al a la derecha: 4 Al.`],`4 Al + 3 O₂ → 2 Al₂O₃`),
+  LX.e(`Balancea: C₂H₆ + O₂ → CO₂ + H₂O`,[`C: 2 → 2 CO₂.`,`H: 6 → 3 H₂O.`,`O: 4 + 3 = 7 → 3.5 O₂. Duplica todo para evitar la fracción.`],`2 C₂H₆ + 7 O₂ → 4 CO₂ + 6 H₂O`)],
+ [LX.i(`Coeficiente del O₂ en C₃H₈ + O₂ → CO₂ + H₂O (balanceada)`,[`5`,`3`,`4`,`7`],`C₃H₈ + 5 O₂ → 3 CO₂ + 4 H₂O.`),
+  LX.i(`2 Na + Cl₂ → 2 NaCl es una reacción de…`,[`Síntesis`,`Descomposición`,`Combustión`,`Doble desplazamiento`],`Dos sustancias forman una.`),
+  LX.i(`Coeficientes de N₂ + H₂ → NH₃`,[`1, 3, 2`,`1, 1, 1`,`2, 3, 1`,`1, 2, 2`],`N₂ + 3 H₂ → 2 NH₃.`),
+  LX.i(`Zn + CuSO₄ → ZnSO₄ + Cu es una reacción de…`,[`Desplazamiento simple`,`Síntesis`,`Combustión`,`Descomposición`],`El zinc desplaza al cobre.`)]));
+
+/* ---------- Estequiometría ---------- */
+NEWLES.push(LX.L('s3','est',3,'Estequiometría y reactivo limitante',16,
+ ['Usar los coeficientes como razón de moles.','Pasar de gramos de un reactivo a gramos de un producto.','Identificar el reactivo limitante y calcular el rendimiento.'],
+ [LX.q(`En 2 H₂ + O₂ → 2 H₂O, ¿cuántos mol de H₂O salen de 4 mol de H₂ (con O₂ de sobra)?`,[`4`,`2`,`8`,`1`],`La razón H₂ : H₂O es 2 : 2, o sea 1 : 1.`),
+  LX.q(`Tienes 3 mol de H₂ y 1 mol de O₂ (2 H₂ + O₂ → 2 H₂O). ¿Qué se acaba primero?`,[`El O₂: sobra 1 mol de H₂`,`El H₂`,`Los dos a la vez`,`Ninguno`],`1 mol de O₂ necesita 2 mol de H₂; hay 3, así que sobra H₂.`)],
+ [LX.p(`Practica el puente de moles con la calculadora y luego aplica la razón de la ecuación.`),LX.s('cmol'),
+  LX.q(`En N₂ + 3 H₂ → 2 NH₃, ¿cuántos mol de NH₃ se forman con 6 mol de H₂?`,[`4 mol`,`2 mol`,`6 mol`,`9 mol`],`6 mol H₂ × (2 NH₃ / 3 H₂) = 4 mol.`)],
+ [LX.p(`La [[estequio|estequiometría]] usa los coeficientes de la ecuación balanceada como razón de moles: son la «receta» de la reacción.`),
+  LX.k(`Ruta: gramos de A → moles de A → moles de B (razón de los coeficientes) → gramos de B.`),
+  LX.t([`Paso`,`Qué haces`],[[`1`,`Balancea la ecuación.`],[`2`,`Convierte la masa dada a moles (÷ masa molar).`],[`3`,`Multiplica por la razón molar de los coeficientes.`],[`4`,`Convierte los moles buscados a gramos (× masa molar).`]]),
+  LX.p(`El [[reactlim|reactivo limitante]] es el que se agota primero y fija cuánto producto se forma. Para encontrarlo, divide los moles de cada reactivo entre su coeficiente: el menor es el limitante.`),
+  LX.p(`El [[rendim|rendimiento]] porcentual compara lo obtenido con lo teórico: % = (real / teórico) × 100.`),
+  LX.w(`Error común: comparar gramos en vez de moles para decidir cuál es el limitante.`),
+  LX.u(LX.p(`En disolución, los moles de cada reactivo salen de M × V (en litros).`))],
+ [LX.e(`¿Cuántos gramos de H₂O se forman con 4.0 g de H₂ y O₂ de sobra? 2 H₂ + O₂ → 2 H₂O`,[`n(H₂) = 4.0 g / 2.016 g/mol = 1.98 mol.`,`Razón H₂ : H₂O = 1 : 1, así que se forman 1.98 mol de H₂O.`,`m = 1.98 mol × 18.02 g/mol.`],`≈ 36 g de H₂O.`),
+  LX.e(`Mezclas 2.0 mol de N₂ con 3.0 mol de H₂ (N₂ + 3 H₂ → 2 NH₃). ¿Cuál es el limitante y cuánto NH₃ se forma?`,[`N₂: 2.0 / 1 = 2.0. H₂: 3.0 / 3 = 1.0.`,`El menor es el H₂: él limita.`,`NH₃ = 3.0 mol H₂ × (2 / 3) = 2.0 mol.`],`Limitante: H₂; se forman 2.0 mol de NH₃ (≈ 34 g).`)],
+ [LX.i(`Para obtener 6 mol de NH₃ (N₂ + 3 H₂ → 2 NH₃) se necesitan…`,[`3 mol de N₂`,`6 mol de N₂`,`12 mol de N₂`,`9 mol de N₂`],`Razón N₂ : NH₃ = 1 : 2.`),
+  LX.i(`Un rendimiento real de 8 g con un teórico de 10 g es…`,[`80 %`,`125 %`,`8 %`,`20 %`],`8 / 10 × 100 = 80 %.`),
+  LX.i(`El reactivo limitante es el que…`,[`Se agota primero`,`Está en mayor cantidad`,`Tiene más masa`,`Tiene mayor masa molar`],`Determina la cantidad máxima de producto.`),
+  LX.i(`La razón molar entre sustancias sale de…`,[`Los coeficientes`,`Los subíndices`,`Las masas molares`,`Los estados físicos`],`Los coeficientes indican las proporciones en moles.`)]));
+
+/* ---------- Disoluciones ---------- */
+NEWLES.push(LX.L('d1','dis',1,'Disoluciones y concentración',14,
+ ['Distinguir soluto, disolvente y disolución.','Calcular molaridad y porcentaje en masa.','Resolver diluciones con C₁V₁ = C₂V₂.'],
+ [LX.q(`Si agregas agua a una disolución de sal, ¿qué cambia?`,[`La concentración baja; los moles de sal son los mismos`,`Aumentan los moles de sal`,`La concentración sube`,`La sal desaparece`],`Solo cambia el volumen total: el soluto es el mismo.`),
+  LX.q(`¿Qué es más concentrado: 1 g de sal en 100 mL o 1 g de sal en 1 L?`,[`1 g en 100 mL`,`1 g en 1 L`,`Igual`,`Depende de la sal`],`La misma cantidad en menor volumen está más concentrada.`)],
+ [LX.p(`Calcula molaridades y diluciones con la calculadora.`),LX.s('cdil'),
+  LX.q(`Tomas 10 mL de NaCl 2.0 M y los llevas a 100 mL. ¿Cuál es la nueva concentración?`,[`0.20 M`,`20 M`,`2.0 M`,`0.020 M`],`C₂ = C₁V₁ / V₂ = 2.0 × 10 / 100 = 0.20 M.`)],
+ [LX.p(`Una [[disolucion|disolución]] es una mezcla homogénea de un <b>soluto</b> (lo que se disuelve) en un <b>disolvente</b> (lo que disuelve, casi siempre agua).`),
+  LX.t([`Unidad`,`Fórmula`,`Ejemplo`],[[`Molaridad (M)`,`mol de soluto / L de disolución`,`1 mol en 0.5 L = 2 M`],[`Molalidad (m)`,`mol de soluto / kg de disolvente`,`[[molalidad|ver glosario]]`],[`% en masa`,`(g de soluto / g de disolución) × 100`,`10 g en 90 g de agua = 10 %`],[`ppm`,`mg de soluto / kg (o L) de disolución`,`0.7 mg/L = 0.7 ppm`]]),
+  LX.k(`La [[molaridad]] usa litros de <b>disolución</b>, no de disolvente.`),
+  LX.p(`En una [[dilucion|dilución]] solo se añade disolvente: los moles de soluto no cambian, así que C₁V₁ = C₂V₂.`),
+  LX.p(`La [[solubilidad]] es el máximo de soluto que se disuelve; una disolución [[saturada]] ya no admite más. Para saber si una sal se disuelve, consulta la Tabla de solubilidad (Estudio → Consulta).`),
+  LX.w(`Error común: usar mL en la fórmula de molaridad sin pasarlos a litros.`),
+  LX.u(LX.p(`Las [[coligativas|propiedades coligativas]] dependen del número de partículas: ΔT<sub>c</sub> = K<sub>c</sub> · m · i.`))],
+ [LX.e(`¿Cuál es la molaridad de una disolución con 5.85 g de NaCl en 500 mL? (M = 58.44 g/mol)`,[`n = 5.85 / 58.44 = 0.100 mol.`,`V = 0.500 L.`,`M = 0.100 / 0.500.`],`0.200 M`),
+  LX.e(`¿Cómo preparas 250 mL de HCl 0.10 M a partir de HCl 2.0 M?`,[`C₁V₁ = C₂V₂, entonces V₁ = (0.10 × 250) / 2.0.`,`V₁ = 12.5 mL.`,`Mide 12.5 mL, ponlos en un matraz aforado y completa a 250 mL con agua.`],`12.5 mL de HCl 2.0 M, aforados a 250 mL.`)],
+ [LX.i(`Molaridad de 0.5 mol en 250 mL`,[`2 M`,`0.5 M`,`0.125 M`,`125 M`],`0.5 mol / 0.250 L = 2 M.`),
+  LX.i(`¿Qué se conserva al diluir?`,[`Los moles de soluto`,`El volumen`,`La concentración`,`La masa de disolvente`],`Solo se agrega disolvente.`),
+  LX.i(`40 g de NaOH (M = 40 g/mol) en 1 L de disolución son…`,[`1 M`,`40 M`,`0.1 M`,`4 M`],`40 g = 1 mol en 1 L.`),
+  LX.i(`5 g de sal en 95 g de agua tienen un % en masa de…`,[`5 %`,`5.3 %`,`95 %`,`0.05 %`],`5 / (5 + 95) × 100 = 5 %.`)]));
+
+/* ---------- Gases ---------- */
+NEWLES.push(LX.L('d2','dis',2,'Gases ideales y sus leyes',14,
+ ['Relacionar presión, volumen, temperatura y cantidad de gas.','Usar PV = nRT con las unidades correctas.','Aplicar las leyes de Boyle, Charles, Gay-Lussac y Dalton.'],
+ [LX.q(`Si comprimes un gas a la mitad de su volumen (misma temperatura), su presión…`,[`Se duplica`,`Se reduce a la mitad`,`No cambia`,`Se cuadruplica`],`P y V son inversamente proporcionales (Boyle).`),
+  LX.q(`¿Por qué un globo se encoge en el congelador?`,[`Al bajar la temperatura baja el volumen`,`Se escapa gas`,`Por la humedad`,`Por su color`],`Charles: V es proporcional a T.`)],
+ [LX.p(`Mueve P, V, n y T en la calculadora y observa cómo se relacionan.`),LX.s('cgas'),
+  LX.q(`Si se duplica la temperatura absoluta con P y n constantes, el volumen…`,[`Se duplica`,`Se reduce a la mitad`,`No cambia`,`Se triplica`],`V es directamente proporcional a T (kelvin).`)],
+ [LX.t([`Ley`,`Constante`,`Relación`],[[`[[boyle|Boyle]]`,`T y n`,`P₁V₁ = P₂V₂`],[`[[charles|Charles]]`,`P y n`,`V₁/T₁ = V₂/T₂`],[`[[gaylussac|Gay-Lussac]]`,`V y n`,`P₁/T₁ = P₂/T₂`],[`[[avogadroley|Avogadro]]`,`P y T`,`V/n = constante`]]),
+  LX.k(`[[gasideal|PV = nRT]], con R = 0.08206 atm·L/(mol·K) y la temperatura en <b>kelvin</b>.`),
+  LX.t([`Presión`,`Equivalencias`],[[`1 atm`,`760 mmHg = 101.3 kPa = 1.013 bar`]]),
+  LX.p(`[[vmolar|Volumen molar]]: a 0 °C y 1 atm, 1 mol de gas ideal ocupa ≈ 22.4 L.`),
+  LX.p(`En una mezcla de gases cada uno aporta su presión parcial ([[daltonp|ley de Dalton]]): P<sub>total</sub> = ΣP<sub>i</sub>.`),
+  LX.w(`Error común: usar grados Celsius en las leyes de los gases. Convierte siempre a kelvin: K = °C + 273.15.`),
+  LX.u(LX.p(`A presión alta y temperatura baja los gases reales se desvían del modelo ideal ([[gasreal|van der Waals]]).`))],
+ [LX.e(`Un gas ocupa 2.0 L a 1.0 atm. ¿Qué volumen ocupa a 4.0 atm con la misma temperatura?`,[`Boyle: P₁V₁ = P₂V₂.`,`V₂ = (1.0 × 2.0) / 4.0.`],`0.50 L`),
+  LX.e(`¿Qué volumen ocupan 0.50 mol de gas a 27 °C y 1.0 atm?`,[`T = 27 + 273 = 300 K.`,`V = nRT / P = 0.50 × 0.08206 × 300 / 1.0.`],`≈ 12.3 L`)],
+ [LX.i(`25 °C equivalen a…`,[`298 K`,`25 K`,`248 K`,`−248 K`],`K = °C + 273.15.`),
+  LX.i(`1 mol de gas ideal a 0 °C y 1 atm ocupa…`,[`≈ 22.4 L`,`1 L`,`100 L`,`2.24 L`],`Es el volumen molar.`),
+  LX.i(`Con T y n constantes, si la presión se triplica, el volumen…`,[`Se reduce a un tercio`,`Se triplica`,`No cambia`,`Se reduce a la mitad`],`Boyle: P y V son inversamente proporcionales.`),
+  LX.i(`En la mezcla de aire a 1 atm, el O₂ (21 %) aporta una presión parcial de…`,[`≈ 0.21 atm`,`21 atm`,`0.79 atm`,`1 atm`],`Dalton: P<sub>i</sub> = χ<sub>i</sub> · P<sub>total</sub>.`)]));
+
+/* ---------- Termoquímica ---------- */
+NEWLES.push(LX.L('q1','ene',1,'Termoquímica: calor y entalpía',16,
+ ['Distinguir procesos exotérmicos y endotérmicos.','Interpretar un diagrama de energía y el signo de ΔH.','Aplicar q = m·c·ΔT y la ley de Hess.'],
+ [LX.q(`Al disolver NaOH en agua, el recipiente se calienta. ¿Qué tipo de proceso es?`,[`Exotérmico: libera calor`,`Endotérmico: absorbe calor`,`No hay cambio de energía`,`Nuclear`],`El sistema cede energía al entorno, que se calienta.`),
+  LX.q(`Una compresa fría química se enfría al activarse. La reacción es…`,[`Endotérmica`,`Exotérmica`,`No cambia la temperatura`,`Nuclear`],`Absorbe calor de lo que la rodea.`)],
+ [LX.p(`Mueve ΔH y la energía de activación, activa el catalizador y observa el diagrama.`),LX.s('ener'),
+  LX.q(`Con ΔH negativo, los productos están…`,[`Más abajo en energía que los reactivos`,`Más arriba`,`A la misma altura`,`No se pueden comparar`],`Libera energía: los productos son más estables.`)],
+ [LX.p(`La [[entalpia|entalpía]] (ΔH) mide el calor a presión constante. [[exotermica|Exotérmica]]: ΔH &lt; 0, libera calor. [[endotermica|Endotérmica]]: ΔH &gt; 0, absorbe calor.`),
+  LX.t([``,`Exotérmica`,`Endotérmica`],[[`ΔH`,`Negativo`,`Positivo`],[`Energía de los productos`,`Menor que la de los reactivos`,`Mayor`],[`Entorno`,`Se calienta`,`Se enfría`],[`Ejemplos`,`Combustión, neutralización`,`Fotosíntesis, fusión del hielo`]]),
+  LX.k(`q = m · c · ΔT: calor = masa × calor específico × cambio de temperatura. Para el agua, c = 4.184 J/(g·°C) ([[caloresp|calor específico]]).`),
+  LX.p(`La [[hess|ley de Hess]]: el ΔH total es la suma de los ΔH de los pasos. Si inviertes una reacción, ΔH cambia de signo; si la multiplicas, multiplicas ΔH.`),
+  LX.p(`[[espontaneo|Espontáneo]] no significa rápido. La espontaneidad la decide ΔG = ΔH − TΔS ([[gibbs|energía libre]]).`),
+  LX.w(`Error común: creer que una reacción exotérmica siempre es rápida. La rapidez depende de la energía de activación, no de ΔH.`),
+  LX.u(LX.p(`ΔH°<sub>rx</sub> = Σn·ΔH°<sub>f</sub>(productos) − Σm·ΔH°<sub>f</sub>(reactivos) ([[hform|entalpía de formación]]).`))],
+ [LX.e(`¿Cuánto calor absorben 200 g de agua al calentarse de 20 a 35 °C?`,[`ΔT = 35 − 20 = 15 °C.`,`q = m · c · ΔT = 200 × 4.184 × 15.`],`12 552 J ≈ 12.6 kJ`),
+  LX.e(`Con C + O₂ → CO₂ (ΔH = −393.5 kJ) y CO + ½O₂ → CO₂ (ΔH = −283.0 kJ), calcula ΔH de C + ½O₂ → CO.`,[`Invierte la segunda: CO₂ → CO + ½O₂ (ΔH = +283.0 kJ).`,`Suma con la primera y cancela: C + ½O₂ → CO.`,`ΔH = −393.5 + 283.0.`],`ΔH = −110.5 kJ`)],
+ [LX.i(`Una reacción que libera calor tiene ΔH…`,[`Negativo`,`Positivo`,`Cero`,`Sin signo`],`El sistema pierde energía.`),
+  LX.i(`q de 100 g de agua que suben 10 °C`,[`4184 J`,`418.4 J`,`41.84 J`,`1000 J`],`100 × 4.184 × 10 = 4184 J.`),
+  LX.i(`Si multiplicas una reacción por 2, su ΔH…`,[`Se multiplica por 2`,`No cambia`,`Cambia de signo`,`Se divide entre 2`],`ΔH es proporcional a la cantidad de reactivos.`),
+  LX.i(`¿Cuál es endotérmica?`,[`La fusión del hielo`,`La combustión del metano`,`La neutralización de HCl con NaOH`,`La oxidación del hierro`],`Para fundir hay que dar energía.`)]));
+
+/* ---------- Cinética y equilibrio ---------- */
+NEWLES.push(LX.L('q2','ene',2,'Cinética y equilibrio químico',18,
+ ['Explicar qué factores cambian la velocidad de reacción.','Escribir K y compararla con Q.','Predecir el desplazamiento con el principio de Le Châtelier.'],
+ [LX.q(`¿Por qué los alimentos duran más en el refrigerador?`,[`A menor temperatura, las reacciones de descomposición son más lentas`,`Se elimina el oxígeno`,`El frío destruye los átomos`,`Aumenta su calor específico`],`Menos choques con la energía de activación.`),
+  LX.q(`En un equilibrio químico, ¿qué pasa con las concentraciones?`,[`Permanecen constantes aunque las reacciones siguen ocurriendo`,`Todas valen lo mismo`,`Los reactivos desaparecen`,`Las reacciones se detienen`],`Es un equilibrio dinámico: las velocidades directa e inversa son iguales.`)],
+ [LX.p(`Perturba el equilibrio del amoníaco (N₂ + 3 H₂ ⇌ 2 NH₃) y observa hacia dónde se desplaza.`),LX.s('le'),
+  LX.q(`Al agregar más N₂, el equilibrio se desplaza hacia…`,[`La derecha (más NH₃)`,`La izquierda`,`No se desplaza`,`Se detiene`],`El sistema consume el exceso de N₂ formando más producto.`)],
+ [LX.h(`Cinética: ¿qué tan rápido?`),
+  LX.p(`Según la [[colisiones|teoría de colisiones]], reaccionan los choques con energía mayor o igual a la [[ea|energía de activación]] y con buena orientación.`),
+  LX.t([`Factor`,`Efecto en la velocidad`,`Por qué`],[[`Temperatura ↑`,`Aumenta`,`Más choques con energía suficiente`],[`Concentración ↑`,`Aumenta`,`Más choques por segundo`],[`Área superficial ↑`,`Aumenta`,`Más lugares donde chocar`],[`[[catalizador|Catalizador]]`,`Aumenta`,`Ofrece un camino con menor Ea`]]),
+  LX.h(`Equilibrio: ¿hasta dónde?`),
+  LX.p(`En un [[equilibrio]] reversible (⇌), las velocidades directa e inversa se igualan. La [[kc|constante K]] dice hasta dónde avanza: K &gt; 1 favorece a los productos; K &lt; 1, a los reactivos.`),
+  LX.k(`[[lechat|Le Châtelier]]: el sistema se opone al cambio. Más reactivo → hacia productos; más temperatura → favorece el sentido endotérmico; más presión → hacia el lado con menos moles de gas.`),
+  LX.p(`Comparar el [[cocienteq|cociente Q]] con K: si Q &lt; K, avanza hacia productos; si Q &gt; K, hacia reactivos.`),
+  LX.w(`Error común: creer que un catalizador cambia K o «da más producto». Solo acelera el camino hacia el equilibrio.`),
+  LX.u(LX.p(`La [[leyvel|ley de velocidad]] v = k[A]<sup>m</sup>[B]<sup>n</sup> se determina experimentalmente; k aumenta con la temperatura según la ecuación de Arrhenius.`))],
+ [LX.e(`Escribe la expresión de K para N₂ + 3 H₂ ⇌ 2 NH₃.`,[`Productos arriba, reactivos abajo.`,`Cada concentración se eleva a su coeficiente.`],`K = [NH₃]² / ([N₂][H₂]³)`),
+  LX.e(`A cierta temperatura K = 4.0 y Q = 1.0. ¿Hacia dónde avanza la reacción?`,[`Q &lt; K.`,`Faltan productos para llegar al equilibrio.`],`Hacia los productos (derecha).`)],
+ [LX.i(`Un catalizador…`,[`Disminuye Ea y acelera ambos sentidos`,`Aumenta K`,`Desplaza el equilibrio hacia productos`,`Se consume al final`],`No cambia el equilibrio, solo lo alcanza antes.`),
+  LX.i(`Para 2 SO₂ + O₂ ⇌ 2 SO₃ (exotérmica), subir la temperatura desplaza hacia…`,[`Los reactivos`,`Los productos`,`Ningún lado`,`No se puede saber`],`Favorece el sentido endotérmico, que es el inverso.`),
+  LX.i(`Si Q &gt; K, la reacción avanza…`,[`Hacia los reactivos`,`Hacia los productos`,`No avanza: está en equilibrio`,`Cambia el valor de K`],`Hay demasiado producto.`),
+  LX.i(`La expresión de K no incluye…`,[`Sólidos y líquidos puros`,`Gases`,`Iones disueltos`,`Sustancias con coeficiente 2`],`Su concentración es constante.`)]));
+
+/* ---------- Ácidos y bases ---------- */
+NEWLES.push(LX.L('b1','aci',1,'Ácidos, bases y pH',16,
+ ['Definir ácidos y bases (Arrhenius y Brønsted–Lowry).','Calcular pH y pOH.','Distinguir fuerte de débil y reconocer neutralizaciones y amortiguadores.'],
+ [LX.q(`Una disolución con pH 3, ¿qué tan ácida es frente a una de pH 5?`,[`100 veces más H⁺`,`2 veces más H⁺`,`Igual`,`1000 veces menos H⁺`],`Cada unidad de pH es un factor de 10: dos unidades son 100 veces.`),
+  LX.q(`¿Qué pH esperas en agua pura a 25 °C?`,[`7`,`0`,`14`,`1`],`[H⁺] = [OH⁻] = 10⁻⁷ M.`)],
+ [LX.p(`Cambia el pH y observa [H⁺], [OH⁻] y el tipo de disolución.`),LX.s('cph'),
+  LX.q(`Si [H⁺] = 1 × 10⁻⁴ M, el pH vale…`,[`4`,`−4`,`10`,`1`],`pH = −log(10⁻⁴) = 4.`)],
+ [LX.t([`Teoría`,`Ácido`,`Base`],[[`Arrhenius`,`Libera H⁺ en agua`,`Libera OH⁻ en agua`],[`[[bronsted|Brønsted–Lowry]]`,`Dona H⁺`,`Acepta H⁺`],[`[[lewisab|Lewis]]`,`Acepta un par de electrones`,`Dona un par de electrones`]]),
+  LX.k(`[[ph|pH]] = −log[H⁺] y [[poh|pOH]] = −log[OH⁻]. A 25 °C, pH + pOH = 14 ([[autoion|Kw]] = 10⁻¹⁴).`),
+  LX.t([`pH`,`Tipo`,`Ejemplo`],[[`0–3`,`Muy ácido`,`Jugo gástrico`],[`4–6`,`Ácido débil`,`Café, lluvia`],[`7`,`Neutro`,`Agua pura`],[`8–10`,`Básico`,`Bicarbonato`],[`11–14`,`Muy básico`,`Limpiadores, NaOH`]]),
+  LX.p(`Los [[acfuerte|fuertes]] se ionizan casi por completo (HCl, HNO₃, NaOH); los [[acdebil|débiles]] solo en parte (CH₃COOH, NH₃) y se describen con [[ka|Ka]] o Kb.`),
+  LX.p(`Un [[parconj|par conjugado]] difiere en un H⁺ (NH₄⁺/NH₃). La [[neutral|neutralización]] da sal + agua. Un [[buffer|amortiguador]] (ácido débil + su base conjugada) resiste cambios de pH.`),
+  LX.w(`Error común: «pH 3 es el doble de ácido que pH 6». Cada unidad es ×10: pH 3 tiene 1000 veces más H⁺ que pH 6.`),
+  LX.u(LX.p(`Henderson–Hasselbalch: pH = pKa + log([A⁻]/[HA]) ([[hendersonh|ecuación]]).`))],
+ [LX.e(`Calcula el pH de HCl 0.010 M.`,[`El HCl es un ácido fuerte: [H⁺] = 0.010 M = 10⁻².`,`pH = −log(10⁻²).`],`pH = 2.00`),
+  LX.e(`Calcula el pH de NaOH 0.0010 M.`,[`Base fuerte: [OH⁻] = 10⁻³ M.`,`pOH = 3.`,`pH = 14 − 3.`],`pH = 11.00`)],
+ [LX.i(`El pH de [H⁺] = 1 × 10⁻⁷ M es…`,[`7`,`−7`,`14`,`1`],`pH = −log(10⁻⁷).`),
+  LX.i(`HCl + NaOH → …`,[`NaCl + H₂O`,`NaClO + H₂`,`NaH + HCl`,`Solo agua`],`Neutralización: sal y agua.`),
+  LX.i(`Si el pH es 9, el pOH es…`,[`5`,`9`,`14`,`−9`],`pH + pOH = 14.`),
+  LX.i(`Un ácido débil…`,[`Se ioniza solo parcialmente`,`Se ioniza por completo`,`Siempre está diluido`,`Nunca es peligroso`],`Débil se refiere al grado de ionización, no a la concentración.`)]));
+
+/* ---------- Redox ---------- */
+NEWLES.push(LX.L('b2','aci',2,'Redox y electroquímica',18,
+ ['Identificar la oxidación, la reducción y los agentes.','Distinguir celdas galvánicas de celdas electrolíticas.','Calcular E° de una pila con potenciales estándar.'],
+ [LX.q(`Metes un clavo de hierro en CuSO₄ (azul). ¿Qué observas con el tiempo?`,[`El clavo se cubre de cobre y el azul se desvanece`,`Nada`,`El clavo se disuelve de inmediato`,`Sale oro`],`El hierro desplaza al cobre de la disolución.`),
+  LX.q(`En una reacción redox, si una especie se oxida, otra…`,[`Se reduce`,`También se oxida`,`Desaparece`,`No hace nada`],`Los electrones que pierde una los gana la otra.`)],
+ [LX.p(`Elige un metal y una disolución de otro metal para ver si hay reacción.`),LX.s('redox'),
+  LX.q(`El Zn desplaza al Cu²⁺ porque el Zn es…`,[`Más fácil de oxidar (más activo)`,`Menos activo`,`Más pesado`,`Más caro`],`Está por encima del cobre en la serie de actividad.`)],
+ [LX.k(`[[oxidacion|Oxidación]] = pérdida de electrones (sube el número de oxidación). [[reduccion|Reducción]] = ganancia de electrones. Siempre ocurren juntas: [[redox|reacción redox]].`),
+  LX.t([`Se oxida`,`Se reduce`],[[`Pierde electrones`,`Gana electrones`],[`Es el [[agred|agente reductor]]`,`Es el [[agoxid|agente oxidante]]`],[`Aumenta su [[noxid|número de oxidación]]`,`Disminuye su número de oxidación`]]),
+  LX.p(`Las [[semirx|semirreacciones]]: Zn → Zn²⁺ + 2 e⁻ (oxidación) y Cu²⁺ + 2 e⁻ → Cu (reducción).`),
+  LX.t([``,`Celda galvánica (pila)`,`Electrólisis`],[[`Reacción`,`Espontánea`,`Forzada con corriente`],[`[[anodo|Ánodo]]`,`Oxidación, polo −`,`Oxidación, polo +`],[`[[catodo|Cátodo]]`,`Reducción, polo +`,`Reducción, polo −`],[`Energía`,`Química → eléctrica`,`Eléctrica → química`]]),
+  LX.p(`El potencial de una pila es E°<sub>celda</sub> = E°<sub>cátodo</sub> − E°<sub>ánodo</sub> ([[potred|potenciales estándar]]). En la pila Daniell: 0.34 − (−0.76) = 1.10 V. Si E°<sub>celda</sub> &gt; 0, la reacción es espontánea.`),
+  LX.p(`La [[serieact|serie de actividad]] ordena los metales: cada uno desplaza a los que están debajo.`),
+  LX.w(`Error común: «ánodo = positivo». En una pila el ánodo es negativo; en una electrólisis es positivo. Lo que nunca cambia: ánodo = oxidación.`),
+  LX.u(LX.p(`Ecuación de Nernst: E = E° − (0.0592 / n) · log Q a 25 °C ([[nernst|Nernst]]).`))],
+ [LX.e(`Identifica el oxidante y el reductor en Zn + Cu²⁺ → Zn²⁺ + Cu.`,[`El Zn pasa de 0 a +2: se oxida (es el reductor).`,`El Cu²⁺ pasa de +2 a 0: se reduce (es el oxidante).`],`Reductor: Zn. Oxidante: Cu²⁺.`),
+  LX.e(`Calcula E°celda con Ag⁺/Ag = +0.80 V y Zn²⁺/Zn = −0.76 V.`,[`La de mayor E° se reduce (cátodo): la plata.`,`E°celda = 0.80 − (−0.76).`],`1.56 V`)],
+ [LX.i(`Oxidación es…`,[`Pérdida de electrones`,`Ganancia de electrones`,`Pérdida de protones`,`Ganancia de neutrones`],`Se pierden electrones.`),
+  LX.i(`En una pila, el cátodo es el sitio de…`,[`Reducción`,`Oxidación`,`Neutralización`,`Fusión`],`Cátodo = reducción.`),
+  LX.i(`En Fe + CuSO₄ → FeSO₄ + Cu, el agente reductor es…`,[`Fe`,`Cu²⁺`,`SO₄²⁻`,`CuSO₄`],`El hierro cede electrones.`),
+  LX.i(`E°celda &gt; 0 significa…`,[`Reacción espontánea`,`Reacción no espontánea`,`Equilibrio`,`Electrólisis`],`La pila puede producir corriente.`)]));
+
+/* ---------- Química orgánica ---------- */
+NEWLES.push(LX.L('o1','org',1,'Hidrocarburos y grupos funcionales',18,
+ ['Nombrar y dibujar alcanos de cadena lineal (hasta C₁₀).','Reconocer alquenos, alquinos y compuestos aromáticos.','Identificar los grupos funcionales más comunes.'],
+ [LX.q(`¿Por qué el carbono forma tantos compuestos?`,[`Forma 4 enlaces y se une consigo mismo en cadenas y anillos`,`Es el elemento más abundante`,`Es un metal`,`Solo forma enlaces iónicos`],`Su versatilidad permite millones de estructuras.`),
+  LX.q(`El propano tiene 3 carbonos. Con la fórmula CₙH₂ₙ₊₂, ¿cuántos hidrógenos tiene?`,[`8`,`6`,`10`,`3`],`2(3) + 2 = 8: C₃H₈.`)],
+ [LX.p(`Cambia el número de carbonos y mira el nombre, la fórmula y la estructura del alcano.`),LX.s('alk'),
+  LX.q(`El alcano de 5 carbonos se llama…`,[`Pentano`,`Butano`,`Hexano`,`Propano`],`Pent- = 5.`)],
+ [LX.p(`La [[organica|química orgánica]] estudia los compuestos del carbono, que forma 4 enlaces. Los [[hidrocarburo|hidrocarburos]] solo tienen C e H.`),
+  LX.t([`Familia`,`Enlace`,`Fórmula general`,`Terminación`,`Ejemplo`],[[`[[alcano|Alcano]]`,`Sencillo`,`CₙH₂ₙ₊₂`,`-ano`,`Propano C₃H₈`],[`[[alqueno|Alqueno]]`,`Doble C=C`,`CₙH₂ₙ`,`-eno`,`Eteno C₂H₄`],[`[[alquino|Alquino]]`,`Triple C≡C`,`CₙH₂ₙ₋₂`,`-ino`,`Etino C₂H₂`],[`[[aromatico|Aromático]]`,`Anillo deslocalizado`,`—`,`benceno y derivados`,`Benceno C₆H₆`]]),
+  LX.t([`Carbonos`,`1`,`2`,`3`,`4`,`5`,`6`,`7`,`8`,`9`,`10`],[[`Prefijo`,`met-`,`et-`,`prop-`,`but-`,`pent-`,`hex-`,`hept-`,`oct-`,`non-`,`dec-`]]),
+  LX.h(`Nombrar un alcano ramificado`),
+  LX.t([`Paso`,`Qué hacer`],[[`1`,`Busca la cadena continua más larga.`],[`2`,`Numera desde el extremo más cercano a la primera ramificación.`],[`3`,`Nombra las ramas (metil, etil…) con su número.`],[`4`,`Escribe las ramas en orden alfabético y luego el nombre de la cadena. Ejemplo: 2-metilbutano.`]]),
+  LX.p(`Los [[grupofunc|grupos funcionales]] dan la química: –OH [[alcohol]] (-ol), –CHO [[aldehido]] (-al), C=O [[cetona]] (-ona), –COOH [[acidocarb|ácido carboxílico]] (-oico), –COO– [[ester|éster]], –NH₂ [[amina]].`),
+  LX.p(`Los [[isomero|isómeros]] comparten fórmula pero no estructura: el C₄H₁₀ puede ser butano o 2-metilpropano.`),
+  LX.w(`Error común: elegir la cadena «recta» del dibujo y no la más larga. Una cadena doblada en el dibujo sigue siendo la misma cadena.`),
+  LX.u(LX.p(`Los [[polimero|polímeros]] se forman al unirse muchos monómeros: eteno → polietileno.`))],
+ [LX.e(`Nombra CH₃–CH(CH₃)–CH₂–CH₃.`,[`La cadena continua más larga tiene 4 C (butano).`,`Hay un CH₃ (metil) en el carbono 2.`],`2-metilbutano`),
+  LX.e(`Escribe la fórmula del hexano.`,[`Hex- = 6 carbonos: n = 6.`,`H = 2n + 2 = 14.`],`C₆H₁₄`)],
+ [LX.i(`Fórmula del octano`,[`C₈H₁₈`,`C₈H₁₆`,`C₈H₁₄`,`C₈H₂₀`],`2(8) + 2 = 18.`),
+  LX.i(`Un compuesto con el grupo –OH es un…`,[`Alcohol`,`Aldehído`,`Cetona`,`Éster`],`Terminación -ol.`),
+  LX.i(`El etino (C₂H₂) tiene…`,[`Un triple enlace`,`Un doble enlace`,`Solo enlaces sencillos`,`Un anillo aromático`],`Los alquinos terminan en -ino.`),
+  LX.i(`Los alquenos terminan en…`,[`-eno`,`-ano`,`-ino`,`-ol`],`Tienen un doble enlace C=C.`)]));
+
+/* ---------- ruta completa: todos los temas con su lección ---------- */
 const ROAD=[
- ['Configuración electrónica y orbitales','Aufbau, Hund, Pauli, excepciones','lab:e','Lecciones listas'],
- ['Regla del octeto e iones','Cargas típicas y nombres','lab:o'],
- ['Enlaces: iónico, covalente y metálico','Propiedades y modelos','lab:b'],
- ['Enlace coordinado','Dativo y complejos','lab:c'],
- ['Geometría molecular y polaridad','VSEPR, dipolos',''],
- ['Fuerzas intermoleculares','London, dipolo, puente de H',''],
- ['Estequiometría y mol','Masa molar, reactivo limitante','lab:z'],
- ['Reacciones y balanceo','Tipos, ecuaciones iónicas','lab:z'],
- ['Disoluciones y concentración','Molaridad, dilución',''],
- ['Gases','Leyes y gas ideal',''],
- ['Termoquímica','Entalpía y ley de Hess',''],
- ['Equilibrio y cinética','Q, K, Le Châtelier',''],
- ['Ácidos y bases','pH, Ka, amortiguadores',''],
- ['Redox y electroquímica','Pilas, E°, electrólisis',''],
- ['Química orgánica básica','Grupos funcionales','']];
+ ['Átomo e isótopos','Partículas, isótopos y masa atómica','','a1'],
+ ['Configuración electrónica y orbitales','Aufbau, Hund, Pauli, excepciones','lab:e','c1'],
+ ['Tendencias periódicas','Zef, radio, energía de ionización y EN','','t1'],
+ ['Regla del octeto e iones','Cargas típicas y nombres','lab:o','e1'],
+ ['Enlaces: iónico, covalente y metálico','Propiedades y modelos','lab:b','e2'],
+ ['Enlace coordinado','Dativo y complejos','lab:c','e3'],
+ ['Geometría molecular y polaridad','VSEPR y dipolos','','e4'],
+ ['Fuerzas intermoleculares','London, dipolo y puente de H','','e5'],
+ ['Estequiometría y mol','Masa molar, reactivo limitante','lab:z','s1'],
+ ['Reacciones y balanceo','Tipos y ecuaciones','lab:z','s2'],
+ ['Disoluciones y concentración','Molaridad y dilución','lab:z','d1'],
+ ['Gases','Leyes y gas ideal','lab:z','d2'],
+ ['Termoquímica','Entalpía y ley de Hess','','q1'],
+ ['Equilibrio y cinética','Q, K y Le Châtelier','','q2'],
+ ['Ácidos y bases','pH, Ka y amortiguadores','lab:z','b1'],
+ ['Redox y electroquímica','Pilas, E° y electrólisis','','b2'],
+ ['Química orgánica básica','Grupos funcionales y alcanos','','o1']];
+
+LES.push(...NEWLES);MODS.push(...NEWMODS);window.NLES=LES.length;
+
 
 /* ===== v18: simuladores de las lecciones ===== */
 const mk=(tag,cls,html)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(html!=null)e.innerHTML=html;return e};
@@ -3614,6 +4345,271 @@ const exNode=b=>{
  let k=0;const btn=w.querySelector('.lexb'),li=w.querySelectorAll('li'),res=w.querySelector('.lexr');
  btn.onclick=()=>{li[k++].hidden=false;if(window.hap)hap('tap');if(k>=N){res.hidden=false;btn.parentNode.hidden=true}else btn.textContent=`Mostrar el paso ${k+1} de ${N}`};
  return w};
+/* ===== simuladores y calculadoras nuevas (lecciones y Herramientas) ===== */
+const numV=el=>el.value===''?NaN:+el.value;
+const fld=(l,k,v,x)=>`<label>${l}<input class="inp" data-k="${k}" ${x||''} value="${v}" autocomplete="off"></label>`;
+/* masa molar y moles */
+SIMS.cmol=()=>{
+ const w=shell('Masa molar y moles',`<div class="cfx">${fld('Fórmula','f','H2O','autocapitalize="off" spellcheck="false" aria-label="Fórmula"')}${fld('Masa (g)','g','36','type="number" min="0" step="any" inputmode="decimal"')}</div><div class="bout" aria-live="polite"></div>`);
+ const f=w.querySelector('[data-k=f]'),g=w.querySelector('[data-k=g]'),o=w.querySelector('.bout');
+ const upd=()=>{const c=pf(f.value);if(!c){o.innerHTML='<span class="mu sm">Escribe una fórmula válida con mayúsculas y minúsculas: NaCl, Ca(OH)2…</span>';return}
+  const rows=Object.entries(c).map(([s,n])=>{const e=Z(s);return[e,n,n*e.m]}),M=rows.reduce((a,r)=>a+r[2],0),m=numV(g);
+  o.innerHTML=`<div class="big">${fmtN(M,3)} g/mol</div>`+rows.map(([e,n,x])=>`<div class="row" style="justify-content:space-between;font-size:.82rem;margin-top:4px"><span><b>${e.s}</b> × ${n} · ${e.n}</span><span>${fmtN(x,3)} g · ${fmtN(x/M*100,1)} %</span></div>`).join('')+(m>0?`<div class="note"><b>${fmtN(m,3)} g</b> ÷ ${fmtN(M,3)} g/mol = <b>${fmtN(m/M,4)} mol</b><br>≈ ${(m/M*6.02214076e23).toExponential(3)} unidades</div>`:'')};
+ f.oninput=g.oninput=upd;upd();return w};
+/* balanceo */
+SIMS.cbal=()=>{
+ const w=shell('Balanceador de ecuaciones',`<input class="inp" value="Fe + O2 -> Fe2O3" aria-label="Ecuación" autocapitalize="off" spellcheck="false"><div class="bout" style="margin-top:8px" aria-live="polite"></div>`);
+ const i=w.querySelector('input'),o=w.querySelector('.bout'),u=()=>o.innerHTML=balHTML(i.value);i.oninput=u;u();return w};
+/* molaridad y dilución */
+SIMS.cdil=()=>{
+ const w=shell('Molaridad y dilución',`<div class="mu sm" style="font-weight:700">Molaridad = moles de soluto ÷ litros de disolución</div><div class="cfx c3">${fld('Soluto','f','NaCl','autocapitalize="off" spellcheck="false"')}${fld('Masa (g)','m','5.85','type="number" min="0" step="any" inputmode="decimal"')}${fld('Volumen (mL)','v','500','type="number" min="0" step="any" inputmode="decimal"')}</div><div class="bout" data-o="1" aria-live="polite"></div>
+ <div class="mu sm" style="font-weight:700;margin-top:14px">Dilución: C₁V₁ = C₂V₂ <span style="font-weight:400">(deja vacía la incógnita)</span></div><div class="cfx c4">${fld('C₁ (M)','c1','2','type="number" min="0" step="any" inputmode="decimal"')}${fld('V₁ (mL)','v1','10','type="number" min="0" step="any" inputmode="decimal"')}${fld('C₂ (M)','c2','','type="number" min="0" step="any" inputmode="decimal"')}${fld('V₂ (mL)','v2','100','type="number" min="0" step="any" inputmode="decimal"')}</div><div class="bout" data-o="2" aria-live="polite"></div>`);
+ const q=k=>w.querySelector(`[data-k=${k}]`),o1=w.querySelector('[data-o="1"]'),o2=w.querySelector('[data-o="2"]');
+ const u1=()=>{const c=pf(q('f').value),m=numV(q('m')),v=numV(q('v'));if(!c){o1.innerHTML='<span class="mu sm">Escribe una fórmula válida.</span>';return}
+  const M=Object.entries(c).reduce((a,[s,n])=>a+n*Z(s).m,0);if(!(m>=0&&v>0)){o1.innerHTML='<span class="mu sm">Escribe la masa y un volumen mayor que 0.</span>';return}
+  const n=m/M;o1.innerHTML=`<div class="big">${fmtN(n/(v/1000),4)} mol/L</div><div class="mu sm">n = ${fmtN(m,3)} g ÷ ${fmtN(M,3)} g/mol = ${fmtN(n,4)} mol · V = ${fmtN(v/1000,4)} L</div>`};
+ const u2=()=>{const v=['c1','v1','c2','v2'].map(k=>numV(q(k))),e=v.map((x,i)=>isNaN(x)?i:-1).filter(i=>i>=0);
+  if(e.length!=1||v.some(x=>x<0)){o2.innerHTML='<span class="mu sm">Llena tres casillas y deja vacía la que quieres calcular.</span>';return}
+  const[c1,v1,c2,v2]=v,i=e[0],r=i==0?c2*v2/v1:i==1?c2*v2/c1:i==2?c1*v1/v2:c1*v1/c2,nm=['C₁','V₁','C₂','V₂'][i],u=i%2?'mL':'M';
+  o2.innerHTML=`<div class="big">${nm} = ${fmtN(r,4)} ${u}</div>`+(i==3?`<div class="mu sm">Agua a añadir: ${fmtN(r-v1,3)} mL</div>`:'')};
+ ['f','m','v'].forEach(k=>q(k).oninput=u1);['c1','v1','c2','v2'].forEach(k=>q(k).oninput=u2);u1();u2();return w};
+/* pH y pOH */
+SIMS.cph=()=>{
+ const w=shell('pH y pOH',`<div class="cfx"><label>Dato<select class="inp" data-k="t"><option value="ph">pH</option><option value="poh">pOH</option><option value="h">[H⁺] (M)</option><option value="oh">[OH⁻] (M)</option></select></label>${fld('Valor','x','3','type="number" step="any" inputmode="decimal"')}</div><input type="range" min="0" max="14" step="0.1" value="3" data-k="r" aria-label="Escala de pH" style="width:100%;margin-top:10px"><div class="phbar" aria-hidden="true"><i></i></div><div class="bout" aria-live="polite"></div>`);
+ const t=w.querySelector('[data-k=t]'),x=w.querySelector('[data-k=x]'),r=w.querySelector('[data-k=r]'),o=w.querySelector('.bout'),mk2=w.querySelector('.phbar i');
+ const col=p=>`hsl(${Math.round(Math.max(0,Math.min(14,p))/14*270)} 80% 55%)`;
+ const upd=()=>{const v=numV(x);let pH;
+  if(isNaN(v)){o.innerHTML='<span class="mu sm">Escribe un valor.</span>';return}
+  if(t.value=='ph')pH=v;else if(t.value=='poh')pH=14-v;else if(v>0)pH=t.value=='h'?-Math.log10(v):14+Math.log10(v);else{o.innerHTML='<span class="mu sm">La concentración debe ser mayor que 0.</span>';return}
+  const pO=14-pH,H=Math.pow(10,-pH),OH=Math.pow(10,-pO),k=pH<6.95?'Ácida':pH>7.05?'Básica':'Neutra';
+  mk2.style.left=Math.max(0,Math.min(100,pH/14*100))+'%';mk2.style.background=col(pH);
+  o.innerHTML=`<div class="big" style="color:${col(pH)}">${k} · pH ${fmtN(pH,2)}</div><div class="cfx c3" style="margin-top:6px"><div><div class="mu sm">pOH</div><b>${fmtN(pO,2)}</b></div><div><div class="mu sm">[H⁺]</div><b>${H.toExponential(2)} M</b></div><div><div class="mu sm">[OH⁻]</div><b>${OH.toExponential(2)} M</b></div></div><div class="mu sm" style="margin-top:6px">A 25 °C: pH + pOH = 14.</div>`;
+  if(Math.abs(+r.value-pH)>.05&&pH>=0&&pH<=14)r.value=pH};
+ t.onchange=x.oninput=upd;r.oninput=()=>{t.value='ph';x.value=r.value;upd()};upd();return w};
+/* gases ideales */
+SIMS.cgas=()=>{
+ const w=shell('Gas ideal: PV = nRT',`<div class="mu sm">Llena tres casillas y deja vacía la que quieres calcular. R = 0.08206 atm·L/(mol·K).</div><div class="cfx c4" style="margin-top:8px">${fld('P (atm)','p','1','type="number" min="0" step="any" inputmode="decimal"')}${fld('V (L)','v','','type="number" min="0" step="any" inputmode="decimal"')}${fld('n (mol)','n','1','type="number" min="0" step="any" inputmode="decimal"')}<label>T<span class="row" style="gap:4px;flex-wrap:nowrap"><input class="inp" data-k="t" type="number" step="any" value="0" inputmode="decimal" style="min-width:0"><select class="inp" data-k="u" style="width:auto"><option value="C">°C</option><option value="K">K</option></select></span></label></div><div class="bout" style="margin-top:8px" aria-live="polite"></div>`);
+ const q=k=>w.querySelector(`[data-k=${k}]`),o=w.querySelector('.bout'),R=0.08206;
+ const upd=()=>{const P=numV(q('p')),V=numV(q('v')),n=numV(q('n')),Tr=numV(q('t')),K=q('u').value=='C'?Tr+273.15:Tr,vals=[P,V,n,K],e=vals.map((x,i)=>isNaN(x)?i:-1).filter(i=>i>=0);
+  if(e.length!=1){o.innerHTML='<span class="mu sm">Deja exactamente una casilla vacía.</span>';return}
+  if(vals.some((x,i)=>i!=e[0]&&(i==3?x<=0:x<=0))){o.innerHTML='<span class="mu sm">Usa valores mayores que 0 (la temperatura en kelvin debe ser positiva).</span>';return}
+  const i=e[0],r=[V?n*R*K/V:0,0,0,0];let res,lab;
+  if(i==0){res=n*R*K/V;lab=`P = ${fmtN(res,4)} atm`}else if(i==1){res=n*R*K/P;lab=`V = ${fmtN(res,4)} L`}else if(i==2){res=P*V/(R*K);lab=`n = ${fmtN(res,4)} mol`}else{res=P*V/(n*R);lab=`T = ${fmtN(res,2)} K (${fmtN(res-273.15,2)} °C)`}
+  o.innerHTML=`<div class="big">${lab}</div>`};
+ ['p','v','n','t'].forEach(k=>q(k).oninput=upd);q('u').onchange=upd;upd();return w};
+/* geometría molecular (VSEPR): X = pares de enlace, E = pares libres */
+const GEO={
+ '2-0':['Lineal','180°','Lineal','CO₂, BeCl₂','Apolar si los dos átomos son iguales',[[-85,0],[85,0]],[]],
+ '3-0':['Plana trigonal','120°','Plana trigonal','BF₃, SO₃','Apolar si los tres átomos son iguales',[[0,-82],[71,41],[-71,41]],[]],
+ '2-1':['Angular','menor que 120° (≈ 119° en el SO₂)','Plana trigonal','SO₂, O₃','Polar',[[-71,41],[71,41]],[[0,-58]]],
+ '4-0':['Tetraédrica','109.5°','Tetraédrica','CH₄, CCl₄','Apolar si los cuatro átomos son iguales',[[0,-84],[-76,42],[76,42],[0,78]],[]],
+ '3-1':['Piramidal trigonal','≈ 107°','Tetraédrica','NH₃, PCl₃','Polar',[[-76,46],[76,46],[0,80]],[[0,-60]]],
+ '2-2':['Angular','≈ 104.5°','Tetraédrica','H₂O, H₂S','Polar',[[-64,58],[64,58]],[[-42,-54],[42,-54]]],
+ '5-0':['Bipiramidal trigonal','90° y 120°','Bipiramidal trigonal','PCl₅','Apolar si los cinco átomos son iguales',[[0,-88],[0,88],[-88,16],[88,16],[0,52]],[]],
+ '4-1':['Balancín (seesaw)','menor que 90° y que 120°','Bipiramidal trigonal','SF₄','Polar',[[0,-88],[0,88],[-88,30],[88,30]],[[-30,-4]]],
+ '3-2':['Forma de T','menor que 90°','Bipiramidal trigonal','ClF₃','Polar',[[0,-88],[0,88],[-88,28]],[[60,-30],[60,30]]],
+ '2-3':['Lineal','180°','Bipiramidal trigonal','XeF₂, I₃⁻','Apolar',[[0,-88],[0,88]],[[-70,0],[44,-58],[44,58]]],
+ '6-0':['Octaédrica','90°','Octaédrica','SF₆','Apolar si los seis átomos son iguales',[[0,-88],[0,88],[-88,0],[88,0],[-36,-40],[36,40]],[]],
+ '5-1':['Pirámide cuadrada','menor que 90°','Octaédrica','BrF₅','Polar',[[0,-88],[-88,0],[88,0],[-36,40],[36,40]],[[0,70]]],
+ '4-2':['Plana cuadrada','90°','Octaédrica','XeF₄','Apolar',[[-88,0],[88,0],[-36,40],[36,-40]],[[0,-80],[0,80]]]};
+SIMS.vsepr=()=>{
+ const w=shell('Geometría molecular (VSEPR)',`<div class="cfx"><label>Pares de enlace (X)<input type="range" min="2" max="6" step="1" value="2" data-k="x" aria-label="Pares de enlace"><b class="vx">2</b></label><label>Pares libres (E)<input type="range" min="0" max="3" step="1" value="0" data-k="e" aria-label="Pares libres"><b class="ve">0</b></label></div><svg viewBox="-150 -110 300 220" class="vsv" role="img" aria-label="Geometría molecular"></svg><div class="bout" aria-live="polite"></div>`);
+ const x=w.querySelector('[data-k=x]'),e=w.querySelector('[data-k=e]'),sv=w.querySelector('svg'),o=w.querySelector('.bout');
+ const upd=()=>{const X=+x.value,E=+e.value;w.querySelector('.vx').textContent=X;w.querySelector('.ve').textContent=E;const g=GEO[X+'-'+E];
+  if(!g){sv.innerHTML='';o.innerHTML=`<span class="mu sm">Con ${X} pares de enlace y ${E} pares libres hay ${X+E} dominios, una combinación poco común. Prueba con 2 pares de enlace y 2 libres (agua) o con 4 y 0 (metano).</span>`;return}
+  sv.innerHTML=g[5].map(p=>`<line x1="0" y1="0" x2="${p[0]}" y2="${p[1]}" stroke="currentColor" stroke-width="4" stroke-linecap="round" opacity=".7"/>`).join('')+g[5].map(p=>`<circle cx="${p[0]}" cy="${p[1]}" r="14" fill="#6366f1"/>`).join('')+g[6].map(p=>`<g transform="translate(${p[0]} ${p[1]})"><ellipse rx="16" ry="10" fill="#f59e0b" opacity=".35"/><circle cx="-5" r="3.4" fill="#f59e0b"/><circle cx="5" r="3.4" fill="#f59e0b"/></g>`).join('')+`<circle r="19" fill="#ef4444"/><text y="5" text-anchor="middle" font-size="14" font-weight="800" fill="#fff">A</text>`;
+  o.innerHTML=`<div class="big">${g[0]}</div><div class="mu sm">AX<sub>${X}</sub>${E?'E'+(E>1?'<sub>'+E+'</sub>':''):''} · ${X+E} dominios · geometría electrónica: ${g[2]}</div><div class="note"><b>Ángulo:</b> ${g[1]}<br><b>Ejemplos:</b> ${g[3]}<br><b>Polaridad:</b> ${g[4]}</div>`};
+ x.oninput=e.oninput=upd;upd();return w};
+/* puntos de ebullición de hidruros */
+SIMS.bp=()=>{
+ const D={14:[['CH₄',-162],['SiH₄',-112],['GeH₄',-88],['SnH₄',-52]],15:[['NH₃',-33],['PH₃',-88],['AsH₃',-62],['SbH₃',-17]],16:[['H₂O',100],['H₂S',-60],['H₂Se',-41],['H₂Te',-2]],17:[['HF',20],['HCl',-85],['HBr',-67],['HI',-35]]};
+ const w=shell('Puntos de ebullición de los hidruros',`<div class="chips wrap">${[14,15,16,17].map(g=>`<button class="chip${g==16?' on':''}" data-g="${g}">Grupo ${g}</button>`).join('')}</div><svg viewBox="0 0 300 210" class="vsv" role="img" aria-label="Gráfica de puntos de ebullición"></svg><div class="bout" aria-live="polite"></div>`);
+ const sv=w.querySelector('svg'),o=w.querySelector('.bout');
+ const draw=g=>{const d=D[g],y=v=>20+(130-v)/(130+180)*160,x=i=>50+i*70;
+  sv.innerHTML=`<line x1="30" y1="${y(0)}" x2="290" y2="${y(0)}" stroke="currentColor" opacity=".3" stroke-dasharray="4 4"/><text x="4" y="${y(0)+4}" font-size="10" fill="currentColor" opacity=".7">0 °C</text>`
+   +`<polyline fill="none" stroke="#6366f1" stroke-width="2.5" points="${d.map((p,i)=>x(i)+','+y(p[1])).join(' ')}"/>`
+   +d.map((p,i)=>`<circle cx="${x(i)}" cy="${y(p[1])}" r="6" fill="${i==0&&g>14?'#ef4444':'#6366f1'}"/><text x="${x(i)}" y="${y(p[1])-11}" text-anchor="middle" font-size="11" font-weight="700" fill="currentColor">${p[1]} °C</text><text x="${x(i)}" y="198" text-anchor="middle" font-size="12" fill="currentColor">${p[0]}</text>`).join('');
+  o.innerHTML=g==14?`<div class="note">En el grupo 14 los hidruros son apolares: el punto de ebullición sube con el tamaño (fuerzas de London). No hay puentes de hidrógeno.</div>`:`<div class="note"><b>${d[0][0]}</b> hierve mucho más alto de lo que sugiere la tendencia: forma <b>puentes de hidrógeno</b> (H unido a ${g==15?'N':g==16?'O':'F'}). Los demás siguen la tendencia de London.</div>`};
+ w.addEventListener('click',ev=>{const b=ev.target.closest('[data-g]');if(!b)return;w.querySelectorAll('[data-g]').forEach(c=>c.classList.toggle('on',c==b));draw(+b.dataset.g)});draw(16);return w};
+/* diagrama de energía de una reacción */
+SIMS.ener=()=>{
+ const w=shell('Diagrama de energía de una reacción',`<div class="cfx"><label>ΔH (kJ): <b class="eh">−80</b><input type="range" min="-200" max="200" step="5" value="-80" data-k="h" aria-label="Entalpía de reacción"></label><label>Energía de activación (kJ): <b class="ea">120</b><input type="range" min="20" max="250" step="5" value="120" data-k="a" aria-label="Energía de activación"></label></div><label class="row" style="gap:8px;margin:8px 0"><input type="checkbox" data-k="c"> Añadir catalizador</label><svg viewBox="0 0 300 210" class="vsv" role="img" aria-label="Diagrama de energía"></svg><div class="bout" aria-live="polite"></div>`);
+ const h=w.querySelector('[data-k=h]'),a=w.querySelector('[data-k=a]'),c=w.querySelector('[data-k=c]'),sv=w.querySelector('svg'),o=w.querySelector('.bout');
+ const upd=()=>{const H=+h.value,A=Math.max(+a.value,H+10,10),Ac=Math.max(A*.55,H+10,10);w.querySelector('.eh').textContent=H;w.querySelector('.ea').textContent=Math.round(A);
+  const Y=e=>190-(e+100)*.38,Er=100,Ep=100+H,path=(t,col,dash)=>{const yr=Y(Er),yp=Y(Ep),yt=Y(Er+t);return`<path d="M30 ${yr} L90 ${yr} C 120 ${yr}, 120 ${yt}, 150 ${yt} C 180 ${yt}, 180 ${yp}, 210 ${yp} L270 ${yp}" fill="none" stroke="${col}" stroke-width="3" ${dash?'stroke-dasharray="6 5"':''}/>`};
+  sv.innerHTML=`<line x1="22" y1="14" x2="22" y2="196" stroke="currentColor" opacity=".5"/><text x="8" y="12" font-size="10" fill="currentColor">E</text>`+path(A,'#6366f1')+(c.checked?path(Ac,'#10b981',1):'')
+   +`<text x="30" y="${Y(Er)-6}" font-size="11" fill="currentColor">Reactivos</text><text x="212" y="${Y(Ep)+(H<0?16:-6)}" font-size="11" fill="currentColor">Productos</text>`
+   +`<line x1="60" y1="${Y(Er)}" x2="60" y2="${Y(Er+A)}" stroke="#f59e0b" stroke-width="1.6"/><text x="64" y="${(Y(Er)+Y(Er+A))/2}" font-size="11" fill="#f59e0b">Ea${c.checked?' (sin cat.)':''}</text>`
+   +`<line x1="248" y1="${Y(Er)}" x2="248" y2="${Y(Ep)}" stroke="${H<0?'#ef4444':'#38bdf8'}" stroke-width="2"/><text x="252" y="${(Y(Er)+Y(Ep))/2+4}" font-size="11" fill="${H<0?'#ef4444':'#38bdf8'}">ΔH</text>`;
+  o.innerHTML=`<div class="big">${H<0?'Exotérmica (ΔH < 0)':H>0?'Endotérmica (ΔH > 0)':'ΔH = 0'}</div><div class="mu sm">Ea directa = ${Math.round(A)} kJ · Ea inversa = ${Math.round(A-H)} kJ${c.checked?` · con catalizador: Ea = ${Math.round(Ac)} kJ (la reacción es más rápida, pero ΔH no cambia)`:''}</div>`};
+ h.oninput=a.oninput=c.onchange=upd;upd();return w};
+/* Le Châtelier: N2 + 3 H2 ⇌ 2 NH3 */
+SIMS.le=()=>{
+ const w=shell('Principio de Le Châtelier: N₂ + 3 H₂ ⇌ 2 NH₃',`<div class="chips wrap lebt"><button class="chip" data-a="n2">+ N₂</button><button class="chip" data-a="h2">+ H₂</button><button class="chip" data-a="nh3">+ NH₃</button><button class="chip" data-a="-nh3">− NH₃</button><button class="chip" data-a="p">Comprimir (↑P)</button><button class="chip" data-a="t">Calentar</button><button class="chip" data-a="f">Enfriar</button><button class="chip" data-a="r">Reiniciar</button></div><div class="lebars"></div><div class="bout" aria-live="polite"></div>`);
+ const o=w.querySelector('.bout'),bars=w.querySelector('.lebars');let K0=0.5,K,s;
+ const reset=()=>{K=K0;s={n:1,h:1,a:Math.sqrt(K0)};msg('Sistema en equilibrio (ilustrativo). Perturba el sistema con los botones.','')};
+ const Q=s=>s.a*s.a/(s.n*Math.pow(s.h,3));
+ const solve=()=>{/* nuevo equilibrio: x = avance (negativo = hacia reactivos) */
+  let lo=-s.a/2+1e-9,hi=Math.min(s.n,s.h/3)-1e-9,f=x=>{const a=s.a+2*x,n=s.n-x,h=s.h-3*x;return a*a/(n*Math.pow(h,3))-K};
+  for(let i=0;i<80;i++){const m=(lo+hi)/2;if(f(m)>0)hi=m;else lo=m}const x=(lo+hi)/2;s={n:s.n-x,h:s.h-3*x,a:s.a+2*x}};
+ const draw=()=>{const mx=Math.max(2,s.n,s.h,s.a);bars.innerHTML=[['N₂',s.n,'#6366f1'],['H₂',s.h,'#38bdf8'],['NH₃',s.a,'#10b981']].map(([n,v,c])=>`<div class="lebar"><span>${n}</span><div class="lebg"><i style="width:${Math.min(100,v/mx*100)}%;background:${c}"></i></div><b>${v.toFixed(2)}</b></div>`).join('')};
+ const msg=(t,d)=>{o.innerHTML=`<div class="note">${t}</div>${d?`<div class="big" style="font-size:1.1rem">${d}</div>`:''}<div class="mu sm">Q = ${Q(s).toFixed(2)} · K = ${K.toFixed(2)}</div>`;draw()};
+ w.addEventListener('click',ev=>{const b=ev.target.closest('[data-a]');if(!b)return;const a=b.dataset.a;if(a=='r'){reset();return}
+  const before={...s};let t='';
+  if(a=='n2'){s.n+=1;t='Añadiste N₂.'}else if(a=='h2'){s.h+=1;t='Añadiste H₂.'}else if(a=='nh3'){s.a+=1;t='Añadiste NH₃.'}else if(a=='-nh3'){s.a=Math.max(.05,s.a*.4);t='Retiraste NH₃.'}
+  else if(a=='p'){s.n*=2;s.h*=2;s.a*=2;t='Comprimiste el sistema: todas las concentraciones se duplican. Hay 4 mol de gas a la izquierda y 2 mol a la derecha.'}
+  else if(a=='t'){K*=.5;t='Calentaste: la síntesis es exotérmica (ΔH < 0), así que K disminuye.'}else{K*=2;t='Enfriaste: K aumenta (la reacción directa es exotérmica).'}
+  const q0=Q(s);solve();const dir=q0<K-1e-9?'Se desplazó hacia los productos (derecha).':q0>K+1e-9?'Se desplazó hacia los reactivos (izquierda).':'No se desplazó: ya estaba en equilibrio.';
+  msg(t+` Q ${q0<K?'<':q0>K?'>':'='} K al perturbar.`,dir)});
+ reset();return w};
+/* serie de actividad: ¿reacciona? */
+const RDX={Mg:['Mg²⁺',-2.37,2,'#d1d5db',.12,'#e5e7eb'],Al:['Al³⁺',-1.66,3,'#cbd5e1',.12,'#e5e7eb'],Zn:['Zn²⁺',-0.76,2,'#94a3b8',.12,'#e5e7eb'],Fe:['Fe²⁺',-0.44,2,'#64748b',.45,'#86efac'],Ni:['Ni²⁺',-0.25,2,'#a3b1c6',.5,'#4ade80'],Pb:['Pb²⁺',-0.13,2,'#78716c',.12,'#e5e7eb'],Cu:['Cu²⁺',0.34,2,'#b45309',.7,'#38bdf8'],Ag:['Ag⁺',0.80,1,'#e5e7eb',.12,'#e5e7eb']};
+SIMS.redox=()=>{
+ const ks=Object.keys(RDX),w=shell('¿Reacciona el metal con la disolución?',`<div class="cfx"><label>Metal (sólido)<select class="inp" data-k="m">${ks.map(k=>`<option value="${k}"${k=='Zn'?' selected':''}>${k}</option>`).join('')}</select></label><label>Disolución con el ion<select class="inp" data-k="i">${ks.map(k=>`<option value="${k}"${k=='Cu'?' selected':''}>${RDX[k][0]}</option>`).join('')}</select></label></div><svg viewBox="0 0 300 170" class="vsv" role="img" aria-label="Vaso con una lámina de metal"></svg><div class="bout" aria-live="polite"></div>`);
+ const m=w.querySelector('[data-k=m]'),i=w.querySelector('[data-k=i]'),sv=w.querySelector('svg'),o=w.querySelector('.bout');
+ const gcd2=(a,b)=>b?gcd2(b,a%b):a;
+ const upd=()=>{const M=RDX[m.value],C=RDX[i.value],ion=C[0],ok=m.value!=i.value&&C[1]>M[1],E=C[1]-M[1];
+  const col=C[5],op=C[4];
+  sv.innerHTML=`<path d="M70 20 L70 140 Q70 152 82 152 L218 152 Q230 152 230 140 L230 20" fill="none" stroke="currentColor" stroke-width="3" opacity=".7"/><rect x="73" y="60" width="154" height="90" rx="6" fill="${col}" opacity="${Math.max(op,.18)}"/>`
+   +`<rect x="140" y="30" width="20" height="112" rx="3" fill="${M[3]}"/><text x="150" y="22" text-anchor="middle" font-size="12" font-weight="700" fill="currentColor">${m.value}</text>`
+   +(ok?[...Array(14)].map((_,k)=>`<circle cx="${132+((k*37)%36)}" cy="${60+((k*29)%78)}" r="3" fill="${RDX[i.value][3]}" stroke="#0003"/>`).join(''):'')
+   +`<text x="150" y="164" text-anchor="middle" font-size="12" fill="currentColor">disolución de ${ion}</text>`;
+  if(m.value==i.value){o.innerHTML='<div class="note">Es el mismo metal: no hay reacción.</div>';return}
+  const n1=M[2],n2=C[2],L=n1*n2/gcd2(n1,n2),a=L/n1,b=L/n2,f=(c,s)=>(c>1?c+' ':'')+s;
+  o.innerHTML=ok?`<div class="big" style="color:var(--ok)">Sí reacciona (E° = ${E.toFixed(2)} V)</div><div class="note">${f(a,m.value)} + ${f(b,ion)} → ${f(a,M[0])} + ${f(b,i.value)}<br>El ${m.value} se oxida (agente reductor) y el ${ion} se reduce (agente oxidante). Se deposita ${i.value} metálico.</div>`:`<div class="big" style="color:var(--bad)">No reacciona (E° = ${E.toFixed(2)} V &lt; 0)</div><div class="note">El ${m.value} es menos activo que el ${i.value}: no puede reducir al ${ion}. Prueba al revés.</div>`};
+ m.onchange=i.onchange=upd;upd();return w};
+/* alcanos, alquenos y alquinos */
+SIMS.alk=()=>{
+ const P=['met','et','prop','but','pent','hex','hept','oct','non','dec'],BP=[-162,-89,-42,-1,36,69,98,126,151,174];
+ const w=shell('Hidrocarburos de cadena lineal',`<div class="cfx"><label>Carbonos: <b class="an">4</b><input type="range" min="1" max="10" step="1" value="4" data-k="n" aria-label="Número de carbonos"></label><label>Tipo<select class="inp" data-k="t"><option value="ano">Alcano (enlaces sencillos)</option><option value="eno">Alqueno (un doble enlace)</option><option value="ino">Alquino (un triple enlace)</option></select></label></div><svg viewBox="0 0 330 110" class="vsv" role="img" aria-label="Cadena de carbonos"></svg><div class="bout" aria-live="polite"></div>`);
+ const n=w.querySelector('[data-k=n]'),t=w.querySelector('[data-k=t]'),sv=w.querySelector('svg'),o=w.querySelector('.bout');
+ const upd=()=>{let N=+n.value,T=t.value;w.querySelector('.an').textContent=N;if(N<2&&T!='ano'){T='ano';t.value='ano'}
+  const x=i=>20+i*(290/Math.max(N-1,1))*(N==1?0:1)+(N==1?145:0),y=i=>55+(i%2?-18:18),mul=T=='ano'?0:T=='eno'?1:2;
+  let s='';for(let i=0;i<N-1;i++){const k=i==0?mul:0,off=k==0?[0]:k==1?[-3,3]:[-5,0,5];off.forEach(d=>s+=`<line x1="${x(i)}" y1="${y(i)+d}" x2="${x(i+1)}" y2="${y(i+1)+d}" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>`)}
+  for(let i=0;i<N;i++)s+=`<circle cx="${x(i)}" cy="${y(i)}" r="6" fill="#6366f1"/>`;sv.innerHTML=s;
+  const H=T=='ano'?2*N+2:T=='eno'?2*N:2*N-2,name=P[N-1]+(N>=4&&T!='ano'?'':'')+(T=='ano'?'ano':N==1?'ano':T=='eno'?'eno':'ino'),nm=T!='ano'&&N>=2?P[N-1]+(N>=4?'-1-':'')+T:P[N-1]+'ano';
+  o.innerHTML=`<div class="big">${nm.charAt(0).toUpperCase()+nm.slice(1)}</div><div class="mu sm">Fórmula: C<sub>${N}</sub>H<sub>${H}</sub> · ${T=='ano'?'CₙH₂ₙ₊₂':T=='eno'?'CₙH₂ₙ':'CₙH₂ₙ₋₂'}</div>${T=='ano'?`<div class="note">Punto de ebullición ≈ ${BP[N-1]} °C · a 25 °C es ${N<=4?'un gas':'un líquido'}. Cada vértice es un C y los H que faltan completan 4 enlaces por carbono.</div>`:`<div class="note">${T=='eno'?'El doble':'El triple'} enlace está entre los carbonos 1 y 2. Cada vértice es un C; los H completan 4 enlaces por carbono.</div>`}`};
+ n.oninput=t.onchange=upd;upd();return w};
+
+/* ===== Herramientas con etiquetas + Tabla de solubilidad completa ===== */
+const RXG=[
+['Neutralización (ácido + base)',[
+ ['HCl + NaOH -> NaCl + H2O','Ácido clorhídrico + hidróxido de sodio: sal de mesa y agua. Libera calor.'],
+ ['H2SO4 + 2 NaOH -> Na2SO4 + 2 H2O','El ácido sulfúrico tiene 2 H⁺, por eso necesita 2 NaOH.'],
+ ['HNO3 + KOH -> KNO3 + H2O','Ácido nítrico + hidróxido de potasio: nitrato de potasio (salitre).'],
+ ['2 HCl + Ca(OH)2 -> CaCl2 + 2 H2O','La cal apagada neutraliza ácidos en suelos y aguas residuales.'],
+ ['2 HCl + Mg(OH)2 -> MgCl2 + 2 H2O','Así actúa la leche de magnesia contra la acidez del estómago.'],
+ ['CH3COOH + NaOH -> CH3COONa + H2O','Vinagre + sosa: acetato de sodio y agua.'],
+ ['H3PO4 + 3 NaOH -> Na3PO4 + 3 H2O','El ácido fosfórico tiene 3 H⁺ y se neutraliza con 3 NaOH.']]],
+['Reacciones del NaOH (sosa cáustica)',[
+ ['2 NaOH + CO2 -> Na2CO3 + H2O','La sosa absorbe el CO₂ del aire: por eso se guarda bien tapada.'],
+ ['2 NaOH + CuSO4 -> Cu(OH)2 + Na2SO4','Precipitado azul de hidróxido de cobre(II).'],
+ ['3 NaOH + FeCl3 -> Fe(OH)3 + 3 NaCl','Precipitado café-rojizo de hidróxido de hierro(III).'],
+ ['2 NaOH + Cl2 -> NaCl + NaClO + H2O','Así se obtiene la lejía (hipoclorito de sodio).'],
+ ['NaOH + NH4Cl -> NaCl + NH3 + H2O','Libera amoníaco, un gas de olor muy fuerte.'],
+ ['NaOH + Al(OH)3 -> NaAl(OH)4','El hidróxido de aluminio es anfótero: también se disuelve en bases.'],
+ ['2 NaOH + SO2 -> Na2SO3 + H2O','Se usa para retener gases ácidos de azufre.']]],
+['Precipitación',[
+ ['AgNO3 + NaCl -> AgCl + NaNO3','Precipitado blanco de cloruro de plata: prueba clásica de cloruros.'],
+ ['Pb(NO3)2 + 2 KI -> PbI2 + 2 KNO3','«Lluvia de oro»: precipitado amarillo de yoduro de plomo(II).'],
+ ['BaCl2 + Na2SO4 -> BaSO4 + 2 NaCl','Precipitado blanco de sulfato de bario: prueba de sulfatos.'],
+ ['CaCl2 + Na2CO3 -> CaCO3 + 2 NaCl','Carbonato de calcio: es el «sarro» de las aguas duras.']]],
+['Ácidos con carbonatos y metales',[
+ ['CaCO3 + 2 HCl -> CaCl2 + H2O + CO2','Burbujeo de CO₂: así se prueba un carbonato (mármol, gis, conchas).'],
+ ['NaHCO3 + CH3COOH -> CH3COONa + H2O + CO2','El «volcán» de bicarbonato con vinagre.'],
+ ['Zn + 2 HCl -> ZnCl2 + H2','Desprende hidrógeno (gas inflamable).'],
+ ['Mg + 2 HCl -> MgCl2 + H2','Burbujeo rápido de hidrógeno.'],
+ ['2 Al + 6 HCl -> 2 AlCl3 + 3 H2','El aluminio se disuelve en ácido liberando hidrógeno.'],
+ ['Fe + H2SO4 -> FeSO4 + H2','Hierro con ácido sulfúrico diluido: sulfato de hierro(II) e hidrógeno.']]],
+['Desplazamiento (redox)',[
+ ['Fe + CuSO4 -> FeSO4 + Cu','El hierro desplaza al cobre: el clavo se cubre de cobre rojizo.'],
+ ['Zn + CuSO4 -> ZnSO4 + Cu','El zinc es más reactivo que el cobre y lo desplaza.'],
+ ['Cu + 2 AgNO3 -> Cu(NO3)2 + 2 Ag','Plata metálica brillante sobre un alambre de cobre.'],
+ ['2 Na + 2 H2O -> 2 NaOH + H2','Muy violenta: el sodio flota, reacciona y puede inflamar el hidrógeno.'],
+ ['Ca + 2 H2O -> Ca(OH)2 + H2','El calcio reacciona más despacio que el sodio con el agua.']]],
+['Combustión',[
+ ['CH4 + 2 O2 -> CO2 + 2 H2O','Gas natural (metano).'],
+ ['C3H8 + 5 O2 -> 3 CO2 + 4 H2O','Gas LP: propano.'],
+ ['2 C4H10 + 13 O2 -> 8 CO2 + 10 H2O','Butano de los encendedores y de algunas estufas.'],
+ ['C2H5OH + 3 O2 -> 2 CO2 + 3 H2O','Etanol (alcohol): combustible y desinfectante.'],
+ ['C6H12O6 + 6 O2 -> 6 CO2 + 6 H2O','Respiración celular: la glucosa libera energía.']]],
+['Síntesis y descomposición',[
+ ['2 H2 + O2 -> 2 H2O','Formación del agua; libera mucha energía.'],
+ ['N2 + 3 H2 -> 2 NH3','Síntesis del amoníaco (proceso Haber-Bosch) para fertilizantes.'],
+ ['2 H2O2 -> 2 H2O + O2','El agua oxigenada se descompone en agua y oxígeno (más rápido con luz o un catalizador).'],
+ ['CaCO3 -> CaO + CO2','Calcinación de la caliza: se obtiene cal viva.'],
+ ['CaO + H2O -> Ca(OH)2','«Apagado» de la cal: libera calor.'],
+ ['2 KClO3 -> 2 KCl + 3 O2','Obtención de oxígeno en el laboratorio (con MnO₂ como catalizador).'],
+ ['2 H2O -> 2 H2 + O2','Electrólisis del agua.'],
+ ['6 CO2 + 6 H2O -> C6H12O6 + 6 O2','Fotosíntesis (necesita luz).'],
+ ['SO3 + H2O -> H2SO4','Último paso de la fabricación del ácido sulfúrico; también origina lluvia ácida.'],
+ ['2 NaHCO3 -> Na2CO3 + H2O + CO2','El bicarbonato se descompone al calentarse (por eso esponja los pasteles).']]]];
+const eqSub=s=>s.replace(/([A-Za-z)])(\d+)/g,'$1<sub>$2</sub>').replace('->','→');
+const eqRaw=s=>s.split('->').map(x=>x.split('+').map(t=>t.trim().replace(/^\d+\s+/,'')).join(' + ')).join(' -> ');
+{
+ const tg=$('#ztags'),pan=$('#zpan');
+ if(tg&&pan){
+  const T=[['mol','Masa molar'],['bal','Balanceo'],['rxn','Reacciones comunes'],['dil','Molaridad y dilución'],['ph','pH y pOH'],['gas','Gases ideales']],MNT={dil:'cdil',ph:'cph',gas:'cgas'};
+  tg.innerHTML=T.map(([k,n],i)=>`<button type="button" role="tab" class="chip${i?'':' on'}" data-z="${k}" aria-selected="${!i}">${n}</button>`).join('');
+  let cur='mol',RXI=[];
+  const panel=k=>pan.querySelector(`.zp[data-z="${k}"]`);
+  const buildRx=()=>{RXI=[];let n=0;const p=panel('rxn');
+   p.innerHTML=`<h2 style="margin:0">Reacciones comunes</h2><p class="mu sm" style="margin:6px 0 8px">Ecuaciones ya balanceadas para consultar sin conexión. Con «Balancear aquí» se carga la ecuación (sin coeficientes) en el balanceador.</p><input id="zrq" class="inp" type="search" placeholder="Buscar: NaOH, HCl, combustión…" aria-label="Buscar reacción" autocomplete="off">`
+    +RXG.map(([t,L])=>`<h3 class="rxg" data-g>${t}</h3>`+L.map(([eq,d])=>{const i=n++;RXI.push(eq);return`<div class="rxi" data-s="${noA(t+' '+eq+' '+d)}"><div class="rxq">${eqSub(eq)}</div><p class="mu sm">${d}</p><button class="btn" data-b="${i}">Balancear aquí</button></div>`}).join('')).join('')+'<p class="mu sm" id="zrn" hidden>No hay reacciones con esa búsqueda.</p>'};
+  const filt=()=>{const q=noA($('#zrq').value.trim());let any=0;panel('rxn').querySelectorAll('.rxi').forEach(e=>{const on=!q||e.dataset.s.includes(q);e.hidden=!on;if(on)any++});
+   panel('rxn').querySelectorAll('[data-g]').forEach(h=>{let e=h.nextElementSibling,on=0;while(e&&e.classList.contains('rxi')){if(!e.hidden)on=1;e=e.nextElementSibling}h.hidden=!on});$('#zrn').hidden=!!any};
+  const open=(k,anim)=>{if(k==cur&&!panel(k).hidden)return;const p=panel(k),old=panel(cur),dir=T.findIndex(x=>x[0]==k)>T.findIndex(x=>x[0]==cur)?1:-1;
+   if(k=='rxn'&&!p.dataset.ok){buildRx();p.dataset.ok=1}
+   if(MNT[k]&&!p.dataset.ok){p.appendChild(SIMS[MNT[k]]());p.dataset.ok=1}
+   old.hidden=true;p.hidden=false;cur=k;
+   tg.querySelectorAll('[data-z]').forEach(b=>{const on=b.dataset.z==k;b.classList.toggle('on',on);b.setAttribute('aria-selected',on)});
+   const b=tg.querySelector(`[data-z="${k}"]`);tg.scrollTo({left:b.offsetLeft-(tg.clientWidth-b.offsetWidth)/2,behavior:'smooth'});
+   if(anim!==false&&!RMQ.matches&&p.animate)p.animate([{opacity:0,transform:`translateX(${dir*28}px)`},{opacity:1,transform:'none'}],{duration:280,easing:'cubic-bezier(.22,.8,.2,1)'})};
+  tg.addEventListener('click',ev=>{const b=ev.target.closest('[data-z]');if(b)open(b.dataset.z)});
+  pan.addEventListener('click',ev=>{const b=ev.target.closest('[data-b]');if(!b)return;$('#mze').value=eqRaw(RXI[+b.dataset.b]);bal();open('bal');window.scrollTo({top:0,behavior:RMQ.matches?'auto':'smooth'});toast('Cargada en el balanceador')});
+  pan.addEventListener('input',ev=>{if(ev.target.id=='zrq')filt()});
+ }
+}
+/* ---- Tabla de solubilidad completa (TB1) ---- */
+const SCA=[['Li','Li⁺',1,'litio',0],['Na','Na⁺',1,'sodio',0],['K','K⁺',1,'potasio',0],['NH4','NH₄⁺',1,'amonio',1],['Mg','Mg²⁺',2,'magnesio',0],['Ca','Ca²⁺',2,'calcio',0],['Sr','Sr²⁺',2,'estroncio',0],['Ba','Ba²⁺',2,'bario',0],['Al','Al³⁺',3,'aluminio',0],['Mn','Mn²⁺',2,'manganeso(II)',0],['Fe2','Fe²⁺',2,'hierro(II)',0],['Fe3','Fe³⁺',3,'hierro(III)',0],['Co','Co²⁺',2,'cobalto(II)',0],['Ni','Ni²⁺',2,'níquel(II)',0],['Cu','Cu²⁺',2,'cobre(II)',0],['Zn','Zn²⁺',2,'zinc',0],['Cd','Cd²⁺',2,'cadmio',0],['Ag','Ag⁺',1,'plata',0],['Hg2','Hg₂²⁺',2,'mercurio(I)',1],['Pb','Pb²⁺',2,'plomo(II)',0]];
+const SAN=[['NO3','NO₃⁻',1,'nitrato',1],['Ac','CH₃COO⁻',1,'acetato',1],['ClO4','ClO₄⁻',1,'perclorato',1],['F','F⁻',1,'fluoruro',0],['Cl','Cl⁻',1,'cloruro',0],['Br','Br⁻',1,'bromuro',0],['I','I⁻',1,'yoduro',0],['SO4','SO₄²⁻',2,'sulfato',1],['OH','OH⁻',1,'hidróxido',1],['S','S²⁻',2,'sulfuro',0],['CO3','CO₃²⁻',2,'carbonato',1],['PO4','PO₄³⁻',3,'fosfato',1],['CrO4','CrO₄²⁻',2,'cromato',1],['C2O4','C₂O₄²⁻',2,'oxalato',1]];
+/* S soluble · P poco soluble · I insoluble · D se descompone en agua o no existe. Columnas: NO3 Ac ClO4 F Cl Br I SO4 OH S CO3 PO4 CrO4 C2O4 */
+const SOLM=['SSSPSSSSSSPISS','SSSSSSSSSSSSSS','SSPSSSSSSSSSSS','SSSSSSSSSSSSSS','SSSISSSSIDIISI','SSSISSSPPDIISI','SSSISSSIPDIIPI','SSSPSSSISSIIII','SSSPSSSSIDDIDI','SSSPSSSSIIIIII','SSSPSSSSIIIIII','SSSPSSDSIDDIIS','SSSSSSSSIIIIII','SSSSSSSSIIIIII','SSSPSSDSIIIIII','SSSSSSSSIIIIII','SSSSSSSSIIIIII','SPSSIIIPIIIIII','SPSDIIIPDDIIII','SSSIPPIIIIIIII'];
+const SOLW={S:'Soluble',P:'Poco soluble',I:'Insoluble (precipita)',D:'Se descompone en agua o no existe'};
+const SOLR={NO3:'Nitratos: todos solubles.',Ac:'Acetatos: solubles; el de plata y el de mercurio(I) son poco solubles.',ClO4:'Percloratos: solubles; el de potasio es poco soluble.',F:'Fluoruros: solubles en general (LiF poco), pero insolubles con Mg²⁺, Ca²⁺, Sr²⁺ y Pb²⁺; Ba²⁺ poco soluble.',Cl:'Cloruros: solubles, excepto Ag⁺, Hg₂²⁺ (insolubles) y Pb²⁺ (poco soluble).',Br:'Bromuros: solubles, excepto Ag⁺, Hg₂²⁺ (insolubles) y Pb²⁺ (poco soluble).',I:'Yoduros: solubles, excepto Ag⁺, Hg₂²⁺ y Pb²⁺ (insolubles).',SO4:'Sulfatos: solubles, excepto Ba²⁺, Sr²⁺ y Pb²⁺ (insolubles); Ca²⁺, Ag⁺ y Hg₂²⁺ son poco solubles.',OH:'Hidróxidos: insolubles, excepto los de grupo 1, NH₄⁺ y Ba²⁺ (solubles); Ca²⁺ y Sr²⁺ son poco solubles.',S:'Sulfuros: insolubles, excepto los de grupo 1, NH₄⁺ y Ba²⁺; varios (Mg, Ca, Sr, Al, Fe³⁺) reaccionan con el agua.',CO3:'Carbonatos: insolubles, excepto los de grupo 1 y NH₄⁺ (Li₂CO₃ es poco soluble).',PO4:'Fosfatos: insolubles, excepto los de Na⁺, K⁺ y NH₄⁺.',CrO4:'Cromatos: insolubles, excepto los de grupo 1, NH₄⁺, Mg²⁺ y Ca²⁺ (SrCrO₄ es poco soluble).',C2O4:'Oxalatos: insolubles, excepto los de grupo 1 y NH₄⁺ (y el de hierro(III), que forma complejos solubles).'};
+const SOLC={'Li:F':'blanco','Li:CO3':'blanco','Li:PO4':'blanco','Mg:F':'blanco','Mg:OH':'blanco','Mg:CO3':'blanco','Mg:PO4':'blanco','Mg:C2O4':'blanco','Ca:F':'blanco','Ca:SO4':'blanco','Ca:OH':'blanco','Ca:CO3':'blanco','Ca:PO4':'blanco','Ca:C2O4':'blanco','Sr:F':'blanco','Sr:SO4':'blanco','Sr:OH':'blanco','Sr:CO3':'blanco','Sr:PO4':'blanco','Sr:CrO4':'amarillo','Sr:C2O4':'blanco','Ba:F':'blanco','Ba:SO4':'blanco','Ba:CO3':'blanco','Ba:PO4':'blanco','Ba:CrO4':'amarillo','Ba:C2O4':'blanco','Al:OH':'blanco gelatinoso','Al:PO4':'blanco','Al:C2O4':'blanco','Mn:OH':'blanco (se oscurece al aire)','Mn:S':'rosa salmón','Mn:CO3':'blanco rosado','Mn:PO4':'rosa pálido','Mn:C2O4':'blanco','Fe2:OH':'verde pálido','Fe2:S':'negro','Fe2:CO3':'blanco verdoso','Fe2:PO4':'blanco azulado','Fe2:C2O4':'amarillo pálido','Fe3:OH':'café rojizo','Fe3:PO4':'blanco amarillento','Co:OH':'azul o rosa','Co:S':'negro','Co:CO3':'rosa','Co:PO4':'violeta','Co:C2O4':'rosa','Ni:OH':'verde manzana','Ni:S':'negro','Ni:CO3':'verde','Ni:PO4':'verde','Ni:C2O4':'verde pálido','Cu:OH':'azul claro','Cu:S':'negro','Cu:CO3':'azul verdoso','Cu:PO4':'azul verdoso','Cu:C2O4':'azul verdoso','Zn:OH':'blanco','Zn:S':'blanco','Zn:CO3':'blanco','Zn:PO4':'blanco','Zn:CrO4':'amarillo','Zn:C2O4':'blanco','Cd:OH':'blanco','Cd:S':'amarillo brillante','Cd:CO3':'blanco','Cd:PO4':'blanco','Cd:C2O4':'blanco','Ag:Ac':'blanco','Ag:Cl':'blanco','Ag:Br':'crema (amarillo pálido)','Ag:I':'amarillo','Ag:SO4':'blanco','Ag:OH':'café oscuro (se forma Ag₂O)','Ag:S':'negro','Ag:CO3':'amarillo pálido','Ag:PO4':'amarillo','Ag:CrO4':'rojo ladrillo','Ag:C2O4':'blanco','Hg2:Ac':'blanco','Hg2:Cl':'blanco (calomel)','Hg2:Br':'blanco amarillento','Hg2:I':'verde amarillento','Hg2:SO4':'blanco','Hg2:CO3':'amarillo','Hg2:PO4':'blanco','Hg2:CrO4':'rojo','Hg2:C2O4':'blanco','Pb:F':'blanco','Pb:Cl':'blanco','Pb:Br':'blanco','Pb:I':'amarillo brillante','Pb:SO4':'blanco','Pb:OH':'blanco','Pb:S':'negro','Pb:CO3':'blanco','Pb:PO4':'blanco','Pb:CrO4':'amarillo (amarillo de cromo)','Pb:C2O4':'blanco'};
+const SOLK={'Ag:Cl':'1.8 × 10⁻¹⁰','Ag:Br':'5.4 × 10⁻¹³','Ag:I':'8.5 × 10⁻¹⁷','Ag:S':'6 × 10⁻⁵⁰','Ag:CrO4':'1.1 × 10⁻¹²','Ag:CO3':'8.5 × 10⁻¹²','Ag:PO4':'8.9 × 10⁻¹⁷','Ag:SO4':'1.2 × 10⁻⁵','Ag:C2O4':'5.4 × 10⁻¹²','Pb:Cl':'1.7 × 10⁻⁵','Pb:Br':'6.6 × 10⁻⁶','Pb:I':'9.8 × 10⁻⁹','Pb:SO4':'2.5 × 10⁻⁸','Pb:CO3':'7.4 × 10⁻¹⁴','Pb:CrO4':'2.8 × 10⁻¹³','Pb:F':'3.3 × 10⁻⁸','Pb:S':'8 × 10⁻²⁸','Ba:SO4':'1.1 × 10⁻¹⁰','Ba:CO3':'2.6 × 10⁻⁹','Ba:CrO4':'1.2 × 10⁻¹⁰','Ba:F':'1.8 × 10⁻⁷','Ba:C2O4':'1.6 × 10⁻⁷','Ba:PO4':'6 × 10⁻³⁹','Ca:SO4':'4.9 × 10⁻⁵','Ca:CO3':'3.4 × 10⁻⁹','Ca:F':'3.9 × 10⁻¹¹','Ca:OH':'5 × 10⁻⁶','Ca:PO4':'2 × 10⁻²⁹','Ca:C2O4':'2.3 × 10⁻⁹','Sr:SO4':'3.4 × 10⁻⁷','Sr:CO3':'5.6 × 10⁻¹⁰','Sr:F':'4.3 × 10⁻⁹','Sr:CrO4':'2.2 × 10⁻⁵','Mg:CO3':'6.8 × 10⁻⁶','Mg:OH':'5.6 × 10⁻¹²','Mg:F':'5.2 × 10⁻¹¹','Mg:PO4':'1 × 10⁻²⁴','Mg:C2O4':'4.8 × 10⁻⁶','Fe2:OH':'4.9 × 10⁻¹⁷','Fe3:OH':'2.8 × 10⁻³⁹','Fe2:S':'6 × 10⁻¹⁹','Fe2:CO3':'3.1 × 10⁻¹¹','Cu:OH':'2.2 × 10⁻²⁰','Cu:S':'6 × 10⁻³⁶','Zn:OH':'3 × 10⁻¹⁷','Zn:S':'2 × 10⁻²⁵','Zn:CO3':'1.5 × 10⁻¹⁰','Al:OH':'3 × 10⁻³⁴','Ni:OH':'5.5 × 10⁻¹⁶','Ni:S':'3 × 10⁻¹⁹','Co:OH':'5.9 × 10⁻¹⁵','Cd:S':'8 × 10⁻²⁷','Cd:OH':'7.2 × 10⁻¹⁵','Mn:S':'2.5 × 10⁻¹⁰','Mn:OH':'1.9 × 10⁻¹³','Hg2:Cl':'1.4 × 10⁻¹⁸','Hg2:I':'5.2 × 10⁻²⁹','Hg2:Br':'6.4 × 10⁻²³','Li:CO3':'8.2 × 10⁻⁴','Li:PO4':'2.4 × 10⁻¹¹','Li:F':'1.8 × 10⁻³'};
+const SOLN={'Ag:Cl':'Prueba clásica de cloruros; se disuelve en amoníaco.','Ag:Br':'Se usaba en la fotografía tradicional.','Ag:I':'Se usa en la siembra de nubes.','Ag:CrO4':'Es el precipitado rojo que marca el final del método de Mohr.','Ag:S':'Es el negro que ensucia la plata («deslustre»).','Pb:I':'La «lluvia de oro»: cristales dorados al enfriarse.','Pb:Cl':'Se disuelve mejor en agua caliente.','Pb:SO4':'Se forma en las placas de las baterías de plomo-ácido.','Pb:CrO4':'Pigmento «amarillo de cromo» (tóxico).','Ba:SO4':'Insoluble y poco tóxico: se usa como contraste en radiografías digestivas.','Ba:CO3':'Venenoso: se ha usado como raticida.','Ca:CO3':'Mármol, conchas, caliza y sarro. Se disuelve en ácidos.','Ca:SO4':'Es el yeso (CaSO₄·2H₂O).','Ca:OH':'Cal apagada; el «agua de cal» se enturbia con CO₂.','Ca:PO4':'Mineral de huesos y dientes (como hidroxiapatita).','Ca:C2O4':'Componente principal de muchos cálculos renales.','Mg:OH':'Leche de magnesia (antiácido).','Fe3:OH':'Parte de la herrumbre (óxido de hierro hidratado).','Cu:OH':'Precipitado azul al mezclar Cu²⁺ con una base.','Cu:CO3':'Forma la pátina verde del cobre y del bronce.','Al:OH':'Es anfótero: se disuelve en exceso de base.','Cd:S':'Pigmento «amarillo de cadmio» (tóxico).','Zn:S':'Pigmento blanco (litopón) y base de pinturas luminiscentes.','K:ClO4':'Poco soluble; se usa en pirotecnia.','Al:S':'Al₂S₃ se hidroliza: se forma Al(OH)₃ y se desprende H₂S.','Al:CO3':'No se obtiene Al₂(CO₃)₃ en agua: precipita Al(OH)₃ y se desprende CO₂.','Al:CrO4':'Se hidroliza: se forma Al(OH)₃.','Fe3:I':'El Fe³⁺ oxida al I⁻ a I₂: no existe FeI₃ estable en agua.','Fe3:S':'El Fe³⁺ oxida al S²⁻ (se forma Fe²⁺ y azufre).','Fe3:CO3':'No se obtiene Fe₂(CO₃)₃ en agua: precipita Fe(OH)₃ y se desprende CO₂.','Cu:I':'Cu²⁺ + I⁻ → CuI (blanco) + I₂: el cobre(II) oxida al yoduro.','Mg:S':'El MgS reacciona con el agua: Mg(OH)₂ + H₂S.','Ca:S':'El CaS se hidroliza lentamente en agua.','Sr:S':'El SrS se hidroliza en agua.','Hg2:F':'El Hg₂F₂ se hidroliza.','Hg2:OH':'Se desproporciona en Hg y HgO.','Hg2:S':'Se descompone en Hg y HgS.','Li:CO3':'Se usa en medicamentos para el trastorno bipolar.','NH4:OH':'En agua forma amoníaco acuoso (base débil).','Na:CO3':'Es la sosa o carbonato de sodio.'};
+{
+ const sl=`<section id="v-sl" class="view" hidden><div class="card"><h2 style="margin:0">Tabla de solubilidad completa</h2><p class="mu sm" style="margin:4px 0 8px">20 cationes × 14 aniones en agua a 25 °C. Toca una casilla para ver todo su detalle en el cuadro fijo de la esquina inferior derecha.</p><div class="sll" id="slf" role="group" aria-label="Resaltar"></div></div><div class="slw" tabindex="0" aria-label="Tabla de solubilidad"><table class="sol" id="slt"></table></div><div class="card" style="margin-top:12px"><h3 style="margin:0 0 6px">Reglas rápidas</h3><ul class="lst">${Object.values(SOLR).map(x=>`<li>${x}</li>`).join('')}</ul><p class="mu sm">Son datos orientativos: la solubilidad cambia con la temperatura y la fuente. Los valores de Ksp son aproximados a 25 °C.</p></div></section>`;
+ $('main').insertAdjacentHTML('beforeend',sl);
+ document.body.insertAdjacentHTML('beforeend',`<aside id="slm" class="slm" hidden aria-live="polite" aria-label="Detalle de la casilla"><button type="button" class="slh" id="slh" aria-expanded="true"><span id="slt1">Toca una casilla</span><span class="slc2" aria-hidden="true">▾</span></button><div class="slb" id="slb"><p class="mu sm">Aquí verás la fórmula, el nombre, la solubilidad, el color del precipitado, el Ksp y la regla que se aplica.</p></div></aside>`);
+ Object.assign(TIT,{sl:'Tabla de solubilidad'});Object.assign(GRP,{sl:'l'});
+ Object.assign(TL,{sl:['Tabla de solubilidad','Cationes × aniones completa, con detalle de cada casilla.','<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 4v16M15 4v16"/>']});
+ const gcd3=(a,b)=>b?gcd3(b,a%b):a,sy=k=>({Fe2:'Fe',Fe3:'Fe',Hg2:'Hg2'})[k]||k;
+ const fml=(c,a)=>{const g=gcd3(c[2],a[2]),nc=a[2]/g,na=c[2]/g,part=(x,n)=>(n>1&&x[4]?`(${sy(x[0])})`:sy(x[0]))+(n>1?n:'');return(part(c,nc)+part(a,na)).replace(/([A-Za-z)])(\d+)/g,'$1<sub>$2</sub>')};
+ let built=0,sel=null;
+ const build=()=>{built=1;const t=$('#slt');
+  t.innerHTML=`<thead><tr><th scope="col">Catión ↓ · Anión →</th>${SAN.map(a=>`<th scope="col" data-a="${a[0]}">${a[1]}<br><small class="mu">${a[3]}</small></th>`).join('')}</tr></thead><tbody>${SCA.map((c,i)=>`<tr data-r="${c[0]}"><th scope="row">${c[1]} <small class="mu">${c[3]}</small></th>${SAN.map((a,j)=>{const v=SOLM[i][j];return`<td data-a="${a[0]}"><button class="slc ${v}" data-i="${i}" data-j="${j}" aria-label="${c[3]} con ${a[3]}: ${SOLW[v]}">${v}</button></td>`}).join('')}</tr>`).join('')}</tbody>`;
+  $('#slf').innerHTML=[['*','Todas'],['S','Soluble','#16a34a'],['P','Poco soluble','#d97706'],['I','Insoluble','#dc2626'],['D','Se descompone / no existe','#64748b']].map(([k,n,c])=>`<button type="button" class="chip${k=='*'?' on':''}" data-f="${k}">${c?`<i style="display:inline-block;width:10px;height:10px;border-radius:4px;background:${c};margin-right:6px"></i>`:''}${k=='*'?n:`<b>${k}</b> ${n}`}</button>`).join('')};
+ const info=(i,j)=>{const c=SCA[i],a=SAN[j],v=SOLM[i][j],f=fml(c,a),key=c[0]+':'+a[0],g=gcd3(c[2],a[2]),nc=a[2]/g,na=c[2]/g,sp=n=>n>1?n+' ':'';
+  const eq=v=='D'?`No se obtiene como sólido estable en agua.`:`${sp(nc)}${c[1]} + ${sp(na)}${a[1]} ${v=='S'?'⇄ iones disueltos':'→ '+f+(v=='I'?' ↓':' (poco soluble)')}`;
+  return{f,name:`${a[3][0].toUpperCase()+a[3].slice(1)} de ${c[3]}`,v,eq,color:SOLC[key],ksp:SOLK[key],rule:SOLR[a[0]],note:SOLN[key]||SOLN[c[0]+':'+a[0]]}};
+ const show=(i,j)=>{const d=info(i,j),b=$('#slb'),m=$('#slm'),col={S:'#16a34a',P:'#d97706',I:'#dc2626',D:'#64748b'}[d.v];
+  $('#slt1').innerHTML=`<b>${d.f}</b> · ${d.name}`;m.dataset.v=d.v;
+  b.innerHTML=`<div class="slbadge" style="background:${col}">${d.v} · ${SOLW[d.v]}</div><div class="slrow"><span>Reacción</span><b>${d.eq}</b></div>`+(d.color?`<div class="slrow"><span>Color del precipitado</span><b>${d.color}</b></div>`:'')+(d.ksp?`<div class="slrow"><span>Ksp (≈ 25 °C)</span><b>${d.ksp}</b></div>`:'')+`<div class="slrow"><span>Regla</span><b>${d.rule}</b></div>`+(d.note?`<div class="slrow"><span>Dato útil</span><b>${d.note}</b></div>`:'');
+  m.querySelector('#slh').setAttribute('aria-expanded','true');b.hidden=false;m.classList.remove('min')};
+ document.addEventListener('click',ev=>{const t=ev.target.closest('#v-sl .slc');
+  if(t){const i=+t.dataset.i,j=+t.dataset.j;$$('#v-sl .slc.sel').forEach(x=>x.classList.remove('sel'));t.classList.add('sel');$$('#v-sl .hr,#v-sl .hc').forEach(x=>x.classList.remove('hr','hc'));t.closest('tr').classList.add('hr');$$(`#v-sl [data-a="${SAN[j][0]}"]`).forEach(x=>x.classList.add('hc'));show(i,j);sel=[i,j];return}
+  const f=ev.target.closest('#slf [data-f]');
+  if(f){$$('#slf [data-f]').forEach(x=>x.classList.toggle('on',x==f));const k=f.dataset.f;$$('#v-sl .slc').forEach(b=>b.classList.toggle('dim',k!='*'&&!b.classList.contains(k)));return}
+  if(ev.target.closest('#slh')){const m=$('#slm'),mn=m.classList.toggle('min');$('#slb').hidden=mn;$('#slh').setAttribute('aria-expanded',!mn)}});
+ HOOK.sl=()=>{if(!built)build()};
+ const sync=()=>{$('#slm').hidden=$('#v-sl').hidden};
+ new MutationObserver(sync).observe($('#v-sl'),{attributes:true,attributeFilter:['hidden']});sync();
+ const bn=$('#bn');if(bn){const f=()=>document.documentElement.style.setProperty('--bnh',(bn.offsetParent?bn.offsetHeight:0)+'px');f();addEventListener('resize',f);if('ResizeObserver' in window)new ResizeObserver(f).observe(bn)}
+}
+
 function blk(b,ctx){
  if(b.u&&!uni()){ctx.hid++;return null}
  let n;
@@ -3642,7 +4638,7 @@ function renderLesson(keep){
  stopAll(LC.stop);LC.after=[];
  LST.at[L.id]=Math.max(LST.at[L.id]||0,si);LST.last={id:L.id,step:si};saveL();
  const root=$('#lsn');
- root.innerHTML=`<div class="card ltop"><div class="row"><button class="btn" id="lback">${SV('<path d="M15 5l-7 7 7 7"/>')} Aprender</button><span class="chip">${M.t} · ${L.n} de ${LES.filter(x=>x.m==L.m).length}</span><span class="mu sm">${L.min} min</span><button class="chip lvb" data-go="a" style="margin-left:auto" title="Cambia tu nivel en Acerca de">${SV(LVI[uni()?'uni':'prepa'])}Nivel: ${uni()?'Universidad':'Prepa'}</button></div><h2>${L.t}</h2><ul class="obj">${L.obj.map(o=>`<li>${o}</li>`).join('')}</ul><div class="lbar" role="tablist" aria-label="Pasos de la lección">${S.map((s,i)=>`<button role="tab" aria-selected="${i==si}" class="${i<=Math.max(si,LST.at[L.id])?'on':''}${i==si?' cur':''}" data-s="${i}"><i></i>${s.k}</button>`).join('')}</div></div><div class="card lbl" id="lbody"></div><div class="lnav"></div>`;
+ root.innerHTML=`<div class="card ltop"><div class="row"><button class="btn" id="lback">${SV('<path d="M15 5l-7 7 7 7"/>')} Estudio</button><span class="chip">${M.t} · ${L.n} de ${LES.filter(x=>x.m==L.m).length}</span><span class="mu sm">${L.min} min</span><button class="chip lvb" data-go="a" style="margin-left:auto" title="Cambia tu nivel en Acerca de">${SV(LVI[uni()?'uni':'prepa'])}Nivel: ${uni()?'Universidad':'Prepa'}</button></div><h2>${L.t}</h2><ul class="obj">${L.obj.map(o=>`<li>${o}</li>`).join('')}</ul><div class="lbar" role="tablist" aria-label="Pasos de la lección">${S.map((s,i)=>`<button role="tab" aria-selected="${i==si}" class="${i<=Math.max(si,LST.at[L.id])?'on':''}${i==si?' cur':''}" data-s="${i}"><i></i>${s.k}</button>`).join('')}</div></div><div class="card lbl" id="lbody"></div><div class="lnav"></div>`;
  const body=$('#lbody'),ctx={L,si,key:'',hid:0,stop:LC.stop,after:LC.after};
  S[si].b.forEach((b,bi)=>{ctx.key=`${L.id}:${si}:${bi}`;const n=blk(b,ctx);if(n)body.appendChild(n)});
  if(ctx.hid){const t=mk('div','mu sm',`Hay ${ctx.hid} bloque(s) de ampliación para nivel universidad. <button class="chip lvb" data-go="a">Cambiar a Universidad en Acerca de</button>`);body.appendChild(t)}
@@ -3656,7 +4652,7 @@ function finishLesson(){
  LST.last=null;saveL();stl();stopAll(LC.stop);
  const same=LES.filter(x=>x.m==L.m),idx=same.indexOf(L),nx=same[idx+1]||LES.find(x=>!LST.done[x.id]&&x!=L);
  let a=0,ok=0;L.steps.forEach((s,si)=>s.b.forEach((b,bi)=>{if(b.t=='chk')b.qs.forEach((_,i)=>{const v=LST.q[`${L.id}:${si}:${bi}:${i}`];if(v!=null){a++;if(v==0)ok++}})}));
- $('#lsn').innerHTML=`<div class="card" style="text-align:center;display:grid;gap:10px"><div class="lpi" style="margin:0 auto;width:64px;height:64px;border-radius:20px;display:grid;place-items:center;color:#fff;background:linear-gradient(135deg,#22c55e,#06b6d4)">${SV('<path d="M5 12l5 5 9-10"/>')}</div><h2 style="margin:0">¡Lección completada!</h2><p class="mu" style="margin:0">${L.t}</p>${first?'<div class="chip on" style="justify-self:center">+25 XP</div>':'<div class="mu sm">Ya la habías completado antes: sin XP extra.</div>'}<p class="mu sm" style="margin:0">${a?`Comprobación: ${ok} de ${a} correctas en la primera vuelta.`:'Todavía no respondiste la comprobación; puedes volver al paso Practica.'}</p><div class="row" style="justify-content:center">${nx?`<button class="btn pri" data-open="${nx.id}">Siguiente: ${nx.t} →</button>`:''}<button class="btn" id="lback2">Volver a Aprender</button><button class="btn" data-open="${L.id}">Repasar</button></div></div>`;
+ $('#lsn').innerHTML=`<div class="card" style="text-align:center;display:grid;gap:10px"><div class="lpi" style="margin:0 auto;width:64px;height:64px;border-radius:20px;display:grid;place-items:center;color:#fff;background:linear-gradient(135deg,#22c55e,#06b6d4)">${SV('<path d="M5 12l5 5 9-10"/>')}</div><h2 style="margin:0">¡Lección completada!</h2><p class="mu" style="margin:0">${L.t}</p>${first?'<div class="chip on" style="justify-self:center">+25 XP</div>':'<div class="mu sm">Ya la habías completado antes: sin XP extra.</div>'}<p class="mu sm" style="margin:0">${a?`Comprobación: ${ok} de ${a} correctas en la primera vuelta.`:'Todavía no respondiste la comprobación; puedes volver al paso Practica.'}</p><div class="row" style="justify-content:center">${nx?`<button class="btn pri" data-open="${nx.id}">Siguiente: ${nx.t} →</button>`:''}<button class="btn" id="lback2">Volver a Estudio</button><button class="btn" data-open="${L.id}">Repasar</button></div></div>`;
  if(first){burst($('#lsn .btn'),40);toast('+25 XP · lección completada')}
  window.scrollTo({top:0})}
 function openLesson(id,step){LC.id=id;LC.step=step!=null?step:(LST.done[id]?0:LST.at[id]||0);renderLesson();go('n')}
@@ -3674,7 +4670,7 @@ function renderL(){
  const first=LES.find(l=>!LST.done[l.id])||LES[0];
  $('#lrn').innerHTML=`<div class="lp" data-p="0" role="tabpanel"><div class="card lhead"><div class="row"><div><h2 style="margin:0">Aprende química</h2><p class="mu sm" style="margin:4px 0 0">Cada lección tiene 5 pasos: <b>predice</b>, <b>explora</b>, <b>aprende</b>, mira un <b>ejemplo resuelto</b> y <b>practica</b>.</p></div><button class="chip lvb" data-go="a" title="Cambia tu nivel en Acerca de">${SV(LVI[uni()?'uni':'prepa'])}Nivel: ${uni()?'Universidad':'Prepa'} · cambiar</button></div><div class="meter" style="margin-top:12px"><i style="width:${dn/total*100}%"></i></div><div class="mu sm">${dn} de ${total} lecciones completadas · ${uni()?'Nivel universidad: con ampliaciones y matemática extra.':'Nivel prepa: lo esencial, sin ampliaciones.'}</div><div class="lcont"><button class="btn pri" data-open="${cont?cont.id:first.id}" data-step="${cont?LST.last.step:''}">${cont?`Continuar: ${cont.t} (paso ${LST.last.step+1})`:dn?'Seguir: '+first.t:'Empezar: '+first.t}</button></div></div>`+
  `<div class="mods">${MODS.map(m=>{const ls=LES.filter(l=>l.m==m.id),d=ls.filter(l=>LST.done[l.id]).length;return`<div class="card mcard"><div class="mh"><span class="mi">${SV(m.ic)}</span><div><h3>${m.t}</h3><p class="mu sm" style="margin:0">${m.d}</p></div></div><div class="meter"><i style="width:${d/ls.length*100}%"></i></div><div class="lsl">${ls.map(l=>`<button class="lbtn${LST.done[l.id]?' done':''}" data-open="${l.id}"><span class="ln">${LST.done[l.id]?'✓':l.n}</span><span><b>${l.t}</b><small>${l.min} min · ${lstate(l)}</small></span><span class="go">›</span></button>`).join('')}</div></div>`}).join('')}</div>`+
- `<h3 class="sec">Ruta completa de química general</h3><div class="card"><p class="mu sm" style="margin-top:0">Tres módulos ya tienen lecciones completas; el resto de la ruta se irá abriendo. Mientras tanto, los laboratorios (pestaña «Laboratorios», arriba) cubren varios temas.</p><div class="road">${ROAD.map((r,i)=>`<div class="rd"><span class="rn">${i+1}</span><span><b>${r[0]}</b><small>${r[1]}${r[3]?' · <em class="rdl">'+r[3]+'</em>':''}</small></span>${r[2]?`<button class="chip" data-go="${r[2].slice(4)}">Abrir laboratorio</button>`:'<span class="chip soon">Próximamente</span>'}</div>`).join('')}</div></div>`+`</div>`+`<div class="lp" data-p="1" role="tabpanel"><h3 class="sec">Biblioteca y seguridad</h3>${tiles(['cb','sg'])}</div>`+`<div class="lp" data-p="3" role="tabpanel"><h3 class="sec" id="glos">Glosario</h3><div class="card gcard" id="gcard"></div></div>`;
+ `<h3 class="sec">Ruta completa de química general</h3><div class="card"><p class="mu sm" style="margin-top:0">Todos los temas de la ruta ya tienen una lección guiada de 5 pasos. En «Laboratorio» puedes explorar los modelos por tu cuenta y en «Glosario» repasar los conceptos fijos.</p><div class="road">${ROAD.map((r,i)=>`<div class="rd"><span class="rn">${LST.done[r[3]]?'✓':i+1}</span><span><b>${r[0]}</b><small>${r[1]}</small></span><span class="rdb">${r[2]?`<button class="chip" data-go="${r[2].slice(4)}">${r[2]=='lab:z'?'Herramientas':'Laboratorio'}</button>`:''}<button class="chip lvb" data-open="${r[3]}">Lección</button></span></div>`).join('')}</div></div>`+`</div>`+`<div class="lp" data-p="1" role="tabpanel"><h3 class="sec">Consulta y datos</h3><p class="mu sm" style="margin:0 0 8px">Libro naranja de seguridad, biblioteca de compuestos, calculadoras y la tabla de solubilidad completa.</p>${tiles(['sg','cb','z','sl'])}</div>`+`<div class="lp" data-p="3" role="tabpanel"><h3 class="sec" id="glos">Glosario</h3><div class="card gcard" id="gcard"></div></div>`;
  gShell();FIX()}
 /* ---- glosario v2: tarjeta en Aprender ---- */
 const GS={q:'',c:'all',f:'all',n:24};let gKeysNow=[];
@@ -4270,7 +5266,7 @@ if(hk){
  hk.insertAdjacentHTML('afterbegin','<i class="hkorb a" aria-hidden="true"></i><i class="hkorb b" aria-hidden="true"></i>');
  const kick=hk.querySelector('.hk-kick');if(kick)kick.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4z"/></svg>Química interactiva';
  const nC=((document.querySelector('#pm p')||{textContent:''}).textContent.match(/(\d+)\s+mol/)||[])[1]||'285';
- const CH=[['118 elementos',TL.t[2]],['7 modelos atómicos',TL.m[2]],['12 lecciones',TL.l[2]],[nC+' compuestos',TL.cb?TL.cb[2]:TL.b[2]],['Funciona sin conexión','<path d="M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0M12 19.5v.01"/>']];
+ const CH=[['118 elementos',TL.t[2]],['7 modelos atómicos',TL.m[2]],[(window.NLES||12)+' lecciones',TL.l[2]],[nC+' compuestos',TL.cb?TL.cb[2]:TL.b[2]],['Funciona sin conexión','<path d="M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0M12 19.5v.01"/>']];
  const hp=hk.querySelector('.hk-p');
  if(hp)hp.insertAdjacentHTML('afterend','<div class="pmc hkch">'+CH.map((c,i)=>`<span class="chip" style="--k:${i}">${SV(c[1])}${c[0]}</span>`).join('')+'</div>');
  /* animaciones solo mientras el hero se ve */
@@ -4289,8 +5285,8 @@ if(hk){
 const vl=document.getElementById('v-l'),lrn=document.getElementById('lrn'),lps=document.getElementById('lps');
 if(vl&&lrn&&lps){
  const IC={l:'<path d="M3 6c3-2 6-2 9 0 3-2 6-2 9 0v13c-3-2-6-2-9 0-3-2-6-2-9 0zM12 6v13"/>',b:'<path d="M12 3l7.5 4.3v8.6L12 21l-7.5-4.3V7.3z"/><circle cx="12" cy="12" r="3"/>',x:'<path d="M9 3v6L4 19a2 2 0 0 0 2 3h12a2 2 0 0 0 2-3l-5-10V3M8 3h8"/>',g:'<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/>'};
- const S=[['l','Lecciones'],['b','Biblioteca'],['x','Laboratorios'],['g','Glosario']];
- const nav=document.createElement('nav');nav.id='lnav';nav.setAttribute('aria-label','Secciones de Aprender');nav.setAttribute('role','tablist');
+ const S=[['l','Paso a paso'],['b','Consulta'],['x','Laboratorio'],['g','Glosario']];
+ const nav=document.createElement('nav');nav.id='lnav';nav.setAttribute('aria-label','Secciones de Estudio');nav.setAttribute('role','tablist');
  nav.innerHTML=S.map((s,i)=>`<button type="button" role="tab" data-i="${i}" aria-selected="${i?'false':'true'}"${i?' tabindex="-1" class=""':' class="on"'}>${SV(IC[s[0]])}${s[1]}</button>`).join('');
  vl.insertBefore(nav,vl.firstChild);
  const btns=[...nav.querySelectorAll('button')];
