@@ -1271,7 +1271,7 @@ table.sol{border-collapse:separate;border-spacing:0;min-width:900px;width:100%;f
 <section id="v-e" class="view" hidden><div id="me"></div></section>
 <section id="v-x" class="view" hidden><div id="mx"></div></section>
 <section id="v-a" class="view" hidden><div class="grid2" style="align-items:start">
- <div class="card"><h2>Acerca de LabQuimWeb</h2><div class="chips" style="margin:0 0 10px"><span class="chip on">Versión Beta V1.6.0</span></div><p>App de química interactiva para estudiantes de preparatoria y universidad: tabla periódica, modelos atómicos, regla del octeto, enlaces, enlace coordinado y retos con progreso guardado.</p><h3 style="margin:12px 0 4px">Creador</h3><p style="margin:0"><b>Rafael López Zomavilla</b></p><h3 style="margin:14px 0 6px">Apariencia</h3><div class="chips" id="thm"></div>
+ <div class="card"><h2>Acerca de LabQuimWeb</h2><div class="chips" style="margin:0 0 10px"><span class="chip on">Versión Beta V1.7.0</span></div><p>App de química interactiva para estudiantes de preparatoria y universidad: tabla periódica, modelos atómicos, regla del octeto, enlaces, enlace coordinado y retos con progreso guardado.</p><h3 style="margin:12px 0 4px">Creador</h3><p style="margin:0"><b>Rafael López Zomavilla</b></p><h3 style="margin:14px 0 6px">Apariencia</h3><div class="chips" id="thm"></div>
  <div id="insa"><h3 style="margin:14px 0 6px">Instalar</h3><button class="btn pri" id="ins" hidden>Instalar la app</button><p class="mu sm" style="margin:6px 0 0">Android/Chrome: menú, Instalar app. iPhone: Compartir, Agregar a inicio.</p></div><div id="insd" hidden><h3 style="margin:14px 0 6px">App instalada</h3><div class="insok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l3 3 5-6"/></svg><span id="insm"></span></div></div>
  <h3 style="margin:14px 0 6px">Datos</h3><button class="btn" id="rst">Borrar mi progreso</button><p class="mu sm" style="margin:6px 0 0">Todo se guarda localmente en este dispositivo.</p></div>
  <div class="card"><h2>Fuentes del proyecto</h2><ul class="lst"><li>IUPAC: tabla periódica, masas atómicas y <i>Nomenclature of Inorganic Chemistry</i> (Libro Rojo).</li><li>NIST Physical Measurement Laboratory: configuraciones electrónicas y pesos atómicos.</li><li>PubChem Periodic Table (NIH) y Royal Society of Chemistry: propiedades y clasificación.</li><li>L. Pauling, <i>The Nature of the Chemical Bond</i>: electronegatividad.</li><li>G. N. Lewis (1916): modelo de puntos y enlace covalente; modelos de Dalton, Thomson, Rutherford, Bohr y Sommerfeld.</li><li>Textos de química general (Chang, Brown y Atkins) para el octeto y el enlace coordinado.</li></ul><p class="mu sm">Los datos se compilaron con fines educativos; contrástalos con las fuentes originales para trabajos formales.</p></div></div></section>
@@ -4164,6 +4164,688 @@ if(LST.lvl!='uni')LST.lvl='prepa';
 const saveL=()=>store.set('ql-les',JSON.stringify(LST));
 const uni=()=>LST.lvl=='uni';
 const LC={id:null,step:0,stop:[],after:[]};
+/* ===== glosario: ampliación v1.7 ===== */
+/* ===== glosario: ampliación grande (unidades, partículas, nuclear, laboratorio, análisis, bioquímica, ambiente, materiales…) ===== */
+GC.push(
+['un','Unidades y medidas','#0891b2','<path d="M3 17L17 3l4 4L7 21z"/><path d="M7.5 12.5l2 2M10.5 9.5l2 2M13.5 6.5l2 2"/>'],
+['pa','Partículas elementales','#7c3aed','<circle cx="12" cy="12" r="2.2"/><circle cx="12" cy="4.8" r="1.6"/><circle cx="18.3" cy="15.6" r="1.6"/><circle cx="5.7" cy="15.6" r="1.6"/><path d="M12 6.6v3.2M16.7 14.6l-2.7-1.5M7.3 14.6l2.7-1.5"/>'],
+['an','Análisis e instrumentos','#0d9488','<path d="M3 20h18"/><path d="M5 20c1-9 2.5-13 4-13s2 6 3 6 1.5-3 3-3 2 4 4 10"/>'],
+['bq','Bioquímica','#db2777','<path d="M7 3c0 6 10 6 10 12s-10 6-10 6M17 3c0 6-10 6-10 12s10 6 10 6"/><path d="M8.5 8h7M8.5 16h7" opacity=".6"/>'],
+['am','Ambiente e industria','#16a34a','<path d="M5 19c0-8 5-14 15-14 0 10-6 15-14 15"/><path d="M5 19c3-5 6-8 10-10"/>'],
+['lb','Laboratorio y seguridad','#ea580c','<path d="M3 10a3 3 0 0 1 3-3h4v8H6a3 3 0 0 1-3-3zM21 10a3 3 0 0 0-3-3h-4v8h4a3 3 0 0 0 3-3z"/><path d="M10 11h4"/>'],
+['so','Sólidos y materiales','#475569','<path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/>']);
+
+/* ---- Unidades y medidas ---- */
+G('si','Sistema Internacional (SI)','un','Sistema de unidades que usa la ciencia en casi todo el mundo. Tiene 7 unidades base: metro (m), kilogramo (kg), segundo (s), amperio (A), kelvin (K), mol (mol) y candela (cd). Las demás se derivan de ellas.',
+ {e:'El joule (J) es una unidad derivada: 1 J = 1 kg·m²/s².',x:'El kilogramo (y no el gramo) es la unidad base de masa, por eso se dice «kilogramo» aunque ya lleve prefijo.',u:'Desde 2019 las siete unidades se definen fijando el valor de constantes de la naturaleza (c, h, e, k, N_A…) y ya no con objetos como el cilindro de platino-iridio que fue el kilogramo patrón.',r:['prefijos','constantes','mol']});
+G('prefijos','Prefijos del SI','un','Multiplican o dividen una unidad por potencias de 10: tera (T) 10¹², giga (G) 10⁹, mega (M) 10⁶, kilo (k) 10³, centi (c) 10⁻², mili (m) 10⁻³, micro (µ) 10⁻⁶, nano (n) 10⁻⁹, pico (p) 10⁻¹², femto (f) 10⁻¹⁵.',
+ {e:'1 nm = 10⁻⁹ m; 1 mL = 10⁻³ L; 5 kJ = 5000 J.',x:'«m» minúscula es mili y «M» mayúscula es mega: 1 mm es una milésima de metro, 1 Mm son mil kilómetros.',u:'En 2022 se añadieron ronna (R, 10²⁷), quetta (Q, 10³⁰), ronto (r, 10⁻²⁷) y quecto (q, 10⁻³⁰).',r:['notacion','si','angstrom']});
+G('escalas','Escalas de tamaño','un','Orden de magnitud de lo que estudia la química: una molécula pequeña mide ≈ 0.1–1 nm, un átomo ≈ 0.1–0.3 nm, un núcleo ≈ 1–10 fm y un virus ≈ 100 nm.',
+ {e:'Un cabello de ≈ 70 µm de grosor tiene unos 350 000 átomos de ancho (un átomo mide ≈ 0.2 nm).',u:'Todas las longitudes atómicas se expresan cómodamente en pm, Å o nm; las nucleares, en fm. 1 Å = 100 pm = 0.1 nm; 1 fm = 10⁻⁵ Å.',r:['angstrom','nanometro','picometro','femtometro']});
+G('angstrom','Ångström (Å)','un','Unidad de longitud muy usada para átomos y enlaces. Equivale a 10⁻¹⁰ m, es decir 0.1 nm o 100 pm. Se escribe Å.',
+ {e:'El enlace O–H del agua mide ≈ 0.96 Å; el C–C del etano, ≈ 1.54 Å; el radio de un átomo de H, ≈ 0.53 Å.',x:'1 Å = 0.1 nm, no 1 nm. Para pasar de Å a nm se divide entre 10; de Å a pm se multiplica por 100.',u:'Lleva el nombre de Anders Ångström (espectroscopia, 1868). No es del SI pero se acepta. Las longitudes de onda de los rayos X (≈ 0.1–100 Å) y los parámetros de celdas cristalinas se dan en Å.',r:['nanometro','picometro','longenl','radioat']});
+G('nanometro','Nanómetro (nm)','un','Milmillonésima parte de un metro: 1 nm = 10⁻⁹ m = 10 Å = 1000 pm. Es la escala de las moléculas, los virus pequeños y la luz.',
+ {e:'La luz visible tiene longitudes de onda de ≈ 400 nm (violeta) a ≈ 700 nm (rojo). El ADN mide ≈ 2 nm de ancho.',r:['angstrom','picometro','nanotec','espectro']});
+G('picometro','Picómetro (pm)','un','1 pm = 10⁻¹² m = 0.01 Å = 10⁻³ nm. Es la unidad con la que las tablas suelen dar radios atómicos y longitudes de enlace.',
+ {e:'Radio covalente del cloro: ≈ 99 pm. Radio de Bohr: 52.9 pm.',x:'No confundir pm (picómetro) con pm = «por minuto» o «p.m.» (tarde).',r:['angstrom','radioat','radiobohr']});
+G('femtometro','Femtómetro o fermi (fm)','un','1 fm = 10⁻¹⁵ m = 10⁻⁵ Å. Es la escala del núcleo atómico: el protón mide ≈ 0.84 fm de radio.',
+ {e:'El núcleo de ²³⁸U tiene un radio de ≈ 7.4 fm; el átomo completo, ≈ 175 pm, unas 24 000 veces más.',u:'Se le llama también «fermi» en honor a Enrico Fermi. El radio nuclear sigue r ≈ 1.2 fm · A^(1/3).',r:['nucleo','escalas']});
+G('micrometro','Micrómetro (µm)','un','1 µm = 10⁻⁶ m = 1000 nm. Antes se llamaba «micra». Es la escala de células y bacterias.',
+ {e:'Una bacteria típica mide ≈ 1–5 µm; un glóbulo rojo, ≈ 7 µm; un cabello, ≈ 70 µm.',r:['nanometro','escalas']});
+G('escalatemp','Escalas de temperatura (°C, K y °F)','un','Celsius (°C) usa el punto de congelación (0 °C) y ebullición (100 °C) del agua a 1 atm. Kelvin (K) empieza en el cero absoluto. Fahrenheit (°F) congela el agua a 32 °F y la hierve a 212 °F.',
+ {e:'25 °C = 298.15 K = 77 °F. Fórmulas: K = °C + 273.15 y °F = 1.8·°C + 32.',x:'Un cambio de 1 K equivale a un cambio de 1 °C (no de 1 °F). Y se escribe «300 K», nunca «300 °K».',u:'Las ecuaciones de gases, termodinámica y cinética siempre requieren kelvin. En 2019 el kelvin se redefinió fijando la constante de Boltzmann.',r:['temperatura','cerorabs','gasideal']});
+G('cerorabs','Cero absoluto','un','Temperatura mínima teórica: 0 K = −273.15 °C. En ella cesaría el movimiento térmico de las partículas.',
+ {e:'El helio líquido hierve a 4.2 K; en laboratorio se han alcanzado temperaturas de nanokelvin.',u:'La tercera ley de la termodinámica dice que no se puede llegar exactamente a 0 K en un número finito de pasos. La entropía de un cristal perfecto tiende a 0 cuando T → 0.',r:['escalatemp','tcinetica']});
+G('joule','Joule o julio (J)','un','Unidad SI de energía, trabajo y calor: 1 J = 1 N·m = 1 kg·m²/s². Es la energía para levantar 100 g una altura de 1 m, aproximadamente.',
+ {e:'1 kJ = 1000 J. Calentar 1 g de agua 1 °C requiere 4.184 J.',r:['caloria','energia','calor']});
+G('caloria','Caloría (cal) y kilocaloría','un','1 cal = 4.184 J exactos (caloría termoquímica): energía para calentar 1 g de agua 1 °C. La «caloría» de los alimentos es en realidad una kilocaloría (kcal o Cal) = 1000 cal = 4184 J.',
+ {e:'Una lata de refresco con 140 «calorías» tiene 140 kcal ≈ 586 kJ.',x:'cal ≠ Cal: la que aparece en las etiquetas de comida es la kcal.',r:['joule','caloresp','calorimetria']});
+G('ev','Electronvoltio (eV)','un','Energía que gana un electrón al acelerarse con 1 voltio: 1 eV = 1.602 × 10⁻¹⁹ J. Es la unidad natural para energías de átomos, fotones y partículas.',
+ {e:'Ionizar un H cuesta 13.6 eV; un fotón de luz visible tiene ≈ 1.8–3.1 eV; los rayos gamma, de keV a MeV.',u:'Por partícula, 1 eV equivale a 96.485 kJ/mol. 1 keV = 10³ eV, 1 MeV = 10⁶ eV, 1 GeV = 10⁹ eV. También se usa como unidad de masa (eV/c²). Además 1 eV ≈ 8065.5 cm⁻¹ y corresponde a una longitud de onda de ≈ 1240 nm.',r:['ei','foton','joule']});
+G('pascal','Pascal (Pa)','un','Unidad SI de presión: 1 Pa = 1 N/m². Es una presión muy pequeña, por eso se usan kPa y MPa.',
+ {e:'La presión atmosférica normal es 101 325 Pa = 101.325 kPa.',r:['atm','bar','presion']});
+G('atm','Atmósfera (atm)','un','Presión que ejerce la atmósfera al nivel del mar: 1 atm = 101.325 kPa = 760 mmHg = 760 torr = 1.01325 bar ≈ 14.7 psi.',
+ {e:'Una presión de 2.5 atm equivale a 1900 mmHg (2.5 × 760).',x:'Los problemas de gases ideales con R = 0.0821 L·atm/(mol·K) exigen la presión en atm.',r:['pascal','mmhg','bar','psi','rgases']});
+G('mmhg','mmHg y torr','un','El milímetro de mercurio es la presión de una columna de mercurio de 1 mm de altura: 1 mmHg ≈ 133.32 Pa. El torr (en honor a Torricelli) vale 1/760 de atm; 1 torr ≈ 1 mmHg.',
+ {e:'La presión arterial «120/80» está en mmHg.',u:'Torricelli inventó el barómetro de mercurio en 1643. Hoy mmHg y torr difieren menos de 2 × 10⁻⁷ en valor.',r:['atm','pascal','presion']});
+G('bar','Bar y milibar','un','1 bar = 100 000 Pa = 100 kPa ≈ 0.987 atm. La IUPAC usa 1 bar como presión estándar. En meteorología se usa el milibar (mbar) o hectopascal (hPa).',
+ {e:'La presión estándar del mar es ≈ 1013 mbar = 1013 hPa.',r:['atm','pascal','cstp']});
+G('psi','psi (libras por pulgada cuadrada)','un','Unidad de presión de uso común en llantas y compresores: 1 psi ≈ 6.895 kPa; 1 atm ≈ 14.696 psi.',
+ {e:'Una llanta a 32 psi (manométricos) está ≈ 221 kPa por encima de la presión atmosférica.',x:'La presión de llantas se da como presión manométrica (sobre la atmosférica); la absoluta es ≈ 14.7 psi mayor.',r:['atm','pascal','bar']});
+G('litro','Litro (L) y mililitro (mL)','un','1 L = 1 dm³ = 1000 mL = 1000 cm³ = 10⁻³ m³. Por tanto 1 mL = 1 cm³ = 1 cc.',
+ {e:'1 L de agua pesa ≈ 1 kg a 4 °C; 250 mL = 250 cm³ = 0.25 L.',x:'1 m³ son 1000 L, no 100 L.',r:['vmolar','densidad','molaridad']});
+G('kilogramo','Kilogramo (kg) y gramo (g)','un','Unidad SI de masa. 1 kg = 1000 g; 1 g = 1000 mg = 10⁶ µg. Una tonelada (t) son 1000 kg.',
+ {e:'0.5 mg = 500 µg = 5 × 10⁻⁷ kg.',u:'Desde 2019 se define fijando la constante de Planck h = 6.62607015 × 10⁻³⁴ J·s.',r:['si','masamolar']});
+G('unidaddalton','Dalton (Da) y kilodalton','un','Otra manera de llamar a la unidad de masa atómica: 1 Da = 1 u = 1.66054 × 10⁻²⁷ kg. Se usa sobre todo para proteínas y otras biomoléculas.',
+ {e:'La insulina humana pesa ≈ 5.8 kDa; la hemoglobina, ≈ 64 kDa.',x:'Un dalton (unidad) no tiene relación con John Dalton salvo el homenaje.',r:['u','masaat','proteina']});
+G('newton','Newton (N)','un','Unidad SI de fuerza: 1 N es la fuerza que da a 1 kg una aceleración de 1 m/s². 1 N = 1 kg·m/s².',
+ {e:'Un objeto de 1 kg pesa ≈ 9.8 N en la Tierra.',x:'La masa (kg) no es lo mismo que el peso (N): el peso depende de la gravedad.',r:['pascal','joule']});
+G('coulomb','Coulomb o culombio (C)','un','Unidad SI de carga eléctrica: 1 C = 1 A·s. La carga del electrón es −1.602 × 10⁻¹⁹ C, así que 1 C equivale a unos 6.24 × 10¹⁸ electrones.',
+ {e:'Una corriente de 2 A durante 10 s transporta 20 C.',u:'La carga de un mol de electrones es 96 485 C (constante de Faraday).',r:['amperio','cargaelem','faraday']});
+G('amperio','Amperio (A)','un','Unidad SI de intensidad de corriente eléctrica: 1 A = 1 C/s.',
+ {e:'En una electrólisis de 3 A durante 1 h pasan 3 × 3600 = 10 800 C.',r:['coulomb','voltio','electrolisis']});
+G('voltio','Voltio (V)','un','Unidad SI de potencial eléctrico (diferencia de potencial): 1 V = 1 J/C.',
+ {e:'Una pila AA da ≈ 1.5 V; la celda Zn|Cu estándar da 1.10 V.',r:['potred','pila','coulomb']});
+G('ohm','Ohmio (Ω)','un','Unidad SI de resistencia eléctrica: 1 Ω = 1 V/A. La ley de Ohm es V = I·R.',
+ {e:'Con 1.5 V y 3 Ω circulan 0.5 A.',r:['voltio','amperio']});
+G('watt','Watt o vatio (W)','un','Unidad SI de potencia: 1 W = 1 J/s. Es la energía que se usa o produce cada segundo.',
+ {e:'Un foco de 60 W consume 60 J cada segundo; en 1 h, 216 kJ.',r:['joule']});
+G('constantes','Constantes fundamentales','un','Valores fijos de la naturaleza: velocidad de la luz c = 299 792 458 m/s; constante de Planck h = 6.626 × 10⁻³⁴ J·s; carga elemental e = 1.602 × 10⁻¹⁹ C; número de Avogadro N_A = 6.022 × 10²³ mol⁻¹; constante de Boltzmann k = 1.381 × 10⁻²³ J/K.',
+ {e:'La energía de un fotón es E = hν = hc/λ.',u:'Otras muy útiles: R = N_A·k = 8.314 J/(mol·K); F = N_A·e = 96 485 C/mol; masa del electrón 9.109 × 10⁻³¹ kg; masa del protón 1.6726 × 10⁻²⁷ kg.',r:['si','avogadro','rgases','faraday']});
+G('analisisdim','Análisis dimensional y factores de conversión','un','Método para cambiar de unidad multiplicando por fracciones iguales a 1 (factores de conversión) de modo que las unidades no deseadas se cancelen.',
+ {e:'¿Cuántos pm son 1.54 Å? 1.54 Å × (100 pm / 1 Å) = 154 pm.',x:'Si al final las unidades no son las esperadas, el planteamiento está mal aunque la cuenta cuadre.',r:['si','prefijos','cifras']});
+G('errorexp','Error absoluto y relativo','un','Error absoluto = |valor medido − valor aceptado|. Error relativo (o % de error) = error absoluto / valor aceptado × 100.',
+ {e:'Se midió una densidad de 2.65 g/mL y el valor aceptado es 2.70: error absoluto 0.05 g/mL, relativo 1.85 %.',x:'El error relativo permite comparar mediciones de distinto tamaño; el absoluto, no.',r:['exactitud','cifras']});
+G('radiobohr','Radio de Bohr (a₀)','un','Distancia más probable entre el núcleo y el electrón del átomo de hidrógeno en su estado basal: a₀ = 52.9 pm = 0.529 Å. Es una unidad natural de longitud atómica.',
+ {e:'El radio del H en el modelo de Bohr (n = 1) es a₀; para el nivel n el radio es n²·a₀.',r:['bohr','angstrom','picometro']});
+G('cargaelem','Carga elemental (e)','pa','Valor mínimo de carga libre observada: e = 1.602 × 10⁻¹⁹ C. El protón tiene +e y el electrón −e.',
+ {e:'Un ion Ca²⁺ tiene carga +2e = 3.204 × 10⁻¹⁹ C.',u:'Los quarks tienen cargas fraccionarias (+⅔ e y −⅓ e) pero nunca aparecen libres.',r:['coulomb','quark','faraday']});
+
+/* ---- Partículas elementales ---- */
+G('modeloest','Modelo Estándar','pa','Teoría que describe las partículas elementales conocidas y tres de las cuatro fuerzas: la electromagnética, la débil y la fuerte. Incluye 6 quarks, 6 leptones, los bosones portadores de fuerza y el bosón de Higgs.',
+ {e:'Un átomo de hidrógeno ordinario son 2 quarks up y 1 quark down (el protón) más 1 electrón.',x:'La gravedad no está incluida en el Modelo Estándar.',u:'Fue completado experimentalmente con el bosón de Higgs (2012). No explica la materia oscura ni la masa de los neutrinos por completo.',r:['quark','leptones','bosones','higgs'],a:1});
+G('fermion','Fermión','pa','Partícula de spin semientero (½, 3/2…) que cumple el principio de exclusión de Pauli. Quarks, electrones y neutrinos son fermiones.',
+ {e:'Dos electrones (fermiones) no pueden tener los 4 números cuánticos iguales.',r:['spin','pauli','bosones']});
+G('bosones','Bosón','pa','Partícula de spin entero (0, 1…). Los bosones portadores de fuerza son el fotón (electromagnética), W y Z (débil) y los gluones (fuerte); el Higgs tiene spin 0.',
+ {e:'La luz está formada por fotones, que son bosones.',u:'Varios bosones pueden ocupar el mismo estado, lo que permite el láser y el condensado de Bose-Einstein.',r:['fermion','foton','gluon','higgs','bose']});
+G('quarkup','Quark up (u)','pa','Quark de carga +⅔ e y masa de ≈ 2 MeV/c². Es el más ligero junto con el down. El protón tiene dos up.',
+ {e:'Protón = u + u + d: +⅔ + ⅔ − ⅓ = +1.',r:['quark','quarkdown','proton'],a:1});
+G('quarkdown','Quark down (d)','pa','Quark de carga −⅓ e y masa de ≈ 5 MeV/c². El neutrón tiene dos down.',
+ {e:'Neutrón = u + d + d: +⅔ − ⅓ − ⅓ = 0.',r:['quark','quarkup','neutron'],a:1});
+G('quarkstrange','Quark strange o extraño (s)','pa','Quark de carga −⅓ e y masa de ≈ 95 MeV/c². Aparece en partículas «extrañas» (kaones y algunos bariones) producidas en aceleradores o rayos cósmicos.',
+ {e:'El kaón K⁺ está formado por un quark up y un antiquark strange.',r:['quark','quarkdown','sabores'],a:1});
+G('quarkcharm','Quark charm o encanto (c)','pa','Quark de carga +⅔ e y masa de ≈ 1.3 GeV/c². Se descubrió en 1974 en la partícula J/ψ (charmonio).',
+ {e:'Es unas 600 veces más pesado que el quark up.',r:['quark','quarkup','sabores'],a:1});
+G('quarkbottom','Quark bottom o fondo (b)','pa','Quark de carga −⅓ e y masa de ≈ 4.2 GeV/c². Se descubrió en 1977 en el mesón Υ (upsilon).',
+ {r:['quark','quarkdown','sabores'],a:1});
+G('quarktop','Quark top o cima (t)','pa','El quark más pesado: carga +⅔ e y masa de ≈ 173 GeV/c², casi como un átomo de oro. Se descubrió en 1995 en el Tevatrón (Fermilab).',
+ {x:'Vive tan poco (≈ 5 × 10⁻²⁵ s) que se desintegra antes de formar hadrones.',r:['quark','quarkup','sabores'],a:1});
+G('sabores','Sabores y generaciones','pa','Los quarks existen en 6 «sabores» agrupados en 3 generaciones: (up, down), (charm, strange) y (top, bottom). Los leptones también: (electrón, ν_e), (muón, ν_μ) y (tauón, ν_τ). Solo la primera generación forma la materia ordinaria.',
+ {e:'Todo átomo estable se construye con quarks up, quarks down y electrones.',r:['quark','leptones','modeloest'],a:1});
+G('colorq','Carga de color','pa','Propiedad de los quarks y gluones análoga a la carga eléctrica pero con tres tipos («rojo», «verde» y «azul»). Los hadrones son siempre «blancos»: la combinación neutra de colores.',
+ {x:'No es color real: es un nombre para la carga de la interacción fuerte.',u:'La teoría de esta interacción se llama cromodinámica cuántica (QCD). El confinamiento impide aislar un quark.',r:['quark','gluon','intfuerte'],a:1});
+G('gluon','Gluón','pa','Bosón sin masa que transmite la interacción fuerte entre quarks. «Pega» a los quarks para formar protones y neutrones.',
+ {e:'Un protón contiene 3 quarks de valencia y un mar de gluones y pares quark–antiquark.',r:['bosones','colorq','intfuerte'],a:1});
+G('hadron','Hadrón','pa','Partícula formada por quarks unidos por la interacción fuerte. Se divide en bariones (3 quarks) y mesones (un quark y un antiquark).',
+ {e:'Protón y neutrón son bariones; el pión es un mesón.',r:['barion','meson','quark'],a:1});
+G('barion','Barión','pa','Hadrón de 3 quarks (qqq). Protón (uud) y neutrón (udd) son los bariones más comunes.',
+ {e:'Hay más bariones inestables (lambda, sigma…) con quarks strange.',r:['hadron','meson','nucleon'],a:1});
+G('meson','Mesón','pa','Hadrón formado por un quark y un antiquark. Son inestables; el pión (π) transmite la fuerza entre nucleones.',
+ {e:'π⁺ = quark up + antiquark down.',u:'Vida media del pión cargado: ≈ 2.6 × 10⁻⁸ s.',r:['hadron','barion','intfuerte'],a:1});
+G('leptones','Leptón','pa','Fermión que no siente la interacción fuerte. Hay seis: electrón, muón, tauón y sus neutrinos. Solo el electrón es estable entre los cargados.',
+ {e:'El electrón de un átomo es un leptón.',r:['electron','muon','neutrino','tauon'],a:1});
+G('muon','Muón (μ)','pa','Leptón con carga −1 y masa ≈ 207 veces la del electrón. Es inestable (vida ≈ 2.2 µs) y se produce en los rayos cósmicos.',
+ {e:'Al nivel del mar llega aproximadamente 1 muón de rayos cósmicos por cm² cada minuto.',r:['leptones','electron'],a:1});
+G('tauon','Tauón (τ)','pa','Leptón cargado, el más pesado: ≈ 3477 veces la masa del electrón. Su vida es de ≈ 2.9 × 10⁻¹³ s.',
+ {r:['leptones','muon'],a:1});
+G('neutrino','Neutrino','pa','Leptón sin carga y de masa casi nula que casi no interactúa con la materia. Se emite en las desintegraciones β. Cada segundo atraviesan tu cuerpo unos 10¹⁴ neutrinos del Sol.',
+ {e:'En β⁻ el neutrón se convierte en protón + electrón + antineutrino.',u:'Tiene masa pequeña pero no nula (oscilación de neutrinos, Nobel 2015). Pauli lo propuso en 1930 para salvar la conservación de la energía.',r:['beta','leptones','antiparticula'],a:1});
+G('antiparticula','Antipartícula','pa','Para cada partícula existe otra con la misma masa y carga opuesta. El antielectrón es el positrón; el antiprotón tiene carga −1.',
+ {e:'Cuando partícula y antipartícula se encuentran se aniquilan y liberan energía (E = mc²).',r:['positron','antimateria','aniquila'],a:1});
+G('positron','Positrón (e⁺)','pa','Antipartícula del electrón: misma masa y carga +1. Se emite en la desintegración β⁺ y se detecta en tomografías PET. Lo descubrió Anderson en 1932.',
+ {e:'El ¹⁸F se desintegra emitiendo positrones usados en PET.',r:['betamas','antiparticula','aniquila'],a:1});
+G('aniquila','Aniquilación','pa','Proceso en que una partícula y su antipartícula se destruyen y se convierten en energía, típicamente dos fotones gamma de 511 keV cada uno (electrón + positrón).',
+ {e:'La señal de 511 keV es la base de la tomografía PET.',r:['positron','emc2','antimateria'],a:1});
+G('antimateria','Antimateria','pa','Materia formada por antipartículas. Se produce en cantidades diminutas en aceleradores y en algunas desintegraciones radiactivas.',
+ {e:'Los plátanos emiten un positrón cada ≈ 75 minutos por su ⁴⁰K, aproximadamente.',x:'Los «motores de antimateria» de la ciencia ficción no existen: producirla cuesta muchísima más energía de la que da.',r:['antiparticula','aniquila'],a:1});
+G('higgs','Bosón de Higgs','pa','Partícula asociada al campo de Higgs, que da masa a las partículas elementales. Se detectó en 2012 en el LHC del CERN con una masa de ≈ 125 GeV/c².',
+ {x:'No da masa a todo: la mayor parte de la masa del protón proviene de la energía de la interacción fuerte.',r:['modeloest','bosones'],a:1});
+G('fuerzasfund','Las cuatro interacciones fundamentales','pa','Fuerte (une quarks y nucleones), electromagnética (cargas; rige átomos y enlaces), débil (desintegración β) y gravitatoria (masas). Intensidades relativas aproximadas: 1, 10⁻², 10⁻⁶ y 10⁻³⁹.',
+ {e:'La química depende casi solo de la electromagnética.',r:['intfuerte','intdebil','modeloest']});
+G('intfuerte','Interacción fuerte','pa','Fuerza más intensa de la naturaleza. A nivel fundamental une quarks mediante gluones; el residuo de esa fuerza mantiene unidos protones y neutrones en el núcleo.',
+ {e:'Vence la repulsión eléctrica entre protones a distancias de ≈ 1–2 fm.',x:'Tiene alcance muy corto (≈ 10⁻¹⁵ m): fuera del núcleo no actúa.',r:['nucleo','gluon','fuerzasfund']});
+G('intdebil','Interacción débil','pa','Fuerza responsable de la desintegración beta y de algunos procesos en el Sol. Cambia el «sabor» de los quarks (por ejemplo, convierte un down en un up).',
+ {e:'En β⁻: n → p + e⁻ + ν̄_e (un quark d se vuelve u).',r:['beta','fuerzasfund','neutrino'],a:1});
+G('emc2','Equivalencia masa–energía (E = mc²)','pa','La masa es una forma de energía: E = mc². Cuando un núcleo libera energía, su masa disminuye. En química se ve poco; en física nuclear es esencial.',
+ {e:'1 u equivale a 931.5 MeV; 1 g de masa convertido por completo daría ≈ 9 × 10¹³ J.',x:'En una reacción química normal el cambio de masa es demasiado pequeño para medirlo.',u:'En la fisión y la fusión, el defecto de masa se vuelve energía según ΔE = Δm·c².',r:['defmasa','fision','fusion']});
+G('acelerador','Acelerador de partículas','pa','Máquina que acelera partículas cargadas con campos eléctricos y magnéticos para hacerlas chocar. Sirve para investigar partículas, fabricar elementos sintéticos y producir isótopos médicos.',
+ {e:'El LHC del CERN tiene 27 km de circunferencia; el ciclotrón de un hospital produce ¹⁸F para PET.',r:['superpesado','trazador','higgs']});
+G('plasma','Plasma','mt','Cuarto estado de la materia: gas muy caliente o ionizado donde hay iones y electrones libres. Conduce la electricidad y responde a campos magnéticos.',
+ {e:'El Sol, los relámpagos, las auroras y los letreros de neón son plasma.',x:'No es lo mismo que el plasma de la sangre.',r:['estados','ion','fusion']});
+
+/* ---- Núcleo y radiactividad (ampliación) ---- */
+G('radionuclido','Radionúclido (radioisótopo)','ra','Nucleido inestable que se desintegra emitiendo radiación. Puede ser natural o artificial.',
+ {e:'¹⁴C, ⁴⁰K, ²³⁸U y ²²²Rn son naturales; ¹³¹I, ⁹⁹ᵐTc y ⁶⁰Co se producen artificialmente.',r:['nuclido','isotopo','desint']});
+G('ionizante','Radiación ionizante y no ionizante','ra','La ionizante (α, β, γ, rayos X, neutrones) tiene suficiente energía para arrancar electrones a los átomos y dañar moléculas. La no ionizante (ondas de radio, microondas, luz visible) no.',
+ {e:'Los rayos X ionizan; el microondas de tu cocina calienta, pero no ioniza.',x:'La radiación no ionizante también puede dañar (el UV quema la piel), pero por otro mecanismo.',u:'Se considera ionizante la radiación con energía > ≈ 10 eV (límite aproximado del ultravioleta lejano).',r:['alfa','beta','gamma','dosis']});
+G('penetracion','Poder de penetración','ra','Las partículas α las frena una hoja de papel o la piel; las β, unos milímetros de aluminio; los rayos γ y X necesitan plomo o concreto grueso; los neutrones se frenan con agua o polietileno.',
+ {e:'Un emisor α es peligroso solo si se ingiere o inhala (radón, polonio-210).',r:['alfa','beta','gamma','blindajerad']});
+G('blindajerad','Blindaje radiológico','ra','Material colocado entre una fuente radiactiva y las personas para reducir la dosis. Se complementa con distancia y tiempo de exposición.',
+ {e:'Los delantales de plomo en radiología absorben rayos X.',x:'Las tres reglas básicas son tiempo, distancia y blindaje.',r:['penetracion','dosis']});
+G('betamas','Desintegración β⁺ y captura electrónica','ra','En β⁺ un protón del núcleo se convierte en neutrón emitiendo un positrón y un neutrino: Z baja 1 y A no cambia. En la captura electrónica el núcleo atrapa un electrón de su capa interna con el mismo resultado.',
+ {e:'¹¹C → ¹¹B + e⁺ + ν; ⁷Be + e⁻ → ⁷Li + ν.',r:['beta','positron','estab']});
+G('ecnuclear','Ecuación nuclear','ra','Ecuación que describe un proceso nuclear. Se balancea conservando el número de masa A y la carga nuclear Z a ambos lados.',
+ {e:'²³⁸₉₂U → ²³⁴₉₀Th + ⁴₂He: 238 = 234 + 4 y 92 = 90 + 2.',x:'Se balancean A y Z, no «los átomos» como en una reacción química.',r:['alfa','beta','desint']});
+G('transmutacion','Transmutación nuclear','ra','Conversión de un elemento en otro por un proceso nuclear (desintegración o bombardeo con partículas). La logró Rutherford en 1919: ¹⁴N + α → ¹⁷O + p.',
+ {e:'Las desintegraciones naturales transmutan U en Pb a lo largo de miles de millones de años.',x:'Convertir plomo en oro sí es posible en un acelerador, pero cuesta muchísimo más que el oro obtenido.',r:['ecnuclear','fision','rutherford']});
+G('serierad','Serie radiactiva','ra','Cadena de desintegraciones sucesivas que termina en un isótopo estable. La serie del ²³⁸U acaba en ²⁰⁶Pb tras 8 emisiones α y 6 β⁻.',
+ {e:'Por eso el radón (²²²Rn) aparece donde hay uranio.',r:['desint','radon','vmedia']});
+G('leydesint','Ley de desintegración (N = N₀ e^−λt)','ra','El número de núcleos que quedan decae exponencialmente: N = N₀·e^(−λt), donde λ = ln 2 / T½ es la constante de desintegración.',
+ {e:'Tras 3 vidas medias queda 1/8 (12.5 %) de la muestra.',u:'La actividad A = λN decae con la misma ley. La vida media promedio de un núcleo es τ = 1/λ = T½ / ln 2 ≈ 1.44 T½.',r:['vmedia','actividad','c14']});
+G('dosis','Dosis de radiación','ra','Medida del efecto de la radiación. La dosis absorbida (gray, Gy) es la energía por kilogramo. La dosis equivalente o efectiva (sievert, Sv) pondera el daño biológico según el tipo de radiación y el tejido.',
+ {e:'Una radiografía de tórax da ≈ 0.1 mSv; un vuelo largo, ≈ 0.05 mSv.',x:'Bq mide cuántas desintegraciones por segundo hay; Gy y Sv miden lo que recibe el cuerpo.',r:['gray','sievert','becquerel']});
+G('becquerel','Becquerel (Bq)','ra','Unidad SI de actividad radiactiva: 1 Bq = 1 desintegración por segundo. Es muy pequeña, por eso se usan kBq, MBq, GBq y TBq.',
+ {e:'1 curie = 3.7 × 10¹⁰ Bq = 37 GBq. Un cuerpo humano adulto tiene ≈ 4 400 Bq por el ⁴⁰K.',x:'«bequerel» y «becquerel» son lo mismo; el nombre honra a Henri Becquerel, descubridor de la radiactividad en 1896.',u:'Equivalencias: 1 Bq = 2.703 × 10⁻¹¹ Ci = 27 pCi; 1 MBq = 27 µCi; 1 GBq = 27 mCi. Una muestra de 1 g de ²²⁶Ra tiene ≈ 3.66 × 10¹⁰ Bq.',r:['curie','actividad','sievert']});
+G('curie','Curie (Ci)','ra','Unidad antigua de actividad radiactiva: 1 Ci = 3.7 × 10¹⁰ desintegraciones por segundo = 37 GBq. Equivale aproximadamente a la actividad de 1 g de radio-226.',
+ {e:'1 mCi = 3.7 × 10⁷ Bq = 37 MBq; 1 µCi = 37 000 Bq = 37 kBq.',x:'No confundir el curie (Ci), unidad de actividad, con el elemento curio (Cm); ambos honran a Marie y Pierre Curie.',u:'Para pasar de Ci a Bq se multiplica por 3.7 × 10¹⁰; de Bq a Ci, por 2.7 × 10⁻¹¹. Las unidades de uso médico y nuclear antiguas aún usan mCi y µCi.',r:['becquerel','actividad','radiact']});
+G('gray','Gray (Gy)','ra','Unidad SI de dosis absorbida: 1 Gy = 1 J de energía absorbida por kg de materia. 1 Gy = 100 rad.',
+ {e:'Una radioterapia contra el cáncer puede dar 2 Gy por sesión, hasta 60 Gy en total.',u:'Una dosis aguda de ≈ 4–5 Gy en todo el cuerpo sin tratamiento es letal en ≈ 50 % de los casos (DL50/60).',r:['dosis','sievert','radrem']});
+G('sievert','Sievert (Sv)','ra','Unidad SI de dosis equivalente y efectiva: 1 Sv = 1 J/kg ponderado por el daño biológico. 1 Sv = 100 rem. Se usan mSv y µSv.',
+ {e:'La radiación natural de fondo promedia ≈ 2.4 mSv al año en el mundo.',u:'Dosis efectiva = Σ w_T · Σ w_R · D. Para rayos X, β y γ, w_R = 1 y Sv = Gy; para α, w_R = 20. Límite anual para público: 1 mSv; para personal expuesto: 20 mSv al año de promedio (ICRP).',r:['gray','dosis','radrem']});
+G('radrem','Rad, rem y röntgen','ra','Unidades antiguas de radiación: el rad es la dosis absorbida (1 rad = 0.01 Gy), el rem es la dosis equivalente (1 rem = 0.01 Sv) y el röntgen (R) mide exposición a rayos X o γ en el aire.',
+ {e:'5 rem = 50 mSv; 100 rad = 1 Gy.',x:'Aún aparecen en textos y normas antiguas de EE. UU.',r:['gray','sievert']});
+G('fondorad','Radiación natural de fondo','ra','Radiación ionizante que recibimos siempre de fuentes naturales: radón, rayos cósmicos, rocas y suelo y los isótopos de nuestro cuerpo (⁴⁰K, ¹⁴C).',
+ {e:'Cerca de la mitad de la dosis natural media proviene del radón.',u:'El promedio mundial es ≈ 2.4 mSv/año (UNSCEAR), con variaciones de 1 a más de 10 mSv/año según el lugar.',r:['radon','sievert','dosis']});
+G('radon','Radón (²²²Rn)','ra','Gas noble radiactivo de T½ ≈ 3.8 días que forma parte de la serie del uranio y se acumula en espacios cerrados. Inhalado, es una causa importante de cáncer de pulmón.',
+ {e:'Se mide en Bq/m³; la OMS recomienda reducirlo por debajo de ≈ 100 Bq/m³ en casas.',r:['serierad','fondorad','nobles']});
+G('trazador','Trazador radiactivo y medicina nuclear','ra','Isótopo radiactivo en cantidades pequeñas que permite seguir un proceso en el cuerpo, una cañería o una planta. En medicina sirve para diagnóstico (gammagrafía, PET) y para terapia.',
+ {e:'⁹⁹ᵐTc (T½ = 6 h) en la gammagrafía; ¹⁸F-FDG (T½ ≈ 110 min) en PET; ¹³¹I contra el cáncer de tiroides.',x:'Se eligen isótopos de vida media corta para que no permanezcan en el cuerpo.',r:['positron','vmedia','radionuclido']});
+G('reactor','Reactor nuclear','ra','Instalación donde se controla una reacción en cadena de fisión. Tiene combustible (uranio enriquecido), moderador (agua), barras de control (absorben neutrones) y refrigerante.',
+ {e:'Las barras de control de boro o cadmio se insertan para frenar la reacción.',u:'Un reactor comercial usa uranio enriquecido a ≈ 3–5 % en ²³⁵U. Una bomba requiere > 90 %.',r:['fision','cadena','vmedia']});
+G('cadena','Reacción en cadena y masa crítica','ra','En la fisión del ²³⁵U cada núcleo libera 2–3 neutrones que pueden fisionar otros núcleos. La masa crítica es la mínima para que la reacción se sostenga sola.',
+ {r:['fision','reactor']});
+G('transuranico','Elementos transuránicos','ra','Elementos con Z > 92 (más allá del uranio). Casi todos son sintéticos y radiactivos. El primero fue el neptunio (Z = 93), producido en 1940.',
+ {e:'El plutonio (Z = 94) se usa en reactores y armas; el americio (Z = 95) en detectores de humo.',r:['superpesado','acelerador','lantact']});
+G('superpesado','Elementos superpesados','ra','Elementos con Z ≥ 104 (rutherfordio en adelante). Se producen átomo por átomo en aceleradores y viven desde milisegundos hasta minutos. El último conocido es el oganesón (Z = 118).',
+ {e:'Un proceso típico: ⁴⁸Ca + ²⁴⁹Cf → ²⁹⁴Og + 3 n.',u:'Se busca una «isla de estabilidad» cerca de Z ≈ 114–126 y N ≈ 184, donde habría núcleos con vidas más largas.',r:['transuranico','acelerador']});
+G('dataciongeo','Datación radiométrica','ra','Método para calcular la edad de rocas y minerales a partir de la proporción entre un isótopo padre radiactivo y su hijo estable (U–Pb, K–Ar, Rb–Sr…).',
+ {e:'La datación U–Pb de circones sitúa la edad de la Tierra en ≈ 4 540 millones de años.',x:'El carbono-14 no sirve para rocas: su T½ de 5 730 años solo alcanza ≈ 50 000 años.',r:['c14','vmedia','leydesint']});
+G('isomeronuc','Isómero nuclear','ra','Núcleo en un estado excitado de vida relativamente larga que se indica con una «m». Emite radiación γ al pasar a su estado basal.',
+ {e:'El ⁹⁹ᵐTc emite γ de 140 keV al volverse ⁹⁹Tc.',r:['gamma','trazador']});
+
+
+/* ---- Átomo, tabla periódica y enlace (ampliación) ---- */
+G('nubeelec','Nube electrónica','at','Región alrededor del núcleo donde es probable encontrar a los electrones. Es una distribución de probabilidad, no una órbita.',
+ {e:'En el átomo de hidrógeno la nube 1s es esférica y más densa cerca del núcleo.',r:['orbital','cuantico','nucleo']});
+G('molecdiat','Moléculas diatómicas y elementos diatómicos','at','Siete elementos existen en la naturaleza como moléculas de dos átomos: H₂, N₂, O₂, F₂, Cl₂, Br₂ y I₂.',
+ {e:'El oxígeno del aire es O₂; por eso se escribe «2 H₂ + O₂ → 2 H₂O» y no «H + O».',x:'Se escribe O₂ al hablar del gas, pero «O» es un átomo.',r:['molecula','elemento','halogenos']});
+G('alotropo','Alótropos','so','Formas distintas de un mismo elemento en el mismo estado físico, con estructuras y propiedades diferentes.',
+ {e:'Carbono: diamante, grafito, grafeno y fullerenos. Oxígeno: O₂ y O₃ (ozono). Fósforo: blanco y rojo.',x:'El diamante y el grafito son el mismo elemento (carbono) pero uno es duro y aislante, y el otro es blando y conduce.',r:['diamante','grafeno','elemento']});
+G('mendeleev','Ley periódica y Mendeléyev','tp','La ley periódica dice que las propiedades de los elementos se repiten de forma periódica al ordenarlos por número atómico. Dmitri Mendeléyev (1869) ordenó los elementos y dejó huecos para otros aún no descubiertos.',
+ {e:'Predijo las propiedades del «eka-silicio» (germanio), descubierto en 1886.',x:'Mendeléyev ordenaba por masa atómica; fue Moseley quien mostró que el orden correcto es por número atómico.',r:['z','grupo','periodo']});
+G('calcogenos','Calcógenos (grupo 16)','tp','Familia del oxígeno: O, S, Se, Te, Po (y Lv). Tienen 6 electrones de valencia y suelen formar iones X²⁻ o compartir 2 electrones.',
+ {e:'El azufre y el oxígeno forman SO₂ y SO₃.',r:['grupo','halogenos','nometal']});
+G('pnictogenos','Nitrogenoides o pnictógenos (grupo 15)','tp','Familia del nitrógeno: N, P, As, Sb, Bi (y Mc). Tienen 5 electrones de valencia. N y P son no metales, As y Sb metaloides, Bi metal.',
+ {e:'El nitrógeno forma N₂, un gas muy poco reactivo por su triple enlace.',r:['grupo','calcogenos']});
+G('carbonoides','Carbonoides (grupo 14)','tp','Familia del carbono: C, Si, Ge, Sn, Pb (y Fl). Tienen 4 electrones de valencia; pasan de no metal (C) a metaloides (Si, Ge) y metales (Sn, Pb).',
+ {e:'El carbono es la base de la química orgánica y el silicio, de las rocas y los chips.',r:['grupo','organica','semiconductor']});
+G('terreos','Térreos (grupo 13)','tp','Familia del boro: B, Al, Ga, In, Tl (y Nh). Tienen 3 electrones de valencia. El aluminio es el metal más abundante de la corteza terrestre.',
+ {e:'El Al forma Al³⁺ y Al₂O₃ (alúmina).',r:['grupo','carbonoides']});
+G('metalespost','Metales de postransición','tp','Metales del bloque p, a la derecha de los metales de transición: Al, Ga, In, Sn, Tl, Pb, Bi… Son blandos, de bajo punto de fusión y menos duros.',
+ {e:'El estaño (Sn) y el plomo (Pb) se funden fácilmente: el plomo a 327 °C.',r:['metal','transicion','carbonoides']});
+G('metalesnobles','Metales nobles','tp','Metales muy poco reactivos que resisten la oxidación y el ataque de ácidos: oro, platino, plata, paladio, rodio…',
+ {e:'El oro no se oxida en el aire ni se disuelve en HCl o HNO₃ solos; sí en agua regia.',x:'No tienen relación con los gases nobles aunque comparten adjetivo.',r:['transicion','serieact','nobles']});
+G('tierrasraras','Tierras raras','tp','Grupo de 17 elementos: el escandio, el itrio y los 15 lantánidos. Son clave en imanes, pantallas, baterías y catalizadores.',
+ {x:'«Raras» por difíciles de separar, no porque sean escasas: el cerio es tan abundante como el cobre.',r:['lantact','transicion']});
+G('sinteticos','Elementos sintéticos','tp','Elementos que no se encuentran en la naturaleza (o en cantidades diminutas) y se fabrican en reactores o aceleradores. Tecnecio (43), prometio (61) y casi todos los de Z > 92.',
+ {e:'El tecnecio fue el primer elemento producido artificialmente (1937).',r:['transuranico','superpesado','acelerador']});
+G('electropositividad','Electropositividad','tp','Tendencia de un átomo a ceder electrones y formar cationes. Es lo contrario de la electronegatividad. Crece hacia abajo y a la izquierda de la tabla.',
+ {e:'El cesio y el francio son los más electropositivos.',r:['en','carmet','alcalinos']});
+G('pauling','Escala de Pauling','tp','Escala de electronegatividad más usada, propuesta por Linus Pauling. Va de ≈ 0.7 (Fr, Cs) hasta 3.98 (F) en la mayor.',
+ {e:'H 2.20 · C 2.55 · N 3.04 · O 3.44 · F 3.98 · Na 0.93 · Cl 3.16.',r:['en','delen','polar']});
+G('delen','Diferencia de electronegatividad (ΔEN)','en','Criterio práctico para clasificar un enlace: ΔEN ≥ 1.7 suele ser iónico; entre ≈ 0.4 y 1.7, covalente polar; menor de ≈ 0.4, covalente no polar.',
+ {e:'Na–Cl: 3.16 − 0.93 = 2.23 → iónico. H–Cl: 0.96 → polar. C–H: 0.35 → casi no polar.',x:'Los límites son aproximados; el enlace real siempre tiene una mezcla de carácter iónico y covalente.',r:['pauling','ionico','polar','apolar']});
+G('eisucesiva','Energías de ionización sucesivas','tp','Cada electrón que se arranca requiere más energía que el anterior. Un salto enorme indica que se empezó a quitar un electrón de una capa interna.',
+ {e:'Mg: EI₁ = 738 y EI₂ = 1451 kJ/mol, pero EI₃ = 7733 kJ/mol → tiene 2 electrones de valencia.',r:['ei','valencia','core']});
+G('enlmult','Enlace simple, doble y triple','en','Número de pares de electrones que se comparten entre dos átomos: 1, 2 o 3. A más pares, el enlace es más corto y más fuerte.',
+ {e:'C–C 154 pm (≈ 347 kJ/mol), C=C 134 pm (≈ 614 kJ/mol), C≡C 120 pm (≈ 839 kJ/mol).',r:['covalente','orden','longenl','enerenl']});
+G('angenl','Ángulo de enlace','mg','Ángulo formado por tres átomos consecutivos (A–B–A). Depende del número de pares de electrones alrededor del átomo central.',
+ {e:'CH₄ 109.5° · NH₃ 107° · H₂O 104.5° · BF₃ 120° · CO₂ 180°.',x:'Los pares libres repelen más que los enlazantes y cierran el ángulo.',r:['vsepr','geomol','hibrid']});
+G('sphib','Hibridaciones sp³, sp² y sp','mg','Combinaciones del orbital s con orbitales p. sp³: 4 orbitales (109.5°, tetraedro); sp²: 3 (120°, plano) + 1 p sin hibridar; sp: 2 (180°, lineal) + 2 p.',
+ {e:'C en CH₄: sp³ · C en C₂H₄: sp² · C en C₂H₂: sp · C en CO₂: sp.',r:['hibrid','sigma','pi','enlmult']});
+G('orbmol','Orbital molecular (OM)','mg','Orbital que se extiende sobre toda la molécula. Al combinarse dos orbitales atómicos se forman un orbital enlazante (menor energía) y uno antienlazante (mayor energía).',
+ {e:'En H₂ los dos electrones ocupan el OM σ enlazante; orden de enlace = 1.',u:'En O₂ los dos últimos electrones quedan en OM π* separados: por eso es paramagnético, algo que Lewis no explica. Orden de enlace = (e⁻ enlazantes − e⁻ antienlazantes)/2.',r:['orden','magnet','sigma','pi'],a:1});
+G('iondipolo','Fuerza ion–dipolo','mg','Atracción entre un ion y una molécula polar. Es la que mantiene a los iones disueltos rodeados de agua.',
+ {e:'Na⁺ atrae el extremo negativo (O) del agua; Cl⁻ atrae el extremo positivo (H).',r:['solvatacion','imf','dipolo']});
+G('tensionsup','Tensión superficial','mg','Tendencia de la superficie de un líquido a contraerse y comportarse como una película elástica, causada por las fuerzas intermoleculares.',
+ {e:'Algunos insectos caminan sobre el agua; el agua forma gotas esféricas.',u:'Agua a 20 °C: 72.8 mN/m. Se reduce al agregar jabón (tensoactivo).',r:['imf','puenteh','capilaridad']});
+G('viscosidad','Viscosidad','mg','Resistencia de un fluido a fluir. Aumenta con las fuerzas intermoleculares y disminuye al calentar el líquido.',
+ {e:'La miel es más viscosa que el agua; el aceite de motor fluye más rápido caliente.',r:['imf','tensionsup']});
+G('capilaridad','Capilaridad','mg','Ascenso de un líquido por un tubo muy delgado gracias a que la adhesión al vidrio supera la cohesión del líquido.',
+ {e:'El agua sube por una servilleta; la savia sube por los vasos de las plantas.',r:['tensionsup','puenteh']});
+G('volatilidad','Volatilidad','mg','Facilidad con que un líquido se evapora. Sube cuando las fuerzas intermoleculares son débiles.',
+ {e:'La acetona y el éter se evaporan casi enseguida; el agua tarda más.',r:['pvapor','ebullicion','imf']});
+
+/* ---- Compuestos, nomenclatura y cantidades (ampliación) ---- */
+G('anhidrido','Óxidos básicos y óxidos ácidos (anhídridos)','no','Un óxido básico (metal + O) reacciona con agua para dar un hidróxido. Un óxido ácido o anhídrido (no metal + O) reacciona con agua para dar un oxiácido.',
+ {e:'Na₂O + H₂O → 2 NaOH · SO₃ + H₂O → H₂SO₄ · CO₂ + H₂O ⇌ H₂CO₃.',x:'En español los óxidos ácidos se llamaban «anhídridos»; hoy se prefiere «óxido de…» según la IUPAC.',r:['oxido','hidroxido','oxiacido']});
+G('hidracido','Hidrácidos','no','Compuestos de hidrógeno con un halógeno o con S, Se o Te que forman ácidos al disolverse en agua. Se nombran «ácido …hídrico».',
+ {e:'HCl(ac): ácido clorhídrico · H₂S(ac): ácido sulfhídrico.',x:'HCl gas se llama cloruro de hidrógeno; en disolución acuosa, ácido clorhídrico.',r:['acido','oxiacido']});
+G('oxiacido','Oxiácidos','no','Ácidos que contienen oxígeno, hidrógeno y un no metal. Su nombre depende del número de oxidación del no metal: «hipo…oso», «…oso», «…ico», «per…ico».',
+ {e:'HClO (hipocloroso), HClO₂ (cloroso), HClO₃ (clórico), HClO₄ (perclórico).',r:['acido','sufijos','anhidrido']});
+G('sufijos','Sufijos de aniones: -uro, -ito, -ato','no','Los aniones monoatómicos terminan en -uro (cloruro, sulfuro). Los oxoaniones terminan en -ito (menos oxígeno) o -ato (más): sulfito SO₃²⁻, sulfato SO₄²⁻.',
+ {e:'NO₂⁻: nitrito · NO₃⁻: nitrato · ClO₃⁻: clorato · ClO₄⁻: perclorato.',x:'Un ácido «-oso» da sales «-ito», y un ácido «-ico» da sales «-ato».',r:['ionpoli','oxiacido','sal']});
+G('oxisal','Sales neutras, ácidas y básicas','no','Sal neutra: sin H⁺ ni OH⁻ que reemplazar (NaCl). Sal ácida: conserva hidrógeno ácido (NaHCO₃). Sal básica: conserva OH⁻ [Mg(OH)Cl].',
+ {e:'NaHCO₃ = hidrogenocarbonato de sodio (bicarbonato).',r:['sal','neutral','hidrolisis']});
+G('hidratos','Sales hidratadas (hidratos)','no','Sales cuyo cristal contiene moléculas de agua en proporción fija. Se escribe con un punto: CuSO₄·5H₂O. Al calentarlas pierden el agua y se vuelven anhidras.',
+ {e:'CuSO₄·5H₂O es azul; el CuSO₄ anhidro es blanco. Yeso: CaSO₄·2H₂O.',r:['sal','fempir','masamolar']});
+G('proust','Ley de las proporciones definidas (Proust)','ca','Un compuesto contiene siempre los mismos elementos en la misma proporción de masa, sin importar su origen.',
+ {e:'El agua tiene siempre 11.19 % de H y 88.81 % de O en masa.',r:['leycons','proporcmult','pcomp']});
+G('proporcmult','Ley de las proporciones múltiples (Dalton)','ca','Cuando dos elementos forman más de un compuesto, las masas de uno que se combinan con una masa fija del otro están en relación de números enteros pequeños.',
+ {e:'CO y CO₂: por cada 12 g de C hay 16 g y 32 g de O → relación 1:2.',r:['proust','dalton']});
+G('masamolecular','Masa molecular y masa fórmula','ca','Masa molecular: suma de las masas atómicas de los átomos de una molécula (en u). Para compuestos iónicos se habla de masa fórmula. Numéricamente coincide con la masa molar en g/mol.',
+ {e:'H₂O: 2(1.008) + 15.999 = 18.015 u → masa molar 18.015 g/mol.',x:'La unidad es u (o Da) para una molécula y g/mol para un mol de ellas.',r:['masamolar','masaat','u']});
+G('pureza','Pureza de un reactivo','ca','Porcentaje en masa de la sustancia deseada dentro de una muestra comercial. Hay que multiplicarla en estequiometría.',
+ {e:'100 g de HCl comercial al 37 % contienen 37 g de HCl puro.',r:['porcmasa','reactlim','rendim']});
+G('reactexc','Reactivo en exceso','ca','Reactivo que sobra una vez que el reactivo limitante se ha consumido por completo.',
+ {e:'Si se mezclan 5 mol de H₂ con 1 mol de N₂ para formar NH₃, sobra H₂ (se necesitan 3 mol).',r:['reactlim','estequio']});
+G('ionicaneta','Ecuación iónica neta','ca','Ecuación que muestra solo las especies que realmente reaccionan; se eliminan los iones espectadores, que no cambian.',
+ {e:'AgNO₃ + NaCl → AgCl↓ + NaNO₃ → neta: Ag⁺ + Cl⁻ → AgCl(s).',r:['precipitado','electrolito','ecuacion']});
+G('tiposrx','Tipos de reacciones químicas','ca','Síntesis (A + B → AB), descomposición (AB → A + B), desplazamiento simple (A + BC → AC + B), doble desplazamiento (AB + CD → AD + CB), combustión y neutralización.',
+ {e:'2 H₂ + O₂ → 2 H₂O (síntesis) · CaCO₃ → CaO + CO₂ (descomposición).',r:['ecuacion','combustion','neutral']});
+G('combustion','Combustión','ca','Reacción rápida de una sustancia con oxígeno que libera calor y luz. La completa de un hidrocarburo produce CO₂ y H₂O.',
+ {e:'CH₄ + 2 O₂ → CO₂ + 2 H₂O ΔH = −890 kJ/mol.',x:'Con poco oxígeno es incompleta: se forma CO (tóxico) y hollín.',r:['hidrocarburo','exotermica','tiposrx']});
+G('porcvol','Porcentaje en volumen (% v/v)','ca','Mililitros de soluto por cada 100 mL de disolución. Se usa en bebidas y en líquidos mezclados.',
+ {e:'Una cerveza de 5 % v/v tiene 5 mL de etanol por cada 100 mL.',r:['porcmasa','concentracion']});
+G('porcmv','Porcentaje masa/volumen (% m/v)','ca','Gramos de soluto por cada 100 mL de disolución. Típico en medicina y laboratorio.',
+ {e:'Suero fisiológico: 0.9 % m/v = 0.9 g de NaCl en 100 mL.',r:['porcmasa','porcvol']});
+G('ppb','Partes por billón (ppb)','ca','Microgramos de soluto por kilogramo (o por litro, en agua diluida). 1 ppm = 1000 ppb.',
+ {e:'El límite de arsénico en agua potable de la OMS es 10 µg/L = 10 ppb.',x:'En español «billón» es 10¹²; esta «b» es la americana (10⁹). Por eso conviene escribir µg/L.',r:['ppm','concentracion']});
+G('equivalente','Equivalente químico y normalidad (N)','ca','Un equivalente es la cantidad de sustancia que aporta o consume 1 mol de H⁺ (o de electrones). Normalidad: equivalentes de soluto por litro de disolución. N = M × (equivalentes por mol).',
+ {e:'H₂SO₄ 1 M = 2 N (aporta 2 H⁺). Ca(OH)₂ 0.5 M = 1 N.',x:'La IUPAC desaconseja la normalidad; conviene usar molaridad. Aún se enseña en México en volumetría.',r:['molaridad','titulacion','acido']});
+G('raoult','Ley de Raoult','ca','La presión de vapor de un disolvente en una disolución es P = χ_disolvente · P°. Al agregar un soluto no volátil, la presión de vapor baja.',
+ {e:'Si χ(agua) = 0.98 y P° = 23.8 torr, P = 23.3 torr.',r:['coligativas','pvapor','fracmolar']});
+G('henry','Ley de Henry','ca','La solubilidad de un gas en un líquido es proporcional a su presión parcial sobre él: S = k·P.',
+ {e:'En un refresco cerrado el CO₂ está disuelto a presión; al abrirlo la presión baja y burbujea.',x:'Los gases son menos solubles al subir la temperatura: por eso un refresco caliente pierde gas rápido.',r:['solubilidad','daltonp']});
+G('cstp','Condiciones estándar (TPE, CNTP, SATP)','ga','Condiciones de referencia. CNTP o TPE clásicas: 0 °C y 1 atm (V molar = 22.414 L/mol). IUPAC actual: 0 °C y 1 bar (22.711 L/mol). Condiciones ambientales (SATP): 25 °C y 1 bar (24.79 L/mol).',
+ {e:'En CNTP, 1 mol de gas ideal ocupa 22.4 L.',x:'Revisa qué «estándar» pide cada problema: 22.4 L/mol solo vale a 0 °C y 1 atm.',r:['vmolar','gasideal','bar']});
+G('rgases','Constante de los gases (R)','ga','Constante de proporcionalidad de PV = nRT. Su valor depende de las unidades: 0.08206 L·atm/(mol·K), 8.314 J/(mol·K), 62.36 L·torr/(mol·K), 1.987 cal/(mol·K).',
+ {e:'Con presión en atm y volumen en L se usa R = 0.08206.',x:'Si usas kPa y L, R = 8.314 kPa·L/(mol·K).',r:['gasideal','constantes','atm']});
+G('graham','Ley de Graham','ga','La velocidad de efusión de un gas es inversamente proporcional a la raíz de su masa molar: v₁/v₂ = √(M₂/M₁).',
+ {e:'El H₂ (2 g/mol) se difunde √16 = 4 veces más rápido que el O₂ (32 g/mol).',r:['difusion','tcinetica']});
+G('sublimacion','Sublimación y deposición','mt','Sublimación: paso directo de sólido a gas. Deposición: paso directo de gas a sólido.',
+ {e:'El hielo seco (CO₂ sólido) sublima a −78.5 °C; la escarcha es deposición de vapor de agua.',r:['cambioestado','estados']});
+G('puntotriple','Punto triple','mt','Temperatura y presión únicas en las que coexisten en equilibrio sólido, líquido y gas.',
+ {e:'Agua: 273.16 K y 611.7 Pa (0.006 atm). CO₂: −56.6 °C y 5.18 atm.',u:'El punto triple del agua se usó para definir el kelvin hasta 2019.',r:['diagfases','puntocritico']});
+G('puntocritico','Punto crítico y fluido supercrítico','mt','Por encima de la temperatura y presión críticas ya no hay diferencia entre líquido y gas: se forma un fluido supercrítico con propiedades intermedias.',
+ {e:'Agua: 374 °C y 218 atm. CO₂: 31 °C y 73 atm; el CO₂ supercrítico descafeína el café.',r:['diagfases','puntotriple','pvapor']});
+G('diagfases','Diagrama de fases','mt','Gráfica de presión contra temperatura que muestra en qué zona una sustancia es sólido, líquido o gas, e incluye punto triple, punto crítico y curvas de equilibrio.',
+ {e:'En el del agua la línea sólido–líquido tiene pendiente negativa: el hielo flota.',r:['puntotriple','puntocritico','cambioestado']});
+G('bose','Condensado de Bose–Einstein','mt','Estado de la materia que ocurre a temperaturas cercanas al cero absoluto: muchos átomos se comportan como una sola onda cuántica.',
+ {e:'Se logró por primera vez en 1995 con átomos de rubidio a ≈ 170 nK.',r:['bosones','cerorabs','estados'],a:1});
+G('cristalliq','Cristal líquido','mt','Fase intermedia entre sólido y líquido: fluye como líquido pero sus moléculas conservan cierto orden.',
+ {e:'Las pantallas LCD usan cristales líquidos que giran con un campo eléctrico.',r:['estados','imf']});
+G('hidrogenoverde','Hidrógeno como vector de energía','am','El H₂ se puede quemar o usar en celdas de combustible solo para producir agua. Se llama «verde» cuando se obtiene por electrólisis con energía renovable.',
+ {e:'2 H₂O → 2 H₂ + O₂ por electrólisis.',x:'El H₂ casi no existe libre en la Tierra: hay que fabricarlo y eso consume energía.',r:['electrolisis','celdacomb']});
+
+
+/* ---- Termoquímica, cinética, equilibrio, ácido-base, redox (ampliación) ---- */
+G('capcal','Capacidad calorífica','te','Calor necesario para subir 1 K la temperatura de un objeto completo. A diferencia del calor específico, depende de cuánta masa tiene el objeto. C = m·c.',
+ {e:'Un calorímetro con C = 150 J/K necesita 150 J para subir 1 K.',r:['caloresp','calorimetria','calor']});
+G('calorlat','Calor latente','te','Calor que se absorbe o se libera en un cambio de estado sin que cambie la temperatura. Fusión y vaporización lo absorben; solidificación y condensación lo liberan.',
+ {e:'Agua: fusión 334 J/g (6.01 kJ/mol); vaporización 2260 J/g (40.7 kJ/mol).',x:'Mientras hierve el agua, la temperatura se queda en 100 °C aunque sigas calentando.',r:['cambioestado','ebullicion','calor']});
+G('energiaint','Energía interna (U)','te','Suma de todas las energías cinéticas y potenciales de las partículas de un sistema. Solo se mide su cambio: ΔU = q + w.',
+ {e:'Si un sistema absorbe 100 J de calor y realiza 40 J de trabajo, ΔU = +60 J.',r:['primeraley','calor','trabajo']});
+G('trabajo','Trabajo (w) en termoquímica','te','Energía transferida cuando una fuerza mueve algo. En gases, el trabajo de expansión es w = −P·ΔV; el sistema que se expande realiza trabajo y pierde energía.',
+ {x:'Convención IUPAC: w es positivo si el entorno hace trabajo sobre el sistema.',r:['energiaint','primeraley','gasideal']});
+G('segundaley','Segunda ley de la termodinámica','te','En un proceso espontáneo, la entropía del universo aumenta: ΔS_univ > 0. El calor fluye de lo caliente a lo frío, nunca al revés por sí solo.',
+ {e:'Un cubo de hielo en un vaso de agua tibia se derrite; el agua nunca se vuelve más cálida mientras el hielo se congela espontáneamente.',r:['entropia','espontaneo','gibbs']});
+G('terceraley','Tercera ley de la termodinámica','te','La entropía de un cristal perfecto a 0 K es cero. Permite calcular entropías absolutas.',
+ {r:['entropia','cerorabs']});
+G('bornhaber','Ciclo de Born–Haber','te','Cadena de pasos que usa la ley de Hess para calcular la energía reticular de un compuesto iónico a partir de datos medibles.',
+ {e:'Para NaCl: sublimación de Na, ionización de Na, disociación de Cl₂, afinidad del Cl y formación de la red.',u:'ΔH°f = ΔH_sub + EI + ½ΔH_dis + AE + U_red; se despeja la energía reticular.',r:['hess','reticular','ei','ae'],a:1});
+G('sistabierto','Sistemas abierto, cerrado y aislado','te','Abierto: intercambia materia y energía. Cerrado: solo energía. Aislado: ni materia ni energía.',
+ {e:'Una olla destapada es abierta; una botella cerrada, cerrada; un termo ideal, aislado.',r:['sistema','energia']});
+G('procesos','Procesos isotérmico, isobárico, isocórico y adiabático','te','Isotérmico: T constante. Isobárico: P constante. Isocórico (isométrico): V constante. Adiabático: sin intercambio de calor (q = 0).',
+ {e:'Un proceso isocórico no realiza trabajo de expansión: w = 0, así que ΔU = q.',r:['boyle','charles','gaylussac','primeraley']});
+G('funcestado','Función de estado','te','Propiedad que depende solo del estado actual del sistema y no del camino seguido. U, H, S y G lo son; q y w no.',
+ {e:'La altura de una montaña es de estado; la distancia que caminaste para subirla, no.',r:['entalpia','entropia','gibbs','hess']});
+G('entalpiacomb','Entalpía de combustión','te','Calor liberado al quemar un mol de sustancia en exceso de oxígeno. Siempre es negativa.',
+ {e:'CH₄: −890 kJ/mol · C₂H₅OH: −1367 kJ/mol · glucosa: −2803 kJ/mol.',r:['combustion','entalpia','exotermica']});
+G('entalpiadis','Entalpía de enlace','te','Energía necesaria para romper un mol de enlaces en fase gaseosa. Con ellas se estima ΔH de una reacción: ΔH ≈ Σ(enlaces rotos) − Σ(enlaces formados).',
+ {e:'H–H 436 · C–H 413 · O=O 498 · O–H 463 · C=O 799 kJ/mol.',x:'Es una estimación; los valores son promedio.',r:['enerenl','hess','entalpia']});
+G('energialibre','Energía libre y constante de equilibrio','te','ΔG° = −RT ln K. Si K > 1, ΔG° es negativo; si K < 1, positivo.',
+ {e:'A 298 K, ΔG° = −5.7 kJ/mol corresponde a K ≈ 10.',u:'ΔG = ΔG° + RT ln Q: en el equilibrio ΔG = 0.',r:['gibbs','kc','espontaneo'],a:1});
+G('vanthoff','Ecuación de van’t Hoff','eq','Relaciona cómo cambia K con la temperatura: ln(K₂/K₁) = −(ΔH°/R)(1/T₂ − 1/T₁). Si la reacción es endotérmica, K sube al calentar.',
+ {r:['lechat','kc','entalpia'],a:1});
+G('kp','Constante Kp','eq','Constante de equilibrio expresada con presiones parciales de los gases. Se relaciona con Kc así: Kp = Kc·(RT)^Δn.',
+ {e:'N₂ + 3 H₂ ⇌ 2 NH₃: Δn = 2 − 4 = −2.',x:'Δn es solo de moles de gas, sin contar sólidos ni líquidos.',r:['kc','daltonp','haber']});
+G('arrhenius','Ecuación de Arrhenius','eq','k = A·e^(−Ea/RT). La constante de velocidad crece exponencialmente con la temperatura y baja cuando la energía de activación es alta.',
+ {e:'Como regla aproximada, subir 10 °C duplica la velocidad de muchas reacciones.',r:['ea','velreac','temperatura']});
+G('estadotrans','Estado de transición (complejo activado)','eq','Disposición inestable de máxima energía durante una reacción. Es el pico del perfil de energía; no se puede aislar.',
+ {r:['ea','perfil','mecanismo']});
+G('intermediario','Intermediario de reacción','eq','Especie que se forma en un paso del mecanismo y se consume en otro; no aparece en la ecuación global. A diferencia del estado de transición, sí puede existir (aunque brevemente).',
+ {e:'En SN1, el carbocatión es un intermediario.',r:['mecanismo','estadotrans','carbocation']});
+G('etapalenta','Etapa determinante de la velocidad','eq','Paso más lento del mecanismo. Controla la velocidad global, como el embudo más estrecho.',
+ {r:['mecanismo','ordenrx','leyvel']});
+G('perfil','Perfil de energía de una reacción','eq','Gráfica de energía contra avance de la reacción: muestra reactivos, productos, estado de transición, Ea y ΔH.',
+ {e:'En una exotérmica los productos quedan más bajos que los reactivos.',r:['ea','estadotrans','catalizador']});
+G('molecularidad','Molecularidad','eq','Número de partículas que chocan en un paso elemental: unimolecular (1), bimolecular (2), termolecular (3, raro).',
+ {x:'No es lo mismo que orden de reacción: el orden se mide en el laboratorio; la molecularidad solo se define para pasos elementales.',r:['mecanismo','ordenrx']});
+G('vidamedia','Vida media (reacción de primer orden)','eq','Tiempo en que la concentración de un reactivo baja a la mitad. En primer orden, t½ = 0.693/k, y no depende de la concentración inicial.',
+ {e:'Con k = 0.0231 min⁻¹, t½ = 30 min.',r:['ordenrx','desint','leydesint']});
+G('ioncomun','Efecto del ion común','eq','Agregar un ion que ya está en el equilibrio desplaza este y disminuye la solubilidad de la sal o la ionización del ácido débil.',
+ {e:'El AgCl se disuelve menos en una disolución de NaCl que en agua pura.',r:['ksp','lechat','buffer']});
+G('kb','Constante de basicidad (Kb)','ab','Constante de equilibrio de una base débil con agua. Para un par conjugado, Ka · Kb = Kw = 1.0×10⁻¹⁴ a 25 °C.',
+ {e:'NH₃: Kb = 1.8×10⁻⁵.',r:['ka','parconj','autoion']});
+G('pka','pKa y pKb','ab','pKa = −log Ka. Cuanto menor es el pKa, más fuerte el ácido. pKa + pKb = 14 para un par conjugado.',
+ {e:'Ácido acético: pKa = 4.76 · HF: 3.17 · HCl: ≈ −7.',r:['ka','kb','hendersonh']});
+G('hidronio','Ion hidronio (H₃O⁺)','ab','Forma real del protón en agua: H⁺ unido a una molécula de agua. Por comodidad se escribe H⁺(ac).',
+ {r:['ph','bronsted']});
+G('poliprotico','Ácidos polipróticos','ab','Ácidos que pueden donar más de un protón, en pasos sucesivos con constantes decrecientes (Ka₁ > Ka₂ > Ka₃).',
+ {e:'H₃PO₄ → H₂PO₄⁻ → HPO₄²⁻ → PO₄³⁻.',r:['ka','pka','acfuerte']});
+G('kw','Producto iónico del agua (Kw)','ab','Kw = [H⁺][OH⁻] = 1.0×10⁻¹⁴ a 25 °C. Aumenta con la temperatura.',
+ {e:'Si [H⁺] = 10⁻³ M, [OH⁻] = 10⁻¹¹ M.',x:'A 37 °C el pH neutro es ≈ 6.8, no 7.',r:['autoion','ph','poh']});
+G('antiacido','Antiácidos y neutralización estomacal','ab','Bases débiles que neutralizan el exceso de HCl del estómago, como hidróxido de magnesio, carbonato de calcio y bicarbonato.',
+ {e:'Mg(OH)₂ + 2 HCl → MgCl₂ + 2 H₂O.',r:['neutral','sal','ph']});
+G('lluviaacida','Lluvia ácida','am','Precipitación con pH menor de ≈ 5.6, por SO₂ y NOₓ que se convierten en H₂SO₄ y HNO₃ en la atmósfera.',
+ {e:'SO₂ + ½O₂ + H₂O → H₂SO₄.',x:'El agua de lluvia «normal» ya es ligeramente ácida (≈ 5.6) por el CO₂ disuelto.',r:['ph','combustion','smog']});
+G('bateria','Baterías y pilas','rd','Dispositivos que convierten energía química en eléctrica. Las pilas secas son de un solo uso; los acumuladores (como los de ion litio) se recargan al invertir la reacción.',
+ {e:'Pila alcalina: Zn(s) + 2 MnO₂ → ZnO + Mn₂O₃, ≈ 1.5 V.',r:['pila','anodo','catodo']});
+G('ionlitio','Batería de ion litio','rd','Acumulador en que iones Li⁺ viajan entre un ánodo de grafito y un cátodo de óxido de litio y metal de transición. Alta densidad de energía.',
+ {e:'Teléfonos, laptops y autos eléctricos; ≈ 3.6–3.7 V por celda.',r:['bateria','electrolisis']});
+G('celdacomb','Celda de combustible','rd','Celda galvánica que consume un combustible alimentado de forma continua (por ejemplo H₂) y produce electricidad, agua y calor.',
+ {e:'2 H₂ + O₂ → 2 H₂O con ≈ 1.23 V teóricos por celda.',r:['pila','hidrogenoverde']});
+G('eeh','Electrodo estándar de hidrógeno (EEH)','rd','Electrodo de referencia al que se asigna E° = 0.000 V: 2 H⁺(1 M) + 2e⁻ ⇌ H₂(1 atm) sobre platino.',
+ {r:['potred','semirx']});
+G('fem','Fuerza electromotriz (fem)','rd','Voltaje máximo de una celda: E°celda = E°cátodo − E°ánodo. Si es positivo, la reacción es espontánea.',
+ {e:'Zn|Zn²⁺ ‖ Cu²⁺|Cu: 0.34 − (−0.76) = +1.10 V.',x:'No se multiplica por los coeficientes; E° es intensiva.',r:['potred','pila','gibbs']});
+G('galvanizado','Galvanizado y protección catódica','rd','Recubrir o conectar el hierro a un metal más reactivo (zinc, magnesio) que se oxida primero y lo protege de la corrosión.',
+ {e:'Barcos con bloques de zinc («ánodos de sacrificio»).',r:['corrosion','serieact']});
+G('electrodepos','Electrodeposición (galvanoplastia)','rd','Cubrir un objeto con una capa metálica mediante electrólisis, colocándolo como cátodo.',
+ {e:'Cromado, niquelado, joyería chapada en oro.',r:['electrolisis','faraday']});
+G('balanceoredox','Balanceo por ion-electrón','ca','Método para igualar reacciones redox: se separan en semirreacciones, se balancean átomos y cargas con H⁺/H₂O (medio ácido) u OH⁻/H₂O (básico), y se igualan electrones.',
+ {e:'MnO₄⁻ + 5Fe²⁺ + 8H⁺ → Mn²⁺ + 5Fe³⁺ + 4H₂O.',r:['semirx','redox','ecuacion']});
+
+/* ---- Química orgánica (ampliación) ---- */
+G('cicloalcano','Cicloalcanos','or','Hidrocarburos saturados con átomos de carbono unidos en anillo. Fórmula CₙH₂ₙ.',
+ {e:'Ciclohexano (C₆H₁₂) en forma de «silla»: sin tensión.',x:'El ciclopropano está muy tenso (ángulos de 60° en lugar de 109.5°).',r:['alcano','hidrocarburo']});
+G('esqueletal','Fórmula esqueletal','or','Representación simplificada: cada vértice o extremo es un carbono, los hidrógenos sobre C no se escriben, solo los grupos funcionales.',
+ {e:'Un hexágono representa al ciclohexano (o al benceno, con dobles enlaces).',r:['fmol','grupofunc']});
+G('quiralidad','Quiralidad y carbono quiral','or','Una molécula quiral no se superpone con su imagen en el espejo. Casi siempre tiene un carbono con cuatro sustituyentes distintos (centro quiral o estereocentro).',
+ {e:'Tus manos son quirales. El 2-butanol y el ácido láctico tienen un carbono quiral.',r:['enantiomero','isomero']});
+G('enantiomero','Enantiómeros','or','Pares de isómeros que son imágenes especulares no superponibles. Tienen las mismas propiedades físicas, pero desvían la luz polarizada en sentido opuesto y pueden actuar distinto en el cuerpo.',
+ {e:'Un enantiómero de la carvona huele a menta; el otro, a alcaravea.',x:'La talidomida: uno era sedante y el otro causaba malformaciones.',r:['quiralidad','isomero']});
+G('cistrans','Isomería cis–trans (geométrica)','or','En dobles enlaces o anillos, los sustituyentes pueden estar del mismo lado (cis) o de lados opuestos (trans). Los isómeros tienen propiedades distintas.',
+ {e:'Ácido maleico (cis) y ácido fumárico (trans). Las grasas trans tienen dobles enlaces trans.',r:['isomero','alqueno','pi']});
+G('nucleofilo','Nucleófilo y electrófilo','or','Nucleófilo: especie rica en electrones que dona un par para formar un enlace (OH⁻, NH₃, H₂O). Electrófilo: especie pobre en electrones que lo acepta (H⁺, carbocationes, carbonos con δ+).',
+ {e:'OH⁻ ataca al carbono parcialmente positivo de un haluro de alquilo.',r:['lewisab','sn','carbocation']});
+G('carbocation','Carbocatión','or','Especie con un carbono con carga positiva y solo tres enlaces. Más estable cuanto más sustituido: terciario > secundario > primario.',
+ {r:['sn','nucleofilo','intermediario'],a:1});
+G('sn','Sustitución nucleofílica (SN1 y SN2)','or','Un nucleófilo reemplaza a un grupo saliente. SN2: un paso, ataque por atrás, velocidad depende de ambos reactivos. SN1: dos pasos con carbocatión, velocidad depende solo del sustrato.',
+ {e:'CH₃Br + OH⁻ → CH₃OH + Br⁻ (SN2).',r:['nucleofilo','carbocation','haluro'],a:1});
+G('adicion','Reacciones de adición y eliminación','or','Adición: se suman átomos a un enlace múltiple (alqueno → alcano). Eliminación: se pierden átomos y se forma un enlace múltiple (alcohol → alqueno + agua).',
+ {e:'CH₂=CH₂ + Br₂ → CH₂Br–CH₂Br.',r:['alqueno','alquino','hidrogenacion']});
+G('hidrogenacion','Hidrogenación','or','Adición de H₂ a un doble o triple enlace con catalizador metálico (Ni, Pd, Pt). Convierte aceites insaturados en grasas más sólidas.',
+ {e:'CH₂=CH₂ + H₂ → CH₃–CH₃. La margarina se hace así.',r:['adicion','catalizador','alqueno']});
+G('esterificacion','Esterificación','or','Ácido carboxílico + alcohol ⇌ éster + agua, con catalizador ácido. Es reversible.',
+ {e:'Ácido acético + etanol ⇌ acetato de etilo + H₂O.',r:['ester','acidocarb','alcohol','reversible']});
+G('saponificacion','Saponificación','or','Hidrólisis de un éster (grasa o aceite) con base fuerte; produce glicerol y sales de ácidos grasos: el jabón.',
+ {e:'Grasa + NaOH → glicerol + jabón (sal sódica del ácido graso).',r:['jabon','ester','lipido']});
+G('jabon','Jabones y detergentes (tensoactivos)','or','Moléculas con una cabeza hidrofílica (polar) y una cola hidrofóbica (apolar). Forman micelas que atrapan grasa y la dispersan en agua.',
+ {e:'Estearato de sodio: C₁₇H₃₅COO⁻Na⁺.',x:'En aguas duras el jabón forma sales insolubles de calcio y magnesio (el «sarro»); los detergentes sintéticos no.',r:['saponificacion','tensionsup','dureza']});
+G('haluro','Haluros de alquilo','or','Compuestos orgánicos con un halógeno en lugar de un hidrógeno: R–X.',
+ {e:'CH₃Cl (clorometano), CHCl₃ (cloroformo), CCl₄ (tetracloruro de carbono).',r:['sn','halogenos','hidrocarburo']});
+G('fenol','Fenoles','or','Compuestos con un grupo –OH unido directamente a un anillo aromático. Son más ácidos que los alcoholes.',
+ {e:'Fenol (C₆H₅OH) se usó como antiséptico.',r:['alcohol','aromatico']});
+G('tiol','Tioles','or','Análogos de los alcoholes con azufre: R–SH. Tienen olores muy fuertes y se unen a metales pesados.',
+ {e:'Se agregan tioles al gas LP para que huela; el olor del zorrillo.',r:['alcohol','grupofunc']});
+G('nitrilo','Nitrilos y nitrocompuestos','or','Nitrilo: –C≡N. Nitrocompuesto: –NO₂. Son grupos muy polares.',
+ {e:'El TNT (trinitrotolueno) es un nitrocompuesto explosivo.',r:['grupofunc','amina']});
+G('benceno','Benceno','or','Hidrocarburo aromático C₆H₆: anillo plano con electrones π deslocalizados (resonancia). Todas las uniones C–C miden lo mismo (139 pm).',
+ {x:'Es cancerígeno; el tolueno se usa en su lugar como disolvente.',r:['aromatico','resonancia','esqueletal']});
+G('carbonilo','Grupo carbonilo','or','Grupo C=O. Está en aldehídos, cetonas, ácidos carboxílicos, ésteres y amidas.',
+ {e:'La acetona (CH₃–CO–CH₃) es una cetona.',r:['aldehido','cetona','acidocarb']});
+G('monomero','Monómero y polimerización','or','Un monómero es la unidad pequeña que se repite en un polímero. Polimerización por adición: monómeros con doble enlace se unen sin perder átomos. Por condensación: se libera una molécula pequeña (agua).',
+ {e:'Etileno → polietileno (adición). Ácido adípico + hexametilendiamina → nylon + agua (condensación).',r:['polimero','plastico']});
+G('plastico','Plásticos comunes','or','Polímeros sintéticos: PET (botellas), HDPE y LDPE (polietileno), PVC (tuberías), PP (tapas), PS (unicel), PTFE (teflón).',
+ {e:'Los códigos de reciclaje 1 a 7 identifican el tipo.',x:'Los termoplásticos se funden y se reciclan; los termoestables (baquelita) no.',r:['polimero','monomero','microplast']});
+G('petroleo','Petróleo y refinación','or','Mezcla compleja de hidrocarburos. Se separa por destilación fraccionada según el punto de ebullición: gases, gasolina, queroseno, diésel, lubricantes y asfalto.',
+ {e:'La gasolina contiene hidrocarburos de ≈ C₅ a C₁₀.',r:['destilacion','hidrocarburo','craqueo']});
+G('craqueo','Craqueo','or','Ruptura de moléculas grandes de hidrocarburos en otras más pequeñas y valiosas, con calor y catalizador.',
+ {e:'C₁₆H₃₄ → C₈H₁₈ + C₈H₁₆.',r:['petroleo','alcano','alqueno']});
+G('octanaje','Índice de octano','or','Medida de la resistencia de un combustible a detonar por compresión. Se compara con una mezcla de isooctano (100) y n-heptano (0).',
+ {e:'Gasolina Magna: ≈ 87 · Premium: ≈ 92.',r:['petroleo','alcano','isomero']});
+G('biocombustible','Biocombustibles','am','Combustibles obtenidos de biomasa: etanol (de caña o maíz) y biodiésel (de aceites y grasas, por transesterificación).',
+ {e:'Biodiésel: triglicérido + metanol → ésteres metílicos + glicerol.',r:['combustion','petroleo','alcohol']});
+
+
+/* ---- Sólidos y materiales ---- */
+G('cristal','Sólido cristalino y amorfo','so','Un sólido cristalino tiene partículas ordenadas en un patrón que se repite y funde a una temperatura definida. Un sólido amorfo carece de orden de largo alcance y se ablanda en un intervalo.',
+ {e:'Sal y cuarzo: cristalinos. Vidrio, plásticos y gomas: amorfos.',r:['celdaunit','vidrio','estados']});
+G('celdaunit','Celda unitaria y redes cristalinas','so','Menor porción del cristal que, repetida en el espacio, genera toda la estructura. Las más comunes: cúbica simple, cúbica centrada en el cuerpo (BCC) y cúbica centrada en las caras (FCC).',
+ {e:'Na y Fe: BCC (2 átomos por celda). Cu, Al, Au: FCC (4 átomos por celda).',r:['cristal','reticular','coord']});
+G('tipossolidos','Tipos de sólidos','so','Iónicos (NaCl), covalentes o reticulares (diamante, SiO₂), metálicos (Fe, Cu) y moleculares (hielo, azúcar, I₂). Se distinguen por la partícula que los forma y la fuerza que los une.',
+ {e:'Diamante: fusión > 3500 °C. Hielo: 0 °C.',r:['ionico','covalente','metalico','imf']});
+G('diamante','Diamante','so','Alótropo del carbono con cada átomo sp³ unido a otros cuatro en una red tridimensional. Es el material natural más duro y un excelente conductor térmico, pero aislante eléctrico.',
+ {r:['alotropo','grafito','grafeno']});
+G('grafito','Grafito','so','Alótropo del carbono con capas planas de anillos hexagonales (sp²) unidas por fuerzas débiles. Las capas deslizan: se usa en lápices y lubricantes. Conduce la electricidad.',
+ {x:'La «mina» del lápiz no es plomo, es grafito mezclado con arcilla.',r:['alotropo','diamante','grafeno']});
+G('grafeno','Grafeno','so','Una sola capa de grafito, de un átomo de espesor. Muy resistente, flexible y buen conductor. Premio Nobel de Física 2010.',
+ {e:'Se obtuvo despegando capas de grafito con cinta adhesiva.',r:['grafito','nanotec','alotropo'],a:1});
+G('fullereno','Fullerenos y nanotubos de carbono','so','Fullereno: moléculas esféricas de carbono, como el C₆₀ («balón de futbol»). Nanotubo: lámina de grafeno enrollada.',
+ {e:'C₆₀ tiene 60 átomos, con 12 pentágonos y 20 hexágonos.',r:['alotropo','grafeno','nanotec'],a:1});
+G('nanotec','Nanotecnología','so','Estudio y manejo de materiales con dimensiones entre 1 y 100 nm. A esa escala las propiedades (color, reactividad, conductividad) cambian respecto al material masivo.',
+ {e:'Las nanopartículas de oro son rojas, no doradas. Filtros solares con TiO₂ nanométrico.',r:['nanometro','grafeno','fullereno']});
+G('semiconductor','Semiconductores','so','Materiales con conductividad intermedia, que aumenta con la temperatura o la luz. Base de la electrónica: silicio y germanio.',
+ {e:'Chips, celdas solares, LED.',r:['bandas','dopaje','carbonoides']});
+G('bandas','Teoría de bandas','so','En un sólido los niveles de energía forman bandas. Metales: banda de conducción parcialmente llena. Aislantes: brecha grande entre la banda de valencia y la de conducción. Semiconductores: brecha pequeña (≈ 1 eV).',
+ {e:'Si: brecha ≈ 1.1 eV · diamante: ≈ 5.5 eV.',r:['semiconductor','metalico','ev'],a:1});
+G('dopaje','Dopaje','so','Agregar cantidades mínimas de impurezas a un semiconductor para controlar su conductividad. Tipo n: aporta electrones (P en Si). Tipo p: crea huecos (B en Si).',
+ {r:['semiconductor','terreos','pnictogenos'],a:1});
+G('superconductor','Superconductor','so','Material que a baja temperatura conduce la corriente sin resistencia y expulsa campos magnéticos (efecto Meissner).',
+ {e:'Mercurio: 4.2 K (1911). Algunos cupratos: ≈ 133 K. Se usan en imanes de resonancia magnética.',r:['cerorabs','magnet']});
+G('aleacion','Aleaciones','so','Mezclas homogéneas de un metal con otros elementos, que mejoran dureza, resistencia o corrosión.',
+ {e:'Acero: Fe + C · latón: Cu + Zn · bronce: Cu + Sn · amalgama: contiene Hg.',r:['metalico','metal','mezcla']});
+G('acero','Acero','so','Aleación de hierro con menos de ≈ 2 % de carbono. El acero inoxidable lleva además ≥ 10.5 % de cromo, que forma una capa protectora de óxido.',
+ {r:['aleacion','altohorno','corrosion']});
+G('ceramica','Cerámicas','so','Materiales inorgánicos no metálicos, duros y frágiles, hechos de óxidos, carburos o nitruros y endurecidos con calor.',
+ {e:'Porcelana, ladrillos, azulejos, bujías, alúmina.',r:['vidrio','cemento','tipossolidos']});
+G('vidrio','Vidrio','so','Sólido amorfo obtenido al enfriar rápido SiO₂ fundido (con Na₂O y CaO). No tiene punto de fusión definido.',
+ {e:'Vidrio sódico-cálcico (ventanas, botellas) y borosilicato (Pyrex), resistente a choques térmicos.',x:'Es un mito que el vidrio de ventanas antiguas fluya con los siglos; es sólido.',r:['cristal','ceramica']});
+G('cemento','Cemento y concreto','so','Cemento: polvo de calcinar caliza y arcilla (≈ 1450 °C) que fragua al reaccionar con agua. Concreto: cemento + arena + grava + agua.',
+ {e:'CaCO₃ → CaO + CO₂: fabricar cemento libera CO₂ (≈ 7 % del total mundial).',r:['ceramica','efectoinv']});
+G('higroscopico','Higroscópico, delicuescente y eflorescente','so','Higroscópico: absorbe agua del aire. Delicuescente: absorbe tanta que se disuelve. Eflorescente: pierde agua de hidratación y se vuelve polvo.',
+ {e:'NaOH: delicuescente · CaCl₂: higroscópico · Na₂CO₃·10H₂O: eflorescente.',r:['hidratos','desecador']});
+G('catalizadorhet','Catálisis homogénea y heterogénea','eq','Homogénea: catalizador y reactivos en la misma fase. Heterogénea: en fases distintas, con reacción en la superficie del catalizador.',
+ {e:'Convertidor catalítico del auto (Pt, Pd, Rh sólidos con gases): heterogénea.',r:['catalizador','haber']});
+
+/* ---- Análisis e instrumentos ---- */
+G('cualitativo','Análisis cualitativo y cuantitativo','an','Cualitativo: identifica qué hay en una muestra. Cuantitativo: determina cuánto hay.',
+ {e:'La prueba a la llama es cualitativa; la titulación, cuantitativa.',r:['titulacion','flama']});
+G('espectroscopia','Espectroscopía','an','Técnicas que estudian cómo interactúa la radiación electromagnética con la materia (absorción, emisión, dispersión) para identificar o medir sustancias.',
+ {r:['espectro','foton','uvvis','ir','rmn']});
+G('espectroem','Espectro electromagnético','an','Conjunto de radiaciones ordenadas por longitud de onda o frecuencia: radio, microondas, infrarrojo, visible (≈ 400–700 nm), ultravioleta, rayos X, rayos gamma.',
+ {e:'E = hν = hc/λ: menor λ, mayor energía.',x:'Los rayos X y gamma son ionizantes; el visible, no.',r:['foton','gamma','espectro']});
+G('uvvis','Espectroscopía UV-Vis','an','Mide cuánta luz ultravioleta o visible absorbe una muestra. Sirve para determinar concentraciones y estudiar compuestos coloreados.',
+ {r:['beer','absorbancia','espectroscopia']});
+G('absorbancia','Absorbancia y transmitancia','an','Transmitancia T = I/I₀ es la fracción de luz que pasa. Absorbancia A = −log T.',
+ {e:'Si pasa 10 % de la luz, A = 1. Si pasa 1 %, A = 2.',r:['beer','uvvis']});
+G('beer','Ley de Beer–Lambert','an','A = ε·b·c. La absorbancia es proporcional a la concentración (c), a la longitud de paso (b) y al coeficiente de absorción molar (ε).',
+ {e:'Si A = 0.50, ε = 5000 L/(mol·cm) y b = 1 cm, c = 1.0×10⁻⁴ M.',x:'Solo es lineal para disoluciones diluidas.',r:['absorbancia','curvacal','molaridad']});
+G('curvacal','Curva de calibración','an','Gráfica de la señal de un instrumento contra concentraciones conocidas (patrones). Se usa para hallar la concentración de una muestra desconocida.',
+ {r:['beer','estandar']});
+G('ir','Espectroscopía infrarroja (IR)','an','Detecta vibraciones de enlaces. Cada grupo funcional absorbe a números de onda característicos, que sirven como «huella».',
+ {e:'O–H ≈ 3300 cm⁻¹ (ancha) · C=O ≈ 1700 cm⁻¹ · C≡N ≈ 2250 cm⁻¹.',r:['grupofunc','espectroscopia','numonda']});
+G('numonda','Número de onda','an','Inverso de la longitud de onda: ν̃ = 1/λ. Se da en cm⁻¹ y es proporcional a la energía.',
+ {e:'λ = 5 µm → ν̃ = 2000 cm⁻¹.',r:['ir','espectroem']});
+G('rmn','Resonancia magnética nuclear (RMN)','an','Técnica que usa un campo magnético y ondas de radio para determinar el entorno de núcleos como ¹H y ¹³C. Permite deducir la estructura de moléculas orgánicas.',
+ {e:'Es la base de la resonancia magnética (MRI) en medicina.',u:'El desplazamiento químico (ppm) indica entorno electrónico; el acoplamiento, los vecinos.',r:['spin','isotopo','organica'],a:1});
+G('masas','Espectrometría de masas','an','Ioniza una muestra y separa los iones por su relación masa/carga (m/z). Da la masa molecular y fragmentos para identificar compuestos.',
+ {e:'Se usa en antidopaje, forense y proteómica.',r:['masaiso','abund','ion']});
+G('flama','Prueba a la llama','an','Algunos iones metálicos dan un color característico a la llama al excitar sus electrones, que regresan al estado basal emitiendo luz.',
+ {e:'Na: amarillo · K: lila · Li: carmín · Ca: naranja-rojizo · Cu: verde azulado · Ba: verde.',r:['espectro','basal','cualitativo']});
+G('absorcionat','Absorción y emisión atómica','an','Técnicas que miden elementos metálicos: en absorción atómica se mide la luz absorbida por átomos libres en una flama; en emisión, la luz que emiten.',
+ {r:['espectro','flama']});
+G('rayosx','Difracción de rayos X','an','Los rayos X se difractan en los planos de un cristal. Con la ley de Bragg (nλ = 2d·senθ) se obtiene la distancia entre planos y la estructura del cristal.',
+ {e:'Así se determinó la estructura del ADN.',r:['celdaunit','cristal','angstrom'],a:1});
+G('microscopia','Microscopía electrónica y de efecto túnel','an','Microscopio electrónico (SEM, TEM): usa electrones y alcanza el nanómetro. STM y AFM: una punta fina barre la superficie y permite ver o mover átomos individuales.',
+ {e:'En 1989 IBM escribió su nombre con 35 átomos de xenón.',r:['nanometro','angstrom','nanotec']});
+G('estandar','Patrón y estándar primario','an','Estándar primario: sustancia pura, estable, no higroscópica, de masa molar alta y composición conocida, para preparar disoluciones de concentración exacta.',
+ {e:'Biftalato ácido de potasio (KHP) para NaOH; Na₂CO₃; K₂Cr₂O₇.',x:'El NaOH no es estándar primario: absorbe agua y CO₂ del aire.',r:['titulacion','molaridad']});
+G('gravimetria','Análisis gravimétrico','an','Determina cuánto hay de una sustancia al pesar un precipitado o un residuo.',
+ {e:'Para sulfato: se precipita BaSO₄ con BaCl₂, se filtra, se seca y se pesa.',r:['precipitado','filtracion','crisol']});
+G('volumetria','Volumetría (análisis volumétrico)','an','Mide el volumen de una disolución patrón necesario para reaccionar con la muestra. La titulación es el caso más común.',
+ {r:['titulacion','bureta','indicador']});
+G('puntofinal','Punto de equivalencia y punto final','an','Punto de equivalencia: moles de titulante = moles de analito (exacto). Punto final: cuando el indicador cambia de color (cercano).',
+ {e:'Fenolftaleína vira a rosa en pH ≈ 8.2–10.',r:['titulacion','indicador']});
+G('phmetro','pHmetro (potenciómetro)','an','Mide el pH con un electrodo de vidrio sensible a H⁺. Se calibra con disoluciones buffer de pH conocido (4, 7 y 10).',
+ {x:'Hay que enjuagar el electrodo con agua destilada entre muestras y no dejarlo secar.',r:['ph','buffer']});
+G('conductimetro','Conductímetro','an','Mide la conductividad eléctrica de una disolución, que depende de los iones disueltos.',
+ {e:'Agua destilada ≈ 1–5 µS/cm · agua potable ≈ 500 µS/cm · agua de mar ≈ 50 000 µS/cm.',r:['electrolito','disociacion']});
+G('geiger','Contador Geiger–Müller','an','Detector de radiación ionizante: el gas de un tubo se ioniza y produce un pulso eléctrico («clic») por cada partícula.',
+ {r:['ionizante','becquerel','radiact']});
+G('cromatografia2','Cromatografía de gases y de líquidos (HPLC)','an','Separan los componentes de una mezcla al pasar por una columna; un detector los mide. GC para compuestos volátiles; HPLC para disoluciones.',
+ {r:['cromatografia','masas']});
+G('error','Error absoluto, relativo y porcentual','an','Error absoluto = |valor medido − valor real|. Relativo = absoluto / real. Porcentual = relativo × 100.',
+ {e:'Mides 9.8 g y el valor real es 10.0 g: error absoluto 0.2 g, porcentual 2 %.',r:['exactitud','errorexp','cifras']});
+G('desvest','Desviación estándar y promedio','an','Promedio: media aritmética de las mediciones. Desviación estándar: cuánto se dispersan las mediciones alrededor de la media.',
+ {e:'3.1, 3.2 y 3.0 mL: promedio 3.1; s = 0.1 mL.',r:['exactitud','error']});
+
+/* ---- Bioquímica ---- */
+G('biomolecula','Biomoléculas','bq','Compuestos orgánicos de los seres vivos: carbohidratos, lípidos, proteínas y ácidos nucleicos (más vitaminas y otros).',
+ {r:['carbohidrato','lipido','proteina','adn']});
+G('carbohidrato','Carbohidratos','bq','Compuestos con grupos hidroxilo y carbonilo, fórmula general ≈ Cₙ(H₂O)ₙ. Monosacáridos (glucosa), disacáridos (sacarosa), polisacáridos (almidón, celulosa).',
+ {e:'Aportan ≈ 4 kcal/g.',r:['glucosa','almidon','biomolecula']});
+G('glucosa','Glucosa','bq','Monosacárido C₆H₁₂O₆, principal combustible celular. Se forma en la fotosíntesis y se oxida en la respiración.',
+ {e:'Glucosa en sangre en ayunas: ≈ 70–100 mg/dL.',r:['fotosintesis','respiracion','carbohidrato']});
+G('almidon','Almidón y celulosa','bq','Polisacáridos formados por glucosa. Almidón: reserva en plantas, digerible. Celulosa: estructural, con enlaces que los humanos no digerimos (es fibra).',
+ {e:'Prueba de yodo: el almidón da color azul oscuro.',r:['carbohidrato','glucosa','monomero']});
+G('lipido','Lípidos','bq','Moléculas poco solubles en agua: grasas, aceites, fosfolípidos, esteroides, ceras. Almacenan energía (≈ 9 kcal/g) y forman las membranas.',
+ {e:'Triglicérido: glicerol + 3 ácidos grasos.',r:['saponificacion','biomolecula','acidograso']});
+G('acidograso','Ácidos grasos saturados e insaturados','bq','Ácidos carboxílicos de cadena larga. Saturados: sin dobles enlaces (sólidos). Insaturados: con uno o más (líquidos). Los cis doblan la cadena.',
+ {e:'Esteárico (C18, saturado) · oleico (C18, 1 doble) · omega-3 (doble a 3 C del extremo).',r:['lipido','cistrans','hidrogenacion']});
+G('proteina','Proteínas','bq','Polímeros de aminoácidos, unidos por enlaces peptídicos. Su función depende de su forma tridimensional: estructura, transporte, defensa, catálisis (enzimas).',
+ {e:'Hemoglobina, colágeno, insulina, anticuerpos.',r:['aminoacido','peptidico','enzima','desnatural']});
+G('aminoacido','Aminoácidos','bq','Moléculas con un grupo amino (–NH₂), un carboxilo (–COOH) y una cadena lateral distinta unidos a un mismo carbono. Existen 20 en las proteínas.',
+ {e:'Glicina: H₂N–CH₂–COOH, el más sencillo.',x:'En agua, a pH neutro, existen como zwitterion (carga + y − dentro de la misma molécula).',r:['proteina','peptidico','amina','acidocarb']});
+G('peptidico','Enlace peptídico','bq','Enlace amida entre el carboxilo de un aminoácido y el grupo amino de otro, con pérdida de agua.',
+ {e:'Dos aminoácidos forman un dipéptido; cadenas largas, polipéptidos.',r:['amida','aminoacido','proteina']});
+G('enzima','Enzimas','bq','Proteínas que actúan como catalizadores biológicos. Se unen al sustrato en su sitio activo y bajan la energía de activación.',
+ {e:'La amilasa de la saliva rompe el almidón; la catalasa descompone H₂O₂.',x:'Trabajan en un pH y una temperatura óptimos; el calor excesivo las desnaturaliza.',r:['catalizador','ea','proteina','desnatural']});
+G('desnatural','Desnaturalización','bq','Pérdida de la forma tridimensional de una proteína por calor, ácidos, bases, alcohol o sales, con pérdida de función. Suele ser irreversible.',
+ {e:'Al cocer un huevo, la clara transparente se vuelve blanca y sólida.',r:['proteina','enzima']});
+G('adn','ADN','bq','Ácido desoxirribonucleico: doble hélice de dos cadenas de nucleótidos. Almacena la información genética mediante la secuencia de bases A, T, C y G.',
+ {e:'Pares de bases: A–T (2 puentes de hidrógeno) y C–G (3).',r:['nucleotido','arn','puenteh']});
+G('arn','ARN','bq','Ácido ribonucleico: una cadena con ribosa y uracilo (U en lugar de T). Lleva el mensaje del ADN y participa en la síntesis de proteínas.',
+ {e:'ARNm, ARNt y ARNr.',r:['adn','nucleotido']});
+G('nucleotido','Nucleótido','bq','Unidad del ADN y ARN: una base nitrogenada + un azúcar (desoxirribosa o ribosa) + un grupo fosfato.',
+ {r:['adn','arn','biomolecula']});
+G('atp','ATP','bq','Adenosín trifosfato: «moneda de energía» de la célula. Al hidrolizarse a ADP + fosfato libera ≈ 30.5 kJ/mol.',
+ {e:'Un adulto recicla casi su propio peso en ATP cada día.',r:['respiracion','energialibre','metabolismo']});
+G('metabolismo','Metabolismo','bq','Conjunto de reacciones químicas de un organismo. Catabolismo: degrada moléculas y libera energía. Anabolismo: construye moléculas y consume energía.',
+ {r:['atp','enzima','respiracion']});
+G('fotosintesis','Fotosíntesis','bq','Proceso en que plantas, algas y algunas bacterias convierten CO₂ y agua en glucosa y O₂ usando energía luminosa y clorofila.',
+ {e:'6 CO₂ + 6 H₂O → C₆H₁₂O₆ + 6 O₂ (ΔH ≈ +2803 kJ/mol).',r:['glucosa','respiracion','redox']});
+G('respiracion','Respiración celular','bq','Oxidación de la glucosa con oxígeno para obtener ATP: C₆H₁₂O₆ + 6 O₂ → 6 CO₂ + 6 H₂O. Ocurre en las mitocondrias.',
+ {r:['atp','glucosa','combustion','fotosintesis']});
+G('fermentacion','Fermentación','bq','Obtención de energía sin oxígeno. Alcohólica: glucosa → etanol + CO₂ (levaduras). Láctica: glucosa → ácido láctico.',
+ {e:'Pan, cerveza, vino, yogur.',r:['metabolismo','alcohol','glucosa']});
+G('vitamina','Vitaminas','bq','Compuestos orgánicos necesarios en cantidades pequeñas que el cuerpo no fabrica o produce poco. Hidrosolubles (B, C) y liposolubles (A, D, E, K).',
+ {e:'La vitamina C es el ácido ascórbico.',r:['biomolecula','enzima']});
+G('oligoelementos','Elementos esenciales y oligoelementos','bq','Elementos necesarios para la vida: C, H, O, N, P, S forman el 99 % del cuerpo; Na, K, Ca, Mg, Cl son abundantes; Fe, Zn, Cu, I, Se… son oligoelementos (en trazas).',
+ {e:'El hierro está en la hemoglobina; el yodo, en las hormonas tiroideas.',r:['metalespesados','hemoglobina']});
+G('hemoglobina','Hemoglobina','bq','Proteína de los glóbulos rojos con 4 grupos hemo, cada uno con un ion Fe²⁺ que transporta una molécula de O₂.',
+ {x:'El CO se une a la hemoglobina ≈ 200 veces más fuerte que el O₂: por eso es tan tóxico.',r:['coord','proteina','ligando']});
+G('phsangre','pH de la sangre y sistemas amortiguadores','bq','El pH normal de la sangre es 7.35–7.45. Lo mantiene el sistema H₂CO₃/HCO₃⁻, junto con proteínas y fosfatos.',
+ {e:'CO₂ + H₂O ⇌ H₂CO₃ ⇌ H⁺ + HCO₃⁻.',x:'Fuera de 6.8–7.8 es incompatible con la vida.',r:['buffer','ph','hendersonh']});
+G('osmolaridad','Presión osmótica en medicina','bq','Los sueros deben ser isotónicos: misma concentración de solutos que las células. En soluciones hipotónicas las células se hinchan; en hipertónicas se encogen.',
+ {e:'Suero fisiológico: NaCl 0.9 %. Una célula roja en agua pura revienta.',r:['osmosis','coligativas','porcmv']});
+
+
+/* ---- Ambiente e industria ---- */
+G('efectoinv','Efecto invernadero','am','Calentamiento de la atmósfera porque ciertos gases dejan pasar la luz solar pero retienen parte de la radiación infrarroja que emite la Tierra.',
+ {e:'Sin efecto invernadero natural la temperatura media sería ≈ −18 °C en vez de ≈ 15 °C.',x:'El efecto natural es necesario; el problema es el aumento causado por las emisiones.',r:['gei','co2atm','ir']});
+G('gei','Gases de efecto invernadero','am','Gases que absorben infrarrojo: vapor de agua, CO₂, CH₄, N₂O, O₃ y gases fluorados. Se comparan por su potencial de calentamiento global (GWP).',
+ {e:'GWP a 100 años: CO₂ = 1 · CH₄ ≈ 28 · N₂O ≈ 273.',r:['efectoinv','combustion']});
+G('co2atm','Ciclo del carbono y CO₂ atmosférico','am','El carbono circula entre atmósfera, océanos, seres vivos y rocas. La quema de combustibles fósiles lo traslada del subsuelo a la atmósfera más rápido de lo que se reabsorbe.',
+ {e:'El CO₂ pasó de ≈ 280 ppm (antes de 1800) a más de 420 ppm.',x:'Parte del CO₂ se disuelve en el océano y lo acidifica: CO₂ + H₂O ⇌ H₂CO₃.',r:['ppm','efectoinv','fotosintesis']});
+G('ozono','Capa de ozono','am','Región de la estratosfera (≈ 15–35 km) con O₃ que absorbe la radiación UV-B y UV-C. Los CFC la destruyeron en parte; el Protocolo de Montreal (1987) los prohibió.',
+ {e:'Cl· + O₃ → ClO· + O₂ — un átomo de cloro puede destruir miles de moléculas de O₃.',x:'No es lo mismo que el efecto invernadero; el ozono a nivel del suelo es contaminante.',r:['radical','halogenos','alotropo']});
+G('smog','Smog fotoquímico','am','Mezcla de contaminantes formada cuando óxidos de nitrógeno y compuestos orgánicos volátiles reaccionan con la luz solar y forman ozono troposférico.',
+ {e:'Ciudades con tráfico intenso y poco viento, como Ciudad de México.',r:['ozono','lluviaacida','combustion']});
+G('eutrofizacion','Eutrofización','am','Exceso de nutrientes (nitratos, fosfatos) en el agua que hace crecer algas; al morir se descomponen y consumen el oxígeno, y mueren los peces.',
+ {r:['fertilizante','dbo']});
+G('dureza','Dureza del agua','am','Cantidad de Ca²⁺ y Mg²⁺ disueltos. Al calentar, el bicarbonato precipita CaCO₃ (sarro). Se expresa en mg/L de CaCO₃.',
+ {e:'Blanda < 60 mg/L · muy dura > 180 mg/L.',r:['jabon','solubilidad','ksp']});
+G('metalespesados','Metales pesados y toxicidad','am','Metales de alta densidad que se acumulan en los organismos y son tóxicos aun en cantidades pequeñas: Pb, Hg, Cd, As (metaloide).',
+ {e:'El mercurio causó la enfermedad de Minamata; el plomo daña el sistema nervioso.',r:['bioacum','tiol','ppb']});
+G('bioacum','Bioacumulación y biomagnificación','am','Bioacumulación: un contaminante se concentra en un organismo. Biomagnificación: aumenta a lo largo de la cadena alimentaria.',
+ {e:'El metilmercurio es más alto en atunes y tiburones que en sardinas.',r:['metalespesados','ppb']});
+G('quimicaverde','Química verde','am','Diseño de procesos que reducen o eliminan sustancias peligrosas. Sus 12 principios incluyen prevenir residuos, economía atómica y usar disolventes seguros.',
+ {e:'Economía atómica = masa de átomos útiles / masa de todos los reactivos × 100.',r:['rendim','reciclaje']});
+G('reciclaje','Reciclaje y economía circular','am','Recuperar materiales para volver a usarlos. Reciclar aluminio ahorra ≈ 95 % de la energía respecto a obtenerlo de bauxita.',
+ {r:['plastico','hallheroult','quimicaverde']});
+G('microplast','Microplásticos','am','Fragmentos de plástico menores de 5 mm. Se encuentran en agua, suelo, aire y alimentos.',
+ {r:['plastico','bioacum']});
+G('dbo','DBO y DQO','am','DBO: oxígeno que consumen los microorganismos para degradar la materia orgánica del agua. DQO: oxígeno necesario para oxidarla químicamente. Indican la contaminación orgánica.',
+ {e:'Agua residual urbana: DBO ≈ 200–400 mg/L.',r:['eutrofizacion','oxidacion']});
+G('fertilizante','Fertilizantes (N–P–K)','am','Aportan nitrógeno, fósforo y potasio. El número N–P–K indica el porcentaje de cada uno.',
+ {e:'Urea CO(NH₂)₂ (46 % N) · nitrato de amonio NH₄NO₃ · superfosfato · KCl.',x:'El amoniaco para fertilizantes se obtiene por el proceso Haber–Bosch.',r:['haber','eutrofizacion']});
+G('sulfurico','Ácido sulfúrico (H₂SO₄)','am','El compuesto químico industrial más producido. Se fabrica por el proceso de contacto: S → SO₂ → SO₃ → H₂SO₄. Se usa en fertilizantes, baterías de plomo, refinación.',
+ {x:'Al diluir, se agrega ácido al agua y no al revés (reacción muy exotérmica).',r:['acfuerte','anhidrido']});
+G('hallheroult','Proceso Hall–Héroult','am','Electrólisis de alúmina (Al₂O₃) disuelta en criolita fundida (≈ 950 °C) para obtener aluminio. Consume mucha electricidad.',
+ {e:'Cátodo: Al³⁺ + 3e⁻ → Al(l).',r:['electrolisis','terreos','faraday']});
+G('altohorno','Alto horno y siderurgia','am','En el alto horno el óxido de hierro se reduce con carbón coque: Fe₂O₃ + 3 CO → 2 Fe + 3 CO₂. El arrabio resultante se afina para hacer acero.',
+ {r:['acero','reduccion','combustion']});
+G('metalurgia','Metalurgia','am','Obtención de metales a partir de minerales: concentración, reducción (con carbón, electrólisis o metales más reactivos) y refinación.',
+ {e:'Cu: tostación y refinación electrolítica · Au: cianuración.',r:['serieact','electrolisis']});
+G('sosa','Proceso cloro-álcali','am','Electrólisis de salmuera (NaCl acuoso) que produce Cl₂, H₂ y NaOH. Tres insumos básicos de la industria.',
+ {e:'2 NaCl + 2 H₂O → Cl₂ + H₂ + 2 NaOH.',r:['electrolisis','halogenos']});
+G('potabilizacion','Potabilización del agua','am','Tratamiento para volver segura el agua: coagulación y floculación, sedimentación, filtración y desinfección (cloro, ozono o UV).',
+ {e:'Cloro residual libre recomendado: 0.2–1.5 mg/L.',r:['filtracion','dureza']});
+
+/* ---- Laboratorio y seguridad ---- */
+G('epp','Equipo de protección personal (EPP)','lb','Bata, lentes de seguridad, guantes adecuados y calzado cerrado. Cabello recogido y sin sandalias ni shorts.',
+ {x:'Los guantes de látex no protegen contra todos los disolventes; hay que elegir el material (nitrilo, neopreno…).',r:['sga','campana']});
+G('sga','SGA (pictogramas de peligro)','lb','Sistema Globalmente Armonizado de clasificación y etiquetado. Usa pictogramas en rombo con borde rojo: inflamable, corrosivo, tóxico, oxidante, explosivo, peligroso para la salud o el ambiente…',
+ {e:'Calavera y tibias: toxicidad aguda. Llama: inflamable. Corrosión: ácidos y bases fuertes.',r:['hds','nfpa']});
+G('hds','Hoja de datos de seguridad (HDS o SDS)','lb','Documento de 16 secciones con propiedades, peligros, primeros auxilios, manejo y desecho de una sustancia. Debe consultarse antes de usarla.',
+ {r:['sga','dl50']});
+G('nfpa','Rombo NFPA 704','lb','Rombo de cuatro colores que indica: salud (azul), inflamabilidad (rojo), reactividad (amarillo) y riesgos especiales (blanco). Los números van de 0 (nulo) a 4 (extremo).',
+ {r:['sga','hds']});
+G('dl50','DL50 y CL50','lb','Dosis (o concentración) que mata al 50 % de los animales de prueba. Menor DL50, más tóxica la sustancia.',
+ {e:'Sal de mesa ≈ 3000 mg/kg · cafeína ≈ 190 mg/kg · cianuro de sodio ≈ 6 mg/kg.',r:['hds','tlv']});
+G('tlv','Límites de exposición (TLV, LMPE)','lb','Concentración en el aire a la que casi todas las personas pueden exponerse una jornada laboral sin daño.',
+ {e:'CO: ≈ 25 ppm (8 h).',r:['ppm','hds']});
+G('campana','Campana de extracción','lb','Gabinete con extracción de aire para trabajar con vapores o gases tóxicos. Se bajan las puertas y se evita meter la cabeza.',
+ {r:['epp']});
+G('lavaojos','Regadera y lavaojos de emergencia','lb','Equipos para lavar con agua abundante durante ≈ 15 minutos en caso de salpicaduras. Hay que saber dónde están antes de empezar.',
+ {r:['epp']});
+G('extintor','Tipos de fuego y extintores','lb','Clase A: sólidos (madera, papel). B: líquidos inflamables. C: eléctrico. D: metales (Na, Mg). K: aceites de cocina.',
+ {x:'Nunca uses agua en fuegos de metales alcalinos o de líquidos inflamables.',r:['combustion','alcalinos']});
+G('flashpoint','Punto de inflamación','lb','Temperatura mínima a la que un líquido desprende vapor suficiente para encenderse con una chispa.',
+ {e:'Éter: −45 °C · acetona: −20 °C · etanol: 13 °C · gasolina ≈ −43 °C.',r:['volatilidad','combustion']});
+G('residuos','Manejo de residuos de laboratorio','lb','Separar por tipo (ácidos, bases, orgánicos halogenados, metales pesados), etiquetar y no verter al drenaje lo que sea tóxico.',
+ {x:'No se mezclan residuos incompatibles: lejía con ácido libera cloro.',r:['hds','quimicaverde']});
+G('vaso','Vaso de precipitados','lb','Recipiente cilíndrico con pico para mezclar, calentar y trasvasar. Su graduación es aproximada.',
+ {r:['probeta','matraz']});
+G('erlenmeyer','Matraz Erlenmeyer','lb','Matraz cónico de cuello angosto, ideal para titulaciones y calentar líquidos porque se agita sin salpicar.',
+ {r:['bureta','titulacion']});
+G('matraz','Matraz aforado','lb','Matraz de fondo plano con una marca (aforo) en el cuello; sirve para preparar disoluciones de volumen exacto.',
+ {e:'Se agrega el soluto, se disuelve y se llena hasta la marca con el menisco tangente.',r:['molaridad','menisco']});
+G('probeta','Probeta','lb','Cilindro graduado para medir volúmenes con precisión moderada (≈ ±1 %).',
+ {x:'Para mayor exactitud conviene usar pipeta o bureta.',r:['menisco','pipeta']});
+G('pipeta','Pipeta volumétrica y graduada','lb','Pipeta volumétrica: entrega un volumen fijo con alta exactitud. Graduada: permite varios volúmenes. Se llena con propipeta, nunca con la boca.',
+ {r:['bureta','menisco']});
+G('bureta','Bureta','lb','Tubo graduado con llave para dispensar volúmenes variables de titulante gota a gota.',
+ {e:'Lectura típica con ±0.02 mL.',r:['titulacion','erlenmeyer','puntofinal']});
+G('embudosep','Embudo de separación','lb','Embudo con llave para separar líquidos inmiscibles (extracción líquido–líquido) según su densidad.',
+ {e:'Éter y agua: el éter queda arriba, el agua abajo.',r:['densidad','mezcla']});
+G('mechero','Mechero Bunsen','lb','Quemador de gas con regulador de aire. Llama azul (aire abierto): más caliente (≈ 1500 °C). Llama amarilla (aire cerrado): luminosa y con hollín.',
+ {r:['combustion']});
+G('balanza','Balanza analítica','lb','Instrumento de alta precisión (±0.0001 g). Se usa con las puertas cerradas, sin tocar la muestra con los dedos y esperando a que se estabilice.',
+ {r:['tara','cifras']});
+G('tara','Tara','lb','Masa del recipiente. «Tarar» es poner la balanza en cero con el recipiente encima para pesar solo la muestra.',
+ {r:['balanza']});
+G('desecador','Desecador','lb','Recipiente cerrado con un desecante (sílica gel, CaCl₂) para secar y guardar sustancias sin humedad.',
+ {r:['higroscopico','crisol']});
+G('crisol','Crisol','lb','Recipiente muy resistente al calor (porcelana, platino) para calcinar o fundir sustancias.',
+ {r:['gravimetria','desecador']});
+G('condensador','Condensador y reflujo','lb','Tubo refrigerado que condensa vapores. En destilación recoge el destilado; en reflujo devuelve el líquido al matraz para calentar sin perder disolvente.',
+ {r:['destilacion','ebullicion']});
+G('centrifuga','Centrífuga','lb','Equipo que gira a gran velocidad para separar un sólido suspendido o fases de distinta densidad.',
+ {e:'Se separan las células del plasma en sangre.',r:['mezcla','filtracion']});
+G('menisco','Menisco','lb','Curva de la superficie de un líquido en un tubo. Se lee en la parte inferior (agua) con la vista a la altura del nivel.',
+ {x:'Mirar desde arriba o abajo introduce error de paralaje. En el mercurio el menisco es convexo y se lee arriba.',r:['capilaridad','probeta']});
+G('metodocient','Método científico','lb','Procedimiento para investigar: observación, pregunta, hipótesis, experimento controlado, análisis de datos y conclusión, que puede refutar o apoyar la hipótesis.',
+ {e:'Variable independiente (la que cambias), dependiente (la que mides) y constantes.',r:['cifras','exactitud']});
+G('hipotesis','Hipótesis, teoría y ley','lb','Hipótesis: explicación provisional que se pone a prueba. Ley: describe un patrón (qué pasa). Teoría: explicación bien respaldada (por qué pasa).',
+ {x:'Una teoría no es «una suposición»; no «se convierte» en ley.',r:['metodocient','gasideal','cuantico']});
+G('bitacora','Bitácora y reporte de laboratorio','lb','Registro con fecha de objetivos, procedimiento, datos, cálculos y conclusiones. Se escribe a tinta y sin borrar.',
+ {r:['metodocient','cifras']});
+
+
 /* ---- glosario ---- */
 const gx=h=>String(h).replace(/\[\[(\w+)(?:\|([^\]]+))?\]\]/g,(m,k,t)=>GL[k]?`<button class="gl" data-g="${k}" aria-haspopup="dialog">${t||GL[k][0]}</button>`:(t||k));
 /* ---- glosario v2: ventana de detalle ---- */
